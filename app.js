@@ -914,7 +914,7 @@ function renderItems() {
   elements.resultCount.textContent = `${items.length} objet${items.length > 1 ? "s" : ""} trouvé${items.length > 1 ? "s" : ""}`;
 
   if (!items.length) {
-    elements.grid.innerHTML = `<div class="no-result">Alaric fouille ses caisses, mais ne trouve rien qui corresponde.</div>`;
+    elements.grid.innerHTML = `<div class="no-result">Alaric agite sa lanterne astrale, mais aucun objet ne répond à l’appel.</div>`;
     return;
   }
 
@@ -927,23 +927,33 @@ function renderItems() {
     ].filter(Boolean);
 
     return `
-      <article class="card">
-        <div class="card__top">
-          ${item.icon ? `<img class="item-icon" src="${item.icon}" alt="">` : `<div class="item-icon" aria-hidden="true">✦</div>`}
-          <div>
-            <h3>${item.name}</h3>
-            <div class="meta">
-              <span class="badge">${item.subcategory}</span>
-              <span class="badge badge--${safeClass(item.rarity)}">${item.rarity}</span>
-            </div>
-          </div>
+      <article class="item-row rarity-${safeClass(item.rarity)}">
+        <div class="item-row__sigil" aria-hidden="true">✦</div>
+
+        <div class="item-row__icon-wrap">
+          ${item.icon ? `<img class="item-icon" src="${item.icon}" alt="">` : `<div class="item-icon item-icon--fallback" aria-hidden="true">✦</div>`}
         </div>
-        <p class="description">${item.description || "Alaric garde les détails pour les clients sérieux."}</p>
-        ${details.length ? `<div class="details">${details.map(detail => `<span>${detail}</span>`).join("")}</div>` : ""}
-        <div class="card__bottom">
+
+        <div class="item-row__content">
+          <div class="item-row__title-line">
+            <h3>${item.name}</h3>
+            ${qty ? `<span class="in-cart">Dans le panier : ${qty}</span>` : ""}
+          </div>
+
+          <div class="meta">
+            <span class="badge">${item.category}</span>
+            ${item.subcategory ? `<span class="badge badge--soft">${item.subcategory}</span>` : ""}
+            <span class="badge badge--${safeClass(item.rarity)}">${item.rarity}</span>
+          </div>
+
+          <p class="description">${item.description || "Alaric garde les détails pour les clients sérieux."}</p>
+          ${details.length ? `<div class="details">${details.map(detail => `<span>${detail}</span>`).join("")}</div>` : ""}
+        </div>
+
+        <div class="item-row__buy">
           <span class="price">${formatPrice(item.price)}</span>
           <button class="button button--primary" type="button" data-add="${item.id}">
-            ${qty ? `Ajouter (${qty})` : "Ajouter"}
+            Ajouter
           </button>
         </div>
       </article>

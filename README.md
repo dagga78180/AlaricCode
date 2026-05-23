@@ -1,53 +1,35 @@
-# Boutique d’Alaric
+# Boutique d'Alaric
 
-Mini-site statique prêt pour GitHub Pages.
-
-Fonctions incluses :
-
-- catalogue de 73 objets ;
-- catégories : armes, armures, accessoires, potions, objets ;
-- recherche ;
-- filtre par catégorie et rareté ;
-- panier avec quantités ;
-- total automatique ;
-- bouton **Copier la commande** pour Roll20 ou Discord ;
-- sauvegarde du panier dans le navigateur du joueur avec `localStorage`.
+Mini-site statique pour une boutique de JDR utilisable avec GitHub Pages, Netlify ou en local.
 
 ## Fichiers
 
-```text
-index.html      Page principale
-styles.css      Style visuel fantasy
-app.js          Catalogue + logique du panier
-.nojekyll       Désactive le traitement Jekyll sur GitHub Pages
-README.md       Cette notice
-```
+- `index.html` : structure de la page
+- `styles.css` : thème visuel violet/rose enchanté, affichage en liste
+- `app.js` : catalogue, filtres, recherche, panier et copie de commande
+- `catalogue.json` : copie du catalogue en données JSON, utile si tu veux modifier/importer les objets plus tard
+- `.nojekyll` : évite certains traitements GitHub Pages
 
-## Tester en local
+## Mise en ligne avec GitHub Pages
 
-Ouvre simplement `index.html` dans ton navigateur.
+1. Crée un dépôt GitHub public.
+2. Ajoute tous les fichiers à la racine du dépôt.
+3. Va dans `Settings > Pages`.
+4. Source : `Deploy from a branch`.
+5. Branche : `main`.
+6. Dossier : `/root`.
 
-## Mettre en ligne avec GitHub Pages
-
-1. Crée un nouveau dépôt GitHub, par exemple `boutique-alaric`.
-2. Envoie tous les fichiers du dossier à la racine du dépôt.
-3. Va dans **Settings** → **Pages**.
-4. Dans **Build and deployment**, choisis :
-   - Source : `Deploy from a branch`
-   - Branch : `main`
-   - Folder : `/root`
-5. Clique sur **Save**.
-6. Le site sera disponible à une adresse du type :
+L'adresse ressemblera à :
 
 ```text
-https://TON-PSEUDO.github.io/boutique-alaric/
+https://ton-pseudo.github.io/boutique-alaric/
 ```
 
 ## Modifier les objets
 
-Ouvre `app.js`, puis modifie le tableau `ITEMS` au début du fichier.
+La version actuelle lit les objets depuis `app.js`, dans le tableau `ITEMS` au début du fichier.
 
-Exemple :
+Chaque objet ressemble à ça :
 
 ```js
 {
@@ -56,28 +38,14 @@ Exemple :
   subcategory: "Potions",
   name: "Potion de soins",
   rarity: "Commun",
-  description: "Rend 1d8 + Niveau points de vie.",
+  description: "Rend 1d8 + Niveau Point de vie",
   price: 50,
   icon: "https://..."
 }
 ```
 
-Conseils :
+## Panier
 
-- `id` doit être unique.
-- `price` doit rester un nombre, sans `po`.
-- `icon` peut être vide si tu n’as pas d’image.
+Le panier est stocké dans le navigateur du joueur avec `localStorage`. Il n'y a donc pas de serveur, pas de compte, et pas de paiement réel.
 
-## Utilisation en partie
-
-Les joueurs ajoutent les objets au panier, cliquent sur **Copier la commande**, puis collent le texte dans Roll20 ou Discord.
-
-Exemple :
-
-```text
-Commande chez Alaric :
-- Potion de soins x2 = 100 po
-- Corde x1 = 4 po
-
-Total : 104 po
-```
+Le bouton `Copier la commande` génère un texte prêt à coller dans Roll20 ou Discord.
