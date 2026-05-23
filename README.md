@@ -1,14 +1,21 @@
-# Boutique d'Alaric
+# L'échoppe Fantastique d'Alaric
 
 Mini-site statique pour une boutique de JDR utilisable avec GitHub Pages, Netlify ou en local.
+
+Cette version utilise les trois visuels générés :
+
+- `assets/background-tile.png` : fond violet/doré répétable, préparé pour se raccorder dans toutes les directions
+- `assets/header-alaric.png` : bannière header avec le titre décoré
+- `assets/footer-filigree.png` : clôture de footer en filigrane doré
 
 ## Fichiers
 
 - `index.html` : structure de la page
-- `styles.css` : thème visuel violet/rose enchanté, affichage en liste
+- `styles.css` : thème visuel violet/doré, fond magique, header et footer imagés
 - `app.js` : catalogue, filtres, recherche, panier et copie de commande
 - `catalogue.json` : copie du catalogue en données JSON, utile si tu veux modifier/importer les objets plus tard
 - `.nojekyll` : évite certains traitements GitHub Pages
+- `assets/` : images du thème
 
 ## Mise en ligne avec GitHub Pages
 
