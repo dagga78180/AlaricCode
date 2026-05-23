@@ -1,0 +1,1091 @@
+const ITEMS = [
+  {
+    "id": "armes-batons-baton-1",
+    "category": "Armes",
+    "subcategory": "Bâtons",
+    "name": "Bâton +1",
+    "rarity": "Inhabituel",
+    "description": "Un simple bâton en bois. Objet de qualité.",
+    "price": 279,
+    "icon": "https://zupimages.net/up/24/30/3lrs.png",
+    "damage": "1d4+1",
+    "damageMod": "+FOR"
+  },
+  {
+    "id": "armes-batons-baton-d-arcaniste-1",
+    "category": "Armes",
+    "subcategory": "Bâtons",
+    "name": "Bâton d'Arcaniste +1",
+    "rarity": "Inhabituel",
+    "description": "Un bâton en bois surmonté d'un pommeau serti d'une agate. Objet de qualité. Capacité : +2 DM aux sorts \"projectiles magiques\".",
+    "price": 1078,
+    "icon": "https://zupimages.net/up/24/30/3lrs.png",
+    "damage": "1d4+1",
+    "damageMod": "+FOR"
+  },
+  {
+    "id": "armes-batons-baton-de-la-flamme-1",
+    "category": "Armes",
+    "subcategory": "Bâtons",
+    "name": "Bâton de la flamme +1",
+    "rarity": "Inhabituel",
+    "description": "Un bâton en bois noueux surmonté d'un pommeau serti d'un rubis. Objet de qualité. Capacité : +2 DM aux sorts de feu.",
+    "price": 1089,
+    "icon": "https://zupimages.net/up/24/30/3lrs.png",
+    "damage": "1d4+1",
+    "damageMod": "+FOR"
+  },
+  {
+    "id": "armes-batons-baton-de-foudre-1",
+    "category": "Armes",
+    "subcategory": "Bâtons",
+    "name": "Bâton de Foudre +1",
+    "rarity": "Inhabituel",
+    "description": "Un bâton en bois avec un cristal de foudre. Objet de qualité. Capacité : Foudre (L) - L’utilisateur produit un éclair sur une ligne de 10 mètres. Toutes les créatures sur la trajectoire sont soumises à un test d’attaque magique et subissent [4d6 + Mod. Magique] DM en cas de réussite. Les victimes peuvent tenter un test de DEX difficulté [12 + Mod. de DEX] pour ne subir que la moitié des DM. Utilisable une fois par jour.",
+    "price": 2902,
+    "icon": "https://zupimages.net/up/24/30/3lrs.png",
+    "damage": "1d4+1",
+    "damageMod": "+FOR"
+  },
+  {
+    "id": "armes-batons-baton-de-telekinesie-1",
+    "category": "Armes",
+    "subcategory": "Bâtons",
+    "name": "Bâton de Télékinésie +1",
+    "rarity": "Inhabituel",
+    "description": "Un bâton en bois enchanté avec des runes de télékinésie. Objet de qualité. Capacité : Télékinésie - L’utilisateur peut déplacer dans les airs un objet inerte ou une cible volontaire (par exemple lui-même) dont le poids n’excède pas 50 kg par Rang, à une portée de 20 m et pendant [5+Mod. de CHA] tours. L’objet peut être déplacé de 10 m par tour au prix d'une action de mouvement. Il est possible de faire tomber un objet sur une cible surprise (DM 1d6 tous les 50 kg). Utilisable une fois par jour.",
+    "price": 2922,
+    "icon": "https://zupimages.net/up/24/30/3lrs.png",
+    "damage": "1d4+1",
+    "damageMod": "+FOR"
+  },
+  {
+    "id": "armes-batons-baton-d-ingenieur-gnome-1",
+    "category": "Armes",
+    "subcategory": "Bâtons",
+    "name": "Bâton d'ingénieur Gnome +1",
+    "rarity": "Inhabituel",
+    "description": "Un bâton en cuivre surmonté d'un pommeau serti d'un cristal et d'une multitude de câbles. Objet de qualité. Capacité : +1d3 DM électrique aux sorts.",
+    "price": 4069,
+    "icon": "https://zupimages.net/up/24/30/3lrs.png",
+    "damage": "1d4+1",
+    "damageMod": "+FOR"
+  },
+  {
+    "id": "armes-dagues-dague-1",
+    "category": "Armes",
+    "subcategory": "Dagues",
+    "name": "Dague +1",
+    "rarity": "Inhabituel",
+    "description": "Une dague simple ou double tranchant. Objet de qualité.",
+    "price": 340,
+    "icon": "https://zupimages.net/up/24/30/q4eu.png",
+    "damage": "1d4+1",
+    "damageMod": "+FOR"
+  },
+  {
+    "id": "armes-dagues-dague-1-de-precision",
+    "category": "Armes",
+    "subcategory": "Dagues",
+    "name": "Dague +1, de précision",
+    "rarity": "Inhabituel",
+    "description": "Une dague simple ou double tranchant. Objet de qualité. Capacité : utilise le score d’attaque à distance pour combattre au contact.",
+    "price": 675,
+    "icon": "https://zupimages.net/up/24/30/q4eu.png",
+    "damage": "1d4+1",
+    "damageMod": "+DEX"
+  },
+  {
+    "id": "armes-dagues-dague-d-ombre-1",
+    "category": "Armes",
+    "subcategory": "Dagues",
+    "name": "Dague d'Ombre +1",
+    "rarity": "Inhabituel",
+    "description": "Une dague noire légère et facile à dissimuler. Objet de qualité. Capacité : +2 en discrétion.",
+    "price": 695,
+    "icon": "https://zupimages.net/up/24/30/q4eu.png",
+    "damage": "1d4+1",
+    "damageMod": "+DEX"
+  },
+  {
+    "id": "armes-dagues-dague-mecanique-1",
+    "category": "Armes",
+    "subcategory": "Dagues",
+    "name": "Dague mécanique +1",
+    "rarity": "Inhabituel",
+    "description": "Une dague avec des lames rétractables et des mécanismes de piqûre électrique. Objet de qualité. Capacité : +1d4 DM électrique.",
+    "price": 1270,
+    "icon": "https://zupimages.net/up/24/30/q4eu.png",
+    "damage": "1d4+1 +1d4 électrique",
+    "damageMod": "+FOR"
+  },
+  {
+    "id": "armes-epees-courtes-epee-courte-1",
+    "category": "Armes",
+    "subcategory": "Epées Courtes",
+    "name": "Epée courte +1",
+    "rarity": "Inhabituel",
+    "description": "Une épée courte. Objet de qualité.",
+    "price": 395,
+    "icon": "https://zupimages.net/up/24/30/ycsh.png",
+    "damage": "1d6+1",
+    "damageMod": "+FOR"
+  },
+  {
+    "id": "armes-epees-courtes-epee-courte-1-du-barde-saltimbanque-apprenti",
+    "category": "Armes",
+    "subcategory": "Epées Courtes",
+    "name": "Epée courte +1, du Barde Saltimbanque Apprenti",
+    "rarity": "Inhabituel",
+    "description": "Une épée courte. Objet de qualité. Capacité : Grâce féline - L'utilisateur ajoute son Mod. de CHA en DEF et en Initiative (en plus du Mod. habituel de DEX).",
+    "price": 799,
+    "icon": "https://zupimages.net/up/24/30/ycsh.png",
+    "damage": "1d6+1",
+    "damageMod": "+FOR"
+  },
+  {
+    "id": "armes-epees-courtes-epee-courte-2",
+    "category": "Armes",
+    "subcategory": "Epées Courtes",
+    "name": "Epée courte +2",
+    "rarity": "Rare",
+    "description": "Une épée courte. Objet d'excellente qualité.",
+    "price": 791,
+    "icon": "https://zupimages.net/up/24/30/ycsh.png",
+    "damage": "1d6+2",
+    "damageMod": "+FOR"
+  },
+  {
+    "id": "armes-epees-courtes-epee-courte-d-imitation-2",
+    "category": "Armes",
+    "subcategory": "Epées Courtes",
+    "name": "Épée courte d'Imitation +2",
+    "rarity": "Rare",
+    "description": "Une épée courte enchantée pour rendre son porteur invisible temporairement. Objet d'excellente qualité. Capacité : Imitation (L) - L'utilisateur peut prendre l’apparence d’une créature de taille proche (+ ou - 50 cm) qu’il voit au moment de l’incantation. Durée [5 + Mod. de CHA] minutes. Toucher l’utilisateur (une attaque ou non) met fin au sort. Utilisable une fois par jour.",
+    "price": 1479,
+    "icon": "https://zupimages.net/up/24/30/ycsh.png",
+    "damage": "1d6+2",
+    "damageMod": "+FOR"
+  },
+  {
+    "id": "armes-epees-longues-epee-longue-1",
+    "category": "Armes",
+    "subcategory": "Epées Longues",
+    "name": "Epée longue +1",
+    "rarity": "Inhabituel",
+    "description": "Une épée longue. Objet de qualité.",
+    "price": 426,
+    "icon": "https://zupimages.net/up/24/30/yqyg.png",
+    "damage": "1d8+1",
+    "damageMod": "+FOR"
+  },
+  {
+    "id": "armes-epees-batardes-epee-batarde-1",
+    "category": "Armes",
+    "subcategory": "Épées Bâtardes",
+    "name": "Épée bâtarde +1",
+    "rarity": "Inhabituel",
+    "description": "Une épée bâtarde, compromis entre épée longue et épée à deux mains. Objet de qualité.",
+    "price": 512,
+    "icon": "https://zupimages.net/up/24/30/fqb7.png",
+    "damage": "1d8+1 / 1d12+1",
+    "damageMod": "+FOR"
+  },
+  {
+    "id": "armes-haches-a-une-main-hache-a-1-main-1",
+    "category": "Armes",
+    "subcategory": "Haches à Une Main",
+    "name": "Hache à 1 main +1",
+    "rarity": "Inhabituel",
+    "description": "Une hache classique. Objet de qualité.",
+    "price": 430,
+    "icon": "https://zupimages.net/up/24/30/xxgk.png",
+    "damage": "1d8+1",
+    "damageMod": "+FOR"
+  },
+  {
+    "id": "armes-haches-a-une-main-hache-a-1-main-1-en-mythral",
+    "category": "Armes",
+    "subcategory": "Haches à Une Main",
+    "name": "Hache à 1 main +1, en mythral",
+    "rarity": "Inhabituel",
+    "description": "Une hache en mythral. Objet de qualité. Capacité : +1 en attaque.",
+    "price": 1262,
+    "icon": "https://zupimages.net/up/24/30/xxgk.png",
+    "damage": "1d8+1",
+    "damageMod": "+FOR"
+  },
+  {
+    "id": "armes-haches-a-deux-mains-hache-a-2-mains-1",
+    "category": "Armes",
+    "subcategory": "Haches à Deux Mains",
+    "name": "Hache à 2 mains +1",
+    "rarity": "Inhabituel",
+    "description": "Une hache imposante. Objet de qualité.",
+    "price": 542,
+    "icon": "https://zupimages.net/up/24/30/nkzf.png",
+    "damage": "2d6+1",
+    "damageMod": "+FOR"
+  },
+  {
+    "id": "armes-haches-a-deux-mains-hache-a-2-mains-1-affutee",
+    "category": "Armes",
+    "subcategory": "Haches à Deux Mains",
+    "name": "Hache à 2 mains +1, affûtée",
+    "rarity": "Inhabituel",
+    "description": "Une hache imposante. Objet de qualité. Capacité : +1 critique, +1d6 DM critiques.",
+    "price": 1897,
+    "icon": "https://zupimages.net/up/24/30/nkzf.png",
+    "damage": "1d12+1",
+    "damageMod": "+FOR"
+  },
+  {
+    "id": "armes-marteaux-marteau-de-guerre-1",
+    "category": "Armes",
+    "subcategory": "Marteaux",
+    "name": "Marteau de guerre +1",
+    "rarity": "Inhabituel",
+    "description": "Un marteau de guerre utilisé contre les armures. Objet de qualité.",
+    "price": 543,
+    "icon": "https://zupimages.net/up/24/30/ck58.png",
+    "damage": "1d12+1",
+    "damageMod": "+FOR"
+  },
+  {
+    "id": "armes-rapieres-rapiere-1",
+    "category": "Armes",
+    "subcategory": "Rapières",
+    "name": "Rapière +1",
+    "rarity": "Inhabituel",
+    "description": "Une rapière fine et flexible. Objet de qualité. Capacité : critique 19-20.",
+    "price": 424,
+    "icon": "https://zupimages.net/up/24/30/qi3z.png",
+    "damage": "1d6+1",
+    "damageMod": "+FOR"
+  },
+  {
+    "id": "armes-arcs-arc-de-guerre-de-force-1",
+    "category": "Armes",
+    "subcategory": "Arcs",
+    "name": "Arc de Guerre, de force +1",
+    "rarity": "Inhabituel",
+    "description": "Un arc de guerre. Objet de qualité.",
+    "price": 1427,
+    "icon": "https://zupimages.net/up/24/30/ojig.png",
+    "damage": "1d8+1",
+    "damageMod": "+FOR"
+  },
+  {
+    "id": "armes-arcs-arc-court-2-d-agilite",
+    "category": "Armes",
+    "subcategory": "Arcs",
+    "name": "Arc court +2, d'agilité",
+    "rarity": "Rare",
+    "description": "Un arc court. Objet d'excellente qualité Capacité : ajoute DEX aux DM.",
+    "price": 2477,
+    "icon": "https://zupimages.net/up/24/30/ojig.png",
+    "damage": "1d6+2",
+    "damageMod": "+DEX"
+  },
+  {
+    "id": "armes-arbaletes-arbalete-legere-1",
+    "category": "Armes",
+    "subcategory": "Arbalètes",
+    "name": "Arbalète légère +1",
+    "rarity": "Inhabituel",
+    "description": "Une arbalète légère. Objet de qualité. Capacité : portée 30m.",
+    "price": 545,
+    "icon": "https://zupimages.net/up/24/30/4wfg.png",
+    "damage": "2d4+1",
+    "damageMod": ""
+  },
+  {
+    "id": "armes-arbaletes-arbalete-de-poing-de-l-arbaletrier-novice-1",
+    "category": "Armes",
+    "subcategory": "Arbalètes",
+    "name": "Arbalète de poing de l'Arbalétrier Novice +1",
+    "rarity": "Inhabituel",
+    "description": "Une arbalète de poing. Objet de qualité. Capacité : Action concertée - Une fois par tour, l’utilisateur peut échanger son Initiative avec un autre personnage volontaire. S’il cède son Initiative à un personnage plus lent, il gagne un bonus de +1 sur ses tests d’attaque à ce tour.",
+    "price": 1427,
+    "icon": "https://zupimages.net/up/24/30/4wfg.png",
+    "damage": "1d4+1",
+    "damageMod": ""
+  },
+  {
+    "id": "armes-arbaletes-arbalete-de-precision-1",
+    "category": "Armes",
+    "subcategory": "Arbalètes",
+    "name": "Arbalète de précision +1",
+    "rarity": "Inhabituel",
+    "description": "Une arbalète légère optimisée pour la précision. Objet de qualité. Capacité : ajoute DEX aux DM.",
+    "price": 1116,
+    "icon": "https://zupimages.net/up/24/30/4wfg.png",
+    "damage": "2d4+1",
+    "damageMod": "+DEX"
+  },
+  {
+    "id": "armures-robes-robe-de-mage-de-l-envouteur-maitre-1",
+    "category": "Armures",
+    "subcategory": "Robes",
+    "name": "Robe de mage, de l'envoûteur Maître +1",
+    "rarity": "Inhabituel",
+    "description": "Cette robe en tissu elfique est faite en fibre de naësk et n'impose aucun malus pour le lancement des sorts ni de pénalité d'encombrement. Objet de qualité. Capacité Confusion (L) - En réussissant un test d’Attaque magique (portée 20 m), l’Ensorceleur désoriente sa cible pendant [3 + Mod. de CHA] tours. Chaque tour, lancer 1d6 : 1-3 la victime n’agit pas, 4-6 elle attaque la créature la plus proche (au hasard). Chaque fin de tour, elle fait un test de SAG difficulté [10 + Mod. de CHA] pour mettre fin au sort.",
+    "price": 2672,
+    "icon": "https://zupimages.net/up/24/30/rui3.png",
+    "armorMod": "+1 DEF"
+  },
+  {
+    "id": "armures-armures-en-cuir-armure-de-cuir-1",
+    "category": "Armures",
+    "subcategory": "Armures en cuir",
+    "name": "Armure de cuir +1",
+    "rarity": "Inhabituel",
+    "description": "Armure composée de cuir souple dont certaines parties ont été durcies. Objet de qualité.",
+    "price": 625,
+    "icon": "https://zupimages.net/up/24/30/ztzm.png",
+    "armorMod": "+3 DEF"
+  },
+  {
+    "id": "armures-armures-en-cuir-armure-cuir-renforces-1",
+    "category": "Armures",
+    "subcategory": "Armures en cuir",
+    "name": "Armure cuir renforcés +1",
+    "rarity": "Inhabituel",
+    "description": "Armure composée de cuir renforcée avec des rivets ou des pointes. Objet de qualité.",
+    "price": 692,
+    "icon": "https://zupimages.net/up/24/30/ztzm.png",
+    "armorMod": "+4 DEF"
+  },
+  {
+    "id": "armures-armures-en-cuir-armure-de-cuir-de-l-ombre-1",
+    "category": "Armures",
+    "subcategory": "Armures en cuir",
+    "name": "Armure de cuir, de l'ombre +1",
+    "rarity": "Inhabituel",
+    "description": "Armure composée de cuir souple dont certaines parties ont été durcies. Objet de qualité. Capacité : Cette armure donne un bonus de +5 aux tests de discrétion.",
+    "price": 1253,
+    "icon": "https://zupimages.net/up/24/30/ztzm.png",
+    "armorMod": "+3 DEF"
+  },
+  {
+    "id": "armures-armures-en-cuir-armure-de-cuir-1-d-esquive-facile",
+    "category": "Armures",
+    "subcategory": "Armures en cuir",
+    "name": "Armure de cuir +1, d'esquive facile",
+    "rarity": "Inhabituel",
+    "description": "Armure composée de cuir souple dont certaines parties ont été durcies. Objet de qualité. Capacité : L'utilisateur ne peut plus subir d'attaque d'opportunité.",
+    "price": 1268,
+    "icon": "https://zupimages.net/up/24/30/ztzm.png",
+    "armorMod": "+3 DEF"
+  },
+  {
+    "id": "armures-chemises-de-mailles-chemise-de-mailles-1",
+    "category": "Armures",
+    "subcategory": "Chemises de mailles",
+    "name": "Chemise de mailles +1",
+    "rarity": "Inhabituel",
+    "description": "Armure composée d'anneaux métalliques qui protège surtout le haut du corps. Objet de qualité.",
+    "price": 749,
+    "icon": "https://zupimages.net/up/24/30/dkd9.png",
+    "armorMod": "+5 DEF"
+  },
+  {
+    "id": "armures-chemises-de-mailles-chemise-de-mailles-de-l-envouteur-novice-1",
+    "category": "Armures",
+    "subcategory": "Chemises de mailles",
+    "name": "Chemise de mailles, de l'envoûteur novice +1",
+    "rarity": "Inhabituel",
+    "description": "Armure composée d'anneaux métalliques qui protège surtout le haut du corps. Objet de qualité. Capacité :Image décalée (L) - Pendant 2 tours, lorsqu’une attaque touche l’Ensorceleur, lancer 1d6 : sur 5-6, il ne subit pas les DM.",
+    "price": 1253,
+    "icon": "https://zupimages.net/up/24/30/dkd9.png",
+    "armorMod": "+3 DEF"
+  },
+  {
+    "id": "armures-chemises-de-mailles-chemise-de-mailles-1-de-resistance-au-feu",
+    "category": "Armures",
+    "subcategory": "Chemises de mailles",
+    "name": "Chemise de mailles +1, de résistance au feu",
+    "rarity": "Inhabituel",
+    "description": "Armure composée d'anneaux métalliques qui protège surtout le haut du corps. Objet de qualité. Capacité : Cette armure réduit les dégâts de feu de 10.",
+    "price": 2672,
+    "icon": "https://zupimages.net/up/24/30/dkd9.png",
+    "armorMod": "+5 DEF"
+  },
+  {
+    "id": "armures-cottes-de-mailles-cotte-de-mailles-1",
+    "category": "Armures",
+    "subcategory": "Cottes de mailles",
+    "name": "Cotte de mailles +1",
+    "rarity": "Inhabituel",
+    "description": "Armure composée d'anneaux métalliques protégeant l'ensemble du corps. Objet de qualité. Bonus : Cette armure offre un bonus de DEF de +1.",
+    "price": 888,
+    "icon": "https://zupimages.net/up/24/30/u9vh.png",
+    "armorMod": "+6 DEF"
+  },
+  {
+    "id": "armures-cottes-de-mailles-cotte-de-mailles-1-de-garde-lointaine",
+    "category": "Armures",
+    "subcategory": "Cottes de mailles",
+    "name": "Cotte de mailles +1, de Garde Lointaine",
+    "rarity": "Inhabituel",
+    "description": "Armure composée d'anneaux métalliques protégeant l'ensemble du corps. Objet de qualité. Bonus : Réduit les DM à distance de 5.",
+    "price": 3077,
+    "icon": "https://zupimages.net/up/24/30/u9vh.png",
+    "armorMod": "+6 DEF"
+  },
+  {
+    "id": "armures-boucliers-petit-bouclier-1",
+    "category": "Armures",
+    "subcategory": "Boucliers",
+    "name": "Petit bouclier +1",
+    "rarity": "Inhabituel",
+    "description": "Un petit bouclier en métal, très maniable, tenant dans une main. Objet de qualité. Bonus : Ce bouclier offre un bonus de DEF de +1.",
+    "price": 630,
+    "icon": "https://zupimages.net/up/24/30/lkqm.png",
+    "armorMod": "+2 DEF"
+  },
+  {
+    "id": "armures-boucliers-grand-bouclier-1",
+    "category": "Armures",
+    "subcategory": "Boucliers",
+    "name": "Grand bouclier +1",
+    "rarity": "Inhabituel",
+    "description": "Un grand bouclier en métal tenant dans une main. Objet de qualité. Bonus : Ce bouclier offre un bonus de DEF de +1.",
+    "price": 738,
+    "icon": "https://zupimages.net/up/24/30/if7e.png",
+    "armorMod": "+3 DEF"
+  },
+  {
+    "id": "armures-boucliers-grand-bouclier-1-de-chevalier",
+    "category": "Armures",
+    "subcategory": "Boucliers",
+    "name": "Grand bouclier +1, de Chevalier",
+    "rarity": "Inhabituel",
+    "description": "Un grand bouclier en métal tenant dans une main. Objet de qualité. Capacité : Intercepter - Une fois par tour, le Chevalier peut encaisser un coup à la place d’un allié à ses côtés. Il utilise sa DEF plutôt que celle de la cible initiale et retranche aux DM son rang dans la voie.",
+    "price": 1460,
+    "icon": "https://zupimages.net/up/24/30/if7e.png",
+    "armorMod": "+3 DEF"
+  },
+  {
+    "id": "accessoires-accessoires-anneaux-de-provocation",
+    "category": "Accessoires",
+    "subcategory": "Accessoires",
+    "name": "Anneaux de provocation",
+    "rarity": "Peu Commun",
+    "description": "Provocation (L): Le personnage maîtrise l’art de se rendre désagréable, voire insupportable. Par un test opposé de CHA contre l’INT de la victime, il peut forcer celle-ci à l’attaquer pendant ce tour. l'utilisateur peut immédiatement riposter par une attaque gratuite",
+    "price": 578,
+    "icon": "https://zupimages.net/up/24/30/1x8p.png"
+  },
+  {
+    "id": "accessoires-accessoires-anneau-de-contrepoison",
+    "category": "Accessoires",
+    "subcategory": "Accessoires",
+    "name": "Anneau de contrepoison",
+    "rarity": "Peu Commun",
+    "description": "Le personnage est immunisé aux poisons",
+    "price": 584,
+    "icon": "https://zupimages.net/up/24/30/1x8p.png"
+  },
+  {
+    "id": "accessoires-accessoires-amulette-d-evocation",
+    "category": "Accessoires",
+    "subcategory": "Accessoires",
+    "name": "Amulette d'évocation",
+    "rarity": "Peu Commun",
+    "description": "Rend 2d6+Niveau de Mana/Jour",
+    "price": 652,
+    "icon": "https://zupimages.net/up/24/30/dhgs.png"
+  },
+  {
+    "id": "accessoires-accessoires-amulette-de-soin",
+    "category": "Accessoires",
+    "subcategory": "Accessoires",
+    "name": "Amulette de Soin",
+    "rarity": "Peu Commun",
+    "description": "Rend 2d6+Niveau de Vie/Jour",
+    "price": 621,
+    "icon": "https://zupimages.net/up/24/30/dhgs.png"
+  },
+  {
+    "id": "accessoires-accessoires-amulette-de-dexterite",
+    "category": "Accessoires",
+    "subcategory": "Accessoires",
+    "name": "Amulette de Dextérité",
+    "rarity": "Peu Commun",
+    "description": "Cette Amulette offre un avantage aux tests de DEX.",
+    "price": 1444,
+    "icon": "https://zupimages.net/up/24/30/dhgs.png"
+  },
+  {
+    "id": "accessoires-accessoires-gants-de-lumiere-divine",
+    "category": "Accessoires",
+    "subcategory": "Accessoires",
+    "name": "Gants de lumière divine",
+    "rarity": "Peu Commun",
+    "description": "Ajoute +1 aux soins prodigués",
+    "price": 718,
+    "icon": "https://zupimages.net/up/24/30/m22c.png"
+  },
+  {
+    "id": "accessoires-accessoires-cape-de-l-ombre",
+    "category": "Accessoires",
+    "subcategory": "Accessoires",
+    "name": "Cape, de l'ombre",
+    "rarity": "Peu Commun",
+    "description": "Cette cape apporte un bonus +5 aux tests de discrétion.",
+    "price": 410,
+    "icon": "https://zupimages.net/up/24/30/b6vk.png"
+  },
+  {
+    "id": "accessoires-accessoires-cape-de-natation",
+    "category": "Accessoires",
+    "subcategory": "Accessoires",
+    "name": "Cape, de natation",
+    "rarity": "Peu Commun",
+    "description": "Cette cape apporte un bonus de +5 aux tests de natation.",
+    "price": 410,
+    "icon": "https://zupimages.net/up/24/30/b6vk.png"
+  },
+  {
+    "id": "accessoires-accessoires-bottes-1-de-rapidite-de-l-ombre",
+    "category": "Accessoires",
+    "subcategory": "Accessoires",
+    "name": "Bottes +1 de Rapidité de l'ombre",
+    "rarity": "Peu Commun",
+    "description": "Ces bottes élégantes et sombres, fabriquées par des gnomes, offrent un bonus à l'initiative et à la discrétion de +3.",
+    "price": 1444,
+    "icon": "https://zupimages.net/up/24/30/xgly.png"
+  },
+  {
+    "id": "accessoires-accessoires-ceinture-de-vivacite",
+    "category": "Accessoires",
+    "subcategory": "Accessoires",
+    "name": "Ceinture de Vivacité",
+    "rarity": "Exceptionnel",
+    "description": "Cette ceinture accorde un bonus de +3 à l'initiative.",
+    "price": 1183,
+    "icon": "https://zupimages.net/up/24/31/366r.png"
+  },
+  {
+    "id": "accessoires-accessoires-ceinture-de-force-de-geant-2",
+    "category": "Accessoires",
+    "subcategory": "Accessoires",
+    "name": "Ceinture de Force de Géant +2",
+    "rarity": "Peu Commun",
+    "description": "Cette ceinture accorde un bonus de +2 en Force.",
+    "price": 2262,
+    "icon": "https://zupimages.net/up/24/31/366r.png"
+  },
+  {
+    "id": "accessoires-accessoires-ceinture-de-dexterite-incroyable-2",
+    "category": "Accessoires",
+    "subcategory": "Accessoires",
+    "name": "Ceinture de Dextérité Incroyable +2",
+    "rarity": "Peu Commun",
+    "description": "Cette ceinture accorde un bonus de +2 en Dextérité.",
+    "price": 2262,
+    "icon": "https://zupimages.net/up/24/31/366r.png"
+  },
+  {
+    "id": "accessoires-accessoires-ceinture-de-constitution-puissante-2",
+    "category": "Accessoires",
+    "subcategory": "Accessoires",
+    "name": "Ceinture de Constitution Puissante +2",
+    "rarity": "Peu Commun",
+    "description": "Cette ceinture accorde un bonus de +2 en Constitution.",
+    "price": 2262,
+    "icon": "https://zupimages.net/up/24/31/366r.png"
+  },
+  {
+    "id": "potions-potions-potion-de-soins",
+    "category": "Potions",
+    "subcategory": "Potions",
+    "name": "Potion de soins",
+    "rarity": "Commun",
+    "description": "Rend 1d8+Niveau Point de vie",
+    "price": 50,
+    "icon": "https://zupimages.net/up/24/30/y4al.png"
+  },
+  {
+    "id": "potions-potions-potion-de-soins-moderee",
+    "category": "Potions",
+    "subcategory": "Potions",
+    "name": "Potion de soins modérée",
+    "rarity": "Commun",
+    "description": "Rend 2d8+Niveau Point de vie",
+    "price": 125,
+    "icon": "https://zupimages.net/up/24/30/st9x.png"
+  },
+  {
+    "id": "potions-potions-potion-de-mana",
+    "category": "Potions",
+    "subcategory": "Potions",
+    "name": "Potion de Mana",
+    "rarity": "Commun",
+    "description": "Rend 2d4+Niveau Point de mana",
+    "price": 60,
+    "icon": "https://zupimages.net/up/24/30/gl4s.png"
+  },
+  {
+    "id": "potions-potions-potion-de-mana-moderee",
+    "category": "Potions",
+    "subcategory": "Potions",
+    "name": "Potion de Mana modérée",
+    "rarity": "Commun",
+    "description": "Rend 4d4+Niveau Point de mana",
+    "price": 150,
+    "icon": "https://zupimages.net/up/24/30/kdss.png"
+  },
+  {
+    "id": "potions-potions-fortifiant",
+    "category": "Potions",
+    "subcategory": "Potions",
+    "name": "Fortifiant",
+    "rarity": "Commun",
+    "description": "Rend 1d4 Point de vie et augmente de +3 aux prochains tests de réussite",
+    "price": 100,
+    "icon": "https://zupimages.net/up/24/30/ykae.png"
+  },
+  {
+    "id": "potions-potions-potion-de-peau-de-pierre",
+    "category": "Potions",
+    "subcategory": "Potions",
+    "name": "Potion de peau de pierre",
+    "rarity": "Peu Commun",
+    "description": "DEF +4 pendant 2 tours",
+    "price": 200,
+    "icon": "https://zupimages.net/up/24/30/qfnc.png"
+  },
+  {
+    "id": "potions-potions-potion-de-flou",
+    "category": "Potions",
+    "subcategory": "Potions",
+    "name": "Potion de flou",
+    "rarity": "Peu Commun",
+    "description": "DM/2 pendant 2 tours",
+    "price": 350,
+    "icon": "https://zupimages.net/up/24/30/6bz4.png"
+  },
+  {
+    "id": "potions-potions-grenade-de-feu",
+    "category": "Potions",
+    "subcategory": "Potions",
+    "name": "Grenade de feu",
+    "rarity": "Inhabituel",
+    "description": "Inflige 2d6 DM dans un diamètre de 3m. Test de DEX difficulté 10 pour ne subir que la moitié des DM. Si échec, subit la moitié des DM. Enflammé pendant 2 tours",
+    "price": 300,
+    "icon": "https://zupimages.net/up/24/30/lmd8.png"
+  },
+  {
+    "id": "potions-potions-grenade-de-glace",
+    "category": "Potions",
+    "subcategory": "Potions",
+    "name": "Grenade de glace",
+    "rarity": "Inhabituel",
+    "description": "Inflige 2d6 DM dans un diamètre de 3m. Test de DEX difficulté 10 pour ne subir que la moitié des DM. Si échec, subit la moitié des DM. Ralenti pendant 2 tours",
+    "price": 300,
+    "icon": "https://zupimages.net/up/24/30/a20c.png"
+  },
+  {
+    "id": "potions-potions-potion-de-celerite",
+    "category": "Potions",
+    "subcategory": "Potions",
+    "name": "Potion de Célérité",
+    "rarity": "Rare",
+    "description": "+1 action pendant 2 tours",
+    "price": 500,
+    "icon": "https://zupimages.net/up/24/30/6bz4.png"
+  },
+  {
+    "id": "objets-objets-torche",
+    "category": "Objets",
+    "subcategory": "Objets",
+    "name": "Torche",
+    "rarity": "Commun",
+    "description": "",
+    "price": 2,
+    "icon": ""
+  },
+  {
+    "id": "objets-objets-corde",
+    "category": "Objets",
+    "subcategory": "Objets",
+    "name": "Corde",
+    "rarity": "Commun",
+    "description": "15 mètres",
+    "price": 4,
+    "icon": ""
+  },
+  {
+    "id": "objets-objets-grappin",
+    "category": "Objets",
+    "subcategory": "Objets",
+    "name": "Grappin",
+    "rarity": "Commun",
+    "description": "",
+    "price": 4,
+    "icon": ""
+  },
+  {
+    "id": "objets-objets-menottes-en-acier",
+    "category": "Objets",
+    "subcategory": "Objets",
+    "name": "Menottes en acier",
+    "rarity": "Commun",
+    "description": "",
+    "price": 4,
+    "icon": ""
+  },
+  {
+    "id": "objets-objets-rations-de-nourriture",
+    "category": "Objets",
+    "subcategory": "Objets",
+    "name": "Rations de nourriture",
+    "rarity": "Commun",
+    "description": "1/Personnes/Jours",
+    "price": 5,
+    "icon": ""
+  },
+  {
+    "id": "objets-objets-outils-de-crochetage",
+    "category": "Objets",
+    "subcategory": "Objets",
+    "name": "Outils de crochetage",
+    "rarity": "Commun",
+    "description": "",
+    "price": 10,
+    "icon": ""
+  },
+  {
+    "id": "objets-objets-trousse-de-soins",
+    "category": "Objets",
+    "subcategory": "Objets",
+    "name": "Trousse de soins",
+    "rarity": "Commun",
+    "description": "Test INT 10 (Soigne les alteration d'etat si reussite)",
+    "price": 20,
+    "icon": ""
+  },
+  {
+    "id": "objets-objets-parchemin-de-resurection",
+    "category": "Objets",
+    "subcategory": "Objets",
+    "name": "Parchemin de résurection",
+    "rarity": "Mythique",
+    "description": "Résurrection du joueur apres 2 mort",
+    "price": 100,
+    "icon": ""
+  },
+  {
+    "id": "objets-objets-fleche",
+    "category": "Objets",
+    "subcategory": "Objets",
+    "name": "Fleche",
+    "rarity": "Commun",
+    "description": "",
+    "price": 1,
+    "icon": ""
+  },
+  {
+    "id": "objets-objets-fleche-barbelee",
+    "category": "Objets",
+    "subcategory": "Objets",
+    "name": "Fleche Barbelée",
+    "rarity": "Commun",
+    "description": "+1d2 DM",
+    "price": 4,
+    "icon": ""
+  }
+];
+
+const state = {
+  category: "all",
+  rarity: "all",
+  search: "",
+  sort: "name-asc",
+  cart: loadCart(),
+};
+
+const elements = {
+  grid: document.querySelector("#items-grid"),
+  categoryFilters: document.querySelector("#category-filters"),
+  rarityFilter: document.querySelector("#rarity-filter"),
+  sortFilter: document.querySelector("#sort-filter"),
+  search: document.querySelector("#search"),
+  resultCount: document.querySelector("#result-count"),
+  cartItems: document.querySelector("#cart-items"),
+  cartEmpty: document.querySelector("#cart-empty"),
+  cartTotal: document.querySelector("#cart-total"),
+  copyOrder: document.querySelector("#copy-order"),
+  clearCart: document.querySelector("#clear-cart"),
+  toast: document.querySelector("#toast"),
+  cartPanel: document.querySelector("#cart-panel"),
+  openCartMobile: document.querySelector("#open-cart-mobile"),
+  closeCartMobile: document.querySelector("#close-cart-mobile"),
+};
+
+function loadCart() {
+  try {
+    return JSON.parse(localStorage.getItem("alaric-cart")) || {};
+  } catch {
+    return {};
+  }
+}
+
+function saveCart() {
+  localStorage.setItem("alaric-cart", JSON.stringify(state.cart));
+}
+
+function formatPrice(value) {
+  return `${Number(value).toLocaleString("fr-FR")} po`;
+}
+
+function normalize(value) {
+  return String(value || "")
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .toLowerCase();
+}
+
+function safeClass(value) {
+  return String(value || "")
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/[^a-zA-Z0-9_-]/g, "");
+}
+
+function itemById(id) {
+  return ITEMS.find(item => item.id === id);
+}
+
+function categories() {
+  return ["all", ...new Set(ITEMS.map(item => item.category))];
+}
+
+function rarities() {
+  return ["all", ...new Set(ITEMS.map(item => item.rarity).filter(Boolean))];
+}
+
+function renderFilters() {
+  elements.categoryFilters.innerHTML = categories().map(category => {
+    const label = category === "all" ? "Tous" : category;
+    const active = category === state.category ? "is-active" : "";
+    return `<button class="chip ${active}" type="button" data-category="${category}">${label}</button>`;
+  }).join("");
+
+  elements.rarityFilter.innerHTML = rarities().map(rarity => {
+    const label = rarity === "all" ? "Toutes" : rarity;
+    return `<option value="${rarity}">${label}</option>`;
+  }).join("");
+}
+
+function filteredItems() {
+  let items = [...ITEMS];
+
+  if (state.category !== "all") {
+    items = items.filter(item => item.category === state.category);
+  }
+
+  if (state.rarity !== "all") {
+    items = items.filter(item => item.rarity === state.rarity);
+  }
+
+  if (state.search.trim()) {
+    const query = normalize(state.search);
+    items = items.filter(item => {
+      return [item.name, item.category, item.subcategory, item.rarity, item.description]
+        .some(value => normalize(value).includes(query));
+    });
+  }
+
+  items.sort((a, b) => {
+    if (state.sort === "price-asc") return a.price - b.price;
+    if (state.sort === "price-desc") return b.price - a.price;
+    if (state.sort === "category-asc") return `${a.category} ${a.name}`.localeCompare(`${b.category} ${b.name}`, "fr");
+    return a.name.localeCompare(b.name, "fr");
+  });
+
+  return items;
+}
+
+function renderItems() {
+  const items = filteredItems();
+  elements.resultCount.textContent = `${items.length} objet${items.length > 1 ? "s" : ""} trouvé${items.length > 1 ? "s" : ""}`;
+
+  if (!items.length) {
+    elements.grid.innerHTML = `<div class="no-result">Alaric fouille ses caisses, mais ne trouve rien qui corresponde.</div>`;
+    return;
+  }
+
+  elements.grid.innerHTML = items.map(item => {
+    const qty = state.cart[item.id] || 0;
+    const details = [
+      item.damage ? `Dégâts : ${item.damage}` : "",
+      item.damageMod ? `Mod. DM : ${item.damageMod}` : "",
+      item.armorMod ? `Armure : ${item.armorMod}` : "",
+    ].filter(Boolean);
+
+    return `
+      <article class="card">
+        <div class="card__top">
+          ${item.icon ? `<img class="item-icon" src="${item.icon}" alt="">` : `<div class="item-icon" aria-hidden="true">✦</div>`}
+          <div>
+            <h3>${item.name}</h3>
+            <div class="meta">
+              <span class="badge">${item.subcategory}</span>
+              <span class="badge badge--${safeClass(item.rarity)}">${item.rarity}</span>
+            </div>
+          </div>
+        </div>
+        <p class="description">${item.description || "Alaric garde les détails pour les clients sérieux."}</p>
+        ${details.length ? `<div class="details">${details.map(detail => `<span>${detail}</span>`).join("")}</div>` : ""}
+        <div class="card__bottom">
+          <span class="price">${formatPrice(item.price)}</span>
+          <button class="button button--primary" type="button" data-add="${item.id}">
+            ${qty ? `Ajouter (${qty})` : "Ajouter"}
+          </button>
+        </div>
+      </article>
+    `;
+  }).join("");
+}
+
+function addToCart(id, amount = 1) {
+  state.cart[id] = Math.max(0, (state.cart[id] || 0) + amount);
+  if (state.cart[id] === 0) delete state.cart[id];
+  saveCart();
+  renderAll();
+}
+
+function clearCart() {
+  state.cart = {};
+  saveCart();
+  renderAll();
+  showToast("Panier vidé.");
+}
+
+function cartEntries() {
+  return Object.entries(state.cart)
+    .map(([id, qty]) => ({ item: itemById(id), qty }))
+    .filter(entry => entry.item && entry.qty > 0);
+}
+
+function cartTotal() {
+  return cartEntries().reduce((sum, entry) => sum + entry.item.price * entry.qty, 0);
+}
+
+function renderCart() {
+  const entries = cartEntries();
+  elements.cartEmpty.style.display = entries.length ? "none" : "block";
+  elements.cartItems.innerHTML = entries.map(({ item, qty }) => {
+    const total = item.price * qty;
+    return `
+      <div class="cart-line">
+        <div>
+          <strong>${item.name}</strong>
+          <small>${formatPrice(item.price)} / unité</small>
+          <div class="quantity">
+            <button type="button" data-remove="${item.id}" aria-label="Retirer un exemplaire">−</button>
+            <span>${qty}</span>
+            <button type="button" data-add="${item.id}" aria-label="Ajouter un exemplaire">+</button>
+          </div>
+        </div>
+        <div class="line-price">${formatPrice(total)}</div>
+      </div>
+    `;
+  }).join("");
+  elements.cartTotal.textContent = formatPrice(cartTotal());
+}
+
+function orderText() {
+  const entries = cartEntries();
+  if (!entries.length) return "Le panier est vide.";
+
+  const lines = entries.map(({ item, qty }) => {
+    return `- ${item.name} x${qty} = ${formatPrice(item.price * qty)}`;
+  });
+
+  return [
+    "Commande chez Alaric :",
+    ...lines,
+    "",
+    `Total : ${formatPrice(cartTotal())}`,
+  ].join("\n");
+}
+
+async function copyOrder() {
+  const text = orderText();
+
+  try {
+    await navigator.clipboard.writeText(text);
+    showToast("Commande copiée.");
+  } catch {
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand("copy");
+    textarea.remove();
+    showToast("Commande copiée.");
+  }
+}
+
+function showToast(message) {
+  elements.toast.textContent = message;
+  elements.toast.classList.add("is-visible");
+  window.setTimeout(() => elements.toast.classList.remove("is-visible"), 1700);
+}
+
+function renderAll() {
+  renderFilters();
+  renderItems();
+  renderCart();
+}
+
+function bindEvents() {
+  elements.search.addEventListener("input", event => {
+    state.search = event.target.value;
+    renderItems();
+  });
+
+  elements.rarityFilter.addEventListener("change", event => {
+    state.rarity = event.target.value;
+    renderItems();
+  });
+
+  elements.sortFilter.addEventListener("change", event => {
+    state.sort = event.target.value;
+    renderItems();
+  });
+
+  document.addEventListener("click", event => {
+    const categoryButton = event.target.closest("[data-category]");
+    if (categoryButton) {
+      state.category = categoryButton.dataset.category;
+      renderFilters();
+      renderItems();
+      return;
+    }
+
+    const addButton = event.target.closest("[data-add]");
+    if (addButton) {
+      addToCart(addButton.dataset.add, 1);
+      showToast("Ajouté au panier.");
+      return;
+    }
+
+    const removeButton = event.target.closest("[data-remove]");
+    if (removeButton) {
+      addToCart(removeButton.dataset.remove, -1);
+    }
+  });
+
+  elements.copyOrder.addEventListener("click", copyOrder);
+  elements.clearCart.addEventListener("click", clearCart);
+  elements.openCartMobile.addEventListener("click", () => elements.cartPanel.classList.add("is-open"));
+  elements.closeCartMobile.addEventListener("click", () => elements.cartPanel.classList.remove("is-open"));
+}
+
+bindEvents();
+renderAll();
