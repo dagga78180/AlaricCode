@@ -161,6 +161,7 @@ h3 {
 
 .hero__actions,
 .cart-actions {
+  margin-top: 2%;
   display: flex;
   gap: 0.8rem;
   flex-wrap: wrap;
