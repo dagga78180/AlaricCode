@@ -2,7 +2,7 @@
   {
     "id": "armes-armes-de-melee-baton",
     "category": "Armes",
-    "subcategory": "Armes de mêlée",
+    "subcategory": "Armes d’attaque au contact",
     "name": "Bâton",
     "rarity": "Commun",
     "description": "Objet de base. DM 1d4. FOR aux DM ; type : Contondants. Arme à deux mains. DM temporaires possibles. Bâton simple.",
@@ -13,7 +13,7 @@
   {
     "id": "armes-armes-de-melee-baton-ferre",
     "category": "Armes",
-    "subcategory": "Armes de mêlée",
+    "subcategory": "Armes d’attaque au contact",
     "name": "Bâton ferré",
     "rarity": "Commun",
     "description": "Objet de base. DM 1d6. FOR aux DM ; type : Contondants. Arme à deux mains. Bâton adapté au combat.",
@@ -24,7 +24,7 @@
   {
     "id": "armes-armes-de-melee-dague",
     "category": "Armes",
-    "subcategory": "Armes de mêlée",
+    "subcategory": "Armes d’attaque au contact",
     "name": "Dague",
     "rarity": "Commun",
     "description": "Objet de base. DM 1d4. FOR aux DM ; type : Perforants. Arme légère.",
@@ -35,7 +35,7 @@
   {
     "id": "armes-armes-de-melee-hache",
     "category": "Armes",
-    "subcategory": "Armes de mêlée",
+    "subcategory": "Armes d’attaque au contact",
     "name": "Hache",
     "rarity": "Commun",
     "description": "Objet de base. DM 1d8. FOR aux DM ; type : Tranchants. Arme de contact.",
@@ -46,7 +46,7 @@
   {
     "id": "armes-armes-de-melee-hache-a-deux-mains",
     "category": "Armes",
-    "subcategory": "Armes de mêlée",
+    "subcategory": "Armes d’attaque au contact",
     "name": "Hache à deux mains",
     "rarity": "Commun",
     "description": "Objet de base. DM 2d6. FOR aux DM ; type : Tranchants. Arme à deux mains.",
@@ -57,7 +57,7 @@
   {
     "id": "armes-armes-de-melee-lance",
     "category": "Armes",
-    "subcategory": "Armes de mêlée",
+    "subcategory": "Armes d’attaque au contact",
     "name": "Lance",
     "rarity": "Commun",
     "description": "Objet de base. DM 1d6/1d10. FOR aux DM ; type : Perforants. Arme à une ou deux mains ; peut être lancée, 1d6 DM à 10 m. Portée 2M.",
@@ -68,7 +68,7 @@
   {
     "id": "armes-armes-de-melee-marteau",
     "category": "Armes",
-    "subcategory": "Armes de mêlée",
+    "subcategory": "Armes d’attaque au contact",
     "name": "Marteau",
     "rarity": "Commun",
     "description": "Objet de base. DM 1d6. FOR aux DM ; type : Contondants. Arme de contact.",
@@ -79,7 +79,7 @@
   {
     "id": "armes-armes-de-melee-masse",
     "category": "Armes",
-    "subcategory": "Armes de mêlée",
+    "subcategory": "Armes d’attaque au contact",
     "name": "Masse",
     "rarity": "Commun",
     "description": "Objet de base. DM 1d6. FOR aux DM ; type : Contondants. Arme de contact.",
@@ -90,7 +90,7 @@
   {
     "id": "armes-armes-de-melee-rapiere",
     "category": "Armes",
-    "subcategory": "Armes de mêlée",
+    "subcategory": "Armes d’attaque au contact",
     "name": "Rapière",
     "rarity": "Commun",
     "description": "Objet de base. DM 1d6. FOR aux DM ; type : Perforants. Arme légère ; critique sur 19-20.",
@@ -101,7 +101,7 @@
   {
     "id": "armes-armes-de-melee-epee-batarde",
     "category": "Armes",
-    "subcategory": "Armes de mêlée",
+    "subcategory": "Armes d’attaque au contact",
     "name": "Épée bâtarde",
     "rarity": "Commun",
     "description": "Objet de base. DM 1d8/1d12. FOR aux DM ; type : Tranchants. Arme à une ou deux mains.",
@@ -112,7 +112,7 @@
   {
     "id": "armes-armes-de-melee-epee-courte",
     "category": "Armes",
-    "subcategory": "Armes de mêlée",
+    "subcategory": "Armes d’attaque au contact",
     "name": "Épée courte",
     "rarity": "Commun",
     "description": "Objet de base. DM 1d6. FOR aux DM ; type : Perforants. Arme légère.",
@@ -123,7 +123,7 @@
   {
     "id": "armes-armes-de-melee-epee-longue",
     "category": "Armes",
-    "subcategory": "Armes de mêlée",
+    "subcategory": "Armes d’attaque au contact",
     "name": "Épée longue",
     "rarity": "Commun",
     "description": "Objet de base. DM 1d8. FOR aux DM ; type : Tranchants. Arme de contact classique.",
@@ -134,7 +134,7 @@
   {
     "id": "armes-armes-de-melee-epee-a-deux-mains",
     "category": "Armes",
-    "subcategory": "Armes de mêlée",
+    "subcategory": "Armes d’attaque au contact",
     "name": "Épée à deux mains",
     "rarity": "Commun",
     "description": "Objet de base. DM 2d6. FOR aux DM ; type : Tranchants. Arme à deux mains.",
@@ -145,7 +145,7 @@
   {
     "id": "armes-armes-a-distance-arbalete-de-poing",
     "category": "Armes",
-    "subcategory": "Armes à distance",
+    "subcategory": "Armes d’attaque à distance",
     "name": "Arbalète de poing",
     "rarity": "Commun",
     "description": "Objet de base. DM 1d6. Aucune carac. aux DM ; type : Perforants. Portée 10 m. Action de mouvement pour être rechargée.",
@@ -156,7 +156,7 @@
   {
     "id": "armes-armes-a-distance-arbalete-lourde",
     "category": "Armes",
-    "subcategory": "Armes à distance",
+    "subcategory": "Armes d’attaque à distance",
     "name": "Arbalète lourde",
     "rarity": "Commun",
     "description": "Objet de base. DM 2d6. Aucune carac. aux DM ; type : Perforants. Portée 30 m. Nécessite une action limitée pour être rechargée ; arme tenue à deux mains.",
@@ -167,7 +167,7 @@
   {
     "id": "armes-armes-a-distance-arbalete-legere",
     "category": "Armes",
-    "subcategory": "Armes à distance",
+    "subcategory": "Armes d’attaque à distance",
     "name": "Arbalète légère",
     "rarity": "Commun",
     "description": "Objet de base. DM 2d4. Aucune carac. aux DM ; type : Perforants. Portée 15 m. Nécessite une action de mouvement pour être rechargée ; arme tenue à deux mains.",
@@ -178,7 +178,7 @@
   {
     "id": "armes-armes-a-distance-arc-court",
     "category": "Armes",
-    "subcategory": "Armes à distance",
+    "subcategory": "Armes d’attaque à distance",
     "name": "Arc court",
     "rarity": "Commun",
     "description": "Objet de base. DM 1d6. Aucune carac. aux DM ; type : Perforants. Portée 15 m. Arme tenue à deux mains.",
@@ -189,7 +189,7 @@
   {
     "id": "armes-armes-a-distance-arc-long",
     "category": "Armes",
-    "subcategory": "Armes à distance",
+    "subcategory": "Armes d’attaque à distance",
     "name": "Arc long",
     "rarity": "Commun",
     "description": "Objet de base. DM 1d8. Aucune carac. aux DM ; type : Perforants. Portée 30 m. Arme tenue à deux mains ; FOR minimale +1.",
@@ -200,7 +200,7 @@
   {
     "id": "armes-armes-a-distance-couteaux-de-lancer",
     "category": "Armes",
-    "subcategory": "Armes à distance",
+    "subcategory": "Armes d’attaque à distance",
     "name": "Couteaux de lancer",
     "rarity": "Commun",
     "description": "Objet de base. DM 1d4. Aucune carac. aux DM ; type : Perforants. Portée 10 m.",
@@ -211,7 +211,7 @@
   {
     "id": "armes-armes-a-distance-javelot",
     "category": "Armes",
-    "subcategory": "Armes à distance",
+    "subcategory": "Armes d’attaque à distance",
     "name": "Javelot",
     "rarity": "Commun",
     "description": "Objet de base. DM 1d6. Aucune carac. aux DM ; type : Perforants. Portée 20 m.",
@@ -222,7 +222,7 @@
   {
     "id": "armes-armes-a-distance-mousquet",
     "category": "Armes",
-    "subcategory": "Armes à distance",
+    "subcategory": "Armes d’attaque à distance",
     "name": "Mousquet",
     "rarity": "Commun",
     "description": "Objet de base. DM 2d6. Aucune carac. aux DM ; type : Perforants. Portée 50 m. Nécessite une action limitée pour être rechargée ; arme tenue à deux mains.",
@@ -233,7 +233,7 @@
   {
     "id": "armes-armes-a-distance-petoire",
     "category": "Armes",
-    "subcategory": "Armes à distance",
+    "subcategory": "Armes d’attaque à distance",
     "name": "Pétoire",
     "rarity": "Commun",
     "description": "Objet de base. DM 1d10. Aucune carac. aux DM ; type : Perforants. Portée 20 m. Nécessite une action limitée pour être rechargée.",
@@ -342,8 +342,8 @@
   },
   {
     "id": "potions-poisons-poison",
-    "category": "Potions",
-    "subcategory": "Poisons",
+    "category": "Objet consommable",
+    "subcategory": "Fiole / potion",
     "name": "Poison",
     "rarity": "Commun",
     "description": "Consommable de base. DM 1d4 variable. Test de CON selon virulence. Poison de contact ou appliqué sur arme.",
@@ -352,8 +352,8 @@
   },
   {
     "id": "potions-mana-potion-de-mana",
-    "category": "Potions",
-    "subcategory": "Mana",
+    "category": "Objet consommable",
+    "subcategory": "Fiole / potion",
     "name": "Potion de mana",
     "rarity": "Commun",
     "description": "Potion de base. Récupération de mana : 1d4° + niveau.",
@@ -362,8 +362,8 @@
   },
   {
     "id": "potions-soins-potion-de-soins",
-    "category": "Potions",
-    "subcategory": "Soins",
+    "category": "Objet consommable",
+    "subcategory": "Fiole / potion",
     "name": "Potion de soins",
     "rarity": "Commun",
     "description": "Potion de base. Soins : 1d4° + niveau PV.",
@@ -382,7 +382,7 @@
   },
   {
     "id": "armes-munitions-carquois-de-20-fleches",
-    "category": "Armes",
+    "category": "Objet consommable",
     "subcategory": "Munitions",
     "name": "Carquois de 20 flèches",
     "rarity": "Commun",
@@ -463,22 +463,12 @@
   },
   {
     "id": "objets-materiel-ration",
-    "category": "Objets",
-    "subcategory": "Matériel",
+    "category": "Objet consommable",
+    "subcategory": "Ration",
     "name": "Ration",
     "rarity": "Commun",
     "description": "Matériel de base. .",
     "price": 4,
-    "iconKey": "swap-bag"
-  },
-  {
-    "id": "objets-materiel-sac-a-dos",
-    "category": "Objets",
-    "subcategory": "Matériel",
-    "name": "Sac à dos",
-    "rarity": "Commun",
-    "description": "Matériel de base.",
-    "price": 1,
     "iconKey": "swap-bag"
   },
   {
@@ -493,22 +483,12 @@
   },
   {
     "id": "objets-objets-parchemin-de-resurrection",
-    "category": "Objets",
-    "subcategory": "Objets",
+    "category": "Objet consommable",
+    "subcategory": "Parchemin",
     "name": "Parchemin de résurrection",
     "rarity": "Commun",
     "description": "Parchemin sacré rarissime. Permet de ramener un mort récent à la vie, usage unique.",
     "price": 200,
     "iconKey": "scroll-unfurled"
-  },
-  {
-    "id": "objets-vivres-ration-1-semaine",
-    "category": "Objets",
-    "subcategory": "Vivres",
-    "name": "Ration",
-    "rarity": "Commun",
-    "description": "Pain dur, fèves, galettes et céréales séchées.",
-    "price": 4,
-    "iconKey": "swap-bag"
   }
 ]
