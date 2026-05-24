@@ -272,32 +272,33 @@ function renderItems() {
     const rarityTheme = rarityThemeClass(item.rarity);
 
     return `
-      <article class="item-card item-card--${escapeHTML(rarityTheme)} rarity-${safeClass(item.rarity)}">
-        <div class="item-card__top">
-          <div class="item-icon">${iconMarkup(item)}</div>
-          <div class="item-card__title">
+      <article class="item-row item-row--${escapeHTML(rarityTheme)} rarity-${safeClass(item.rarity)}">
+        <div class="item-icon">${iconMarkup(item)}</div>
+
+        <div class="item-row__main">
+          <div class="item-row__title-line">
             <h3>${escapeHTML(item.name)}</h3>
-            <div class="item-meta">
-              <span>${escapeHTML(item.category)}</span>
-              <span>${escapeHTML(item.subcategory)}</span>
+            <div class="item-row__badges">
+              <span class="rarity-badge rarity-badge--${escapeHTML(rarityTheme)}">${escapeHTML(item.rarity)}</span>
+              ${qty ? `<span class="qty-badge">Panier : ${qty}</span>` : ""}
             </div>
           </div>
+
+          <div class="item-row__meta">
+            <span>${escapeHTML(item.category)}</span>
+            <span>${escapeHTML(item.subcategory)}</span>
+          </div>
+
+          <p class="item-description">${escapeHTML(item.description || "Alaric garde les détails pour les clients sérieux.")}</p>
+
+          ${details.length ? `
+            <dl class="item-row__stats">
+              ${details.map(detail => `<div><dt>${escapeHTML(detail.split(":")[0])}</dt><dd>${escapeHTML(detail.split(":").slice(1).join(":").trim())}</dd></div>`).join("")}
+            </dl>
+          ` : ""}
         </div>
 
-        <div class="item-card__badges">
-          <span class="rarity-badge rarity-badge--${escapeHTML(rarityTheme)}">${escapeHTML(item.rarity)}</span>
-          ${qty ? `<span class="qty-badge">Panier : ${qty}</span>` : ""}
-        </div>
-
-        <p class="item-description">${escapeHTML(item.description || "Alaric garde les détails pour les clients sérieux.")}</p>
-
-        ${details.length ? `
-          <dl class="item-stats">
-            ${details.map(detail => `<div><dt>${escapeHTML(detail.split(":")[0])}</dt><dd>${escapeHTML(detail.split(":").slice(1).join(":").trim())}</dd></div>`).join("")}
-          </dl>
-        ` : ""}
-
-        <div class="item-card__footer">
+        <div class="item-row__actions">
           <strong class="price">${formatPrice(item.price)}</strong>
           <button class="button button--small" type="button" data-add="${escapeHTML(item.id)}">Ajouter</button>
         </div>
