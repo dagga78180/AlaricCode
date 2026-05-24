@@ -1,194 +1,194 @@
 [
-  {
-    "id": "dague-de-precision-maduk",
-    "category": "Armes",
-    "subcategory": "Armes d’attaque au contact",
-    "name": "Dague de précision",
-    "rarity": "Peu Commun",
-    "description": "+1 en attaque avec cette arme. Poignée ajustée, très prisée des convoyeurs et intendants.",
-    "price": 152,
-    "iconKey": "Dague",
-    "damage": "1d4"
-  },
-  {
-    "id": "masse-de-parade-maduk",
-    "category": "Armes",
-    "subcategory": "Armes d’attaque au contact",
-    "name": "Masse de parade",
-    "rarity": "Peu Commun",
-    "description": "+1 DEF tant que l’arme est tenue en main. Contrepoids pensé pour détourner les coups.",
-    "price": 210,
-    "iconKey": "Masse",
-    "damage": "1d6"
-  },
-  {
-    "id": "lance-en-cuivre-rouge-maduk",
-    "category": "Armes",
-    "subcategory": "Armes d’attaque au contact",
-    "name": "Lance en cuivre rouge",
-    "rarity": "Peu Commun",
-    "description": "+1 attaque, +1d6 DM contre les goblinoïdes. Arme de garde adaptée aux routes du sud.",
-    "price": 210,
-    "iconKey": "Lance",
-    "damage": "1d6/1d10"
-  },
-  {
-    "id": "arc-court-de-visee-maduk",
-    "category": "Armes",
-    "subcategory": "Armes d’attaque à distance",
-    "name": "Arc court de visée",
-    "rarity": "Peu Commun",
-    "description": "+1 en attaque à distance avec cette arme. Arc régulier, utile aux patrouilles de champs.",
-    "price": 210,
-    "iconKey": "Arc",
-    "damage": "1d6"
-  },
-  {
-    "id": "arbalete-legere-de-visee-maduk",
-    "category": "Armes",
-    "subcategory": "Armes d’attaque à distance",
-    "name": "Arbalète légère de visée",
-    "rarity": "Peu Commun",
-    "description": "+1 en attaque à distance avec cette arme. Mire gravée pour escortes de chariots.",
-    "price": 435,
-    "iconKey": "Arbalette",
-    "damage": "2d4"
-  },
-  {
-    "id": "cuir-simple-rd-feu-maduk",
-    "category": "Armure / Bouclier",
-    "subcategory": "Armures et boucliers",
-    "name": "Cuir simple ignifugé",
-    "rarity": "Peu Commun",
-    "description": "RD 2 contre les DM de feu. Cuir traité pour les chaleurs du sud et les incendies de grange.",
-    "price": 270,
-    "iconKey": "Cuir",
-    "armorMod": 2
-  },
-  {
-    "id": "grand-bouclier-renforce-maduk",
-    "category": "Armure / Bouclier",
-    "subcategory": "Armures et boucliers",
-    "name": "Grand bouclier renforcé",
-    "rarity": "Peu Commun",
-    "description": "+1 DEF. Bouclier lourd apprécié des gardes de halle et des caravanes.",
-    "price": 290,
-    "iconKey": "Grand_Bouclier",
-    "armorMod": 3
-  },
-  {
-    "id": "cape-de-survie-maduk",
-    "category": "Accessoire",
-    "subcategory": "Dos",
-    "name": "Cape de survie",
-    "rarity": "Peu Commun",
-    "description": "+2 aux tests de Survie. Protège du vent chaud et cache de petits outils de route.",
-    "price": 450,
-    "iconKey": "cloak"
-  },
-  {
-    "id": "bottes-de-mouvement-maduk",
-    "category": "Accessoire",
-    "subcategory": "Pieds",
-    "name": "Bottes de mouvement",
-    "rarity": "Peu Commun",
-    "description": "+3 m de déplacement. Semelles nerveuses pour messagers et éclaireurs de convoi.",
-    "price": 510,
-    "iconKey": "boots"
-  },
-  {
-    "id": "gants-d-adresse-maduk",
-    "category": "Accessoire",
-    "subcategory": "Gants",
-    "name": "Gants d’adresse",
-    "rarity": "Peu Commun",
-    "description": "+2 aux tests d’Adresse. Cuir fin pour gestes précis, cordages et mécanismes simples.",
-    "price": 730,
-    "iconKey": "gloves"
-  },
-  {
-    "id": "epee-longue-en-arcanite-maduk",
-    "category": "Armes",
-    "subcategory": "Armes d’attaque au contact",
-    "name": "Épée longue en arcanite",
-    "rarity": "Inhabituel",
-    "description": "+1d4 DM magiques. Lame veinée d’éclats arcaniques, gardée sous clef.",
-    "price": 800,
-    "iconKey": "Epee_longue",
-    "damage": "1d8+1d4"
-  },
-  {
-    "id": "arc-long-de-visee-superieure-maduk",
-    "category": "Armes",
-    "subcategory": "Armes d’attaque à distance",
-    "name": "Arc long de visée supérieure",
-    "rarity": "Inhabituel",
-    "description": "+2 en attaque à distance avec cette arme. Arme de tireur d’élite pour escorte lointaine.",
-    "price": 750,
-    "iconKey": "Arc",
-    "damage": "1d8"
-  },
-  {
-    "id": "dague-en-mithral-maduk",
-    "category": "Armes",
-    "subcategory": "Armes d’attaque au contact",
-    "name": "Dague en mithral",
-    "rarity": "Inhabituel",
-    "description": "+2 m de déplacement, +2 initiative. Lame très légère pour duels rapides.",
-    "price": 400,
-    "iconKey": "Dague",
-    "damage": "1d4"
-  },
-  {
-    "id": "lance-fidele-maduk",
-    "category": "Armes",
-    "subcategory": "Armes d’attaque au contact",
-    "name": "Lance fidèle",
-    "rarity": "Inhabituel",
-    "description": "Une arme de lancer revient dans la main du porteur à la fin de son tour.",
-    "price": 555,
-    "iconKey": "Lance",
-    "damage": "1d6/1d10"
-  },
-  {
-    "id": "chemise-de-mailles-tranche-lames-maduk",
-    "category": "Armure / Bouclier",
-    "subcategory": "Armures et boucliers",
-    "name": "Chemise de mailles tranche-lames",
-    "rarity": "Inhabituel",
-    "description": "Ouvrage +1 Armure et RD 1 contre les DM tranchants. Malus inchangé.",
-    "price": 1088,
-    "iconKey": "Chemise_de_maille",
-    "armorMod": 5
-  },
-  {
-    "id": "potion-de-soins-maduk",
-    "category": "Objet consommable",
-    "subcategory": "Fiole / potion",
-    "name": "Potion de soins",
-    "rarity": "Peu Commun",
-    "description": "Rend 2d4 + NivPJ PV au personnage qui la boit.",
-    "price": 120,
-    "iconKey": "round-potion"
-  },
-  {
-    "id": "potion-de-mana-maduk",
-    "category": "Objet consommable",
-    "subcategory": "Fiole / potion",
-    "name": "Potion de mana",
-    "rarity": "Peu Commun",
-    "description": "Rend 2d4 + NivPJ points de mana au personnage qui la boit.",
-    "price": 145,
-    "iconKey": "potion-ball"
-  },
-  {
-    "id": "grenade-feu-maduk",
-    "category": "Objet consommable",
-    "subcategory": "Grenade / projectile alchimique",
-    "name": "Grenade feu",
-    "rarity": "Inhabituel",
-    "description": "Inflige 2d4 DM de feu dans une zone de 3 m de diamètre.",
-    "price": 340,
-    "iconKey": "fire-bottle"
-  }
+    {
+        "id": "arc-court-de-visee-maduk",
+        "category": "Armes",
+        "subcategory": "Armes d’attaque à distance",
+        "name": "Arc court de visée",
+        "rarity": "Peu Commun",
+        "description": "DM 1d6 perforants. +1 en attaque à distance avec cette arme. Portée 15 m.",
+        "price": 221,
+        "iconKey": "Arc",
+        "damage": "1d6"
+    },
+    {
+        "id": "javelot-de-longue-portee-maduk",
+        "category": "Armes",
+        "subcategory": "Armes d’attaque à distance",
+        "name": "Javelot de longue portée",
+        "rarity": "Peu Commun",
+        "description": "DM 1d6 perforants. +1 en attaque à distance et +1 DM si la cible est à plus de 15 m. Portée 20 m.",
+        "price": 138,
+        "iconKey": "Javelot",
+        "damage": "1d6"
+    },
+    {
+        "id": "epee-courte-de-precision-maduk",
+        "category": "Armes",
+        "subcategory": "Armes d’attaque au contact",
+        "name": "Épée courte de précision",
+        "rarity": "Peu Commun",
+        "description": "DM 1d6 perforants. +1 en attaque avec cette arme. Arme légère.",
+        "price": 259,
+        "iconKey": "Epee",
+        "damage": "1d6"
+    },
+    {
+        "id": "dague-de-parade-maduk",
+        "category": "Armes",
+        "subcategory": "Armes d’attaque au contact",
+        "name": "Dague de parade",
+        "rarity": "Peu Commun",
+        "description": "DM 1d4 perforants. +1 DEF tant que l’arme est tenue en main. Arme légère.",
+        "price": 153,
+        "iconKey": "Dague",
+        "damage": "1d4"
+    },
+    {
+        "id": "baton-ferre-canalisateur-maduk",
+        "category": "Armes",
+        "subcategory": "Armes d’attaque au contact",
+        "name": "Bâton ferré canalisateur",
+        "rarity": "Peu Commun",
+        "description": "DM 1d6 contondants. +1 aux tests d’attaque magique. Arme à deux mains.",
+        "price": 135,
+        "iconKey": "Baton",
+        "damage": "1d6"
+    },
+    {
+        "id": "cuir-simple-de-bonne-facture-maduk",
+        "category": "Armures",
+        "subcategory": "Armures et boucliers",
+        "name": "Cuir simple de bonne facture",
+        "rarity": "Peu Commun",
+        "description": "DEF +3. Malus d’armure : +2 à la difficulté des tests de DEX ; DEX max +6.",
+        "price": 248,
+        "iconKey": "Cuir",
+        "armorMod": "DEF +3"
+    },
+    {
+        "id": "petit-bouclier-de-garde-maduk",
+        "category": "Armures",
+        "subcategory": "Armures et boucliers",
+        "name": "Petit bouclier de garde",
+        "rarity": "Peu Commun",
+        "description": "DEF +2. Aucun malus d’armure indiqué ; DEX max —.",
+        "price": 204,
+        "iconKey": "Petit_Bouclier",
+        "armorMod": "DEF +2"
+    },
+    {
+        "id": "cape-de-survie-maduk",
+        "category": "Accessoire",
+        "subcategory": "Dos",
+        "name": "Cape de survie",
+        "rarity": "Peu Commun",
+        "description": "+2 aux tests de Survie. Coupe robuste contre le vent chaud et la poussière des routes du sud.",
+        "price": 449,
+        "iconKey": "cloak"
+    },
+    {
+        "id": "ceinture-a-fioles-maduk",
+        "category": "Accessoire",
+        "subcategory": "Ceinture",
+        "name": "Ceinture à fioles",
+        "rarity": "Peu Commun",
+        "description": "+1 consommable équipable. Des passants enchantés gardent une fiole prête à la main.",
+        "price": 732,
+        "iconKey": "belt"
+    },
+    {
+        "id": "gants-d-athletisme-maduk",
+        "category": "Accessoire",
+        "subcategory": "Gants",
+        "name": "Gants d’athlétisme",
+        "rarity": "Peu Commun",
+        "description": "+2 aux tests d’Athlétisme. La paume accroche mieux la pierre, le bois et les prises difficiles.",
+        "price": 720,
+        "iconKey": "gloves"
+    },
+    {
+        "id": "arc-long-de-visee-superieure-maduk",
+        "category": "Armes",
+        "subcategory": "Armes d’attaque à distance",
+        "name": "Arc long de visée supérieure",
+        "rarity": "Inhabituel",
+        "description": "DM 1d8 perforants. +2 en attaque à distance avec cette arme. Portée 30 m ; FOR minimale +1.",
+        "price": 721,
+        "iconKey": "Arc",
+        "damage": "1d8"
+    },
+    {
+        "id": "hache-en-phospharium-maduk",
+        "category": "Armes",
+        "subcategory": "Armes d’attaque au contact",
+        "name": "Hache en phospharium",
+        "rarity": "Inhabituel",
+        "description": "DM 1d8 tranchants +1d4 feu. FOR aux DM. Le métal orangé rougit au combat.",
+        "price": 710,
+        "iconKey": "Hache",
+        "damage": "1d8+1d4 feu"
+    },
+    {
+        "id": "broigne-mobile-maduk",
+        "category": "Armures",
+        "subcategory": "Armures et boucliers",
+        "name": "Cuir renforcé mobile",
+        "rarity": "Inhabituel",
+        "description": "DEF +4. Malus d’armure : +3 à la difficulté des tests de DEX ; DEX max +5. +1 Initiative, +1 m de déplacement.",
+        "price": 830,
+        "iconKey": "Cuir",
+        "armorMod": "DEF +4"
+    },
+    {
+        "id": "grand-bouclier-pare-feu-maduk",
+        "category": "Armures",
+        "subcategory": "Armures et boucliers",
+        "name": "Grand bouclier pare-feu",
+        "rarity": "Inhabituel",
+        "description": "DEF +3. Aucun malus d’armure indiqué ; DEX max —. RD 2 contre les DM de feu.",
+        "price": 715,
+        "iconKey": "Grand_Bouclier",
+        "armorMod": "DEF +3"
+    },
+    {
+        "id": "baton-ferre-de-puissance-arcanique-maduk",
+        "category": "Armes",
+        "subcategory": "Armes d’attaque au contact",
+        "name": "Bâton ferré de puissance arcanique",
+        "rarity": "Inhabituel",
+        "description": "DM 1d6 contondants. Catégorie de dés des sorts +1 : 1d4 devient 1d6. Arme à deux mains.",
+        "price": 368,
+        "iconKey": "Baton",
+        "damage": "1d6"
+    },
+    {
+        "id": "potion-de-soins-maduk",
+        "category": "Objet consommable",
+        "subcategory": "Fiole / potion",
+        "name": "Potion de soins",
+        "rarity": "Peu Commun",
+        "description": "Rend 2d4 + NivPJ PV au personnage qui la boit.",
+        "price": 120,
+        "iconKey": "round-potion"
+    },
+    {
+        "id": "potion-de-mana-maduk",
+        "category": "Objet consommable",
+        "subcategory": "Fiole / potion",
+        "name": "Potion de mana",
+        "rarity": "Peu Commun",
+        "description": "Rend 2d4 + NivPJ points de mana au personnage qui la boit.",
+        "price": 142,
+        "iconKey": "potion-ball"
+    },
+    {
+        "id": "poison-affaiblissant-maduk",
+        "category": "Objet consommable",
+        "subcategory": "Fiole / dose",
+        "name": "Poison affaiblissant",
+        "rarity": "Peu Commun",
+        "description": "+1d4 DM de poison et inflige l’état affaibli. Une dose s’applique sur une arme ou un projectile.",
+        "price": 176,
+        "iconKey": "potion-of-madness"
+    }
 ]
