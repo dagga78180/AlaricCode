@@ -1,8 +1,12 @@
 let ITEMS = [];
-let ITEMSDEFAUT = [];
 let ICON_MANIFEST = [];
 
 const ICONS_BASE_PATH = "assets/icons/";
+
+const CATALOGUE_FILES = [
+  "catalogue.json",
+  "catalogue-item-de-base.json"
+];
 
 const RARITY_ORDER = [
   "Commun",
@@ -159,18 +163,35 @@ async function loadIconManifest() {
   }
 }
 
-async function loadCatalogue() {
-  const response = await fetch("catalogue.json", { cache: "no-store" });
+async function loadCatalogueFile(filename) {
+  const response = await fetch(filename, { cache: "no-store" });
   if (!response.ok) {
-    throw new Error(`Impossible de charger catalogue.json (${response.status})`);
+    throw new Error(`Impossible de charger ${filename} (${response.status})`);
   }
 
   const catalogue = await response.json();
   if (!Array.isArray(catalogue)) {
-    throw new Error("catalogue.json doit contenir un tableau d'objets.");
+    throw new Error(`${filename} doit contenir un tableau d'objets.`);
   }
 
-  ITEMS = catalogue.map(normalizeItem);
+  return catalogue;
+}
+
+async function loadCatalogue() {
+  const catalogues = await Promise.all(CATALOGUE_FILES.map(loadCatalogueFile));
+  const items = catalogues.flat();
+  const seenIds = new Set();
+
+  ITEMS = items
+    .map(normalizeItem)
+    .filter(item => {
+      if (seenIds.has(item.id)) {
+        console.warn(`Objet ignoré car son id existe déjà : ${item.id}`);
+        return false;
+      }
+      seenIds.add(item.id);
+      return true;
+    });
 }
 
 function normalizeItem(item) {
@@ -630,11 +651,11 @@ async function init() {
     renderAll(true);
   } catch (error) {
     console.error(error);
-    elements.resultCount.textContent = "Catalogue indisponible";
+    elements.resultCount.textContent = "Catalogues indisponibles";
     elements.grid.innerHTML = `
       <article class="empty-card">
-        <strong>Impossible de charger catalogue.json.</strong>
-        <span>Vérifie que le fichier est présent à la racine du dépôt.</span>
+        <strong>Impossible de charger un des fichiers catalogue.</strong>
+        <span>Vérifie que catalogue.json et catalogue-item-de-base.json sont présents à la racine du dépôt.</span>
       </article>
     `;
   }
