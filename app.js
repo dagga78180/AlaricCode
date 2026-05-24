@@ -1,4 +1,5 @@
 let ITEMS = [];
+let ITEMSDEFAUT = [];
 let ICON_MANIFEST = [];
 
 const ICONS_BASE_PATH = "assets/icons/";
