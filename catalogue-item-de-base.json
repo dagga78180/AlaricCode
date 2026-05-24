@@ -1,17 +1,17 @@
 [
   {
-    "id": "armes-armes-de-melee-baton",
+    "id": "armes-armes-d-attaque-au-contact-baton",
     "category": "Armes",
     "subcategory": "Armes d’attaque au contact",
     "name": "Bâton",
     "rarity": "Commun",
     "description": "Objet de base. DM 1d4. FOR aux DM ; type : Contondants. Arme à deux mains. DM temporaires possibles. Bâton simple.",
-    "price": 0,
+    "price": 1,
     "iconKey": "Baton",
-    "damage": 0
+    "damage": "1d4"
   },
   {
-    "id": "armes-armes-de-melee-baton-ferre",
+    "id": "armes-armes-d-attaque-au-contact-baton-ferre",
     "category": "Armes",
     "subcategory": "Armes d’attaque au contact",
     "name": "Bâton ferré",
@@ -19,10 +19,10 @@
     "description": "Objet de base. DM 1d6. FOR aux DM ; type : Contondants. Arme à deux mains. Bâton adapté au combat.",
     "price": 2,
     "iconKey": "Baton",
-    "damage": 0
+    "damage": "1d6"
   },
   {
-    "id": "armes-armes-de-melee-dague",
+    "id": "armes-armes-d-attaque-au-contact-dague",
     "category": "Armes",
     "subcategory": "Armes d’attaque au contact",
     "name": "Dague",
@@ -30,87 +30,10 @@
     "description": "Objet de base. DM 1d4. FOR aux DM ; type : Perforants. Arme légère.",
     "price": 3,
     "iconKey": "Dague",
-    "damage": 0
+    "damage": "1d4"
   },
   {
-    "id": "armes-armes-de-melee-hache",
-    "category": "Armes",
-    "subcategory": "Armes d’attaque au contact",
-    "name": "Hache",
-    "rarity": "Commun",
-    "description": "Objet de base. DM 1d8. FOR aux DM ; type : Tranchants. Arme de contact.",
-    "price": 6,
-    "iconKey": "Hache",
-    "damage": 0
-  },
-  {
-    "id": "armes-armes-de-melee-hache-a-deux-mains",
-    "category": "Armes",
-    "subcategory": "Armes d’attaque au contact",
-    "name": "Hache à deux mains",
-    "rarity": "Commun",
-    "description": "Objet de base. DM 2d6. FOR aux DM ; type : Tranchants. Arme à deux mains.",
-    "price": 10,
-    "iconKey": "Hache___2_main",
-    "damage": 0
-  },
-  {
-    "id": "armes-armes-de-melee-lance",
-    "category": "Armes",
-    "subcategory": "Armes d’attaque au contact",
-    "name": "Lance",
-    "rarity": "Commun",
-    "description": "Objet de base. DM 1d6/1d10. FOR aux DM ; type : Perforants. Arme à une ou deux mains ; peut être lancée, 1d6 DM à 10 m. Portée 2M.",
-    "price": 4,
-    "iconKey": "Lance",
-    "damage": 0
-  },
-  {
-    "id": "armes-armes-de-melee-marteau",
-    "category": "Armes",
-    "subcategory": "Armes d’attaque au contact",
-    "name": "Marteau",
-    "rarity": "Commun",
-    "description": "Objet de base. DM 1d6. FOR aux DM ; type : Contondants. Arme de contact.",
-    "price": 4,
-    "iconKey": "Marteau",
-    "damage": 0
-  },
-  {
-    "id": "armes-armes-de-melee-masse",
-    "category": "Armes",
-    "subcategory": "Armes d’attaque au contact",
-    "name": "Masse",
-    "rarity": "Commun",
-    "description": "Objet de base. DM 1d6. FOR aux DM ; type : Contondants. Arme de contact.",
-    "price": 4,
-    "iconKey": "Masse",
-    "damage": 0
-  },
-  {
-    "id": "armes-armes-de-melee-rapiere",
-    "category": "Armes",
-    "subcategory": "Armes d’attaque au contact",
-    "name": "Rapière",
-    "rarity": "Commun",
-    "description": "Objet de base. DM 1d6. FOR aux DM ; type : Perforants. Arme légère ; critique sur 19-20.",
-    "price": 6,
-    "iconKey": "Rapiere",
-    "damage": 0
-  },
-  {
-    "id": "armes-armes-de-melee-epee-batarde",
-    "category": "Armes",
-    "subcategory": "Armes d’attaque au contact",
-    "name": "Épée bâtarde",
-    "rarity": "Commun",
-    "description": "Objet de base. DM 1d8/1d12. FOR aux DM ; type : Tranchants. Arme à une ou deux mains.",
-    "price": 9,
-    "iconKey": "Epee_Batarde",
-    "damage": 0
-  },
-  {
-    "id": "armes-armes-de-melee-epee-courte",
+    "id": "armes-armes-d-attaque-au-contact-epee-courte",
     "category": "Armes",
     "subcategory": "Armes d’attaque au contact",
     "name": "Épée courte",
@@ -118,10 +41,10 @@
     "description": "Objet de base. DM 1d6. FOR aux DM ; type : Perforants. Arme légère.",
     "price": 5,
     "iconKey": "Epee",
-    "damage": 0
+    "damage": "1d6"
   },
   {
-    "id": "armes-armes-de-melee-epee-longue",
+    "id": "armes-armes-d-attaque-au-contact-epee-longue",
     "category": "Armes",
     "subcategory": "Armes d’attaque au contact",
     "name": "Épée longue",
@@ -129,10 +52,21 @@
     "description": "Objet de base. DM 1d8. FOR aux DM ; type : Tranchants. Arme de contact classique.",
     "price": 6,
     "iconKey": "Epee_longue",
-    "damage": 0
+    "damage": "1d8"
   },
   {
-    "id": "armes-armes-de-melee-epee-a-deux-mains",
+    "id": "armes-armes-d-attaque-au-contact-epee-batarde",
+    "category": "Armes",
+    "subcategory": "Armes d’attaque au contact",
+    "name": "Épée bâtarde",
+    "rarity": "Commun",
+    "description": "Objet de base. DM 1d8/1d12. FOR aux DM ; type : Tranchants. Arme à une ou deux mains.",
+    "price": 9,
+    "iconKey": "Epee_Batarde",
+    "damage": "1d8/1d12"
+  },
+  {
+    "id": "armes-armes-d-attaque-au-contact-epee-a-deux-mains",
     "category": "Armes",
     "subcategory": "Armes d’attaque au contact",
     "name": "Épée à deux mains",
@@ -140,10 +74,76 @@
     "description": "Objet de base. DM 2d6. FOR aux DM ; type : Tranchants. Arme à deux mains.",
     "price": 10,
     "iconKey": "Epee___2_main",
-    "damage": 0
+    "damage": "2d6"
   },
   {
-    "id": "armes-armes-a-distance-arbalete-de-poing",
+    "id": "armes-armes-d-attaque-au-contact-hache",
+    "category": "Armes",
+    "subcategory": "Armes d’attaque au contact",
+    "name": "Hache",
+    "rarity": "Commun",
+    "description": "Objet de base. DM 1d8. FOR aux DM ; type : Tranchants. Arme de contact.",
+    "price": 6,
+    "iconKey": "Hache",
+    "damage": "1d8"
+  },
+  {
+    "id": "armes-armes-d-attaque-au-contact-hache-a-deux-mains",
+    "category": "Armes",
+    "subcategory": "Armes d’attaque au contact",
+    "name": "Hache à deux mains",
+    "rarity": "Commun",
+    "description": "Objet de base. DM 2d6. FOR aux DM ; type : Tranchants. Arme à deux mains.",
+    "price": 10,
+    "iconKey": "Hache___2_main",
+    "damage": "2d6"
+  },
+  {
+    "id": "armes-armes-d-attaque-au-contact-masse",
+    "category": "Armes",
+    "subcategory": "Armes d’attaque au contact",
+    "name": "Masse",
+    "rarity": "Commun",
+    "description": "Objet de base. DM 1d6. FOR aux DM ; type : Contondants. Arme de contact.",
+    "price": 4,
+    "iconKey": "Masse",
+    "damage": "1d6"
+  },
+  {
+    "id": "armes-armes-d-attaque-au-contact-masse-a-2-main",
+    "category": "Armes",
+    "subcategory": "Armes d’attaque au contact",
+    "name": "Masse à 2 main",
+    "rarity": "Commun",
+    "description": "Objet de base. DM 1d12. FOR aux DM ; type : Contondants. Arme de contact.",
+    "price": 8,
+    "iconKey": "Masse___2_main",
+    "damage": "1d12"
+  },
+  {
+    "id": "armes-armes-d-attaque-au-contact-lance",
+    "category": "Armes",
+    "subcategory": "Armes d’attaque au contact",
+    "name": "Lance",
+    "rarity": "Commun",
+    "description": "Objet de base. DM 1d6/1d10. FOR aux DM ; type : Perforants. Arme à une ou deux mains ; peut être lancée, 1d6 DM à 10 m. Portée 2M.",
+    "price": 4,
+    "iconKey": "Lance",
+    "damage": "1d6/1d10"
+  },
+  {
+    "id": "armes-armes-d-attaque-au-contact-rapiere",
+    "category": "Armes",
+    "subcategory": "Armes d’attaque au contact",
+    "name": "Rapière",
+    "rarity": "Commun",
+    "description": "Objet de base. DM 1d6. FOR aux DM ; type : Perforants. Arme légère ; critique sur 19-20.",
+    "price": 6,
+    "iconKey": "Rapiere",
+    "damage": "1d6"
+  },
+  {
+    "id": "armes-armes-d-attaque-a-distance-arbalete-de-poing",
     "category": "Armes",
     "subcategory": "Armes d’attaque à distance",
     "name": "Arbalète de poing",
@@ -151,10 +151,10 @@
     "description": "Objet de base. DM 1d6. Aucune carac. aux DM ; type : Perforants. Portée 10 m. Action de mouvement pour être rechargée.",
     "price": 8,
     "iconKey": "Arbalette",
-    "damage": 0
+    "damage": "1d6"
   },
   {
-    "id": "armes-armes-a-distance-arbalete-lourde",
+    "id": "armes-armes-d-attaque-a-distance-arbalete-lourde",
     "category": "Armes",
     "subcategory": "Armes d’attaque à distance",
     "name": "Arbalète lourde",
@@ -162,10 +162,10 @@
     "description": "Objet de base. DM 2d6. Aucune carac. aux DM ; type : Perforants. Portée 30 m. Nécessite une action limitée pour être rechargée ; arme tenue à deux mains.",
     "price": 15,
     "iconKey": "Arbalette",
-    "damage": 0
+    "damage": "2d6"
   },
   {
-    "id": "armes-armes-a-distance-arbalete-legere",
+    "id": "armes-armes-d-attaque-a-distance-arbalete-legere",
     "category": "Armes",
     "subcategory": "Armes d’attaque à distance",
     "name": "Arbalète légère",
@@ -173,10 +173,10 @@
     "description": "Objet de base. DM 2d4. Aucune carac. aux DM ; type : Perforants. Portée 15 m. Nécessite une action de mouvement pour être rechargée ; arme tenue à deux mains.",
     "price": 10,
     "iconKey": "Arbalette",
-    "damage": 0
+    "damage": "2d4"
   },
   {
-    "id": "armes-armes-a-distance-arc-court",
+    "id": "armes-armes-d-attaque-a-distance-arc-court",
     "category": "Armes",
     "subcategory": "Armes d’attaque à distance",
     "name": "Arc court",
@@ -184,10 +184,10 @@
     "description": "Objet de base. DM 1d6. Aucune carac. aux DM ; type : Perforants. Portée 15 m. Arme tenue à deux mains.",
     "price": 4,
     "iconKey": "Arc",
-    "damage": 0
+    "damage": "1d6"
   },
   {
-    "id": "armes-armes-a-distance-arc-long",
+    "id": "armes-armes-d-attaque-a-distance-arc-long",
     "category": "Armes",
     "subcategory": "Armes d’attaque à distance",
     "name": "Arc long",
@@ -195,10 +195,10 @@
     "description": "Objet de base. DM 1d8. Aucune carac. aux DM ; type : Perforants. Portée 30 m. Arme tenue à deux mains ; FOR minimale +1.",
     "price": 8,
     "iconKey": "Arc",
-    "damage": 0
+    "damage": "1d8"
   },
   {
-    "id": "armes-armes-a-distance-couteaux-de-lancer",
+    "id": "armes-armes-d-attaque-a-distance-couteaux-de-lancer",
     "category": "Armes",
     "subcategory": "Armes d’attaque à distance",
     "name": "Couteaux de lancer",
@@ -206,10 +206,10 @@
     "description": "Objet de base. DM 1d4. Aucune carac. aux DM ; type : Perforants. Portée 10 m.",
     "price": 3,
     "iconKey": "Dague",
-    "damage": 0
+    "damage": "1d4"
   },
   {
-    "id": "armes-armes-a-distance-javelot",
+    "id": "armes-armes-d-attaque-a-distance-javelot",
     "category": "Armes",
     "subcategory": "Armes d’attaque à distance",
     "name": "Javelot",
@@ -217,10 +217,10 @@
     "description": "Objet de base. DM 1d6. Aucune carac. aux DM ; type : Perforants. Portée 20 m.",
     "price": 1,
     "iconKey": "Javelot",
-    "damage": 0
+    "damage": "1d6"
   },
   {
-    "id": "armes-armes-a-distance-mousquet",
+    "id": "armes-armes-d-attaque-a-distance-mousquet",
     "category": "Armes",
     "subcategory": "Armes d’attaque à distance",
     "name": "Mousquet",
@@ -228,10 +228,10 @@
     "description": "Objet de base. DM 2d6. Aucune carac. aux DM ; type : Perforants. Portée 50 m. Nécessite une action limitée pour être rechargée ; arme tenue à deux mains.",
     "price": 100,
     "iconKey": "Mousquet",
-    "damage": 0
+    "damage": "2d6"
   },
   {
-    "id": "armes-armes-a-distance-petoire",
+    "id": "armes-armes-d-attaque-a-distance-petoire",
     "category": "Armes",
     "subcategory": "Armes d’attaque à distance",
     "name": "Pétoire",
@@ -239,111 +239,111 @@
     "description": "Objet de base. DM 1d10. Aucune carac. aux DM ; type : Perforants. Portée 20 m. Nécessite une action limitée pour être rechargée.",
     "price": 50,
     "iconKey": "Petoire",
-    "damage": 0
-  },
-  {
-    "id": "armures-armures-et-boucliers-armure-de-plaques",
-    "category": "Armure / Bouclier",
-    "subcategory": "Armures et boucliers",
-    "name": "Armure de plaques",
-    "rarity": "Commun",
-    "description": "Protection de base. DEF +6. Malus d’armure : +6 à la difficulté des tests de DEX ; DEX max +2. Armure.",
-    "price": 60,
-    "iconKey": "plaque",
-    "armorMod": 0
-  },
-  {
-    "id": "armures-armures-et-boucliers-chemise-de-mailles",
-    "category": "Armure / Bouclier",
-    "subcategory": "Armures et boucliers",
-    "name": "Chemise de mailles",
-    "rarity": "Commun",
-    "description": "Protection de base. DEF +4. Malus d’armure : +4 à la difficulté des tests de DEX ; DEX max +4. Armure.",
-    "price": 15,
-    "iconKey": "Chemise_de_maille",
-    "armorMod": 0
-  },
-  {
-    "id": "armures-armures-et-boucliers-cotte-de-mailles",
-    "category": "Armure / Bouclier",
-    "subcategory": "Armures et boucliers",
-    "name": "Cotte de mailles",
-    "rarity": "Commun",
-    "description": "Protection de base. DEF +5. Malus d’armure : +5 à la difficulté des tests de DEX ; DEX max +3. Armure.",
-    "price": 25,
-    "iconKey": "Chemise_de_maille",
-    "armorMod": 0
-  },
-  {
-    "id": "armures-armures-et-boucliers-cuir-renforce-broigne",
-    "category": "Armure / Bouclier",
-    "subcategory": "Armures et boucliers",
-    "name": "Cuir renforcé, broigne",
-    "rarity": "Commun",
-    "description": "Protection de base. DEF +3. Malus d’armure : +3 à la difficulté des tests de DEX ; DEX max +5. Armure.",
-    "price": 8,
-    "iconKey": "Cuir",
-    "armorMod": 0
-  },
-  {
-    "id": "armures-armures-et-boucliers-cuir-simple",
-    "category": "Armure / Bouclier",
-    "subcategory": "Armures et boucliers",
-    "name": "Cuir simple",
-    "rarity": "Commun",
-    "description": "Protection de base. DEF +2. Malus d’armure : +2 à la difficulté des tests de DEX ; DEX max +6. Armure.",
-    "price": 4,
-    "iconKey": "Cuir",
-    "armorMod": 0
-  },
-  {
-    "id": "armures-armures-et-boucliers-grand-bouclier",
-    "category": "Armure / Bouclier",
-    "subcategory": "Armures et boucliers",
-    "name": "Grand bouclier",
-    "rarity": "Commun",
-    "description": "Protection de base. DEF +2. Aucun malus d’armure indiqué ; DEX max —. Bouclier. Bonus de DEF.",
-    "price": 4,
-    "iconKey": "Grand_Bouclier",
-    "armorMod": 0
-  },
-  {
-    "id": "armures-armures-et-boucliers-petit-bouclier",
-    "category": "Armure / Bouclier",
-    "subcategory": "Armures et boucliers",
-    "name": "Petit bouclier",
-    "rarity": "Commun",
-    "description": "Protection de base. DEF +1. Aucun malus d’armure indiqué ; DEX max —. Bouclier. Bonus de DEF.",
-    "price": 2,
-    "iconKey": "Petit_Bouclier",
-    "armorMod": 0
-  },
-  {
-    "id": "armures-armures-et-boucliers-plaque-complete",
-    "category": "Armure / Bouclier",
-    "subcategory": "Armures et boucliers",
-    "name": "Plaque complète",
-    "rarity": "Commun",
-    "description": "Protection de base. DEF +7. Malus d’armure : +7 à la difficulté des tests de DEX ; DEX max +1. Armure fabriquée sur mesure ; seul le chevalier peut la porter grâce à la capacité de rang 2 de la voie de la noblesse.",
-    "price": 200,
-    "iconKey": "plaque",
-    "armorMod": 0
+    "damage": "1d10"
   },
   {
     "id": "armures-armures-et-boucliers-tissus-matelasses-fourrures",
-    "category": "Armure / Bouclier",
+    "category": "Armures",
     "subcategory": "Armures et boucliers",
     "name": "Tissus matelassés, fourrures",
     "rarity": "Commun",
     "description": "Protection de base. DEF +1. Malus d’armure : +1 à la difficulté des tests de DEX ; DEX max +7. Armure légère.",
     "price": 2,
     "iconKey": "Tissu",
-    "armorMod": 0
+    "armorMod": "DEF +1"
   },
   {
-    "id": "potions-poisons-poison",
+    "id": "armures-armures-et-boucliers-cuir-simple",
+    "category": "Armures",
+    "subcategory": "Armures et boucliers",
+    "name": "Cuir simple",
+    "rarity": "Commun",
+    "description": "Protection de base. DEF +2. Malus d’armure : +2 à la difficulté des tests de DEX ; DEX max +6. Armure.",
+    "price": 4,
+    "iconKey": "Cuir",
+    "armorMod": "DEF +2"
+  },
+  {
+    "id": "armures-armures-et-boucliers-cuir-renforce-broigne",
+    "category": "Armures",
+    "subcategory": "Armures et boucliers",
+    "name": "Cuir renforcé, broigne",
+    "rarity": "Commun",
+    "description": "Protection de base. DEF +3. Malus d’armure : +3 à la difficulté des tests de DEX ; DEX max +5. Armure.",
+    "price": 8,
+    "iconKey": "Cuir",
+    "armorMod": "DEF +3"
+  },
+  {
+    "id": "armures-armures-et-boucliers-chemise-de-mailles",
+    "category": "Armures",
+    "subcategory": "Armures et boucliers",
+    "name": "Chemise de mailles",
+    "rarity": "Commun",
+    "description": "Protection de base. DEF +4. Malus d’armure : +4 à la difficulté des tests de DEX ; DEX max +4. Armure.",
+    "price": 15,
+    "iconKey": "Chemise_de_maille",
+    "armorMod": "DEF +4"
+  },
+  {
+    "id": "armures-armures-et-boucliers-cotte-de-mailles",
+    "category": "Armures",
+    "subcategory": "Armures et boucliers",
+    "name": "Cotte de mailles",
+    "rarity": "Commun",
+    "description": "Protection de base. DEF +5. Malus d’armure : +5 à la difficulté des tests de DEX ; DEX max +3. Armure.",
+    "price": 25,
+    "iconKey": "Chemise_de_maille",
+    "armorMod": "DEF +5"
+  },
+  {
+    "id": "armures-armures-et-boucliers-armure-de-plaques",
+    "category": "Armures",
+    "subcategory": "Armures et boucliers",
+    "name": "Armure de plaques",
+    "rarity": "Commun",
+    "description": "Protection de base. DEF +6. Malus d’armure : +6 à la difficulté des tests de DEX ; DEX max +2. Armure.",
+    "price": 60,
+    "iconKey": "plaque",
+    "armorMod": "DEF +6"
+  },
+  {
+    "id": "armures-armures-et-boucliers-plaque-complete",
+    "category": "Armures",
+    "subcategory": "Armures et boucliers",
+    "name": "Plaque complète",
+    "rarity": "Commun",
+    "description": "Protection de base. DEF +7. Malus d’armure : +7 à la difficulté des tests de DEX ; DEX max +1. Armure fabriquée sur mesure ; seul le chevalier peut la porter grâce à la capacité de rang 2 de la voie de la noblesse.",
+    "price": 200,
+    "iconKey": "plaque",
+    "armorMod": "DEF +7"
+  },
+  {
+    "id": "armures-armures-et-boucliers-petit-bouclier",
+    "category": "Armures",
+    "subcategory": "Armures et boucliers",
+    "name": "Petit bouclier",
+    "rarity": "Commun",
+    "description": "Protection de base. DEF +1. Aucun malus d’armure indiqué ; DEX max —. Bouclier. Bonus de DEF.",
+    "price": 2,
+    "iconKey": "Petit_Bouclier",
+    "armorMod": "DEF +1"
+  },
+  {
+    "id": "armures-armures-et-boucliers-grand-bouclier",
+    "category": "Armures",
+    "subcategory": "Armures et boucliers",
+    "name": "Grand bouclier",
+    "rarity": "Commun",
+    "description": "Protection de base. DEF +2. Aucun malus d’armure indiqué ; DEX max —. Bouclier. Bonus de DEF.",
+    "price": 4,
+    "iconKey": "Grand_Bouclier",
+    "armorMod": "DEF +2"
+  },
+  {
+    "id": "objet-consommable-fiole-dose-poison",
     "category": "Objet consommable",
-    "subcategory": "Fiole / potion",
+    "subcategory": "Fiole / dose",
     "name": "Poison",
     "rarity": "Commun",
     "description": "Consommable de base. DM 1d4 variable. Test de CON selon virulence. Poison de contact ou appliqué sur arme.",
@@ -351,17 +351,7 @@
     "iconKey": "potion-of-madness"
   },
   {
-    "id": "potions-mana-potion-de-mana",
-    "category": "Objet consommable",
-    "subcategory": "Fiole / potion",
-    "name": "Potion de mana",
-    "rarity": "Commun",
-    "description": "Potion de base. Récupération de mana : 1d4° + niveau.",
-    "price": 12,
-    "iconKey": "potion-ball"
-  },
-  {
-    "id": "potions-soins-potion-de-soins",
+    "id": "objet-consommable-fiole-potion-potion-de-soins",
     "category": "Objet consommable",
     "subcategory": "Fiole / potion",
     "name": "Potion de soins",
@@ -371,22 +361,32 @@
     "iconKey": "round-potion"
   },
   {
+    "id": "objet-consommable-fiole-potion-potion-de-mana",
+    "category": "Objet consommable",
+    "subcategory": "Fiole / potion",
+    "name": "Potion de mana",
+    "rarity": "Commun",
+    "description": "Potion de base. Récupération de mana : 1d4° + niveau.",
+    "price": 12,
+    "iconKey": "potion-ball"
+  },
+  {
     "id": "objets-materiel-briquet-a-silex",
     "category": "Objets",
     "subcategory": "Matériel",
     "name": "Briquet à silex",
     "rarity": "Commun",
-    "description": "Matériel de base. .",
+    "description": "Matériel de base. Permet d’allumer un feu.",
     "price": 1,
     "iconKey": "fire-bottle"
   },
   {
-    "id": "armes-munitions-carquois-de-20-fleches",
+    "id": "objet-consommable-munitions-carquois-de-20-fleches",
     "category": "Objet consommable",
     "subcategory": "Munitions",
     "name": "Carquois de 20 flèches",
     "rarity": "Commun",
-    "description": "Munitions de base. .",
+    "description": "Munitions de base. Carquois de 20 flèches.",
     "price": 3,
     "iconKey": "broadhead-arrow",
     "damage": 0
@@ -397,7 +397,7 @@
     "subcategory": "Matériel",
     "name": "Corde 15 m",
     "rarity": "Commun",
-    "description": "Matériel de base. .",
+    "description": "Matériel de base. Corde de 15 m.",
     "price": 2,
     "iconKey": "swap-bag"
   },
@@ -407,7 +407,7 @@
     "subcategory": "Matériel",
     "name": "Couverture",
     "rarity": "Commun",
-    "description": "Matériel de base. .",
+    "description": "Matériel de base. Couverture de voyage.",
     "price": 1,
     "iconKey": "Tissu"
   },
@@ -417,9 +417,9 @@
     "subcategory": "Matériel",
     "name": "Grappin",
     "rarity": "Commun",
-    "description": "Matériel de base. .",
+    "description": "Matériel de base. Grappin d’escalade.",
     "price": 2,
-    "iconKey": "Lance"
+    "iconKey": "swap-bag"
   },
   {
     "id": "objets-materiel-huile-pour-lanterne",
@@ -437,7 +437,7 @@
     "subcategory": "Matériel",
     "name": "Lanterne à huile",
     "rarity": "Commun",
-    "description": "Matériel de base. Éclaire dans un rayon de 10 m ; 1 h pour une torche, 6 h pour une lanterne avec 1 dose d’huile.",
+    "description": "Matériel de base. Éclaire dans un rayon de 10 m avec une dose d’huile.",
     "price": 3,
     "iconKey": "fire-bottle"
   },
@@ -447,7 +447,7 @@
     "subcategory": "Matériel",
     "name": "Matériel d’écriture",
     "rarity": "Commun",
-    "description": "Matériel de base. .",
+    "description": "Matériel de base. Nécessaire pour écrire.",
     "price": 5,
     "iconKey": "scroll-unfurled"
   },
@@ -462,12 +462,12 @@
     "iconKey": "belt"
   },
   {
-    "id": "objets-materiel-ration",
+    "id": "objet-consommable-ration-ration",
     "category": "Objet consommable",
     "subcategory": "Ration",
     "name": "Ration",
     "rarity": "Commun",
-    "description": "Matériel de base. .",
+    "description": "Matériel de base. Ration de voyage.",
     "price": 4,
     "iconKey": "swap-bag"
   },
@@ -477,18 +477,8 @@
     "subcategory": "Matériel",
     "name": "Torches (x3)",
     "rarity": "Commun",
-    "description": "Matériel de base. Éclaire dans un rayon de 10 m ; 1 h pour une torche, 6 h pour une lanterne avec 1 dose d’huile.",
+    "description": "Matériel de base. Éclaire dans un rayon de 10 m ; 1 h par torche.",
     "price": 1,
     "iconKey": "Baton"
-  },
-  {
-    "id": "objets-objets-parchemin-de-resurrection",
-    "category": "Objet consommable",
-    "subcategory": "Parchemin",
-    "name": "Parchemin de résurrection",
-    "rarity": "Commun",
-    "description": "Parchemin sacré rarissime. Permet de ramener un mort récent à la vie, usage unique.",
-    "price": 200,
-    "iconKey": "scroll-unfurled"
   }
 ]

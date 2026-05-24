@@ -37,16 +37,62 @@ const RARITY_THEME_CLASS = {
   "Objet Divin": "objet-divin"
 };
 
-const CATEGORY_ORDER = ["Armes", "Armures", "Accessoires", "Potions", "Objets"];
+const CATEGORY_ORDER = {
+  "armes": 1,
+  "armure / bouclier": 2,
+  "armures": 2,
+  "accessoire": 3,
+  "accessoires": 3,
+  "objet consommable": 4,
+  "potions": 4,
+  "objet": 5,
+  "objets": 5
+};
+
+const SUBCATEGORY_ORDER = {
+  "armes": {
+    "armes d'attaque au contact": 1,
+    "armes d'attaque a distance": 2
+  },
+  "armure / bouclier": {
+    "armures et boucliers": 1
+  },
+  "armures": {
+    "armures et boucliers": 1
+  },
+  "accessoire": {},
+  "accessoires": {},
+  "objet consommable": {
+    "fiole / potion": 1,
+    "munitions": 2,
+    "ration": 3,
+    "parchemin": 4
+  },
+  "potions": {
+    "fiole / potion": 1
+  },
+  "objet": {
+    "materiel": 1
+  },
+  "objets": {
+    "materiel": 1
+  }
+};
 
 
 const DEFAULT_ICON_KEYS = {
-  Armes: "Epee",
-  Armures: "Cuir",
-  Accessoires: "ring",
-  Potions: "round-potion",
-  Objets: "swap-bag"
+  "Armes": "Epee",
+  "Armure / Bouclier": "Cuir",
+  "Armures": "Cuir",
+  "Accessoire": "ring",
+  "Accessoires": "ring",
+  "Objet consommable": "round-potion",
+  "Potions": "round-potion",
+  "Objet": "swap-bag",
+  "Objets": "swap-bag"
 };
+
+const FALLBACK_ICONS = DEFAULT_ICON_KEYS;
 
 const ICON_ALIASES = {
   "arbalete": "Arbalette",
@@ -333,14 +379,44 @@ function rarityThemeClass(rarity) {
   return RARITY_THEME_CLASS[rarity] || safeClass(rarity) || "commun";
 }
 
+function rankKey(value) {
+  return normalize(value)
+    .replace(/[’']/g, "'")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function textCompare(a = "", b = "") {
+  return String(a ?? "").localeCompare(String(b ?? ""), "fr", { sensitivity: "base" });
+}
+
 function rarityRank(rarity) {
-  const index = RARITY_ORDER.indexOf(rarity);
+  const key = rankKey(rarity);
+  const index = RARITY_ORDER.findIndex(value => rankKey(value) === key);
   return index === -1 ? RARITY_ORDER.length : index;
 }
 
 function categoryRank(category) {
-  const index = CATEGORY_ORDER.indexOf(category);
-  return index === -1 ? CATEGORY_ORDER.length : index;
+  return CATEGORY_ORDER[rankKey(category)] ?? 999;
+}
+
+function subcategoryRank(category, subcategory) {
+  const categoryKey = rankKey(category);
+  const subcategoryKey = rankKey(subcategory);
+  return SUBCATEGORY_ORDER[categoryKey]?.[subcategoryKey] ?? 999;
+}
+
+function subcategoryRankForFilter(subcategory) {
+  if (state.category !== "all") {
+    return subcategoryRank(state.category, subcategory);
+  }
+
+  const subcategoryKey = rankKey(subcategory);
+  const ranks = Object.values(SUBCATEGORY_ORDER)
+    .map(group => group[subcategoryKey])
+    .filter(Number.isFinite);
+
+  return ranks.length ? Math.min(...ranks) : 999;
 }
 
 function itemById(id) {
@@ -362,7 +438,7 @@ function subcategories() {
   const source = state.category === "all"
     ? ITEMS
     : ITEMS.filter(item => item.category === state.category);
-  return ["all", ...uniqueSorted(source.map(item => item.subcategory))];
+  return ["all", ...uniqueSorted(source.map(item => item.subcategory), subcategoryRankForFilter)];
 }
 
 function rarities() {
@@ -417,17 +493,19 @@ function filteredItems() {
   }
 
   items.sort((a, b) => {
-    if (state.sort === "price-asc") return a.price - b.price || a.name.localeCompare(b.name, "fr");
-    if (state.sort === "price-desc") return b.price - a.price || a.name.localeCompare(b.name, "fr");
-    if (state.sort === "rarity-asc") return rarityRank(a.rarity) - rarityRank(b.rarity) || a.name.localeCompare(b.name, "fr");
-    if (state.sort === "rarity-desc") return rarityRank(b.rarity) - rarityRank(a.rarity) || a.name.localeCompare(b.name, "fr");
+    if (state.sort === "price-asc") return a.price - b.price || textCompare(a.name, b.name);
+    if (state.sort === "price-desc") return b.price - a.price || textCompare(a.name, b.name);
+    if (state.sort === "rarity-asc") return rarityRank(a.rarity) - rarityRank(b.rarity) || textCompare(a.name, b.name);
+    if (state.sort === "rarity-desc") return rarityRank(b.rarity) - rarityRank(a.rarity) || textCompare(a.name, b.name);
     if (state.sort === "category-asc") {
       return categoryRank(a.category) - categoryRank(b.category)
-        || a.subcategory.localeCompare(b.subcategory, "fr")
+        || textCompare(a.category, b.category)
+        || subcategoryRank(a.category, a.subcategory) - subcategoryRank(b.category, b.subcategory)
+        || textCompare(a.subcategory, b.subcategory)
         || rarityRank(a.rarity) - rarityRank(b.rarity)
-        || a.name.localeCompare(b.name, "fr");
+        || textCompare(a.name, b.name);
     }
-    return a.name.localeCompare(b.name, "fr");
+    return textCompare(a.name, b.name);
   });
 
   return items;
