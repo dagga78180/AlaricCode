@@ -5,11 +5,10 @@
     "subcategory": "Armes de contact",
     "name": "Bâton",
     "rarity": "Commun",
-    "description": "Objet de base. Contondants. Arme à deux mains, DM temporaires possibles.",
-    "price": 1,
-    "icon": "",
-    "damage": "1d4",
-    "damageMod": "FOR"
+    "description": "Arme à deux mains simple ; dégâts temporaires possibles.",
+    "price": 0,
+    "icon": "🪵",
+    "damage": "1d4"
   },
   {
     "id": "armes-armes-de-contact-baton-ferre",
@@ -17,11 +16,10 @@
     "subcategory": "Armes de contact",
     "name": "Bâton ferré",
     "rarity": "Commun",
-    "description": "Objet de base. Contondants. Arme à deux mains.",
+    "description": "Arme à deux mains renforcée de métal.",
     "price": 2,
-    "icon": "",
-    "damage": "1d6",
-    "damageMod": "FOR"
+    "icon": "🪓",
+    "damage": "1d6"
   },
   {
     "id": "armes-armes-de-contact-dague",
@@ -29,71 +27,10 @@
     "subcategory": "Armes de contact",
     "name": "Dague",
     "rarity": "Commun",
-    "description": "Objet de base. Perforants. Arme légère; peut aussi être lancée à portée 5 m.",
+    "description": "Arme légère, aussi utilisable au lancer à 5 m.",
     "price": 3,
-    "icon": "",
-    "damage": "1d4",
-    "damageMod": "FOR"
-  },
-  {
-    "id": "armes-armes-de-contact-epee-a-deux-mains",
-    "category": "Armes",
-    "subcategory": "Armes de contact",
-    "name": "Épée à deux mains",
-    "rarity": "Commun",
-    "description": "Objet de base. Tranchants. Arme à deux mains.",
-    "price": 10,
-    "icon": "",
-    "damage": "2d6",
-    "damageMod": "FOR"
-  },
-  {
-    "id": "armes-armes-de-contact-epee-batarde",
-    "category": "Armes",
-    "subcategory": "Armes de contact",
-    "name": "Épée bâtarde",
-    "rarity": "Commun",
-    "description": "Objet de base. Tranchants. Arme à une ou deux mains.",
-    "price": 9,
-    "icon": "",
-    "damage": "1d8/1d12",
-    "damageMod": "FOR"
-  },
-  {
-    "id": "armes-armes-de-contact-epee-courte",
-    "category": "Armes",
-    "subcategory": "Armes de contact",
-    "name": "Épée courte",
-    "rarity": "Commun",
-    "description": "Objet de base. Perforants. Arme légère.",
-    "price": 5,
-    "icon": "",
-    "damage": "1d6",
-    "damageMod": "FOR"
-  },
-  {
-    "id": "armes-armes-de-contact-epee-longue",
-    "category": "Armes",
-    "subcategory": "Armes de contact",
-    "name": "Épée longue",
-    "rarity": "Commun",
-    "description": "Objet de base. Tranchants.",
-    "price": 6,
-    "icon": "",
-    "damage": "1d8",
-    "damageMod": "FOR"
-  },
-  {
-    "id": "armes-armes-de-contact-epieu",
-    "category": "Armes",
-    "subcategory": "Armes de contact",
-    "name": "Épieu",
-    "rarity": "Commun",
-    "description": "Objet de base. Perforants. Arme à une ou deux mains; peut être lancé à portée 10 m.",
-    "price": 4,
-    "icon": "",
-    "damage": "1d6/1d10",
-    "damageMod": "FOR"
+    "icon": "🗡️",
+    "damage": "1d4"
   },
   {
     "id": "armes-armes-de-contact-fleau",
@@ -101,11 +38,10 @@
     "subcategory": "Armes de contact",
     "name": "Fléau",
     "rarity": "Commun",
-    "description": "Objet de base. Contondants. Une fois par combat, permet de relancer une attaque ratée contre un adversaire utilisant une arme ou un bouclier.",
+    "description": "Arme difficile à parer ; relance une attaque ratée par combat contre arme ou bouclier.",
     "price": 5,
-    "icon": "",
-    "damage": "1d6",
-    "damageMod": "FOR"
+    "icon": "⛓️",
+    "damage": "1d6"
   },
   {
     "id": "armes-armes-de-contact-fleau-a-deux-mains",
@@ -113,11 +49,10 @@
     "subcategory": "Armes de contact",
     "name": "Fléau à deux mains",
     "rarity": "Commun",
-    "description": "Objet de base. Contondants. Arme à deux mains; une fois par combat, permet de relancer une attaque ratée contre un adversaire utilisant une arme ou un bouclier.",
+    "description": "Version lourde du fléau, arme à deux mains.",
     "price": 8,
-    "icon": "",
-    "damage": "1d10",
-    "damageMod": "FOR"
+    "icon": "⛓️",
+    "damage": "1d10"
   },
   {
     "id": "armes-armes-de-contact-gourdin",
@@ -125,11 +60,10 @@
     "subcategory": "Armes de contact",
     "name": "Gourdin",
     "rarity": "Commun",
-    "description": "Objet de base. Contondants. DM temporaires possibles.",
+    "description": "Arme improvisée ou rustique ; dégâts temporaires possibles.",
     "price": 1,
-    "icon": "",
-    "damage": "1d4",
-    "damageMod": "FOR"
+    "icon": "🪵",
+    "damage": "1d4"
   },
   {
     "id": "armes-armes-de-contact-hache",
@@ -137,11 +71,10 @@
     "subcategory": "Armes de contact",
     "name": "Hache",
     "rarity": "Commun",
-    "description": "Objet de base. Tranchants.",
+    "description": "Hache de combat à une main.",
     "price": 6,
-    "icon": "",
-    "damage": "1d8",
-    "damageMod": "FOR"
+    "icon": "🪓",
+    "damage": "1d8"
   },
   {
     "id": "armes-armes-de-contact-hache-a-deux-mains",
@@ -149,11 +82,10 @@
     "subcategory": "Armes de contact",
     "name": "Hache à deux mains",
     "rarity": "Commun",
-    "description": "Objet de base. Tranchants. Arme à deux mains.",
+    "description": "Grande hache de bataille, arme à deux mains.",
     "price": 10,
-    "icon": "",
-    "damage": "2d6",
-    "damageMod": "FOR"
+    "icon": "🪓",
+    "damage": "2d6"
   },
   {
     "id": "armes-armes-de-contact-lance",
@@ -161,11 +93,10 @@
     "subcategory": "Armes de contact",
     "name": "Lance",
     "rarity": "Commun",
-    "description": "Objet de base. Perforants. Arme à une ou deux mains; peut être lancée à portée 10 m.",
+    "description": "Arme à une ou deux mains, peut être lancée à 10 m.",
     "price": 4,
-    "icon": "",
-    "damage": "1d6/1d10",
-    "damageMod": "FOR"
+    "icon": "🔱",
+    "damage": "1d6/1d10"
   },
   {
     "id": "armes-armes-de-contact-lance-de-cavalerie",
@@ -173,11 +104,10 @@
     "subcategory": "Armes de contact",
     "name": "Lance de cavalerie",
     "rarity": "Commun",
-    "description": "Objet de base. Perforants. Arme de charge montée; dé malus au contact sans élan.",
+    "description": "Arme de charge montée, peu pratique au contact sans élan.",
     "price": 8,
-    "icon": "",
-    "damage": "2d6",
-    "damageMod": "FOR"
+    "icon": "🔱",
+    "damage": "2d6"
   },
   {
     "id": "armes-armes-de-contact-marteau",
@@ -185,11 +115,10 @@
     "subcategory": "Armes de contact",
     "name": "Marteau",
     "rarity": "Commun",
-    "description": "Objet de base. Contondants.",
+    "description": "Marteau de guerre ou outil renforcé.",
     "price": 4,
-    "icon": "",
-    "damage": "1d6",
-    "damageMod": "FOR"
+    "icon": "🔨",
+    "damage": "1d6"
   },
   {
     "id": "armes-armes-de-contact-masse",
@@ -197,11 +126,10 @@
     "subcategory": "Armes de contact",
     "name": "Masse",
     "rarity": "Commun",
-    "description": "Objet de base. Contondants.",
+    "description": "Arme contondante solide.",
     "price": 4,
-    "icon": "",
-    "damage": "1d6",
-    "damageMod": "FOR"
+    "icon": "🔨",
+    "damage": "1d6"
   },
   {
     "id": "armes-armes-de-contact-pique",
@@ -209,11 +137,10 @@
     "subcategory": "Armes de contact",
     "name": "Pique",
     "rarity": "Commun",
-    "description": "Objet de base. Perforants. Arme à deux mains, spéciale contre charge et combat depuis le second rang.",
+    "description": "Très longue lance de fantassin, efficace contre les charges.",
     "price": 5,
-    "icon": "",
-    "damage": "1d10",
-    "damageMod": "FOR"
+    "icon": "🔱",
+    "damage": "1d10"
   },
   {
     "id": "armes-armes-de-contact-rapiere",
@@ -221,11 +148,10 @@
     "subcategory": "Armes de contact",
     "name": "Rapière",
     "rarity": "Commun",
-    "description": "Objet de base. Perforants. Arme légère, critique sur 19-20.",
+    "description": "Arme légère ; critique sur 19-20.",
     "price": 6,
-    "icon": "",
-    "damage": "1d6",
-    "damageMod": "FOR"
+    "icon": "🤺",
+    "damage": "1d6"
   },
   {
     "id": "armes-armes-de-contact-stylet",
@@ -233,9 +159,9 @@
     "subcategory": "Armes de contact",
     "name": "Stylet",
     "rarity": "Commun",
-    "description": "Objet de base. Perforants. Arme légère; pas de FOR aux DM, mais 1d6+AGI DM si la cible est surprise.",
+    "description": "Arme d’assassin ; pas de FOR aux DM, mais 1d6+AGI DM contre une cible surprise.",
     "price": 1,
-    "icon": "",
+    "icon": "🗡️",
     "damage": "1d3"
   },
   {
@@ -244,11 +170,109 @@
     "subcategory": "Armes de contact",
     "name": "Vivelame",
     "rarity": "Commun",
-    "description": "Objet de base. Tranchants. Arme à deux mains, critique sur 19-20.",
+    "description": "Lame rapide à deux mains ; critique sur 19-20.",
     "price": 15,
-    "icon": "",
-    "damage": "1d10",
-    "damageMod": "FOR"
+    "icon": "⚔️",
+    "damage": "1d10"
+  },
+  {
+    "id": "armes-armes-de-contact-epieu",
+    "category": "Armes",
+    "subcategory": "Armes de contact",
+    "name": "Épieu",
+    "rarity": "Commun",
+    "description": "Arme à une ou deux mains, peut être lancée à courte portée.",
+    "price": 4,
+    "icon": "🔱",
+    "damage": "1d6/1d10"
+  },
+  {
+    "id": "armes-armes-de-contact-epee-batarde",
+    "category": "Armes",
+    "subcategory": "Armes de contact",
+    "name": "Épée bâtarde",
+    "rarity": "Commun",
+    "description": "Épée utilisable à une ou deux mains.",
+    "price": 9,
+    "icon": "⚔️",
+    "damage": "1d8/1d12"
+  },
+  {
+    "id": "armes-armes-de-contact-epee-courte",
+    "category": "Armes",
+    "subcategory": "Armes de contact",
+    "name": "Épée courte",
+    "rarity": "Commun",
+    "description": "Arme légère et maniable.",
+    "price": 5,
+    "icon": "🗡️",
+    "damage": "1d6"
+  },
+  {
+    "id": "armes-armes-de-contact-epee-longue",
+    "category": "Armes",
+    "subcategory": "Armes de contact",
+    "name": "Épée longue",
+    "rarity": "Commun",
+    "description": "Arme courante des gardes, soldats et aventuriers.",
+    "price": 6,
+    "icon": "⚔️",
+    "damage": "1d8"
+  },
+  {
+    "id": "armes-armes-de-contact-epee-a-deux-mains",
+    "category": "Armes",
+    "subcategory": "Armes de contact",
+    "name": "Épée à deux mains",
+    "rarity": "Commun",
+    "description": "Grande lame de bataille, arme à deux mains.",
+    "price": 10,
+    "icon": "⚔️",
+    "damage": "2d6"
+  },
+  {
+    "id": "armes-armes-speciales-dague-de-precision",
+    "category": "Armes",
+    "subcategory": "Armes spéciales",
+    "name": "Dague de précision",
+    "rarity": "Peu Commun",
+    "description": "Objet de qualité. Bonus : +1 en attaque avec cette arme.",
+    "price": 136,
+    "icon": "🗡️",
+    "damage": "1d4"
+  },
+  {
+    "id": "armes-armes-speciales-rapiere-affutee-de-duel",
+    "category": "Armes",
+    "subcategory": "Armes spéciales",
+    "name": "Rapière affûtée de duel",
+    "rarity": "Inhabituel",
+    "description": "Objet de qualité enchanté. Capacité : critique élargi de +1 ou +1d6 DM sur critique, selon la règle du MJ.",
+    "price": 771,
+    "icon": "🤺",
+    "damage": "1d6"
+  },
+  {
+    "id": "armes-armes-speciales-vivelame-au-xylene",
+    "category": "Armes",
+    "subcategory": "Armes spéciales",
+    "name": "Vivelame au xylène",
+    "rarity": "Rare",
+    "description": "Lame rare issue des comptoirs lointains. Capacité : +1d4 DM d’acide sur une attaque réussie.",
+    "price": 2425,
+    "icon": "⚔️",
+    "damage": "1d10"
+  },
+  {
+    "id": "armes-armes-speciales-epee-longue-de-parade",
+    "category": "Armes",
+    "subcategory": "Armes spéciales",
+    "name": "Épée longue de parade",
+    "rarity": "Inhabituel",
+    "description": "Objet de qualité enchanté. Bonus : +1 DEF tant que l’arme est tenue en main.",
+    "price": 771,
+    "icon": "⚔️",
+    "damage": "1d8"
   },
   {
     "id": "armes-armes-a-distance-arbalete-de-poing",
@@ -256,21 +280,10 @@
     "subcategory": "Armes à distance",
     "name": "Arbalète de poing",
     "rarity": "Commun",
-    "description": "Objet de base. Portée 10 m. Perforants. Action de mouvement pour recharger.",
+    "description": "Portée 10 m ; action de mouvement pour recharger.",
     "price": 8,
-    "icon": "",
+    "icon": "🏹",
     "damage": "1d6"
-  },
-  {
-    "id": "armes-armes-a-distance-arbalete-legere",
-    "category": "Armes",
-    "subcategory": "Armes à distance",
-    "name": "Arbalète légère",
-    "rarity": "Commun",
-    "description": "Objet de base. Portée 30 m. Perforants. Arme à deux mains, action de mouvement pour recharger.",
-    "price": 10,
-    "icon": "",
-    "damage": "2d4"
   },
   {
     "id": "armes-armes-a-distance-arbalete-lourde",
@@ -278,10 +291,21 @@
     "subcategory": "Armes à distance",
     "name": "Arbalète lourde",
     "rarity": "Commun",
-    "description": "Objet de base. Portée 60 m. Perforants. Arme à deux mains, action limitée pour recharger.",
+    "description": "Portée 60 m ; arme à deux mains, action limitée pour recharger.",
     "price": 15,
-    "icon": "",
+    "icon": "🏹",
     "damage": "2d6"
+  },
+  {
+    "id": "armes-armes-a-distance-arbalete-legere",
+    "category": "Armes",
+    "subcategory": "Armes à distance",
+    "name": "Arbalète légère",
+    "rarity": "Commun",
+    "description": "Portée 30 m ; arme à deux mains, action de mouvement pour recharger.",
+    "price": 10,
+    "icon": "🏹",
+    "damage": "2d4"
   },
   {
     "id": "armes-armes-a-distance-arc-court",
@@ -289,9 +313,9 @@
     "subcategory": "Armes à distance",
     "name": "Arc court",
     "rarity": "Commun",
-    "description": "Objet de base. Portée 30 m. Perforants. Arme tenue à deux mains.",
+    "description": "Portée 30 m ; arme tenue à deux mains.",
     "price": 4,
-    "icon": "",
+    "icon": "🏹",
     "damage": "1d6"
   },
   {
@@ -300,9 +324,9 @@
     "subcategory": "Armes à distance",
     "name": "Arc long",
     "rarity": "Commun",
-    "description": "Objet de base. Portée 50 m. Perforants. Arme tenue à deux mains, nécessite FOR +1 minimum.",
+    "description": "Portée 50 m ; nécessite une FOR minimale de +1.",
     "price": 8,
-    "icon": "",
+    "icon": "🏹",
     "damage": "1d8"
   },
   {
@@ -311,9 +335,9 @@
     "subcategory": "Armes à distance",
     "name": "Couteaux de lancer",
     "rarity": "Commun",
-    "description": "Objet de base. Portée 10 m. Perforants. Arme de lancer.",
+    "description": "Portée 10 m ; lot de couteaux équilibrés.",
     "price": 3,
-    "icon": "",
+    "icon": "🗡️",
     "damage": "1d4"
   },
   {
@@ -322,9 +346,9 @@
     "subcategory": "Armes à distance",
     "name": "Fronde",
     "rarity": "Commun",
-    "description": "Objet de base. Portée 20 m. Contondants.",
+    "description": "Portée 20 m ; arme simple à projectiles contondants.",
     "price": 0,
-    "icon": "",
+    "icon": "🪨",
     "damage": "1d4"
   },
   {
@@ -333,9 +357,9 @@
     "subcategory": "Armes à distance",
     "name": "Hachette",
     "rarity": "Commun",
-    "description": "Objet de base. Portée 5 m. Tranchants.",
+    "description": "Portée 5 m ; aussi utile au contact selon la situation.",
     "price": 2,
-    "icon": "",
+    "icon": "🪓",
     "damage": "1d6"
   },
   {
@@ -344,21 +368,10 @@
     "subcategory": "Armes à distance",
     "name": "Javelot",
     "rarity": "Commun",
-    "description": "Objet de base. Portée 20 m. Perforants.",
+    "description": "Portée 20 m ; projectile de chasse ou de guerre.",
     "price": 1,
-    "icon": "",
+    "icon": "🔱",
     "damage": "1d6"
-  },
-  {
-    "id": "armes-armes-a-distance-petoire",
-    "category": "Armes",
-    "subcategory": "Armes à distance",
-    "name": "Pétoire",
-    "rarity": "Commun",
-    "description": "Objet de base. Portée 20 m. Perforants. Arme à poudre soumise à l’autorisation du MJ, action limitée pour recharger.",
-    "price": 50,
-    "icon": "",
-    "damage": "1d10"
   },
   {
     "id": "armes-armes-a-distance-mousquet",
@@ -366,42 +379,53 @@
     "subcategory": "Armes à distance",
     "name": "Mousquet",
     "rarity": "Commun",
-    "description": "Objet de base. Portée 50 m. Perforants. Arme à poudre à deux mains soumise à l’autorisation du MJ, action limitée pour recharger.",
+    "description": "Portée 50 m ; arme à poudre tenue à deux mains, soumise à l’autorisation du MJ.",
     "price": 100,
-    "icon": "",
+    "icon": "🔫",
     "damage": "2d6"
   },
   {
-    "id": "armures-armures-legeres-tissus-matelasses",
-    "category": "Armures",
-    "subcategory": "Armures légères",
-    "name": "Tissus matelassés",
+    "id": "armes-armes-a-distance-petoire",
+    "category": "Armes",
+    "subcategory": "Armes à distance",
+    "name": "Pétoire",
     "rarity": "Commun",
-    "description": "Objet de base. AGI max +7.",
-    "price": 2,
-    "icon": "",
-    "armorMod": "+1"
+    "description": "Portée 20 m ; arme à poudre soumise à l’autorisation du MJ.",
+    "price": 50,
+    "icon": "🔫",
+    "damage": "1d10"
   },
   {
-    "id": "armures-armures-legeres-cuir-simple",
-    "category": "Armures",
-    "subcategory": "Armures légères",
-    "name": "Cuir simple",
-    "rarity": "Commun",
-    "description": "Objet de base. AGI max +6.",
-    "price": 4,
-    "icon": "",
-    "armorMod": "+2"
+    "id": "armes-armes-a-distance-speciales-arc-long-des-caravanes",
+    "category": "Armes",
+    "subcategory": "Armes à distance spéciales",
+    "name": "Arc long des caravanes",
+    "rarity": "Inhabituel",
+    "description": "Objet de qualité enchanté. Bonus : +1 en attaque avec cet arc ; corde traitée contre l’humidité saline de Guilde.",
+    "price": 828,
+    "icon": "🏹",
+    "damage": "1d8"
   },
   {
-    "id": "armures-armures-legeres-cuir-renforce",
+    "id": "armes-armes-a-distance-speciales-javelot-fidele",
+    "category": "Armes",
+    "subcategory": "Armes à distance spéciales",
+    "name": "Javelot fidèle",
+    "rarity": "Inhabituel",
+    "description": "Arme enchantée. Capacité : revient dans la main du lanceur à la fin de son tour.",
+    "price": 484,
+    "icon": "🔱",
+    "damage": "1d6"
+  },
+  {
+    "id": "armures-armures-intermediaires-armure-de-cuir-renforce",
     "category": "Armures",
-    "subcategory": "Armures légères",
-    "name": "Cuir renforcé",
+    "subcategory": "Armures intermédiaires",
+    "name": "Armure de cuir renforcé",
     "rarity": "Commun",
-    "description": "Objet de base. AGI max +5.",
+    "description": "Cuir renforcé ou broigne ; AGI max +5.",
     "price": 8,
-    "icon": "",
+    "icon": "🥋",
     "armorMod": "+3"
   },
   {
@@ -410,21 +434,10 @@
     "subcategory": "Armures intermédiaires",
     "name": "Chemise de mailles",
     "rarity": "Commun",
-    "description": "Objet de base. AGI max +4.",
+    "description": "Protection de mailles ; AGI max +4.",
     "price": 15,
-    "icon": "",
+    "icon": "🛡️",
     "armorMod": "+4"
-  },
-  {
-    "id": "armures-armures-intermediaires-cotte-de-mailles",
-    "category": "Armures",
-    "subcategory": "Armures intermédiaires",
-    "name": "Cotte de mailles",
-    "rarity": "Commun",
-    "description": "Objet de base. AGI max +3.",
-    "price": 25,
-    "icon": "",
-    "armorMod": "+5"
   },
   {
     "id": "armures-armures-lourdes-armure-de-plaques",
@@ -432,10 +445,21 @@
     "subcategory": "Armures lourdes",
     "name": "Armure de plaques",
     "rarity": "Commun",
-    "description": "Objet de base. AGI max +2.",
+    "description": "Armure métallique ; AGI max +2.",
     "price": 60,
-    "icon": "",
+    "icon": "🛡️",
     "armorMod": "+6"
+  },
+  {
+    "id": "armures-armures-lourdes-cotte-de-mailles",
+    "category": "Armures",
+    "subcategory": "Armures lourdes",
+    "name": "Cotte de mailles",
+    "rarity": "Commun",
+    "description": "Mailles complètes ; AGI max +3.",
+    "price": 25,
+    "icon": "🛡️",
+    "armorMod": "+5"
   },
   {
     "id": "armures-armures-lourdes-plaque-complete",
@@ -443,21 +467,65 @@
     "subcategory": "Armures lourdes",
     "name": "Plaque complète",
     "rarity": "Commun",
-    "description": "Objet de base. AGI max +1. Armure fabriquée sur mesure.",
+    "description": "Armure sur mesure ; AGI max +1, généralement réservée aux chevaliers.",
     "price": 200,
-    "icon": "",
+    "icon": "🛡️",
     "armorMod": "+7"
   },
   {
-    "id": "armures-boucliers-petit-bouclier",
+    "id": "armures-armures-legeres-armure-de-cuir",
     "category": "Armures",
-    "subcategory": "Boucliers",
-    "name": "Petit bouclier",
+    "subcategory": "Armures légères",
+    "name": "Armure de cuir",
     "rarity": "Commun",
-    "description": "Objet de base. Bouclier léger.",
+    "description": "Cuir simple ; AGI max +6.",
+    "price": 4,
+    "icon": "🥋",
+    "armorMod": "+2"
+  },
+  {
+    "id": "armures-armures-legeres-tissus-matelasses",
+    "category": "Armures",
+    "subcategory": "Armures légères",
+    "name": "Tissus matelassés",
+    "rarity": "Commun",
+    "description": "Armure textile ou fourrures épaisses ; AGI max +7.",
     "price": 2,
-    "icon": "",
+    "icon": "🧥",
     "armorMod": "+1"
+  },
+  {
+    "id": "armures-armures-magiques-armure-de-cuir-de-salamandre",
+    "category": "Armures",
+    "subcategory": "Armures magiques",
+    "name": "Armure de cuir de salamandre",
+    "rarity": "Inhabituel",
+    "description": "Cuir travaillé et enchanté. Capacité : RD 2 contre les DM de feu.",
+    "price": 714,
+    "icon": "🥋",
+    "armorMod": "+2"
+  },
+  {
+    "id": "armures-armures-magiques-armure-de-cuir-renforce-d-ombre",
+    "category": "Armures",
+    "subcategory": "Armures magiques",
+    "name": "Armure de cuir renforcé d’ombre",
+    "rarity": "Inhabituel",
+    "description": "Objet de qualité enchanté. Bonus : +3 aux tests de discrétion.",
+    "price": 828,
+    "icon": "🥋",
+    "armorMod": "+3"
+  },
+  {
+    "id": "armures-armures-magiques-chemise-de-mailles-mobile",
+    "category": "Armures",
+    "subcategory": "Armures magiques",
+    "name": "Chemise de mailles mobile",
+    "rarity": "Rare",
+    "description": "Armure enchantée. Capacité : le malus d’armure est réduit de 4.",
+    "price": 2425,
+    "icon": "🛡️",
+    "armorMod": "+4"
   },
   {
     "id": "armures-boucliers-grand-bouclier",
@@ -465,210 +533,163 @@
     "subcategory": "Boucliers",
     "name": "Grand bouclier",
     "rarity": "Commun",
-    "description": "Objet de base. Large bouclier de guerre.",
+    "description": "Bouclier de bataille imposant.",
     "price": 4,
-    "icon": "",
+    "icon": "🛡️",
     "armorMod": "+2"
   },
   {
-    "id": "objets-materiel-d-aventurier-briquet-a-silex",
-    "category": "Objets",
-    "subcategory": "Matériel d’aventurier",
-    "name": "Briquet à silex",
+    "id": "armures-boucliers-petit-bouclier",
+    "category": "Armures",
+    "subcategory": "Boucliers",
+    "name": "Petit bouclier",
     "rarity": "Commun",
-    "description": "Objet de base. Permet d’allumer un feu avec de l’amadou sec.",
-    "price": 1,
-    "icon": ""
-  },
-  {
-    "id": "objets-munitions-carquois-de-20-fleches",
-    "category": "Objets",
-    "subcategory": "Munitions",
-    "name": "Carquois de 20 flèches",
-    "rarity": "Commun",
-    "description": "Objet de base. Carquois contenant vingt flèches ordinaires.",
-    "price": 3,
-    "icon": ""
-  },
-  {
-    "id": "objets-materiel-d-aventurier-corde-15-m",
-    "category": "Objets",
-    "subcategory": "Matériel d’aventurier",
-    "name": "Corde 15 m",
-    "rarity": "Commun",
-    "description": "Objet de base. Corde solide pour escalade, descente ou arrimage.",
+    "description": "Bouclier léger et maniable.",
     "price": 2,
-    "icon": ""
+    "icon": "🛡️",
+    "armorMod": "+1"
   },
   {
-    "id": "objets-materiel-d-aventurier-couverture",
-    "category": "Objets",
-    "subcategory": "Matériel d’aventurier",
-    "name": "Couverture",
-    "rarity": "Commun",
-    "description": "Objet de base. Couverture de voyage en laine ou toile épaisse.",
-    "price": 1,
-    "icon": ""
+    "id": "armures-boucliers-magiques-grand-bouclier-de-protection",
+    "category": "Armures",
+    "subcategory": "Boucliers magiques",
+    "name": "Grand bouclier de protection",
+    "rarity": "Rare",
+    "description": "Bouclier enchanté. Capacité : divise par deux les DM des coups critiques et attaques sournoises.",
+    "price": 1930,
+    "icon": "🛡️",
+    "armorMod": "+2"
   },
   {
-    "id": "objets-materiel-d-aventurier-grappin",
-    "category": "Objets",
-    "subcategory": "Matériel d’aventurier",
-    "name": "Grappin",
-    "rarity": "Commun",
-    "description": "Objet de base. Crochet métallique utilisé avec une corde.",
-    "price": 2,
-    "icon": ""
+    "id": "armures-boucliers-magiques-petit-bouclier-de-garde",
+    "category": "Armures",
+    "subcategory": "Boucliers magiques",
+    "name": "Petit bouclier de garde",
+    "rarity": "Peu Commun",
+    "description": "Objet de qualité. Bouclier équilibré pour escortes et gardes de caravane.",
+    "price": 224,
+    "icon": "🛡️",
+    "armorMod": "+1"
   },
   {
-    "id": "objets-eclairage-lanterne-a-huile",
-    "category": "Objets",
-    "subcategory": "Éclairage",
-    "name": "Lanterne à huile",
-    "rarity": "Commun",
-    "description": "Objet de base. Éclaire dans un rayon de 10 m pendant 6 h avec une dose d’huile.",
-    "price": 3,
-    "icon": ""
+    "id": "accessoires-anneaux-anneau-de-discretion",
+    "category": "Accessoires",
+    "subcategory": "Anneaux",
+    "name": "Anneau de discrétion",
+    "rarity": "Peu Commun",
+    "description": "Anneau enchanté. Bonus : +2 aux tests de discrétion.",
+    "price": 650,
+    "icon": "💍"
   },
   {
-    "id": "objets-materiel-d-aventurier-materiel-d-ecriture",
-    "category": "Objets",
-    "subcategory": "Matériel d’aventurier",
-    "name": "Matériel d’écriture",
-    "rarity": "Commun",
-    "description": "Objet de base. Encre, plume, cire ou petit nécessaire de scribe.",
-    "price": 5,
-    "icon": ""
+    "id": "accessoires-capes-cape-d-ombre-feutree",
+    "category": "Accessoires",
+    "subcategory": "Capes",
+    "name": "Cape d’ombre feutrée",
+    "rarity": "Peu Commun",
+    "description": "Cape enchantée. Bonus : +2 aux tests de discrétion.",
+    "price": 475,
+    "icon": "🧥"
   },
   {
-    "id": "objets-eclairage-huile-pour-lanterne",
-    "category": "Objets",
-    "subcategory": "Éclairage",
-    "name": "Huile pour lanterne",
-    "rarity": "Commun",
-    "description": "Objet de base. Dose d’huile pour alimenter une lanterne.",
-    "price": 1,
-    "icon": ""
+    "id": "accessoires-capes-manteau-de-braises-eteintes",
+    "category": "Accessoires",
+    "subcategory": "Capes",
+    "name": "Manteau de braises éteintes",
+    "rarity": "Rare",
+    "description": "Manteau rare de protection. Capacité : RD 4 contre les DM de feu.",
+    "price": 3110,
+    "icon": "🧥"
   },
   {
-    "id": "objets-eclairage-torches-x3",
-    "category": "Objets",
-    "subcategory": "Éclairage",
-    "name": "Torches x3",
-    "rarity": "Commun",
-    "description": "Objet de base. Trois torches, chacune éclaire dans un rayon de 10 m pendant 1 h.",
-    "price": 1,
-    "icon": ""
+    "id": "accessoires-ceintures-ceinture-du-felin",
+    "category": "Accessoires",
+    "subcategory": "Ceintures",
+    "name": "Ceinture du félin",
+    "rarity": "Peu Commun",
+    "description": "Ceinture souple enchantée. Bonus : +1 AGI.",
+    "price": 562,
+    "icon": "🧵"
   },
   {
-    "id": "objets-outils-outils-de-crochetage",
-    "category": "Objets",
-    "subcategory": "Outils",
-    "name": "Outils de crochetage",
-    "rarity": "Commun",
-    "description": "Objet de base. Nécessaires pour éviter une pénalité de -10 aux tests d’AGI pour crocheter.",
-    "price": 5,
-    "icon": ""
+    "id": "accessoires-diademes-couronne-d-assurance",
+    "category": "Accessoires",
+    "subcategory": "Diadèmes",
+    "name": "Couronne d’assurance",
+    "rarity": "Peu Commun",
+    "description": "Diadème discret de négociateur. Bonus : +1 CHA.",
+    "price": 738,
+    "icon": "👑"
   },
   {
-    "id": "objets-vivres-ration-1-semaine",
-    "category": "Objets",
-    "subcategory": "Vivres",
-    "name": "Ration 1 semaine",
-    "rarity": "Commun",
-    "description": "Objet de base. Vivres secs pour une semaine de voyage.",
-    "price": 4,
-    "icon": ""
+    "id": "accessoires-gants-gants-de-parade",
+    "category": "Accessoires",
+    "subcategory": "Gants",
+    "name": "Gants de parade",
+    "rarity": "Inhabituel",
+    "description": "Gants renforcés de fines plaques. Bonus : +1 DEF lorsque le porteur peut se défendre activement.",
+    "price": 1185,
+    "icon": "🧤"
   },
   {
-    "id": "objets-contenants-sac-a-dos",
-    "category": "Objets",
-    "subcategory": "Contenants",
-    "name": "Sac à dos",
-    "rarity": "Commun",
-    "description": "Objet de base. Sac de voyage simple pour transporter l’équipement.",
-    "price": 1,
-    "icon": ""
+    "id": "potions-grenades-grenade-de-feu-gregeois",
+    "category": "Potions",
+    "subcategory": "Grenades",
+    "name": "Grenade de feu grégeois",
+    "rarity": "Inhabituel",
+    "description": "Consommable. Explosion alchimique ; inflige 2d4 DM de feu dans une petite zone, selon l’arbitrage du MJ.",
+    "price": 555,
+    "icon": "💣"
   },
   {
-    "id": "objets-montures-mule-ou-ane",
-    "category": "Objets",
-    "subcategory": "Montures",
-    "name": "Mule ou âne",
-    "rarity": "Commun",
-    "description": "Objet de base. Monture ou bête de somme rustique.",
-    "price": 25,
-    "icon": ""
+    "id": "potions-grenades-grenade-fumigene",
+    "category": "Potions",
+    "subcategory": "Grenades",
+    "name": "Grenade fumigène",
+    "rarity": "Peu Commun",
+    "description": "Consommable. Crée un écran de fumée dense pendant 1d6 rounds.",
+    "price": 120,
+    "icon": "💣"
   },
   {
-    "id": "objets-montures-poney",
-    "category": "Objets",
-    "subcategory": "Montures",
-    "name": "Poney",
-    "rarity": "Commun",
-    "description": "Objet de base. Petite monture adaptée aux chemins étroits.",
-    "price": 50,
-    "icon": ""
+    "id": "potions-poisons-poison-affaiblissant",
+    "category": "Potions",
+    "subcategory": "Poisons",
+    "name": "Poison affaiblissant",
+    "rarity": "Peu Commun",
+    "description": "Consommable. Poison discret ; la cible subit un dé malus à ses tests de FOR pendant une scène en cas d’échec au test de résistance.",
+    "price": 208,
+    "icon": "☠️"
   },
   {
-    "id": "objets-montures-cheval-de-selle",
-    "category": "Objets",
-    "subcategory": "Montures",
-    "name": "Cheval de selle",
+    "id": "potions-potions-de-mana-potion-de-mana-mineure",
+    "category": "Potions",
+    "subcategory": "Potions de mana",
+    "name": "Potion de mana mineure",
     "rarity": "Commun",
-    "description": "Objet de base. Monture de voyage; dé malus aux actions en selle en situation de combat.",
-    "price": 100,
-    "icon": ""
+    "description": "Consommable. Rend 1d4 + niveau du PJ points de mana au personnage qui la boit.",
+    "price": 12,
+    "icon": "🔮"
   },
   {
-    "id": "objets-montures-cheval-de-guerre",
-    "category": "Objets",
-    "subcategory": "Montures",
-    "name": "Cheval de guerre",
-    "rarity": "Commun",
-    "description": "Objet de base. Monture entraînée pour supporter le stress du combat.",
-    "price": 300,
-    "icon": ""
+    "id": "potions-potions-de-mana-potion-de-mana-simple",
+    "category": "Potions",
+    "subcategory": "Potions de mana",
+    "name": "Potion de mana simple",
+    "rarity": "Peu Commun",
+    "description": "Consommable. Rend 2d4 + niveau du PJ points de mana au personnage qui la boit.",
+    "price": 142,
+    "icon": "🔮"
   },
   {
-    "id": "objets-vehicules-carriole",
-    "category": "Objets",
-    "subcategory": "Véhicules",
-    "name": "Carriole",
-    "rarity": "Commun",
-    "description": "Objet de base. Petit véhicule à roues pour le transport léger.",
-    "price": 50,
-    "icon": ""
-  },
-  {
-    "id": "objets-vehicules-chariot",
-    "category": "Objets",
-    "subcategory": "Véhicules",
-    "name": "Chariot",
-    "rarity": "Commun",
-    "description": "Objet de base. Véhicule robuste pour le transport de matériel ou de marchandises.",
-    "price": 90,
-    "icon": ""
-  },
-  {
-    "id": "objets-equipement-de-monture-caparacon-de-mailles",
-    "category": "Objets",
-    "subcategory": "Équipement de monture",
-    "name": "Caparaçon de mailles",
-    "rarity": "Commun",
-    "description": "Objet de base. Protection de cheval de guerre; bonus DEF +2, malus d’Init égal au bonus de DEF.",
-    "price": 100,
-    "icon": ""
-  },
-  {
-    "id": "objets-equipement-de-monture-barde-de-plaques",
-    "category": "Objets",
-    "subcategory": "Équipement de monture",
-    "name": "Barde de plaques",
-    "rarity": "Commun",
-    "description": "Objet de base. Protection de cheval de guerre; bonus DEF +4, malus d’Init égal au bonus de DEF.",
-    "price": 300,
-    "icon": ""
+    "id": "potions-potions-de-resistance-potion-de-resistance-au-feu",
+    "category": "Potions",
+    "subcategory": "Potions de résistance",
+    "name": "Potion de résistance au feu",
+    "rarity": "Peu Commun",
+    "description": "Consommable. Bonus : RD 2 contre les DM de feu pendant une scène.",
+    "price": 175,
+    "icon": "🧪"
   },
   {
     "id": "potions-potions-de-soins-potion-de-soins",
@@ -676,180 +697,179 @@
     "subcategory": "Potions de soins",
     "name": "Potion de Soins",
     "rarity": "Commun",
-    "description": "Objet de base. Rend 1d4° PV. Un personnage ne peut bénéficier que d’une potion de soins par récupération rapide.",
+    "description": "Remède de soin courant ; rend 1d4° PV. Un personnage ne profite pas de plus d’une potion de soins par récupération rapide.",
     "price": 10,
-    "icon": ""
+    "icon": "🧪"
   },
   {
-    "id": "armes-armes-de-contact-dague-en-vif-argent-stabilise",
-    "category": "Armes",
-    "subcategory": "Armes de contact",
-    "name": "Dague en vif-argent stabilisé",
-    "rarity": "Peu Commun",
-    "description": "Objet enchanté. Qualité d’ouvrage 0, puissance magique 1. Bonus : +1 attaque, +1d6 DM contre les aberrations. Métal aux reflets liquides, dont les lignes semblent bouger quand on le fixe.",
-    "price": 152,
-    "icon": "",
-    "damage": "1d4",
-    "damageMod": "FOR"
-  },
-  {
-    "id": "armes-armes-de-contact-hache-en-alliage-inconnu",
-    "category": "Armes",
-    "subcategory": "Armes de contact",
-    "name": "Hache en alliage inconnu",
-    "rarity": "Peu Commun",
-    "description": "Objet enchanté. Qualité d’ouvrage 0, puissance magique 1. Bonus : +1 attaque, +1d6 DM contre les inconnues. Métal étrange, impossible à identifier, souvent trouvé dans des ruines anciennes.",
-    "price": 305,
-    "icon": "",
-    "damage": "1d8",
-    "damageMod": "FOR"
-  },
-  {
-    "id": "armes-armes-de-contact-marteau-de-precision",
-    "category": "Armes",
-    "subcategory": "Armes de contact",
-    "name": "Marteau de précision",
-    "rarity": "Peu Commun",
-    "description": "Objet enchanté. Qualité d’ouvrage 0, puissance magique 1. Bonus : +1 en attaque avec cette arme. Arme très bien équilibrée, poignée ajustée, ligne de frappe nette.",
-    "price": 270,
-    "icon": "",
-    "damage": "1d6",
-    "damageMod": "FOR"
-  },
-  {
-    "id": "armes-armes-a-distance-arc-court-a-tir-sur",
-    "category": "Armes",
-    "subcategory": "Armes à distance",
-    "name": "Arc court à tir sûr",
-    "rarity": "Inhabituel",
-    "description": "Objet enchanté. Qualité d’ouvrage 0, puissance magique 2. Bonus : Ignore les malus d'obstacle. L’arme est précise et prévisible ; le tireur sent instinctivement la fenêtre de tir.",
-    "price": 586,
-    "icon": "",
-    "damage": "1d6"
-  },
-  {
-    "id": "armures-armures-legeres-cuir-renforce-traite-a-la-resine",
-    "category": "Armures",
-    "subcategory": "Armures légères",
-    "name": "Cuir renforcé traité à la résine",
-    "rarity": "Peu Commun",
-    "description": "Objet enchanté. Qualité d’ouvrage 0, puissance magique 1. Bonus : RD 2 contre les DM d'acide. Le tannage à la résine protège le cuir de la corrosion.",
-    "price": 340,
-    "icon": "",
-    "armorMod": "+3"
-  },
-  {
-    "id": "armures-armures-legeres-cuir-simple-sombre-assoupli",
-    "category": "Armures",
-    "subcategory": "Armures légères",
-    "name": "Cuir simple sombre assoupli",
-    "rarity": "Peu Commun",
-    "description": "Objet enchanté. Qualité d’ouvrage 0, puissance magique 1. Bonus : +3 aux tests de discrétion. Le cuir traité grince peu et reste discret en mouvement.",
-    "price": 270,
-    "icon": "",
-    "armorMod": "+2"
-  },
-  {
-    "id": "armures-boucliers-grand-bouclier-verni-anticorrosion",
-    "category": "Armures",
-    "subcategory": "Boucliers",
-    "name": "Grand bouclier verni anticorrosion",
-    "rarity": "Peu Commun",
-    "description": "Objet enchanté. Qualité d’ouvrage 0, puissance magique 1. Bonus : RD 2 contre les DM d'acide. Un vernis alchimique protège le métal des attaques acides.",
-    "price": 270,
-    "icon": "",
-    "armorMod": "+2"
-  },
-  {
-    "id": "armures-armures-intermediaires-cotte-de-mailles-silencieuses",
-    "category": "Armures",
-    "subcategory": "Armures intermédiaires",
-    "name": "Cotte de mailles silencieuses",
-    "rarity": "Peu Commun",
-    "description": "Objet enchanté. Qualité d’ouvrage 0, puissance magique 1. Bonus : +3 aux tests de discrétion. Les anneaux sont gainés pour limiter les tintements.",
-    "price": 688,
-    "icon": "",
-    "armorMod": "+5"
-  },
-  {
-    "id": "accessoires-gants-gants-du-grimpeur",
-    "category": "Accessoires",
-    "subcategory": "Gants",
-    "name": "Gants du grimpeur",
-    "rarity": "Peu Commun",
-    "description": "Objet enchanté. Qualité d’ouvrage 0, puissance magique 1. Bonus : +2 aux tests de Athlétisme. La paume accroche mieux la pierre, le bois et les prises difficiles.",
-    "price": 388,
-    "icon": ""
-  },
-  {
-    "id": "accessoires-dos-cape-du-pisteur",
-    "category": "Accessoires",
-    "subcategory": "Dos",
-    "name": "Cape du pisteur",
-    "rarity": "Peu Commun",
-    "description": "Objet enchanté. Qualité d’ouvrage 0, puissance magique 1. Bonus : +2 aux tests de Survie. La coupe protège du vent, de la pluie et conserve les petits outils utiles.",
-    "price": 475,
-    "icon": ""
-  },
-  {
-    "id": "potions-potions-de-soins-potion-de-soins-mineure",
+    "id": "potions-potions-de-soins-potion-de-soins-renforcee",
     "category": "Potions",
     "subcategory": "Potions de soins",
-    "name": "Potion de soins mineure",
-    "rarity": "Peu Commun",
-    "description": "Objet à usage unique. Qualité 1. Effet : Rend 1d4 + NivPJ PV au personnage qui la boit. Liquide rouge ou doré, préparé avec des herbes cicatrisantes et une trace de magie vitale.",
-    "price": 235,
-    "icon": ""
-  },
-  {
-    "id": "potions-potions-de-mana-potion-de-mana-mineure",
-    "category": "Potions",
-    "subcategory": "Potions de mana",
-    "name": "Potion de mana mineure",
-    "rarity": "Peu Commun",
-    "description": "Objet à usage unique. Qualité 1. Effet : Rend 1d4 + NivPJ points de mana au personnage qui la boit. Fluide bleuté ou violet, stabilisé dans une fiole gravée pour éviter la dispersion du mana.",
-    "price": 235,
-    "icon": ""
-  },
-  {
-    "id": "potions-potions-de-resistance-potion-de-resistance-acide",
-    "category": "Potions",
-    "subcategory": "Potions de résistance",
-    "name": "Potion de résistance acide",
-    "rarity": "Rare",
-    "description": "Objet à usage unique. Qualité 3. Effet : Confère RD +5 contre les DM d’acide pendant 1 combat. Élixir chargé de résine anticorrosion et vernis alchimique, laissant un reflet protecteur sur la peau du buveur.",
-    "price": 785,
-    "icon": ""
-  },
-  {
-    "id": "potions-grenades-grenade-acide",
-    "category": "Potions",
-    "subcategory": "Grenades",
-    "name": "Grenade acide",
+    "name": "Potion de soins renforcée",
     "rarity": "Inhabituel",
-    "description": "Objet à usage unique. Qualité 2. Effet : Inflige 2d4 DM d’acide dans une zone de 3 m de diamètre. Sphère fragile remplie de bile corrosive stabilisée, pensée pour éclater à l’impact ou après amorçage.",
-    "price": 690,
-    "icon": ""
+    "description": "Consommable. Rend 3d4 + niveau du PJ PV au personnage qui la boit.",
+    "price": 345,
+    "icon": "🧪"
   },
   {
-    "id": "potions-grenades-grenade-sonique",
+    "id": "potions-potions-de-soins-potion-de-soins-simple",
     "category": "Potions",
-    "subcategory": "Grenades",
-    "name": "Grenade sonique",
-    "rarity": "Inhabituel",
-    "description": "Objet à usage unique. Qualité 2. Effet : Inflige 2d4 DM soniques dans une zone de 3 m de diamètre. Sphère fragile remplie de cristal résonant, pensée pour éclater à l’impact ou après amorçage.",
-    "price": 690,
-    "icon": ""
+    "subcategory": "Potions de soins",
+    "name": "Potion de soins simple",
+    "rarity": "Peu Commun",
+    "description": "Consommable. Rend 2d4 + niveau du PJ PV au personnage qui la boit.",
+    "price": 120,
+    "icon": "🧪"
   },
   {
-    "id": "objets-parchemins-parchemin-de-capacite-rang-1",
+    "id": "potions-potions-d-exploration-potion-de-marche-silencieuse",
+    "category": "Potions",
+    "subcategory": "Potions d’exploration",
+    "name": "Potion de marche silencieuse",
+    "rarity": "Peu Commun",
+    "description": "Consommable. Bonus : +2 aux tests de discrétion pendant 10 minutes.",
+    "price": 142,
+    "icon": "🧪"
+  },
+  {
+    "id": "objets-materiel-d-aventurier-briquet-a-silex",
     "category": "Objets",
-    "subcategory": "Parchemins",
-    "name": "Parchemin de capacité rang 1",
-    "rarity": "Peu Commun",
-    "description": "Objet à usage unique. Qualité 1. Effet : Permet d’utiliser une capacité de classe de rang 1 une fois, puis le parchemin est détruit. Le texte magique se consume après lecture, libérant une technique ou un savoir scellé.",
-    "price": 260,
-    "icon": ""
+    "subcategory": "Matériel d’aventurier",
+    "name": "Briquet à silex",
+    "rarity": "Commun",
+    "description": "Permet d’allumer feu, torches et lanternes.",
+    "price": 1,
+    "icon": "🔥"
+  },
+  {
+    "id": "objets-materiel-d-aventurier-corde-15-m",
+    "category": "Objets",
+    "subcategory": "Matériel d’aventurier",
+    "name": "Corde 15 m",
+    "rarity": "Commun",
+    "description": "Corde solide de voyage ou d’escalade.",
+    "price": 2,
+    "icon": "🪢"
+  },
+  {
+    "id": "objets-materiel-d-aventurier-couverture",
+    "category": "Objets",
+    "subcategory": "Matériel d’aventurier",
+    "name": "Couverture",
+    "rarity": "Commun",
+    "description": "Couverture de campement.",
+    "price": 1,
+    "icon": "🧣"
+  },
+  {
+    "id": "objets-materiel-d-aventurier-grappin",
+    "category": "Objets",
+    "subcategory": "Matériel d’aventurier",
+    "name": "Grappin",
+    "rarity": "Commun",
+    "description": "Grappin de lancer pour escalade.",
+    "price": 2,
+    "icon": "⚓"
+  },
+  {
+    "id": "objets-materiel-d-aventurier-huile-pour-lanterne",
+    "category": "Objets",
+    "subcategory": "Matériel d’aventurier",
+    "name": "Huile pour lanterne",
+    "rarity": "Commun",
+    "description": "Une dose d’huile pour lanterne.",
+    "price": 1,
+    "icon": "🛢️"
+  },
+  {
+    "id": "objets-materiel-d-aventurier-lanterne-a-huile",
+    "category": "Objets",
+    "subcategory": "Matériel d’aventurier",
+    "name": "Lanterne à huile",
+    "rarity": "Commun",
+    "description": "Éclaire dans un rayon de 10 m pendant 6 h avec une dose d’huile.",
+    "price": 3,
+    "icon": "🏮"
+  },
+  {
+    "id": "objets-materiel-d-aventurier-materiel-d-ecriture",
+    "category": "Objets",
+    "subcategory": "Matériel d’aventurier",
+    "name": "Matériel d’écriture",
+    "rarity": "Commun",
+    "description": "Plumes, encre et supports pour notes, contrats ou cartes.",
+    "price": 5,
+    "icon": "✒️"
+  },
+  {
+    "id": "objets-materiel-d-aventurier-sac-a-dos",
+    "category": "Objets",
+    "subcategory": "Matériel d’aventurier",
+    "name": "Sac à dos",
+    "rarity": "Commun",
+    "description": "Sac robuste pour l’équipement de route.",
+    "price": 1,
+    "icon": "🎒"
+  },
+  {
+    "id": "objets-materiel-d-aventurier-torches-x3",
+    "category": "Objets",
+    "subcategory": "Matériel d’aventurier",
+    "name": "Torches x3",
+    "rarity": "Commun",
+    "description": "Trois torches ; chacune éclaire 10 m pendant 1 h.",
+    "price": 1,
+    "icon": "🕯️"
+  },
+  {
+    "id": "objets-montures-cheval-de-guerre",
+    "category": "Objets",
+    "subcategory": "Montures",
+    "name": "Cheval de guerre",
+    "rarity": "Commun",
+    "description": "Monture entraînée au combat.",
+    "price": 300,
+    "icon": "🐎"
+  },
+  {
+    "id": "objets-montures-cheval-de-selle",
+    "category": "Objets",
+    "subcategory": "Montures",
+    "name": "Cheval de selle",
+    "rarity": "Commun",
+    "description": "Monture rapide mais peu fiable en combat.",
+    "price": 100,
+    "icon": "🐎"
+  },
+  {
+    "id": "objets-montures-mule-ou-ane",
+    "category": "Objets",
+    "subcategory": "Montures",
+    "name": "Mule ou âne",
+    "rarity": "Commun",
+    "description": "Monture ou animal de bât robuste.",
+    "price": 25,
+    "icon": "🐴"
+  },
+  {
+    "id": "objets-montures-poney",
+    "category": "Objets",
+    "subcategory": "Montures",
+    "name": "Poney",
+    "rarity": "Commun",
+    "description": "Petite monture adaptée aux gnomes, halfelins ou enfants.",
+    "price": 50,
+    "icon": "🐴"
+  },
+  {
+    "id": "objets-munitions-carquois-de-20-fleches",
+    "category": "Objets",
+    "subcategory": "Munitions",
+    "name": "Carquois de 20 flèches",
+    "rarity": "Commun",
+    "description": "Carquois garni pour arcs.",
+    "price": 3,
+    "icon": "🏹"
   },
   {
     "id": "objets-objets-parchemin-de-resurrection",
@@ -857,8 +877,128 @@
     "subcategory": "Objets",
     "name": "Parchemin de résurrection",
     "rarity": "Mythique",
-    "description": "Parchemin sacré extrêmement rare. Permet de rappeler une âme récemment morte selon les conditions fixées par le MJ; le parchemin est détruit après usage.",
+    "description": "Parchemin sacré rarissime. Permet de ramener un mort récent à la vie selon les conditions fixées par le MJ ; usage unique.",
     "price": 200,
-    "icon": ""
+    "icon": "📜"
+  },
+  {
+    "id": "objets-objets-exotiques-chope-en-hybberium",
+    "category": "Objets",
+    "subcategory": "Objets exotiques",
+    "name": "Chope en hybberium",
+    "rarity": "Commun",
+    "description": "Chope doublée d’hybberium qui garde la boisson glacée même sous un climat chaud.",
+    "price": 100,
+    "icon": "🍺"
+  },
+  {
+    "id": "objets-objets-exotiques-pnoulpe-en-coffret-etanche",
+    "category": "Objets",
+    "subcategory": "Objets exotiques",
+    "name": "Pnoulpe en coffret étanche",
+    "rarity": "Commun",
+    "description": "Créature conservée en léthargie ; permet de respirer sous l’eau tant qu’elle survit et reste fixée aux voies respiratoires.",
+    "price": 300,
+    "icon": "🐙"
+  },
+  {
+    "id": "objets-outils-outils-de-crochetage",
+    "category": "Objets",
+    "subcategory": "Outils",
+    "name": "Outils de crochetage",
+    "rarity": "Commun",
+    "description": "Indispensables pour crocheter sans pénalité.",
+    "price": 5,
+    "icon": "🗝️"
+  },
+  {
+    "id": "objets-parchemins-parchemin-de-protection-contre-les-elements",
+    "category": "Objets",
+    "subcategory": "Parchemins",
+    "name": "Parchemin de protection contre les éléments",
+    "rarity": "Rare",
+    "description": "Parchemin profane de rang 3. Capacité : protection contre les éléments, usage unique.",
+    "price": 1970,
+    "icon": "📜"
+  },
+  {
+    "id": "objets-parchemins-parchemin-de-respiration-aquatique",
+    "category": "Objets",
+    "subcategory": "Parchemins",
+    "name": "Parchemin de respiration aquatique",
+    "rarity": "Inhabituel",
+    "description": "Parchemin profane de rang 2. Capacité : respiration aquatique, usage unique.",
+    "price": 880,
+    "icon": "📜"
+  },
+  {
+    "id": "objets-parchemins-parchemin-de-soins-legers",
+    "category": "Objets",
+    "subcategory": "Parchemins",
+    "name": "Parchemin de soins légers",
+    "rarity": "Peu Commun",
+    "description": "Parchemin mystique de rang 1. Capacité : soins légers, usage unique.",
+    "price": 230,
+    "icon": "📜"
+  },
+  {
+    "id": "objets-parchemins-parchemin-d-invisibilite",
+    "category": "Objets",
+    "subcategory": "Parchemins",
+    "name": "Parchemin d’invisibilité",
+    "rarity": "Inhabituel",
+    "description": "Parchemin profane de rang 2. Capacité : invisibilité, usage unique.",
+    "price": 880,
+    "icon": "📜"
+  },
+  {
+    "id": "objets-vivres-ration-1-semaine",
+    "category": "Objets",
+    "subcategory": "Vivres",
+    "name": "Ration 1 semaine",
+    "rarity": "Commun",
+    "description": "Vivres secs pour une semaine de voyage.",
+    "price": 4,
+    "icon": "🍞"
+  },
+  {
+    "id": "objets-vehicules-carriole",
+    "category": "Objets",
+    "subcategory": "Véhicules",
+    "name": "Carriole",
+    "rarity": "Commun",
+    "description": "Petit véhicule de transport.",
+    "price": 50,
+    "icon": "🛞"
+  },
+  {
+    "id": "objets-vehicules-chariot",
+    "category": "Objets",
+    "subcategory": "Véhicules",
+    "name": "Chariot",
+    "rarity": "Commun",
+    "description": "Véhicule robuste pour marchandises.",
+    "price": 90,
+    "icon": "🛞"
+  },
+  {
+    "id": "objets-equipement-de-monture-barde-de-plaque",
+    "category": "Objets",
+    "subcategory": "Équipement de monture",
+    "name": "Barde de plaque",
+    "rarity": "Commun",
+    "description": "Protection lourde de cheval de guerre : bonus de DEF +4.",
+    "price": 300,
+    "icon": "🐎"
+  },
+  {
+    "id": "objets-equipement-de-monture-caparacon-de-mailles",
+    "category": "Objets",
+    "subcategory": "Équipement de monture",
+    "name": "Caparaçon de mailles",
+    "rarity": "Commun",
+    "description": "Protection de cheval de guerre : bonus de DEF +2.",
+    "price": 100,
+    "icon": "🐎"
   }
 ]
