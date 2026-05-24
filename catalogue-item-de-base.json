@@ -243,7 +243,7 @@
   },
   {
     "id": "armures-armures-et-boucliers-armure-de-plaques",
-    "category": "Armures",
+    "category": "Armure / Bouclier",
     "subcategory": "Armures et boucliers",
     "name": "Armure de plaques",
     "rarity": "Commun",
@@ -254,7 +254,7 @@
   },
   {
     "id": "armures-armures-et-boucliers-chemise-de-mailles",
-    "category": "Armures",
+    "category": "Armure / Bouclier",
     "subcategory": "Armures et boucliers",
     "name": "Chemise de mailles",
     "rarity": "Commun",
@@ -265,7 +265,7 @@
   },
   {
     "id": "armures-armures-et-boucliers-cotte-de-mailles",
-    "category": "Armures",
+    "category": "Armure / Bouclier",
     "subcategory": "Armures et boucliers",
     "name": "Cotte de mailles",
     "rarity": "Commun",
@@ -276,7 +276,7 @@
   },
   {
     "id": "armures-armures-et-boucliers-cuir-renforce-broigne",
-    "category": "Armures",
+    "category": "Armure / Bouclier",
     "subcategory": "Armures et boucliers",
     "name": "Cuir renforcé, broigne",
     "rarity": "Commun",
@@ -287,7 +287,7 @@
   },
   {
     "id": "armures-armures-et-boucliers-cuir-simple",
-    "category": "Armures",
+    "category": "Armure / Bouclier",
     "subcategory": "Armures et boucliers",
     "name": "Cuir simple",
     "rarity": "Commun",
@@ -298,7 +298,7 @@
   },
   {
     "id": "armures-armures-et-boucliers-grand-bouclier",
-    "category": "Armures",
+    "category": "Armure / Bouclier",
     "subcategory": "Armures et boucliers",
     "name": "Grand bouclier",
     "rarity": "Commun",
@@ -309,7 +309,7 @@
   },
   {
     "id": "armures-armures-et-boucliers-petit-bouclier",
-    "category": "Armures",
+    "category": "Armure / Bouclier",
     "subcategory": "Armures et boucliers",
     "name": "Petit bouclier",
     "rarity": "Commun",
@@ -320,7 +320,7 @@
   },
   {
     "id": "armures-armures-et-boucliers-plaque-complete",
-    "category": "Armures",
+    "category": "Armure / Bouclier",
     "subcategory": "Armures et boucliers",
     "name": "Plaque complète",
     "rarity": "Commun",
@@ -331,7 +331,7 @@
   },
   {
     "id": "armures-armures-et-boucliers-tissus-matelasses-fourrures",
-    "category": "Armures",
+    "category": "Armure / Bouclier",
     "subcategory": "Armures et boucliers",
     "name": "Tissus matelassés, fourrures",
     "rarity": "Commun",
