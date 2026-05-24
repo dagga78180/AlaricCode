@@ -6,7 +6,7 @@
     "name": "Bâton",
     "rarity": "Commun",
     "description": "Objet de base. Contondants. Arme à deux mains, DM temporaires possibles.",
-    "price": 0,
+    "price": 1,
     "icon": "",
     "damage": "1d4",
     "damageMod": "FOR"
