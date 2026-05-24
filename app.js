@@ -503,7 +503,9 @@ function filteredItems() {
         || subcategoryRank(a.category, a.subcategory) - subcategoryRank(b.category, b.subcategory)
         || textCompare(a.subcategory, b.subcategory)
         || rarityRank(a.rarity) - rarityRank(b.rarity)
-        || textCompare(a.name, b.name);
+        || textCompare(a.name, b.name)
+        || a.price - b.price
+        || textCompare(a.price, b.price);
     }
     return textCompare(a.name, b.name);
   });
