@@ -1,4 +1,7 @@
 let ITEMS = [];
+let ICON_MANIFEST = [];
+
+const ICONS_BASE_PATH = "assets/icons/";
 
 const RARITY_ORDER = [
   "Commun",
@@ -31,12 +34,87 @@ const RARITY_THEME_CLASS = {
 
 const CATEGORY_ORDER = ["Armes", "Armures", "Accessoires", "Potions", "Objets"];
 
-const FALLBACK_ICONS = {
-  Armes: "⚔️",
-  Armures: "🛡️",
-  Accessoires: "💍",
-  Potions: "🧪",
-  Objets: "🎒"
+
+const DEFAULT_ICON_KEYS = {
+  Armes: "Epee",
+  Armures: "Cuir",
+  Accessoires: "ring",
+  Potions: "round-potion",
+  Objets: "swap-bag"
+};
+
+const ICON_ALIASES = {
+  "arbalete": "Arbalette",
+  "arbalette": "Arbalette",
+  "arc": "Arc",
+  "fleche": "broadhead-arrow",
+  "trait": "broadhead-arrow",
+  "carreau": "broadhead-arrow",
+  "baton": "Baton",
+  "dague": "Dague",
+  "epee a 2 mains": "Epee___2_main",
+  "epee 2 mains": "Epee___2_main",
+  "epee deux mains": "Epee___2_main",
+  "epee longue": "Epee_longue",
+  "epee batarde": "Epee_Batarde",
+  "epee bâtarde": "Epee_Batarde",
+  "epee": "Epee",
+  "hache a 2 mains": "Hache___2_main",
+  "hache 2 mains": "Hache___2_main",
+  "hache deux mains": "Hache___2_main",
+  "hache": "Hache",
+  "javelot": "Javelot",
+  "lance": "Lance",
+  "marteau": "Marteau",
+  "masse a 2 mains": "Masse___2_main",
+  "masse 2 mains": "Masse___2_main",
+  "masse deux mains": "Masse___2_main",
+  "masse": "Masse",
+  "mousquet": "Mousquet",
+  "petoire": "Petoire",
+  "pétoire": "Petoire",
+  "rapiere": "Rapiere",
+  "rapière": "Rapiere",
+  "munition": "heavy-bullets",
+  "balle": "heavy-bullets",
+  "cuir": "Cuir",
+  "tissu": "Tissu",
+  "plaque": "plaque",
+  "chemise de maille": "Chemise_de_maille",
+  "maille": "Chemise_de_maille",
+  "grand bouclier": "Grand_Bouclier",
+  "petit bouclier": "Petit_Bouclier",
+  "bouclier": "Petit_Bouclier",
+  "anneau": "ring",
+  "bague": "ring",
+  "ring": "ring",
+  "collier": "emerald-necklace",
+  "amulette": "emerald-necklace",
+  "pendentif": "emerald-necklace",
+  "ceinture": "belt",
+  "belt": "belt",
+  "bottes": "boots",
+  "botte": "boots",
+  "boots": "boots",
+  "cape": "cloak",
+  "cloak": "cloak",
+  "gants": "gloves",
+  "gant": "gloves",
+  "gloves": "gloves",
+  "potion de folie": "potion-of-madness",
+  "folie": "potion-of-madness",
+  "potion de feu": "fire-bottle",
+  "feu gregeois": "fire-bottle",
+  "feu grégeois": "fire-bottle",
+  "fiole de feu": "fire-bottle",
+  "bombe": "fire-bottle",
+  "potion": "round-potion",
+  "fiole": "potion-ball",
+  "parchemin": "scroll-unfurled",
+  "scroll": "scroll-unfurled",
+  "sac": "swap-bag",
+  "besace": "swap-bag",
+  "objet": "swap-bag"
 };
 
 const state = {
@@ -67,6 +145,19 @@ const elements = {
   closeCartMobile: document.querySelector("#close-cart-mobile")
 };
 
+async function loadIconManifest() {
+  try {
+    const response = await fetch(`${ICONS_BASE_PATH}manifest.json`, { cache: "no-store" });
+    if (!response.ok) return;
+
+    const manifest = await response.json();
+    ICON_MANIFEST = Array.isArray(manifest) ? manifest : [];
+  } catch (error) {
+    console.warn("Manifest d'icônes indisponible :", error);
+    ICON_MANIFEST = [];
+  }
+}
+
 async function loadCatalogue() {
   const response = await fetch("catalogue.json", { cache: "no-store" });
   if (!response.ok) {
@@ -82,15 +173,21 @@ async function loadCatalogue() {
 }
 
 function normalizeItem(item) {
+  const category = String(item.category || "Objets");
+  const subcategory = String(item.subcategory || "Objets");
+  const name = String(item.name || "Objet sans nom");
+  const rarity = String(item.rarity || "Commun");
+  const explicitIcon = item.icon ? String(item.icon) : "";
+
   return {
     id: String(item.id || crypto.randomUUID()),
-    category: String(item.category || "Objets"),
-    subcategory: String(item.subcategory || "Objets"),
-    name: String(item.name || "Objet sans nom"),
-    rarity: String(item.rarity || "Commun"),
+    category,
+    subcategory,
+    name,
+    rarity,
     description: String(item.description || ""),
     price: Number.isFinite(Number(item.price)) ? Number(item.price) : 0,
-    icon: item.icon || FALLBACK_ICONS[item.category] || "✦",
+    icon: resolveIcon(item, { explicitIcon, category, subcategory, name, rarity }),
     damage: item.damage ? String(item.damage) : "",
     damageMod: item.damageMod ? String(item.damageMod) : "",
     armorMod: item.armorMod ? String(item.armorMod) : ""
@@ -131,6 +228,82 @@ function normalize(value) {
 
 function safeClass(value) {
   return normalize(value).replace(/\s+/g, "-").replace(/[^a-z0-9_-]/g, "");
+}
+
+function isImageIcon(iconText) {
+  return /^https?:\/\//i.test(iconText) || /\.(png|jpe?g|webp|gif|svg)$/i.test(iconText);
+}
+
+function normalizeIconKey(value) {
+  return normalize(value)
+    .replace(/[_-]+/g, " ")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim()
+    .replace(/\s+/g, " ");
+}
+
+function iconEntryMatchesRarity(entry, rarity) {
+  const target = normalize(rarity);
+  return normalize(entry.rarity_label) === target || normalize(entry.rarity_slug) === target;
+}
+
+function iconPath(entry) {
+  return entry?.png_path ? `${ICONS_BASE_PATH}${entry.png_path}` : "";
+}
+
+function resolveIcon(item, { explicitIcon, category, subcategory, name, rarity }) {
+  if (explicitIcon && isImageIcon(explicitIcon)) return explicitIcon;
+
+  const candidates = [
+    item.iconKey,
+    item.iconName,
+    explicitIcon,
+    name,
+    subcategory,
+    category
+  ].filter(Boolean);
+
+  const automaticIcon = findIconForItem(candidates, rarity, category);
+  return automaticIcon || explicitIcon || FALLBACK_ICONS[category] || "✦";
+}
+
+function findIconForItem(candidates, rarity, category) {
+  if (!ICON_MANIFEST.length) return "";
+
+  const rarityEntries = ICON_MANIFEST.filter(entry => iconEntryMatchesRarity(entry, rarity));
+  const pool = rarityEntries.length ? rarityEntries : ICON_MANIFEST;
+  const iconNames = uniqueSorted(pool.map(entry => entry.icon));
+
+  for (const candidate of candidates) {
+    const iconName = matchIconName(candidate, iconNames);
+    if (!iconName) continue;
+
+    const entry = pool.find(item => item.icon === iconName);
+    const path = iconPath(entry);
+    if (path) return path;
+  }
+
+  const fallbackKey = DEFAULT_ICON_KEYS[category] || DEFAULT_ICON_KEYS.Objets;
+  const fallbackEntry = pool.find(entry => entry.icon === fallbackKey)
+    || ICON_MANIFEST.find(entry => entry.icon === fallbackKey);
+  return iconPath(fallbackEntry);
+}
+
+function matchIconName(value, iconNames) {
+  const candidate = normalizeIconKey(value);
+  if (!candidate) return "";
+
+  const alias = Object.entries(ICON_ALIASES).find(([key]) => candidate.includes(normalizeIconKey(key)));
+  if (alias && iconNames.includes(alias[1])) return alias[1];
+
+  const rankedIconNames = [...iconNames].sort((a, b) => normalizeIconKey(b).length - normalizeIconKey(a).length);
+  const exact = rankedIconNames.find(iconName => normalizeIconKey(iconName) === candidate);
+  if (exact) return exact;
+
+  return rankedIconNames.find(iconName => {
+    const normalizedIconName = normalizeIconKey(iconName);
+    return normalizedIconName.length >= 3 && candidate.includes(normalizedIconName);
+  }) || "";
 }
 
 
@@ -241,8 +414,7 @@ function filteredItems() {
 function iconMarkup(item) {
   const icon = item.icon || FALLBACK_ICONS[item.category] || "✦";
   const iconText = String(icon);
-  const isImage = /^https?:\/\//i.test(iconText) || /\.(png|jpe?g|webp|gif|svg)$/i.test(iconText);
-  if (isImage) {
+  if (isImageIcon(iconText)) {
     return `<img src="${escapeHTML(iconText)}" alt="" loading="lazy" />`;
   }
   return `<span aria-hidden="true">${escapeHTML(iconText)}</span>`;
@@ -452,6 +624,7 @@ function bindEvents() {
 async function init() {
   bindEvents();
   try {
+    await loadIconManifest();
     await loadCatalogue();
     renderAll(true);
   } catch (error) {
