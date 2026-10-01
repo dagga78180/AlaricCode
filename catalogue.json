@@ -1,89 +1,203 @@
 [
   {
-    "id": "arc-court-de-visee-maduk",
+    "id": "lance-gardienne-alaric",
+    "category": "Armes",
+    "subcategory": "Armes d’attaque au contact",
+    "iconKey": "Lance",
+    "name": "Lance gardienne",
+    "rarity": "Peu Commun",
+    "description": "DM 1d6 perforants. +1 DEF tant que l’arme est tenue en main.",
+    "price": 180,
+    "damage": "1d6",
+    "cofSpec": {
+      "base": "B006",
+      "affixes": [
+        "A002"
+      ],
+      "name": "Lance gardienne",
+      "price": "180 pa",
+      "rarity": "Peu Commun"
+    },
+    "cofCompatible": true
+  },
+  {
+    "id": "masse-laenk-solaire-alaric",
+    "category": "Armes",
+    "subcategory": "Armes d’attaque au contact",
+    "iconKey": "Masse",
+    "name": "Masse en laënk solaire",
+    "rarity": "Peu Commun",
+    "description": "DM 1d6 contondants. Le laënk solaire éclaire dans un rayon de 10 m.",
+    "price": 240,
+    "damage": "1d6",
+    "cofSpec": {
+      "base": "B008",
+      "affixes": [
+        "A012"
+      ],
+      "name": "Masse en laënk solaire",
+      "price": "240 pa",
+      "rarity": "Peu Commun"
+    },
+    "cofCompatible": true
+  },
+  {
+    "id": "marteau-heliolite-alaric",
+    "category": "Armes",
+    "subcategory": "Armes d’attaque au contact",
+    "iconKey": "Marteau",
+    "name": "Marteau en héliolite",
+    "rarity": "Inhabituel",
+    "description": "DM 1d6 contondants +1d4 lumière. L’héliolite diffuse des reflets solaires au point d’impact.",
+    "price": 360,
+    "damage": "1d6+1d4 lumière",
+    "cofSpec": {
+      "base": "B007",
+      "affixes": [
+        "A034"
+      ],
+      "name": "Marteau en héliolite",
+      "price": "360 pa",
+      "rarity": "Inhabituel"
+    },
+    "cofCompatible": true
+  },
+  {
+    "id": "arc-long-instinct-du-pisteur-alaric",
     "category": "Armes",
     "subcategory": "Armes d’attaque à distance",
-    "name": "Arc court de visée",
-    "rarity": "Peu Commun",
-    "description": "DM 1d6 perforants. +1 en attaque à distance avec cette arme. Portée 15 m.",
-    "price": 221,
     "iconKey": "Arc",
-    "damage": "1d6",
-    "cofSpec": {
-      "base": "B017",
-      "affixes": [
-        "A083"
-      ],
-      "name": "Arc court de visée",
-      "price": "221 pa",
-      "rarity": "Peu Commun"
-    },
-    "cofCompatible": true
-  },
-  {
-    "id": "javelot-de-longue-portee-maduk",
-    "category": "Armes",
-    "subcategory": "Armes d’attaque à distance",
-    "name": "Javelot de longue portée",
+    "name": "Arc long — Instinct du Pisteur",
     "rarity": "Peu Commun",
-    "description": "DM 1d6 perforants. +1 en attaque à distance et +1 DM si la cible est à plus de 15 m. Portée 20 m.",
-    "price": 138,
-    "iconKey": "Javelot",
-    "damage": "1d6",
+    "description": "DM 1d8 perforants. Portée 30 m ; FOR minimale +1. +2 aux tests de Survie.",
+    "price": 720,
+    "damage": "1d8",
     "cofSpec": {
-      "base": "B020",
+      "base": "B018",
       "affixes": [
-        "A082"
+        "WSKD_SURVIE_2"
       ],
-      "name": "Javelot de longue portée",
-      "price": "138 pa",
+      "name": "Arc long — Instinct du Pisteur",
+      "price": "720 pa",
       "rarity": "Peu Commun"
     },
     "cofCompatible": true
   },
   {
-    "id": "epee-courte-de-precision-maduk",
+    "id": "baton-instinct-du-naturaliste-alaric",
     "category": "Armes",
     "subcategory": "Armes d’attaque au contact",
-    "name": "Épée courte de précision",
+    "iconKey": "Baton",
+    "name": "Bâton — Instinct du Naturaliste",
     "rarity": "Peu Commun",
-    "description": "DM 1d6 perforants. +1 en attaque avec cette arme. Arme légère.",
-    "price": 259,
-    "iconKey": "Epee",
-    "damage": "1d6",
-    "cofSpec": {
-      "base": "B011",
-      "affixes": [
-        "A003"
-      ],
-      "name": "Épée courte de précision",
-      "price": "259 pa",
-      "rarity": "Peu Commun"
-    },
-    "cofCompatible": true
-  },
-  {
-    "id": "dague-de-parade-maduk",
-    "category": "Armes",
-    "subcategory": "Armes d’attaque au contact",
-    "name": "Dague de parade",
-    "rarity": "Peu Commun",
-    "description": "DM 1d4 perforants. +1 DEF tant que l’arme est tenue en main. Arme légère. ⚠ Cette ancienne variante est conservée pour référence mais ne peut pas être envoyée automatiquement à Roll20.",
-    "price": 153,
-    "iconKey": "Dague",
+    "description": "DM 1d4 contondants. Arme à deux mains. +2 aux tests de Nature.",
+    "price": 48,
     "damage": "1d4",
-    "cofCompatible": false,
-    "cofError": "Ancien objet : l’affixe de parade A002 n’est plus compatible avec les dagues dans CoFItem actuel."
+    "cofSpec": {
+      "base": "B001",
+      "mode": "magique",
+      "affixes": [
+        "WSKF_NATURE_2"
+      ],
+      "name": "Bâton — Instinct du Naturaliste",
+      "price": "48 pa",
+      "rarity": "Peu Commun"
+    },
+    "cofCompatible": true
   },
   {
-    "id": "baton-ferre-canalisateur-maduk",
+    "id": "cuir-simple-mobilite-alaric",
+    "category": "Armures",
+    "subcategory": "Armures et boucliers",
+    "iconKey": "Cuir",
+    "name": "Cuir simple mobile",
+    "rarity": "Peu Commun",
+    "description": "DEF +2. Malus d’armure : +2 à la difficulté des tests de DEX ; DEX max +6. +1 Initiative et +1 m de déplacement.",
+    "price": 624,
+    "armorMod": "DEF +2",
+    "cofSpec": {
+      "base": "B027",
+      "affixes": [
+        "A161"
+      ],
+      "name": "Cuir simple mobile",
+      "price": "624 pa",
+      "rarity": "Peu Commun"
+    },
+    "cofCompatible": true
+  },
+  {
+    "id": "cuir-renforce-instinct-du-pisteur-alaric",
+    "category": "Armures",
+    "subcategory": "Armures et boucliers",
+    "iconKey": "Cuir",
+    "name": "Cuir renforcé — Instinct du Pisteur",
+    "rarity": "Peu Commun",
+    "description": "DEF +3. Malus d’armure : +3 à la difficulté des tests de DEX ; DEX max +5. +2 aux tests de Survie.",
+    "price": 1248,
+    "armorMod": "DEF +3",
+    "cofSpec": {
+      "base": "B026",
+      "affixes": [
+        "ARSK_SURVIE_2"
+      ],
+      "name": "Cuir renforcé — Instinct du Pisteur",
+      "price": "1248 pa",
+      "rarity": "Peu Commun"
+    },
+    "cofCompatible": true
+  },
+  {
+    "id": "grand-bouclier-protection-renforcee-alaric",
+    "category": "Armures",
+    "subcategory": "Armures et boucliers",
+    "iconKey": "Grand_Bouclier",
+    "name": "Grand bouclier de protection renforcée",
+    "rarity": "Peu Commun",
+    "description": "DEF +3. La protection renforcée augmente de +1 la DEF fournie par le bouclier.",
+    "price": 480,
+    "armorMod": "DEF +3",
+    "cofSpec": {
+      "base": "B028",
+      "affixes": [
+        "A134"
+      ],
+      "name": "Grand bouclier de protection renforcée",
+      "price": "480 pa",
+      "rarity": "Peu Commun"
+    },
+    "cofCompatible": true
+  },
+  {
+    "id": "chemise-de-mailles-allegement-alaric",
+    "category": "Armures",
+    "subcategory": "Armures et boucliers",
+    "iconKey": "Chemise_de_maille",
+    "name": "Chemise de mailles allégée",
+    "rarity": "Peu Commun",
+    "description": "DEF +4. Allègement : réduit de 1 le malus d’armure.",
+    "price": 2700,
+    "armorMod": "DEF +4",
+    "cofSpec": {
+      "base": "B024",
+      "affixes": [
+        "A135"
+      ],
+      "name": "Chemise de mailles allégée",
+      "price": "2700 pa",
+      "rarity": "Peu Commun"
+    },
+    "cofCompatible": true
+  },
+  {
+    "id": "baton-ferre-canalisateur-alaric",
     "category": "Armes",
     "subcategory": "Armes d’attaque au contact",
+    "iconKey": "Baton",
     "name": "Bâton ferré canalisateur",
     "rarity": "Peu Commun",
-    "description": "DM 1d6 contondants. +1 aux tests d’attaque magique. Arme à deux mains.",
-    "price": 135,
-    "iconKey": "Baton",
+    "description": "DM 1d6 contondants. Arme à deux mains. +1 aux tests d’attaque magique.",
+    "price": 120,
     "damage": "1d6",
     "cofSpec": {
       "base": "B002",
@@ -92,273 +206,48 @@
         "A050"
       ],
       "name": "Bâton ferré canalisateur",
-      "price": "135 pa",
-      "rarity": "Peu Commun"
-    },
-    "cofCompatible": true
-  },
-  {
-    "id": "cuir-simple-de-bonne-facture-maduk",
-    "category": "Armures",
-    "subcategory": "Armures et boucliers",
-    "name": "Cuir simple de bonne facture",
-    "rarity": "Peu Commun",
-    "description": "DEF +3. Malus d’armure : +2 à la difficulté des tests de DEX ; DEX max +6.",
-    "price": 248,
-    "iconKey": "Cuir",
-    "armorMod": "DEF +3",
-    "cofSpec": {
-      "base": "B027",
-      "quality": 1,
-      "name": "Cuir simple de bonne facture",
-      "price": "248 pa",
-      "rarity": "Peu Commun"
-    },
-    "cofCompatible": true
-  },
-  {
-    "id": "petit-bouclier-de-garde-maduk",
-    "category": "Armures",
-    "subcategory": "Armures et boucliers",
-    "name": "Petit bouclier de garde",
-    "rarity": "Peu Commun",
-    "description": "DEF +2. Aucun malus d’armure indiqué ; DEX max —.",
-    "price": 204,
-    "iconKey": "Petit_Bouclier",
-    "armorMod": "DEF +2",
-    "cofSpec": {
-      "base": "B029",
-      "quality": 1,
-      "name": "Petit bouclier de garde",
-      "price": "204 pa",
-      "rarity": "Peu Commun"
-    },
-    "cofCompatible": true
-  },
-  {
-    "id": "cape-de-survie-maduk",
-    "category": "Accessoire",
-    "subcategory": "Dos",
-    "name": "Cape de survie",
-    "rarity": "Peu Commun",
-    "description": "+2 aux tests de Survie. Coupe robuste contre le vent chaud et la poussière des routes du sud.",
-    "price": 449,
-    "iconKey": "cloak",
-    "cofSpec": {
-      "base": "B035",
-      "affixes": [
-        "A319"
-      ],
-      "name": "Cape de survie",
-      "price": "449 pa",
-      "rarity": "Peu Commun"
-    },
-    "cofCompatible": true
-  },
-  {
-    "id": "ceinture-a-fioles-maduk",
-    "category": "Accessoire",
-    "subcategory": "Ceinture",
-    "name": "Ceinture à fioles",
-    "rarity": "Peu Commun",
-    "description": "+1 consommable équipable. Des passants enchantés gardent une fiole prête à la main.",
-    "price": 732,
-    "iconKey": "belt",
-    "cofSpec": {
-      "base": "B033",
-      "affixes": [
-        "A290"
-      ],
-      "name": "Ceinture à fioles",
-      "price": "732 pa",
-      "rarity": "Peu Commun"
-    },
-    "cofCompatible": true
-  },
-  {
-    "id": "gants-d-athletisme-maduk",
-    "category": "Accessoire",
-    "subcategory": "Gants",
-    "name": "Gants d’athlétisme",
-    "rarity": "Peu Commun",
-    "description": "+2 aux tests d’Athlétisme. La paume accroche mieux la pierre, le bois et les prises difficiles.",
-    "price": 720,
-    "iconKey": "gloves",
-    "cofSpec": {
-      "base": "B036",
-      "affixes": [
-        "A330"
-      ],
-      "name": "Gants d’athlétisme",
-      "price": "720 pa",
-      "rarity": "Peu Commun"
-    },
-    "cofCompatible": true
-  },
-  {
-    "id": "arc-long-de-visee-superieure-maduk",
-    "category": "Armes",
-    "subcategory": "Armes d’attaque à distance",
-    "name": "Arc long de visée supérieure",
-    "rarity": "Inhabituel",
-    "description": "DM 1d8 perforants. +2 en attaque à distance avec cette arme. Portée 30 m ; FOR minimale +1.",
-    "price": 721,
-    "iconKey": "Arc",
-    "damage": "1d8",
-    "cofSpec": {
-      "base": "B018",
-      "affixes": [
-        "A100"
-      ],
-      "name": "Arc long de visée supérieure",
-      "price": "721 pa",
-      "rarity": "Inhabituel"
-    },
-    "cofCompatible": true
-  },
-  {
-    "id": "hache-en-phospharium-maduk",
-    "category": "Armes",
-    "subcategory": "Armes d’attaque au contact",
-    "name": "Hache en phospharium",
-    "rarity": "Inhabituel",
-    "description": "DM 1d8 tranchants +1d4 feu. FOR aux DM. Le métal orangé rougit au combat.",
-    "price": 710,
-    "iconKey": "Hache",
-    "damage": "1d8+1d4 feu",
-    "cofSpec": {
-      "base": "B004",
-      "affixes": [
-        "A030"
-      ],
-      "name": "Hache en phospharium",
-      "price": "710 pa",
-      "rarity": "Inhabituel"
-    },
-    "cofCompatible": true
-  },
-  {
-    "id": "broigne-mobile-maduk",
-    "category": "Armures",
-    "subcategory": "Armures et boucliers",
-    "name": "Cuir renforcé mobile",
-    "rarity": "Inhabituel",
-    "description": "DEF +4. Malus d’armure : +3 à la difficulté des tests de DEX ; DEX max +5. +1 Initiative, +1 m de déplacement.",
-    "price": 830,
-    "iconKey": "Cuir",
-    "armorMod": "DEF +4",
-    "cofSpec": {
-      "base": "B026",
-      "affixes": [
-        "A161"
-      ],
-      "name": "Cuir renforcé mobile",
-      "price": "830 pa",
-      "rarity": "Inhabituel"
-    },
-    "cofCompatible": true
-  },
-  {
-    "id": "grand-bouclier-pare-feu-maduk",
-    "category": "Armures",
-    "subcategory": "Armures et boucliers",
-    "name": "Grand bouclier pare-feu",
-    "rarity": "Inhabituel",
-    "description": "DEF +3. Aucun malus d’armure indiqué ; DEX max —. RD 2 contre les DM de feu.",
-    "price": 715,
-    "iconKey": "Grand_Bouclier",
-    "armorMod": "DEF +3",
-    "cofSpec": {
-      "base": "B028",
-      "affixes": [
-        "A134",
-        "A139"
-      ],
-      "name": "Grand bouclier pare-feu",
-      "price": "715 pa",
-      "rarity": "Inhabituel"
-    },
-    "cofCompatible": true
-  },
-  {
-    "id": "baton-ferre-de-puissance-arcanique-maduk",
-    "category": "Armes",
-    "subcategory": "Armes d’attaque au contact",
-    "name": "Bâton ferré de puissance arcanique",
-    "rarity": "Inhabituel",
-    "description": "DM 1d6 contondants. Catégorie de dés des sorts +1 : 1d4 devient 1d6. Arme à deux mains.",
-    "price": 368,
-    "iconKey": "Baton",
-    "damage": "1d6",
-    "cofSpec": {
-      "base": "B002",
-      "mode": "magique",
-      "affixes": [
-        "A062"
-      ],
-      "name": "Bâton ferré de puissance arcanique",
-      "price": "368 pa",
-      "rarity": "Inhabituel"
-    },
-    "cofCompatible": true
-  },
-  {
-    "id": "potion-de-soins-maduk",
-    "category": "Objet consommable",
-    "subcategory": "Fiole / potion",
-    "name": "Potion de soins",
-    "rarity": "Peu Commun",
-    "description": "Rend 2d4 + NivPJ PV au personnage qui la boit.",
-    "price": 120,
-    "iconKey": "round-potion",
-    "cofSpec": {
-      "base": "B045",
-      "affixes": [
-        "A399"
-      ],
-      "name": "Potion de soins",
       "price": "120 pa",
       "rarity": "Peu Commun"
     },
     "cofCompatible": true
   },
   {
-    "id": "potion-de-mana-maduk",
+    "id": "potion-de-soins-renforcee-alaric",
     "category": "Objet consommable",
     "subcategory": "Fiole / potion",
-    "name": "Potion de mana",
-    "rarity": "Peu Commun",
-    "description": "Rend 2d4 + NivPJ points de mana au personnage qui la boit.",
-    "price": 142,
-    "iconKey": "potion-ball",
+    "iconKey": "round-potion",
+    "name": "Potion de soins renforcée",
+    "rarity": "Inhabituel",
+    "description": "Rend 3d4 + NivPJ PV au personnage qui la boit.",
+    "price": 25,
     "cofSpec": {
-      "base": "B042",
+      "base": "B045",
       "affixes": [
-        "A398"
+        "A418"
       ],
-      "name": "Potion de mana",
-      "price": "142 pa",
-      "rarity": "Peu Commun"
+      "name": "Potion de soins renforcée",
+      "price": "25 pa",
+      "rarity": "Inhabituel"
     },
     "cofCompatible": true
   },
   {
-    "id": "poison-affaiblissant-maduk",
+    "id": "potion-de-mana-renforcee-alaric",
     "category": "Objet consommable",
-    "subcategory": "Fiole / dose",
-    "name": "Poison affaiblissant",
-    "rarity": "Peu Commun",
-    "description": "+1d4 DM de poison et inflige l’état affaibli. Une dose s’applique sur une arme ou un projectile.",
-    "price": 176,
-    "iconKey": "potion-of-madness",
+    "subcategory": "Fiole / potion",
+    "iconKey": "potion-ball",
+    "name": "Potion de mana renforcée",
+    "rarity": "Inhabituel",
+    "description": "Rend 3d4 + NivPJ points de mana au personnage qui la boit.",
+    "price": 30,
     "cofSpec": {
-      "base": "B039",
+      "base": "B042",
       "affixes": [
-        "A391"
+        "A405"
       ],
-      "name": "Poison affaiblissant",
-      "price": "176 pa",
-      "rarity": "Peu Commun"
+      "name": "Potion de mana renforcée",
+      "price": "30 pa",
+      "rarity": "Inhabituel"
     },
     "cofCompatible": true
   }

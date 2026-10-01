@@ -320,54 +320,6 @@
     "damage": "1d6"
   },
   {
-    "id": "cof-b021",
-    "category": "Armes",
-    "subcategory": "Armes d’attaque à distance",
-    "name": "Mousquet",
-    "rarity": "Commun",
-    "description": "Portée 50 m. Nécessite une action limitée pour être rechargée ; arme tenue à deux mains. Données catalogue : 2d6 — Aucune carac. aux DM ; type : Perforants.",
-    "price": 100.0,
-    "iconKey": "Mousquet",
-    "cofSpec": {
-      "base": "B021",
-      "price": "100 pa",
-      "rarity": "Commun"
-    },
-    "damage": "2d6"
-  },
-  {
-    "id": "cof-b022",
-    "category": "Armes",
-    "subcategory": "Armes d’attaque à distance",
-    "name": "Pétoire",
-    "rarity": "Commun",
-    "description": "Portée 20 m. Nécessite une action limitée pour être rechargée. Données catalogue : 1d10 — Aucune carac. aux DM ; type : Perforants.",
-    "price": 50.0,
-    "iconKey": "Petoire",
-    "cofSpec": {
-      "base": "B022",
-      "price": "50 pa",
-      "rarity": "Commun"
-    },
-    "damage": "1d10"
-  },
-  {
-    "id": "cof-b023",
-    "category": "Armures",
-    "subcategory": "Armures et boucliers",
-    "name": "Armure de plaques",
-    "rarity": "Commun",
-    "description": "Armure. Données catalogue : +6 — Malus d’armure : +6 à la difficulté des tests d’DEX ; DEX max +2.",
-    "price": 60.0,
-    "iconKey": "plaque",
-    "cofSpec": {
-      "base": "B023",
-      "price": "60 pa",
-      "rarity": "Commun"
-    },
-    "armorMod": "DEF +6"
-  },
-  {
     "id": "cof-b024",
     "category": "Armures",
     "subcategory": "Armures et boucliers",
@@ -462,22 +414,6 @@
       "rarity": "Commun"
     },
     "armorMod": "DEF +1"
-  },
-  {
-    "id": "cof-b030",
-    "category": "Armures",
-    "subcategory": "Armures et boucliers",
-    "name": "Plaque complète",
-    "rarity": "Commun",
-    "description": "Armure fabriquée sur mesure ; seul le chevalier peut la porter grâce à la capacité de rang 2 de la voie de la noblesse. Données catalogue : +7 — Malus d’armure : +7 à la difficulté des tests d’DEX ; DEX max +1.",
-    "price": 200.0,
-    "iconKey": "plaque",
-    "cofSpec": {
-      "base": "B030",
-      "price": "200 pa",
-      "rarity": "Commun"
-    },
-    "armorMod": "DEF +7"
   },
   {
     "id": "cof-b031",
@@ -686,9 +622,7 @@
     "iconKey": "potion-of-madness",
     "cofSpec": {
       "base": "B039",
-      "affixes": [
-        "A390"
-      ],
+      "affixes": ["A390"],
       "price": "15 pa",
       "rarity": "Commun",
       "name": "Poison mineur"
@@ -705,9 +639,7 @@
     "iconKey": "round-potion",
     "cofSpec": {
       "base": "B045",
-      "affixes": [
-        "A397"
-      ],
+      "affixes": ["A397"],
       "price": "10 pa",
       "rarity": "Commun",
       "name": "Potion de soins mineure"
@@ -724,9 +656,7 @@
     "iconKey": "potion-ball",
     "cofSpec": {
       "base": "B042",
-      "affixes": [
-        "A396"
-      ],
+      "affixes": ["A396"],
       "price": "12 pa",
       "rarity": "Commun",
       "name": "Potion de mana mineure"
