@@ -56,3 +56,22 @@ Chaque objet ressemble à ça :
 Le panier est stocké dans le navigateur du joueur avec `localStorage`. Il n'y a donc pas de serveur, pas de compte, et pas de paiement réel.
 
 Le bouton `Copier la commande` génère un texte prêt à coller dans Roll20 ou Discord.
+
+
+## Passerelle Roll20 / COAlaric 1.0 + CoFItem CLEAN 5.06.0
+
+Le panier génère désormais une commande Roll20 unique :
+
+```text
+!co-alaric panier --target @{target|PJ|character_id} --data ...
+```
+
+1. Installe `COFantasy-V1_CLEAN_5.06.0.js`, `CoFItem-V1_CLEAN_5.06.0.js` et `COAlaric-V1.0.js` dans l’API Roll20.
+2. Compose le panier sur le site.
+3. Clique **Copier pour Roll20**.
+4. Colle la commande dans le chat Roll20 en tant que MJ.
+5. Roll20 demande de cibler le PJ ; COAlaric ouvre la transaction (achat, marchandage ou vol) et CoFItem revalide les objets avant tout transfert.
+
+Le site ne contient aucune logique mécanique de combat ni d'affinité. Les IDs `Bxxx` et `Axxx` sont validés côté CoFItem. COAlaric orchestre le marchandage, le vol, l'ardoise et le paiement dans Roll20 ; une commande modifiée manuellement ne peut pas contourner la validation de compatibilité du catalogue.
+
+La **Dague de parade** historique est conservée à l’écran mais désactivée : `A002` n’est plus compatible avec `B003` dans le catalogue CoFItem actuel.

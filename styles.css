@@ -739,3 +739,6 @@ h3 {
     min-height: 360px;
   }
 }
+
+/* CoFItem bridge */
+.button:disabled { opacity: .45; cursor: not-allowed; filter: grayscale(.5); }

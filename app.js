@@ -258,7 +258,10 @@ function normalizeItem(item) {
     icon: resolveIcon(item, { explicitIcon, category, subcategory, name, rarity }),
     damage: item.damage ? String(item.damage) : "",
     damageMod: item.damageMod ? String(item.damageMod) : "",
-    armorMod: item.armorMod ? String(item.armorMod) : ""
+    armorMod: item.armorMod ? String(item.armorMod) : "",
+    cofSpec: item.cofSpec && typeof item.cofSpec === "object" ? JSON.parse(JSON.stringify(item.cofSpec)) : null,
+    cofCompatible: item.cofCompatible !== false,
+    cofError: String(item.cofError || "")
   };
 }
 
@@ -504,8 +507,6 @@ function filteredItems() {
         || textCompare(a.subcategory, b.subcategory)
         || rarityRank(a.rarity) - rarityRank(b.rarity)
         || textCompare(a.name, b.name)
-        || a.price - b.price
-        || textCompare(a.price, b.price);
     }
     return textCompare(a.name, b.name);
   });
@@ -574,7 +575,9 @@ function renderItems() {
 
         <div class="item-row__actions">
           <strong class="price">${formatPrice(item.price)}</strong>
-          <button class="button button--small" type="button" data-add="${escapeHTML(item.id)}">Ajouter</button>
+          ${item.cofCompatible && item.cofSpec
+            ? `<button class="button button--small" type="button" data-add="${escapeHTML(item.id)}">Ajouter</button>`
+            : `<button class="button button--small" type="button" disabled title="${escapeHTML(item.cofError || "Non compatible avec CoFItem actuel")}">Indisponible</button>`}
         </div>
       </article>
     `;
@@ -630,27 +633,36 @@ function renderCart() {
   elements.cartTotal.textContent = formatPrice(cartTotal());
 }
 
-function orderText() {
+function orderPayload() {
   const entries = cartEntries();
-  if (!entries.length) return "Le panier est vide.";
+  if (!entries.length) return null;
 
-  const lines = entries.map(({ item, qty }) => {
-    return `- ${item.name} (${item.rarity}, ${item.category}) x${qty} = ${formatPrice(item.price * qty)}`;
-  });
+  return {
+    version: 2,
+    source: "AlaricCode-COAlaric",
+    items: entries.map(({ item, qty }) => ({
+      ...JSON.parse(JSON.stringify(item.cofSpec)),
+      qty
+    }))
+  };
+}
 
-  return [
-    "Commande chez Alaric :",
-    ...lines,
-    "",
-    `Total : ${formatPrice(cartTotal())}`
-  ].join("\n");
+function orderCommand() {
+  const payload = orderPayload();
+  if (!payload) return "";
+  const encoded = encodeURIComponent(JSON.stringify(payload));
+  return `!co-alaric panier --target @{target|PJ|character_id} --data ${encoded}`;
 }
 
 async function copyOrder() {
-  const text = orderText();
+  const text = orderCommand();
+  if (!text) {
+    showToast("Le panier est vide.");
+    return;
+  }
   try {
     await navigator.clipboard.writeText(text);
-    showToast("Commande copiée.");
+    showToast("Commande COAlaric copiée.");
   } catch {
     const textarea = document.createElement("textarea");
     textarea.value = text;
@@ -658,7 +670,7 @@ async function copyOrder() {
     textarea.select();
     document.execCommand("copy");
     textarea.remove();
-    showToast("Commande copiée.");
+    showToast("Commande COAlaric copiée.");
   }
 }
 
