@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alaric · Gestion du stock MJ</title>
+  <meta name="description" content="Outil MJ local pour gérer le stock de catalogue.json et réexporter le fichier." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="stock-admin">
+  <main class="admin-shell">
+    <header class="admin-header">
+      <p class="eyebrow">Outil MJ · catalogue.json</p>
+      <h1>Gestion du stock</h1>
+      <p>Cette page modifie uniquement les quantités du catalogue de la rencontre. Les autres propriétés JSON restent intactes. Un stock vide signifie « non limité ».</p>
+
+      <div class="admin-actions">
+        <button class="button button--primary" id="export-stock" type="button" disabled>Exporter catalogue.json</button>
+        <button class="button button--ghost" id="reload-stock" type="button">Recharger le fichier</button>
+        <button class="button button--ghost" id="reset-stock" type="button" disabled>Annuler les modifications</button>
+        <a class="button button--ghost" href="index.html">Retour à la boutique</a>
+      </div>
+
+      <div class="admin-actions">
+        <label class="field" for="stock-file">
+          <span>Ou importer un catalogue JSON</span>
+          <input id="stock-file" type="file" accept="application/json,.json" />
+        </label>
+        <label class="field" for="stock-search">
+          <span>Rechercher un objet</span>
+          <input id="stock-search" type="search" placeholder="Nom, catégorie…" autocomplete="off" />
+        </label>
+      </div>
+
+      <p class="admin-message" id="admin-message" role="status">Chargement de catalogue.json…</p>
+    </header>
+
+    <section class="admin-panel" aria-labelledby="stock-title">
+      <div class="admin-status">
+        <div>
+          <strong id="stock-title">Stock de la sélection d’Alaric</strong>
+          <span id="stock-summary"></span>
+        </div>
+        <div class="admin-actions">
+          <button class="button button--small button--ghost" id="all-one" type="button" disabled>Tout mettre à 1</button>
+          <button class="button button--small button--ghost" id="all-unlimited" type="button" disabled>Tout mettre en illimité</button>
+        </div>
+      </div>
+
+      <div class="stock-table-wrap">
+        <table class="stock-table">
+          <thead>
+            <tr>
+              <th>Objet</th>
+              <th>Prix</th>
+              <th>Stock</th>
+            </tr>
+          </thead>
+          <tbody id="stock-rows">
+            <tr><td colspan="3">Chargement…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="stock.js"></script>
+</body>
+</html>

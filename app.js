@@ -4,8 +4,8 @@ let ICON_MANIFEST = [];
 const ICONS_BASE_PATH = "assets/icons/";
 
 const CATALOGUE_FILES = [
-  "catalogue.json",
-  "catalogue-item-de-base.json"
+  { filename: "catalogue.json", source: "alaric", label: "Sélection d’Alaric" },
+  { filename: "catalogue-item-de-base.json", source: "base", label: "Catalogue de base" }
 ];
 
 const RARITY_ORDER = [
@@ -172,9 +172,15 @@ const state = {
   category: "all",
   subcategory: "all",
   rarity: "all",
+  source: "all",
   search: "",
-  sort: "category-asc",
-  cart: loadCart()
+  minPrice: null,
+  maxPrice: null,
+  favoritesOnly: false,
+  sort: "alaric-first",
+  cart: loadCart(),
+  favorites: loadFavorites(),
+  catalogueWarnings: []
 };
 
 const elements = {
@@ -182,9 +188,15 @@ const elements = {
   categoryFilters: document.querySelector("#category-filters"),
   subcategoryFilter: document.querySelector("#subcategory-filter"),
   rarityFilter: document.querySelector("#rarity-filter"),
+  sourceFilter: document.querySelector("#source-filter"),
   sortFilter: document.querySelector("#sort-filter"),
   search: document.querySelector("#search"),
+  minPrice: document.querySelector("#price-min"),
+  maxPrice: document.querySelector("#price-max"),
+  favoritesOnly: document.querySelector("#favorites-only"),
+  resetFilters: document.querySelector("#reset-filters"),
   resultCount: document.querySelector("#result-count"),
+  catalogueAlerts: document.querySelector("#catalogue-alerts"),
   cartItems: document.querySelector("#cart-items"),
   cartEmpty: document.querySelector("#cart-empty"),
   cartTotal: document.querySelector("#cart-total"),
@@ -209,52 +221,92 @@ async function loadIconManifest() {
   }
 }
 
-async function loadCatalogueFile(filename) {
-  const response = await fetch(filename, { cache: "no-store" });
+async function loadCatalogueFile(config) {
+  const response = await fetch(config.filename, { cache: "no-store" });
   if (!response.ok) {
-    throw new Error(`Impossible de charger ${filename} (${response.status})`);
+    throw new Error(`Impossible de charger ${config.filename} (${response.status})`);
   }
 
-  const catalogue = await response.json();
+  let catalogue;
+  try {
+    catalogue = await response.json();
+  } catch (error) {
+    throw new Error(`${config.filename} contient un JSON invalide.`);
+  }
+
   if (!Array.isArray(catalogue)) {
-    throw new Error(`${filename} doit contenir un tableau d'objets.`);
+    throw new Error(`${config.filename} doit contenir un tableau d'objets.`);
   }
 
-  return catalogue;
+  return catalogue.map((item, index) => normalizeItem(item, config.source, index));
 }
 
 async function loadCatalogue() {
-  const catalogues = await Promise.all(CATALOGUE_FILES.map(loadCatalogueFile));
-  const items = catalogues.flat();
+  const results = await Promise.allSettled(CATALOGUE_FILES.map(loadCatalogueFile));
   const seenIds = new Set();
+  const warnings = [];
+  const loadedItems = [];
 
-  ITEMS = items
-    .map(normalizeItem)
-    .filter(item => {
+  results.forEach((result, index) => {
+    const config = CATALOGUE_FILES[index];
+    if (result.status === "rejected") {
+      console.error(result.reason);
+      warnings.push(`${config.label} indisponible : ${result.reason.message || result.reason}`);
+      return;
+    }
+
+    result.value.forEach(item => {
       if (seenIds.has(item.id)) {
-        console.warn(`Objet ignoré car son id existe déjà : ${item.id}`);
-        return false;
+        const message = `ID dupliqué ignoré : ${item.id} (${item.name})`;
+        console.warn(message);
+        warnings.push(message);
+        return;
       }
       seenIds.add(item.id);
-      return true;
+      loadedItems.push(item);
     });
+  });
+
+  ITEMS = loadedItems;
+  state.catalogueWarnings = warnings;
+
+  if (!ITEMS.length) {
+    throw new Error("Aucun catalogue n'a pu être chargé.");
+  }
+
+  const cartAdjusted = sanitizeCart();
+  if (cartAdjusted) {
+    state.catalogueWarnings.push("Le panier local a été ajusté au catalogue et aux stocks actuels.");
+  }
 }
 
-function normalizeItem(item) {
+function slugify(value) {
+  return normalize(value)
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "") || "objet";
+}
+
+function normalizeItem(item, source = "base", index = 0) {
   const category = String(item.category || "Objets");
   const subcategory = String(item.subcategory || "Objets");
   const name = String(item.name || "Objet sans nom");
   const rarity = String(item.rarity || "Commun");
   const explicitIcon = item.icon ? String(item.icon) : "";
+  const rawStock = source === "alaric" ? item.stock : null;
+  const hasFiniteStock = rawStock !== null && rawStock !== undefined && rawStock !== "" && Number.isFinite(Number(rawStock));
+  const stock = hasFiniteStock ? Math.max(0, Math.floor(Number(rawStock))) : null;
+  const fallbackId = `${source}-${slugify(name)}-${index + 1}`;
 
   return {
-    id: String(item.id || crypto.randomUUID()),
+    id: String(item.id || fallbackId),
+    source,
     category,
     subcategory,
     name,
     rarity,
     description: String(item.description || ""),
     price: Number.isFinite(Number(item.price)) ? Number(item.price) : 0,
+    stock,
     icon: resolveIcon(item, { explicitIcon, category, subcategory, name, rarity }),
     damage: item.damage ? String(item.damage) : "",
     damageMod: item.damageMod ? String(item.damageMod) : "",
@@ -267,7 +319,8 @@ function normalizeItem(item) {
 
 function loadCart() {
   try {
-    return JSON.parse(localStorage.getItem("alaric-cart")) || {};
+    const stored = JSON.parse(localStorage.getItem("alaric-cart")) || {};
+    return stored && typeof stored === "object" && !Array.isArray(stored) ? stored : {};
   } catch {
     return {};
   }
@@ -275,6 +328,67 @@ function loadCart() {
 
 function saveCart() {
   localStorage.setItem("alaric-cart", JSON.stringify(state.cart));
+}
+
+function loadFavorites() {
+  try {
+    const stored = JSON.parse(localStorage.getItem("alaric-favorites")) || [];
+    return new Set(Array.isArray(stored) ? stored.map(String) : []);
+  } catch {
+    return new Set();
+  }
+}
+
+function saveFavorites() {
+  localStorage.setItem("alaric-favorites", JSON.stringify([...state.favorites]));
+}
+
+function toggleFavorite(id) {
+  if (state.favorites.has(id)) {
+    state.favorites.delete(id);
+    showToast("Retiré des favoris.");
+  } else {
+    state.favorites.add(id);
+    showToast("Ajouté aux favoris.");
+  }
+  saveFavorites();
+  renderItems();
+}
+
+function hasFiniteStock(item) {
+  return item.source === "alaric" && Number.isInteger(item.stock) && item.stock >= 0;
+}
+
+function remainingForCart(item) {
+  if (!hasFiniteStock(item)) return Infinity;
+  return Math.max(0, item.stock - (state.cart[item.id] || 0));
+}
+
+function sanitizeCart() {
+  let changed = false;
+  const cleaned = {};
+
+  Object.entries(state.cart).forEach(([id, rawQty]) => {
+    const item = itemById(id);
+    if (!item) {
+      changed = true;
+      return;
+    }
+
+    let qty = Math.max(0, Math.floor(Number(rawQty) || 0));
+    if (hasFiniteStock(item) && qty > item.stock) {
+      qty = item.stock;
+      changed = true;
+    }
+
+    if (qty > 0) cleaned[id] = qty;
+    if (qty !== rawQty) changed = true;
+  });
+
+  if (Object.keys(cleaned).length !== Object.keys(state.cart).length) changed = true;
+  state.cart = cleaned;
+  if (changed) saveCart();
+  return changed;
 }
 
 function formatPrice(value) {
@@ -456,9 +570,7 @@ function renderFilters() {
   }).join("");
 
   const subcategoryOptions = subcategories();
-  if (!subcategoryOptions.includes(state.subcategory)) {
-    state.subcategory = "all";
-  }
+  if (!subcategoryOptions.includes(state.subcategory)) state.subcategory = "all";
   elements.subcategoryFilter.innerHTML = subcategoryOptions.map(subcategory => {
     const label = subcategory === "all" ? "Toutes" : subcategory;
     const selected = subcategory === state.subcategory ? "selected" : "";
@@ -470,32 +582,44 @@ function renderFilters() {
     const selected = rarity === state.rarity ? "selected" : "";
     return `<option value="${escapeHTML(rarity)}" ${selected}>${escapeHTML(label)}</option>`;
   }).join("");
+
+  elements.sourceFilter.value = state.source;
+  elements.sortFilter.value = state.sort;
+  elements.search.value = state.search;
+  elements.minPrice.value = state.minPrice ?? "";
+  elements.maxPrice.value = state.maxPrice ?? "";
+  elements.favoritesOnly.classList.toggle("is-active", state.favoritesOnly);
+  elements.favoritesOnly.setAttribute("aria-pressed", String(state.favoritesOnly));
 }
 
 function filteredItems() {
   let items = [...ITEMS];
 
-  if (state.category !== "all") {
-    items = items.filter(item => item.category === state.category);
-  }
-
-  if (state.subcategory !== "all") {
-    items = items.filter(item => item.subcategory === state.subcategory);
-  }
-
-  if (state.rarity !== "all") {
-    items = items.filter(item => item.rarity === state.rarity);
-  }
+  if (state.category !== "all") items = items.filter(item => item.category === state.category);
+  if (state.subcategory !== "all") items = items.filter(item => item.subcategory === state.subcategory);
+  if (state.rarity !== "all") items = items.filter(item => item.rarity === state.rarity);
+  if (state.source !== "all") items = items.filter(item => item.source === state.source);
+  if (state.favoritesOnly) items = items.filter(item => state.favorites.has(item.id));
+  if (state.minPrice !== null) items = items.filter(item => item.price >= state.minPrice);
+  if (state.maxPrice !== null) items = items.filter(item => item.price <= state.maxPrice);
 
   if (state.search.trim()) {
     const query = normalize(state.search);
-    items = items.filter(item => {
-      return [item.name, item.category, item.subcategory, item.rarity, item.description, item.damage, item.damageMod, item.armorMod]
-        .some(value => normalize(value).includes(query));
-    });
+    items = items.filter(item => [
+      item.name, item.category, item.subcategory, item.rarity, item.description,
+      item.damage, item.damageMod, item.armorMod
+    ].some(value => normalize(value).includes(query)));
   }
 
   items.sort((a, b) => {
+    if (state.sort === "alaric-first") {
+      return Number(b.source === "alaric") - Number(a.source === "alaric")
+        || categoryRank(a.category) - categoryRank(b.category)
+        || textCompare(a.category, b.category)
+        || subcategoryRank(a.category, a.subcategory) - subcategoryRank(b.category, b.subcategory)
+        || rarityRank(a.rarity) - rarityRank(b.rarity)
+        || textCompare(a.name, b.name);
+    }
     if (state.sort === "price-asc") return a.price - b.price || textCompare(a.name, b.name);
     if (state.sort === "price-desc") return b.price - a.price || textCompare(a.name, b.name);
     if (state.sort === "rarity-asc") return rarityRank(a.rarity) - rarityRank(b.rarity) || textCompare(a.name, b.name);
@@ -506,7 +630,7 @@ function filteredItems() {
         || subcategoryRank(a.category, a.subcategory) - subcategoryRank(b.category, b.subcategory)
         || textCompare(a.subcategory, b.subcategory)
         || rarityRank(a.rarity) - rarityRank(b.rarity)
-        || textCompare(a.name, b.name)
+        || textCompare(a.name, b.name);
     }
     return textCompare(a.name, b.name);
   });
@@ -517,10 +641,16 @@ function filteredItems() {
 function iconMarkup(item) {
   const icon = item.icon || FALLBACK_ICONS[item.category] || "✦";
   const iconText = String(icon);
-  if (isImageIcon(iconText)) {
-    return `<img src="${escapeHTML(iconText)}" alt="" loading="lazy" />`;
-  }
+  if (isImageIcon(iconText)) return `<img src="${escapeHTML(iconText)}" alt="" loading="lazy" />`;
   return `<span aria-hidden="true">${escapeHTML(iconText)}</span>`;
+}
+
+function stockBadge(item) {
+  if (!hasFiniteStock(item)) return "";
+  if (item.stock === 0) return `<span class="stock-badge stock-badge--empty">Épuisé</span>`;
+  if (item.stock === 1) return `<span class="stock-badge stock-badge--low">Dernier exemplaire</span>`;
+  if (item.stock <= 3) return `<span class="stock-badge stock-badge--low">Stock : ${item.stock}</span>`;
+  return `<span class="stock-badge">En stock : ${item.stock}</span>`;
 }
 
 function renderItems() {
@@ -532,29 +662,46 @@ function renderItems() {
       <article class="empty-card">
         <strong>Aucune marchandise trouvée.</strong>
         <span>Alaric hausse les épaules : “Essaie une autre étagère.”</span>
-      </article>
-    `;
+      </article>`;
     return;
   }
 
   elements.grid.innerHTML = items.map(item => {
     const qty = state.cart[item.id] || 0;
     const details = [
-      item.damage ? `Dégâts : ${item.damage}` : "",
-      item.damageMod ? `Mod. DM : ${item.damageMod}` : "",
-      item.armorMod ? `Armure : ${item.armorMod}` : ""
+      item.damage ? ["Dégâts", item.damage] : null,
+      item.damageMod ? ["Mod. DM", item.damageMod] : null,
+      item.armorMod ? ["Armure", item.armorMod] : null
     ].filter(Boolean);
     const rarityTheme = rarityThemeClass(item.rarity);
+    const favorite = state.favorites.has(item.id);
+    const finiteStock = hasFiniteStock(item);
+    const canBuy = item.cofCompatible && item.cofSpec && (!finiteStock || qty < item.stock);
+    const buttonLabel = !item.cofCompatible || !item.cofSpec
+      ? "Indisponible"
+      : finiteStock && item.stock === 0
+        ? "Épuisé"
+        : finiteStock && qty >= item.stock
+          ? "Stock atteint"
+          : "Ajouter";
+    const buttonTitle = !item.cofCompatible || !item.cofSpec
+      ? (item.cofError || "Non compatible avec CoFItem actuel")
+      : finiteStock && qty >= item.stock
+        ? "La quantité maximale disponible est déjà dans le panier."
+        : "";
 
     return `
-      <article class="item-row item-row--${escapeHTML(rarityTheme)} rarity-${safeClass(item.rarity)}">
+      <article class="item-row ${item.source === "alaric" ? "item-row--selection" : ""} item-row--${escapeHTML(rarityTheme)} rarity-${safeClass(item.rarity)}">
+        <button class="favorite-button ${favorite ? "is-favorite" : ""}" type="button" data-favorite="${escapeHTML(item.id)}" aria-label="${favorite ? "Retirer des favoris" : "Ajouter aux favoris"}" aria-pressed="${favorite}">${favorite ? "★" : "☆"}</button>
         <div class="item-icon">${iconMarkup(item)}</div>
 
         <div class="item-row__main">
           <div class="item-row__title-line">
             <h3>${escapeHTML(item.name)}</h3>
             <div class="item-row__badges">
+              ${item.source === "alaric" ? `<span class="selection-badge">✦ Sélection d’Alaric</span>` : ""}
               <span class="rarity-badge rarity-badge--${escapeHTML(rarityTheme)}">${escapeHTML(item.rarity)}</span>
+              ${stockBadge(item)}
               ${qty ? `<span class="qty-badge">Panier : ${qty}</span>` : ""}
             </div>
           </div>
@@ -564,31 +711,46 @@ function renderItems() {
             <span>${escapeHTML(item.subcategory)}</span>
           </div>
 
-          <p class="item-description">${escapeHTML(item.description || "Alaric garde les détails pour les clients sérieux.")}</p>
-
-          ${details.length ? `
-            <dl class="item-row__stats">
-              ${details.map(detail => `<div><dt>${escapeHTML(detail.split(":")[0])}</dt><dd>${escapeHTML(detail.split(":").slice(1).join(":").trim())}</dd></div>`).join("")}
-            </dl>
-          ` : ""}
+          <details class="item-details">
+            <summary>Voir les détails</summary>
+            <div class="item-details__content">
+              <p class="item-description">${escapeHTML(item.description || "Alaric garde les détails pour les clients sérieux.")}</p>
+              ${details.length ? `
+                <dl class="item-row__stats">
+                  ${details.map(([label, value]) => `<div><dt>${escapeHTML(label)}</dt><dd>${escapeHTML(value)}</dd></div>`).join("")}
+                </dl>` : ""}
+              ${finiteStock ? `<p class="stock-note">Stock défini dans <code>catalogue.json</code> : <strong>${item.stock}</strong>.</p>` : ""}
+            </div>
+          </details>
         </div>
 
         <div class="item-row__actions">
           <strong class="price">${formatPrice(item.price)}</strong>
-          ${item.cofCompatible && item.cofSpec
-            ? `<button class="button button--small" type="button" data-add="${escapeHTML(item.id)}">Ajouter</button>`
-            : `<button class="button button--small" type="button" disabled title="${escapeHTML(item.cofError || "Non compatible avec CoFItem actuel")}">Indisponible</button>`}
+          <button class="button button--small" type="button" data-add="${escapeHTML(item.id)}" ${canBuy ? "" : "disabled"} title="${escapeHTML(buttonTitle)}">${buttonLabel}</button>
         </div>
-      </article>
-    `;
+      </article>`;
   }).join("");
 }
 
 function addToCart(id, amount = 1) {
-  state.cart[id] = Math.max(0, (state.cart[id] || 0) + amount);
-  if (state.cart[id] === 0) delete state.cart[id];
+  const item = itemById(id);
+  if (!item) return false;
+
+  const current = state.cart[id] || 0;
+  let next = Math.max(0, current + amount);
+  if (hasFiniteStock(item)) next = Math.min(next, item.stock);
+
+  if (next === current && amount > 0) {
+    showToast("Stock maximum atteint.");
+    return false;
+  }
+
+  if (next === 0) delete state.cart[id];
+  else state.cart[id] = next;
+
   saveCart();
   renderAll(false);
+  return true;
 }
 
 function clearCart() {
@@ -600,7 +762,7 @@ function clearCart() {
 
 function cartEntries() {
   return Object.entries(state.cart)
-    .map(([id, qty]) => ({ item: itemById(id), qty }))
+    .map(([id, qty]) => ({ item: itemById(id), qty: Math.max(0, Math.floor(Number(qty) || 0)) }))
     .filter(entry => entry.item && entry.qty > 0);
 }
 
@@ -614,20 +776,20 @@ function renderCart() {
 
   elements.cartItems.innerHTML = entries.map(({ item, qty }) => {
     const total = item.price * qty;
+    const atStockLimit = hasFiniteStock(item) && qty >= item.stock;
     return `
       <div class="cart-line">
         <div>
           <strong>${escapeHTML(item.name)}</strong>
-          <span>${formatPrice(item.price)} / unité</span>
+          <span>${formatPrice(item.price)} / unité${hasFiniteStock(item) ? ` · stock ${item.stock}` : ""}</span>
         </div>
         <div class="cart-line__controls">
           <button class="icon-button" type="button" data-remove="${escapeHTML(item.id)}" aria-label="Retirer un exemplaire">−</button>
           <span>${qty}</span>
-          <button class="icon-button" type="button" data-add="${escapeHTML(item.id)}" aria-label="Ajouter un exemplaire">+</button>
+          <button class="icon-button" type="button" data-add="${escapeHTML(item.id)}" aria-label="Ajouter un exemplaire" ${atStockLimit ? "disabled" : ""}>+</button>
         </div>
         <strong>${formatPrice(total)}</strong>
-      </div>
-    `;
+      </div>`;
   }).join("");
 
   elements.cartTotal.textContent = formatPrice(cartTotal());
@@ -680,10 +842,42 @@ function showToast(message) {
   window.setTimeout(() => elements.toast.classList.remove("is-visible"), 1700);
 }
 
+function renderCatalogueAlerts() {
+  if (!state.catalogueWarnings.length) {
+    elements.catalogueAlerts.hidden = true;
+    elements.catalogueAlerts.innerHTML = "";
+    return;
+  }
+  elements.catalogueAlerts.hidden = false;
+  elements.catalogueAlerts.innerHTML = state.catalogueWarnings
+    .map(message => `<div>⚠ ${escapeHTML(message)}</div>`)
+    .join("");
+}
+
 function renderAll(refreshFilters = true) {
   if (refreshFilters) renderFilters();
+  renderCatalogueAlerts();
   renderItems();
   renderCart();
+}
+
+function parseOptionalPrice(value) {
+  if (value === "") return null;
+  const number = Number(value);
+  return Number.isFinite(number) && number >= 0 ? number : null;
+}
+
+function resetFilters() {
+  state.category = "all";
+  state.subcategory = "all";
+  state.rarity = "all";
+  state.source = "all";
+  state.search = "";
+  state.minPrice = null;
+  state.maxPrice = null;
+  state.favoritesOnly = false;
+  state.sort = "alaric-first";
+  renderAll(true);
 }
 
 function bindEvents() {
@@ -702,10 +896,34 @@ function bindEvents() {
     renderItems();
   });
 
+  elements.sourceFilter.addEventListener("change", event => {
+    state.source = event.target.value;
+    renderItems();
+  });
+
+  elements.minPrice.addEventListener("input", event => {
+    state.minPrice = parseOptionalPrice(event.target.value);
+    renderItems();
+  });
+
+  elements.maxPrice.addEventListener("input", event => {
+    state.maxPrice = parseOptionalPrice(event.target.value);
+    renderItems();
+  });
+
   elements.sortFilter.addEventListener("change", event => {
     state.sort = event.target.value;
     renderItems();
   });
+
+  elements.favoritesOnly.addEventListener("click", () => {
+    state.favoritesOnly = !state.favoritesOnly;
+    elements.favoritesOnly.classList.toggle("is-active", state.favoritesOnly);
+    elements.favoritesOnly.setAttribute("aria-pressed", String(state.favoritesOnly));
+    renderItems();
+  });
+
+  elements.resetFilters.addEventListener("click", resetFilters);
 
   document.addEventListener("click", event => {
     const categoryButton = event.target.closest("[data-category]");
@@ -716,17 +934,20 @@ function bindEvents() {
       return;
     }
 
+    const favoriteButton = event.target.closest("[data-favorite]");
+    if (favoriteButton) {
+      toggleFavorite(favoriteButton.dataset.favorite);
+      return;
+    }
+
     const addButton = event.target.closest("[data-add]");
-    if (addButton) {
-      addToCart(addButton.dataset.add, 1);
-      showToast("Ajouté au panier.");
+    if (addButton && !addButton.disabled) {
+      if (addToCart(addButton.dataset.add, 1)) showToast("Ajouté au panier.");
       return;
     }
 
     const removeButton = event.target.closest("[data-remove]");
-    if (removeButton) {
-      addToCart(removeButton.dataset.remove, -1);
-    }
+    if (removeButton) addToCart(removeButton.dataset.remove, -1);
   });
 
   elements.copyOrder.addEventListener("click", copyOrder);
@@ -737,19 +958,21 @@ function bindEvents() {
 
 async function init() {
   bindEvents();
+  await loadIconManifest();
+
   try {
-    await loadIconManifest();
     await loadCatalogue();
     renderAll(true);
   } catch (error) {
     console.error(error);
     elements.resultCount.textContent = "Catalogues indisponibles";
+    elements.catalogueAlerts.hidden = false;
+    elements.catalogueAlerts.innerHTML = `<div>⚠ ${escapeHTML(error.message || error)}</div>`;
     elements.grid.innerHTML = `
       <article class="empty-card">
-        <strong>Impossible de charger un des fichiers catalogue.</strong>
-        <span>Vérifie que catalogue.json et catalogue-item-de-base.json sont présents à la racine du dépôt.</span>
-      </article>
-    `;
+        <strong>Impossible de charger le catalogue.</strong>
+        <span>Vérifie les fichiers JSON à la racine du dépôt.</span>
+      </article>`;
   }
 }
 

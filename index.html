@@ -34,10 +34,21 @@
         <p id="result-count" class="result-count">Chargement du catalogue…</p>
       </div>
 
+      <div id="catalogue-alerts" class="catalogue-alerts" role="status" hidden></div>
+
       <div class="toolbar" aria-label="Filtres du catalogue">
         <label class="field field--search">
           <span>Rechercher</span>
           <input id="search" type="search" placeholder="Nom, effet, catégorie…" autocomplete="off" />
+        </label>
+
+        <label class="field">
+          <span>Catalogue</span>
+          <select id="source-filter">
+            <option value="all">Tout</option>
+            <option value="alaric">Sélection d’Alaric</option>
+            <option value="base">Catalogue de base</option>
+          </select>
         </label>
 
         <label class="field">
@@ -55,8 +66,19 @@
         </label>
 
         <label class="field">
+          <span>Prix minimum</span>
+          <input id="price-min" type="number" min="0" step="1" inputmode="numeric" placeholder="0 PA" />
+        </label>
+
+        <label class="field">
+          <span>Prix maximum</span>
+          <input id="price-max" type="number" min="0" step="1" inputmode="numeric" placeholder="Sans limite" />
+        </label>
+
+        <label class="field">
           <span>Tri</span>
           <select id="sort-filter">
+            <option value="alaric-first">Sélection d’Alaric en premier</option>
             <option value="category-asc">Catégorie</option>
             <option value="name-asc">Nom A → Z</option>
             <option value="price-asc">Prix croissant</option>
@@ -65,6 +87,11 @@
             <option value="rarity-desc">Rareté élevée → faible</option>
           </select>
         </label>
+      </div>
+
+      <div class="filter-actions">
+        <button class="chip" id="favorites-only" type="button" aria-pressed="false">☆ Favoris uniquement</button>
+        <button class="button button--ghost button--small" id="reset-filters" type="button">Réinitialiser les filtres</button>
       </div>
 
       <nav class="category-filters" id="category-filters" aria-label="Catégories"></nav>
@@ -101,7 +128,7 @@
 
   <footer class="footer">
     <div class="footer__content">
-      <p>Boutique d’Alaric · compatible COAlaric 1.0 + CoFItem CLEAN 5.06.0 · panier stocké dans le navigateur.</p>
+      <p>Boutique d’Alaric · compatible COAlaric 1.0 + CoFItem CLEAN 5.06.0 · panier et favoris stockés dans le navigateur.</p>
     </div>
   </footer>
 

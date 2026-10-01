@@ -8,8 +8,7 @@
     "border_color": "rgba(216, 216, 216, 0.38)",
     "background": "rgba(216, 216, 216, 0.10)",
     "box_shadow": "",
-    "svg_path": "svg/Arbalette/Arbalette_R00_commun.svg",
-    "png_path": "png_512/Arbalette/Arbalette_R00_commun.png"
+    "png_path": "png_128/Arbalette/Arbalette_R00_commun.png"
   },
   {
     "icon": "Arbalette",
@@ -20,8 +19,7 @@
     "border_color": "rgba(157, 255, 176, 0.42)",
     "background": "rgba(157, 255, 176, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Arbalette/Arbalette_R01_peu-commun.svg",
-    "png_path": "png_512/Arbalette/Arbalette_R01_peu-commun.png"
+    "png_path": "png_128/Arbalette/Arbalette_R01_peu-commun.png"
   },
   {
     "icon": "Arbalette",
@@ -32,8 +30,7 @@
     "border_color": "rgba(126, 231, 255, 0.42)",
     "background": "rgba(126, 231, 255, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Arbalette/Arbalette_R02_inhabituel.svg",
-    "png_path": "png_512/Arbalette/Arbalette_R02_inhabituel.png"
+    "png_path": "png_128/Arbalette/Arbalette_R02_inhabituel.png"
   },
   {
     "icon": "Arbalette",
@@ -44,8 +41,7 @@
     "border_color": "rgba(106, 168, 255, 0.48)",
     "background": "rgba(106, 168, 255, 0.13)",
     "box_shadow": "",
-    "svg_path": "svg/Arbalette/Arbalette_R03_rare.svg",
-    "png_path": "png_512/Arbalette/Arbalette_R03_rare.png"
+    "png_path": "png_128/Arbalette/Arbalette_R03_rare.png"
   },
   {
     "icon": "Arbalette",
@@ -56,8 +52,7 @@
     "border_color": "rgba(180, 140, 255, 0.50)",
     "background": "rgba(180, 140, 255, 0.14)",
     "box_shadow": "",
-    "svg_path": "svg/Arbalette/Arbalette_R04_exceptionnel.svg",
-    "png_path": "png_512/Arbalette/Arbalette_R04_exceptionnel.png"
+    "png_path": "png_128/Arbalette/Arbalette_R04_exceptionnel.png"
   },
   {
     "icon": "Arbalette",
@@ -68,8 +63,7 @@
     "border_color": "rgba(255, 211, 106, 0.52)",
     "background": "rgba(255, 211, 106, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Arbalette/Arbalette_R05_precieux.svg",
-    "png_path": "png_512/Arbalette/Arbalette_R05_precieux.png"
+    "png_path": "png_128/Arbalette/Arbalette_R05_precieux.png"
   },
   {
     "icon": "Arbalette",
@@ -80,8 +74,7 @@
     "border_color": "rgba(255, 126, 231, 0.52)",
     "background": "rgba(255, 126, 231, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Arbalette/Arbalette_R06_epique.svg",
-    "png_path": "png_512/Arbalette/Arbalette_R06_epique.png"
+    "png_path": "png_128/Arbalette/Arbalette_R06_epique.png"
   },
   {
     "icon": "Arbalette",
@@ -92,8 +85,7 @@
     "border_color": "rgba(255, 159, 67, 0.56)",
     "background": "rgba(255, 159, 67, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Arbalette/Arbalette_R07_legendaire.svg",
-    "png_path": "png_512/Arbalette/Arbalette_R07_legendaire.png"
+    "png_path": "png_128/Arbalette/Arbalette_R07_legendaire.png"
   },
   {
     "icon": "Arbalette",
@@ -104,8 +96,7 @@
     "border_color": "rgba(255, 95, 109, 0.58)",
     "background": "rgba(255, 95, 109, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Arbalette/Arbalette_R08_mythique.svg",
-    "png_path": "png_512/Arbalette/Arbalette_R08_mythique.png"
+    "png_path": "png_128/Arbalette/Arbalette_R08_mythique.png"
   },
   {
     "icon": "Arbalette",
@@ -116,8 +107,7 @@
     "border_color": "rgba(255, 255, 255, 0.62)",
     "background": "linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(241, 197, 106, 0.12))",
     "box_shadow": "0 0 18px rgba(255, 255, 255, 0.12)",
-    "svg_path": "svg/Arbalette/Arbalette_R09_artefact.svg",
-    "png_path": "png_512/Arbalette/Arbalette_R09_artefact.png"
+    "png_path": "png_128/Arbalette/Arbalette_R09_artefact.png"
   },
   {
     "icon": "Arbalette",
@@ -128,8 +118,7 @@
     "border_color": "rgba(255, 243, 176, 0.75)",
     "background": "linear-gradient(135deg, rgba(255, 243, 176, 0.25), rgba(255, 126, 231, 0.14))",
     "box_shadow": "0 0 18px rgba(255, 243, 176, 0.22), 0 0 36px rgba(255, 126, 231, 0.10)",
-    "svg_path": "svg/Arbalette/Arbalette_R10_objet-divin.svg",
-    "png_path": "png_512/Arbalette/Arbalette_R10_objet-divin.png"
+    "png_path": "png_128/Arbalette/Arbalette_R10_objet-divin.png"
   },
   {
     "icon": "Arc",
@@ -140,8 +129,7 @@
     "border_color": "rgba(216, 216, 216, 0.38)",
     "background": "rgba(216, 216, 216, 0.10)",
     "box_shadow": "",
-    "svg_path": "svg/Arc/Arc_R00_commun.svg",
-    "png_path": "png_512/Arc/Arc_R00_commun.png"
+    "png_path": "png_128/Arc/Arc_R00_commun.png"
   },
   {
     "icon": "Arc",
@@ -152,8 +140,7 @@
     "border_color": "rgba(157, 255, 176, 0.42)",
     "background": "rgba(157, 255, 176, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Arc/Arc_R01_peu-commun.svg",
-    "png_path": "png_512/Arc/Arc_R01_peu-commun.png"
+    "png_path": "png_128/Arc/Arc_R01_peu-commun.png"
   },
   {
     "icon": "Arc",
@@ -164,8 +151,7 @@
     "border_color": "rgba(126, 231, 255, 0.42)",
     "background": "rgba(126, 231, 255, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Arc/Arc_R02_inhabituel.svg",
-    "png_path": "png_512/Arc/Arc_R02_inhabituel.png"
+    "png_path": "png_128/Arc/Arc_R02_inhabituel.png"
   },
   {
     "icon": "Arc",
@@ -176,8 +162,7 @@
     "border_color": "rgba(106, 168, 255, 0.48)",
     "background": "rgba(106, 168, 255, 0.13)",
     "box_shadow": "",
-    "svg_path": "svg/Arc/Arc_R03_rare.svg",
-    "png_path": "png_512/Arc/Arc_R03_rare.png"
+    "png_path": "png_128/Arc/Arc_R03_rare.png"
   },
   {
     "icon": "Arc",
@@ -188,8 +173,7 @@
     "border_color": "rgba(180, 140, 255, 0.50)",
     "background": "rgba(180, 140, 255, 0.14)",
     "box_shadow": "",
-    "svg_path": "svg/Arc/Arc_R04_exceptionnel.svg",
-    "png_path": "png_512/Arc/Arc_R04_exceptionnel.png"
+    "png_path": "png_128/Arc/Arc_R04_exceptionnel.png"
   },
   {
     "icon": "Arc",
@@ -200,8 +184,7 @@
     "border_color": "rgba(255, 211, 106, 0.52)",
     "background": "rgba(255, 211, 106, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Arc/Arc_R05_precieux.svg",
-    "png_path": "png_512/Arc/Arc_R05_precieux.png"
+    "png_path": "png_128/Arc/Arc_R05_precieux.png"
   },
   {
     "icon": "Arc",
@@ -212,8 +195,7 @@
     "border_color": "rgba(255, 126, 231, 0.52)",
     "background": "rgba(255, 126, 231, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Arc/Arc_R06_epique.svg",
-    "png_path": "png_512/Arc/Arc_R06_epique.png"
+    "png_path": "png_128/Arc/Arc_R06_epique.png"
   },
   {
     "icon": "Arc",
@@ -224,8 +206,7 @@
     "border_color": "rgba(255, 159, 67, 0.56)",
     "background": "rgba(255, 159, 67, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Arc/Arc_R07_legendaire.svg",
-    "png_path": "png_512/Arc/Arc_R07_legendaire.png"
+    "png_path": "png_128/Arc/Arc_R07_legendaire.png"
   },
   {
     "icon": "Arc",
@@ -236,8 +217,7 @@
     "border_color": "rgba(255, 95, 109, 0.58)",
     "background": "rgba(255, 95, 109, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Arc/Arc_R08_mythique.svg",
-    "png_path": "png_512/Arc/Arc_R08_mythique.png"
+    "png_path": "png_128/Arc/Arc_R08_mythique.png"
   },
   {
     "icon": "Arc",
@@ -248,8 +228,7 @@
     "border_color": "rgba(255, 255, 255, 0.62)",
     "background": "linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(241, 197, 106, 0.12))",
     "box_shadow": "0 0 18px rgba(255, 255, 255, 0.12)",
-    "svg_path": "svg/Arc/Arc_R09_artefact.svg",
-    "png_path": "png_512/Arc/Arc_R09_artefact.png"
+    "png_path": "png_128/Arc/Arc_R09_artefact.png"
   },
   {
     "icon": "Arc",
@@ -260,8 +239,7 @@
     "border_color": "rgba(255, 243, 176, 0.75)",
     "background": "linear-gradient(135deg, rgba(255, 243, 176, 0.25), rgba(255, 126, 231, 0.14))",
     "box_shadow": "0 0 18px rgba(255, 243, 176, 0.22), 0 0 36px rgba(255, 126, 231, 0.10)",
-    "svg_path": "svg/Arc/Arc_R10_objet-divin.svg",
-    "png_path": "png_512/Arc/Arc_R10_objet-divin.png"
+    "png_path": "png_128/Arc/Arc_R10_objet-divin.png"
   },
   {
     "icon": "Baton",
@@ -272,8 +250,7 @@
     "border_color": "rgba(216, 216, 216, 0.38)",
     "background": "rgba(216, 216, 216, 0.10)",
     "box_shadow": "",
-    "svg_path": "svg/Baton/Baton_R00_commun.svg",
-    "png_path": "png_512/Baton/Baton_R00_commun.png"
+    "png_path": "png_128/Baton/Baton_R00_commun.png"
   },
   {
     "icon": "Baton",
@@ -284,8 +261,7 @@
     "border_color": "rgba(157, 255, 176, 0.42)",
     "background": "rgba(157, 255, 176, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Baton/Baton_R01_peu-commun.svg",
-    "png_path": "png_512/Baton/Baton_R01_peu-commun.png"
+    "png_path": "png_128/Baton/Baton_R01_peu-commun.png"
   },
   {
     "icon": "Baton",
@@ -296,8 +272,7 @@
     "border_color": "rgba(126, 231, 255, 0.42)",
     "background": "rgba(126, 231, 255, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Baton/Baton_R02_inhabituel.svg",
-    "png_path": "png_512/Baton/Baton_R02_inhabituel.png"
+    "png_path": "png_128/Baton/Baton_R02_inhabituel.png"
   },
   {
     "icon": "Baton",
@@ -308,8 +283,7 @@
     "border_color": "rgba(106, 168, 255, 0.48)",
     "background": "rgba(106, 168, 255, 0.13)",
     "box_shadow": "",
-    "svg_path": "svg/Baton/Baton_R03_rare.svg",
-    "png_path": "png_512/Baton/Baton_R03_rare.png"
+    "png_path": "png_128/Baton/Baton_R03_rare.png"
   },
   {
     "icon": "Baton",
@@ -320,8 +294,7 @@
     "border_color": "rgba(180, 140, 255, 0.50)",
     "background": "rgba(180, 140, 255, 0.14)",
     "box_shadow": "",
-    "svg_path": "svg/Baton/Baton_R04_exceptionnel.svg",
-    "png_path": "png_512/Baton/Baton_R04_exceptionnel.png"
+    "png_path": "png_128/Baton/Baton_R04_exceptionnel.png"
   },
   {
     "icon": "Baton",
@@ -332,8 +305,7 @@
     "border_color": "rgba(255, 211, 106, 0.52)",
     "background": "rgba(255, 211, 106, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Baton/Baton_R05_precieux.svg",
-    "png_path": "png_512/Baton/Baton_R05_precieux.png"
+    "png_path": "png_128/Baton/Baton_R05_precieux.png"
   },
   {
     "icon": "Baton",
@@ -344,8 +316,7 @@
     "border_color": "rgba(255, 126, 231, 0.52)",
     "background": "rgba(255, 126, 231, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Baton/Baton_R06_epique.svg",
-    "png_path": "png_512/Baton/Baton_R06_epique.png"
+    "png_path": "png_128/Baton/Baton_R06_epique.png"
   },
   {
     "icon": "Baton",
@@ -356,8 +327,7 @@
     "border_color": "rgba(255, 159, 67, 0.56)",
     "background": "rgba(255, 159, 67, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Baton/Baton_R07_legendaire.svg",
-    "png_path": "png_512/Baton/Baton_R07_legendaire.png"
+    "png_path": "png_128/Baton/Baton_R07_legendaire.png"
   },
   {
     "icon": "Baton",
@@ -368,8 +338,7 @@
     "border_color": "rgba(255, 95, 109, 0.58)",
     "background": "rgba(255, 95, 109, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Baton/Baton_R08_mythique.svg",
-    "png_path": "png_512/Baton/Baton_R08_mythique.png"
+    "png_path": "png_128/Baton/Baton_R08_mythique.png"
   },
   {
     "icon": "Baton",
@@ -380,8 +349,7 @@
     "border_color": "rgba(255, 255, 255, 0.62)",
     "background": "linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(241, 197, 106, 0.12))",
     "box_shadow": "0 0 18px rgba(255, 255, 255, 0.12)",
-    "svg_path": "svg/Baton/Baton_R09_artefact.svg",
-    "png_path": "png_512/Baton/Baton_R09_artefact.png"
+    "png_path": "png_128/Baton/Baton_R09_artefact.png"
   },
   {
     "icon": "Baton",
@@ -392,8 +360,7 @@
     "border_color": "rgba(255, 243, 176, 0.75)",
     "background": "linear-gradient(135deg, rgba(255, 243, 176, 0.25), rgba(255, 126, 231, 0.14))",
     "box_shadow": "0 0 18px rgba(255, 243, 176, 0.22), 0 0 36px rgba(255, 126, 231, 0.10)",
-    "svg_path": "svg/Baton/Baton_R10_objet-divin.svg",
-    "png_path": "png_512/Baton/Baton_R10_objet-divin.png"
+    "png_path": "png_128/Baton/Baton_R10_objet-divin.png"
   },
   {
     "icon": "belt",
@@ -404,8 +371,7 @@
     "border_color": "rgba(216, 216, 216, 0.38)",
     "background": "rgba(216, 216, 216, 0.10)",
     "box_shadow": "",
-    "svg_path": "svg/belt/belt_R00_commun.svg",
-    "png_path": "png_512/belt/belt_R00_commun.png"
+    "png_path": "png_128/belt/belt_R00_commun.png"
   },
   {
     "icon": "belt",
@@ -416,8 +382,7 @@
     "border_color": "rgba(157, 255, 176, 0.42)",
     "background": "rgba(157, 255, 176, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/belt/belt_R01_peu-commun.svg",
-    "png_path": "png_512/belt/belt_R01_peu-commun.png"
+    "png_path": "png_128/belt/belt_R01_peu-commun.png"
   },
   {
     "icon": "belt",
@@ -428,8 +393,7 @@
     "border_color": "rgba(126, 231, 255, 0.42)",
     "background": "rgba(126, 231, 255, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/belt/belt_R02_inhabituel.svg",
-    "png_path": "png_512/belt/belt_R02_inhabituel.png"
+    "png_path": "png_128/belt/belt_R02_inhabituel.png"
   },
   {
     "icon": "belt",
@@ -440,8 +404,7 @@
     "border_color": "rgba(106, 168, 255, 0.48)",
     "background": "rgba(106, 168, 255, 0.13)",
     "box_shadow": "",
-    "svg_path": "svg/belt/belt_R03_rare.svg",
-    "png_path": "png_512/belt/belt_R03_rare.png"
+    "png_path": "png_128/belt/belt_R03_rare.png"
   },
   {
     "icon": "belt",
@@ -452,8 +415,7 @@
     "border_color": "rgba(180, 140, 255, 0.50)",
     "background": "rgba(180, 140, 255, 0.14)",
     "box_shadow": "",
-    "svg_path": "svg/belt/belt_R04_exceptionnel.svg",
-    "png_path": "png_512/belt/belt_R04_exceptionnel.png"
+    "png_path": "png_128/belt/belt_R04_exceptionnel.png"
   },
   {
     "icon": "belt",
@@ -464,8 +426,7 @@
     "border_color": "rgba(255, 211, 106, 0.52)",
     "background": "rgba(255, 211, 106, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/belt/belt_R05_precieux.svg",
-    "png_path": "png_512/belt/belt_R05_precieux.png"
+    "png_path": "png_128/belt/belt_R05_precieux.png"
   },
   {
     "icon": "belt",
@@ -476,8 +437,7 @@
     "border_color": "rgba(255, 126, 231, 0.52)",
     "background": "rgba(255, 126, 231, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/belt/belt_R06_epique.svg",
-    "png_path": "png_512/belt/belt_R06_epique.png"
+    "png_path": "png_128/belt/belt_R06_epique.png"
   },
   {
     "icon": "belt",
@@ -488,8 +448,7 @@
     "border_color": "rgba(255, 159, 67, 0.56)",
     "background": "rgba(255, 159, 67, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/belt/belt_R07_legendaire.svg",
-    "png_path": "png_512/belt/belt_R07_legendaire.png"
+    "png_path": "png_128/belt/belt_R07_legendaire.png"
   },
   {
     "icon": "belt",
@@ -500,8 +459,7 @@
     "border_color": "rgba(255, 95, 109, 0.58)",
     "background": "rgba(255, 95, 109, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/belt/belt_R08_mythique.svg",
-    "png_path": "png_512/belt/belt_R08_mythique.png"
+    "png_path": "png_128/belt/belt_R08_mythique.png"
   },
   {
     "icon": "belt",
@@ -512,8 +470,7 @@
     "border_color": "rgba(255, 255, 255, 0.62)",
     "background": "linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(241, 197, 106, 0.12))",
     "box_shadow": "0 0 18px rgba(255, 255, 255, 0.12)",
-    "svg_path": "svg/belt/belt_R09_artefact.svg",
-    "png_path": "png_512/belt/belt_R09_artefact.png"
+    "png_path": "png_128/belt/belt_R09_artefact.png"
   },
   {
     "icon": "belt",
@@ -524,8 +481,7 @@
     "border_color": "rgba(255, 243, 176, 0.75)",
     "background": "linear-gradient(135deg, rgba(255, 243, 176, 0.25), rgba(255, 126, 231, 0.14))",
     "box_shadow": "0 0 18px rgba(255, 243, 176, 0.22), 0 0 36px rgba(255, 126, 231, 0.10)",
-    "svg_path": "svg/belt/belt_R10_objet-divin.svg",
-    "png_path": "png_512/belt/belt_R10_objet-divin.png"
+    "png_path": "png_128/belt/belt_R10_objet-divin.png"
   },
   {
     "icon": "boots",
@@ -536,8 +492,7 @@
     "border_color": "rgba(216, 216, 216, 0.38)",
     "background": "rgba(216, 216, 216, 0.10)",
     "box_shadow": "",
-    "svg_path": "svg/boots/boots_R00_commun.svg",
-    "png_path": "png_512/boots/boots_R00_commun.png"
+    "png_path": "png_128/boots/boots_R00_commun.png"
   },
   {
     "icon": "boots",
@@ -548,8 +503,7 @@
     "border_color": "rgba(157, 255, 176, 0.42)",
     "background": "rgba(157, 255, 176, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/boots/boots_R01_peu-commun.svg",
-    "png_path": "png_512/boots/boots_R01_peu-commun.png"
+    "png_path": "png_128/boots/boots_R01_peu-commun.png"
   },
   {
     "icon": "boots",
@@ -560,8 +514,7 @@
     "border_color": "rgba(126, 231, 255, 0.42)",
     "background": "rgba(126, 231, 255, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/boots/boots_R02_inhabituel.svg",
-    "png_path": "png_512/boots/boots_R02_inhabituel.png"
+    "png_path": "png_128/boots/boots_R02_inhabituel.png"
   },
   {
     "icon": "boots",
@@ -572,8 +525,7 @@
     "border_color": "rgba(106, 168, 255, 0.48)",
     "background": "rgba(106, 168, 255, 0.13)",
     "box_shadow": "",
-    "svg_path": "svg/boots/boots_R03_rare.svg",
-    "png_path": "png_512/boots/boots_R03_rare.png"
+    "png_path": "png_128/boots/boots_R03_rare.png"
   },
   {
     "icon": "boots",
@@ -584,8 +536,7 @@
     "border_color": "rgba(180, 140, 255, 0.50)",
     "background": "rgba(180, 140, 255, 0.14)",
     "box_shadow": "",
-    "svg_path": "svg/boots/boots_R04_exceptionnel.svg",
-    "png_path": "png_512/boots/boots_R04_exceptionnel.png"
+    "png_path": "png_128/boots/boots_R04_exceptionnel.png"
   },
   {
     "icon": "boots",
@@ -596,8 +547,7 @@
     "border_color": "rgba(255, 211, 106, 0.52)",
     "background": "rgba(255, 211, 106, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/boots/boots_R05_precieux.svg",
-    "png_path": "png_512/boots/boots_R05_precieux.png"
+    "png_path": "png_128/boots/boots_R05_precieux.png"
   },
   {
     "icon": "boots",
@@ -608,8 +558,7 @@
     "border_color": "rgba(255, 126, 231, 0.52)",
     "background": "rgba(255, 126, 231, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/boots/boots_R06_epique.svg",
-    "png_path": "png_512/boots/boots_R06_epique.png"
+    "png_path": "png_128/boots/boots_R06_epique.png"
   },
   {
     "icon": "boots",
@@ -620,8 +569,7 @@
     "border_color": "rgba(255, 159, 67, 0.56)",
     "background": "rgba(255, 159, 67, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/boots/boots_R07_legendaire.svg",
-    "png_path": "png_512/boots/boots_R07_legendaire.png"
+    "png_path": "png_128/boots/boots_R07_legendaire.png"
   },
   {
     "icon": "boots",
@@ -632,8 +580,7 @@
     "border_color": "rgba(255, 95, 109, 0.58)",
     "background": "rgba(255, 95, 109, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/boots/boots_R08_mythique.svg",
-    "png_path": "png_512/boots/boots_R08_mythique.png"
+    "png_path": "png_128/boots/boots_R08_mythique.png"
   },
   {
     "icon": "boots",
@@ -644,8 +591,7 @@
     "border_color": "rgba(255, 255, 255, 0.62)",
     "background": "linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(241, 197, 106, 0.12))",
     "box_shadow": "0 0 18px rgba(255, 255, 255, 0.12)",
-    "svg_path": "svg/boots/boots_R09_artefact.svg",
-    "png_path": "png_512/boots/boots_R09_artefact.png"
+    "png_path": "png_128/boots/boots_R09_artefact.png"
   },
   {
     "icon": "boots",
@@ -656,8 +602,7 @@
     "border_color": "rgba(255, 243, 176, 0.75)",
     "background": "linear-gradient(135deg, rgba(255, 243, 176, 0.25), rgba(255, 126, 231, 0.14))",
     "box_shadow": "0 0 18px rgba(255, 243, 176, 0.22), 0 0 36px rgba(255, 126, 231, 0.10)",
-    "svg_path": "svg/boots/boots_R10_objet-divin.svg",
-    "png_path": "png_512/boots/boots_R10_objet-divin.png"
+    "png_path": "png_128/boots/boots_R10_objet-divin.png"
   },
   {
     "icon": "broadhead-arrow",
@@ -668,8 +613,7 @@
     "border_color": "rgba(216, 216, 216, 0.38)",
     "background": "rgba(216, 216, 216, 0.10)",
     "box_shadow": "",
-    "svg_path": "svg/broadhead-arrow/broadhead-arrow_R00_commun.svg",
-    "png_path": "png_512/broadhead-arrow/broadhead-arrow_R00_commun.png"
+    "png_path": "png_128/broadhead-arrow/broadhead-arrow_R00_commun.png"
   },
   {
     "icon": "broadhead-arrow",
@@ -680,8 +624,7 @@
     "border_color": "rgba(157, 255, 176, 0.42)",
     "background": "rgba(157, 255, 176, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/broadhead-arrow/broadhead-arrow_R01_peu-commun.svg",
-    "png_path": "png_512/broadhead-arrow/broadhead-arrow_R01_peu-commun.png"
+    "png_path": "png_128/broadhead-arrow/broadhead-arrow_R01_peu-commun.png"
   },
   {
     "icon": "broadhead-arrow",
@@ -692,8 +635,7 @@
     "border_color": "rgba(126, 231, 255, 0.42)",
     "background": "rgba(126, 231, 255, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/broadhead-arrow/broadhead-arrow_R02_inhabituel.svg",
-    "png_path": "png_512/broadhead-arrow/broadhead-arrow_R02_inhabituel.png"
+    "png_path": "png_128/broadhead-arrow/broadhead-arrow_R02_inhabituel.png"
   },
   {
     "icon": "broadhead-arrow",
@@ -704,8 +646,7 @@
     "border_color": "rgba(106, 168, 255, 0.48)",
     "background": "rgba(106, 168, 255, 0.13)",
     "box_shadow": "",
-    "svg_path": "svg/broadhead-arrow/broadhead-arrow_R03_rare.svg",
-    "png_path": "png_512/broadhead-arrow/broadhead-arrow_R03_rare.png"
+    "png_path": "png_128/broadhead-arrow/broadhead-arrow_R03_rare.png"
   },
   {
     "icon": "broadhead-arrow",
@@ -716,8 +657,7 @@
     "border_color": "rgba(180, 140, 255, 0.50)",
     "background": "rgba(180, 140, 255, 0.14)",
     "box_shadow": "",
-    "svg_path": "svg/broadhead-arrow/broadhead-arrow_R04_exceptionnel.svg",
-    "png_path": "png_512/broadhead-arrow/broadhead-arrow_R04_exceptionnel.png"
+    "png_path": "png_128/broadhead-arrow/broadhead-arrow_R04_exceptionnel.png"
   },
   {
     "icon": "broadhead-arrow",
@@ -728,8 +668,7 @@
     "border_color": "rgba(255, 211, 106, 0.52)",
     "background": "rgba(255, 211, 106, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/broadhead-arrow/broadhead-arrow_R05_precieux.svg",
-    "png_path": "png_512/broadhead-arrow/broadhead-arrow_R05_precieux.png"
+    "png_path": "png_128/broadhead-arrow/broadhead-arrow_R05_precieux.png"
   },
   {
     "icon": "broadhead-arrow",
@@ -740,8 +679,7 @@
     "border_color": "rgba(255, 126, 231, 0.52)",
     "background": "rgba(255, 126, 231, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/broadhead-arrow/broadhead-arrow_R06_epique.svg",
-    "png_path": "png_512/broadhead-arrow/broadhead-arrow_R06_epique.png"
+    "png_path": "png_128/broadhead-arrow/broadhead-arrow_R06_epique.png"
   },
   {
     "icon": "broadhead-arrow",
@@ -752,8 +690,7 @@
     "border_color": "rgba(255, 159, 67, 0.56)",
     "background": "rgba(255, 159, 67, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/broadhead-arrow/broadhead-arrow_R07_legendaire.svg",
-    "png_path": "png_512/broadhead-arrow/broadhead-arrow_R07_legendaire.png"
+    "png_path": "png_128/broadhead-arrow/broadhead-arrow_R07_legendaire.png"
   },
   {
     "icon": "broadhead-arrow",
@@ -764,8 +701,7 @@
     "border_color": "rgba(255, 95, 109, 0.58)",
     "background": "rgba(255, 95, 109, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/broadhead-arrow/broadhead-arrow_R08_mythique.svg",
-    "png_path": "png_512/broadhead-arrow/broadhead-arrow_R08_mythique.png"
+    "png_path": "png_128/broadhead-arrow/broadhead-arrow_R08_mythique.png"
   },
   {
     "icon": "broadhead-arrow",
@@ -776,8 +712,7 @@
     "border_color": "rgba(255, 255, 255, 0.62)",
     "background": "linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(241, 197, 106, 0.12))",
     "box_shadow": "0 0 18px rgba(255, 255, 255, 0.12)",
-    "svg_path": "svg/broadhead-arrow/broadhead-arrow_R09_artefact.svg",
-    "png_path": "png_512/broadhead-arrow/broadhead-arrow_R09_artefact.png"
+    "png_path": "png_128/broadhead-arrow/broadhead-arrow_R09_artefact.png"
   },
   {
     "icon": "broadhead-arrow",
@@ -788,8 +723,7 @@
     "border_color": "rgba(255, 243, 176, 0.75)",
     "background": "linear-gradient(135deg, rgba(255, 243, 176, 0.25), rgba(255, 126, 231, 0.14))",
     "box_shadow": "0 0 18px rgba(255, 243, 176, 0.22), 0 0 36px rgba(255, 126, 231, 0.10)",
-    "svg_path": "svg/broadhead-arrow/broadhead-arrow_R10_objet-divin.svg",
-    "png_path": "png_512/broadhead-arrow/broadhead-arrow_R10_objet-divin.png"
+    "png_path": "png_128/broadhead-arrow/broadhead-arrow_R10_objet-divin.png"
   },
   {
     "icon": "Chemise_de_maille",
@@ -800,8 +734,7 @@
     "border_color": "rgba(216, 216, 216, 0.38)",
     "background": "rgba(216, 216, 216, 0.10)",
     "box_shadow": "",
-    "svg_path": "svg/Chemise_de_maille/Chemise_de_maille_R00_commun.svg",
-    "png_path": "png_512/Chemise_de_maille/Chemise_de_maille_R00_commun.png"
+    "png_path": "png_128/Chemise_de_maille/Chemise_de_maille_R00_commun.png"
   },
   {
     "icon": "Chemise_de_maille",
@@ -812,8 +745,7 @@
     "border_color": "rgba(157, 255, 176, 0.42)",
     "background": "rgba(157, 255, 176, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Chemise_de_maille/Chemise_de_maille_R01_peu-commun.svg",
-    "png_path": "png_512/Chemise_de_maille/Chemise_de_maille_R01_peu-commun.png"
+    "png_path": "png_128/Chemise_de_maille/Chemise_de_maille_R01_peu-commun.png"
   },
   {
     "icon": "Chemise_de_maille",
@@ -824,8 +756,7 @@
     "border_color": "rgba(126, 231, 255, 0.42)",
     "background": "rgba(126, 231, 255, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Chemise_de_maille/Chemise_de_maille_R02_inhabituel.svg",
-    "png_path": "png_512/Chemise_de_maille/Chemise_de_maille_R02_inhabituel.png"
+    "png_path": "png_128/Chemise_de_maille/Chemise_de_maille_R02_inhabituel.png"
   },
   {
     "icon": "Chemise_de_maille",
@@ -836,8 +767,7 @@
     "border_color": "rgba(106, 168, 255, 0.48)",
     "background": "rgba(106, 168, 255, 0.13)",
     "box_shadow": "",
-    "svg_path": "svg/Chemise_de_maille/Chemise_de_maille_R03_rare.svg",
-    "png_path": "png_512/Chemise_de_maille/Chemise_de_maille_R03_rare.png"
+    "png_path": "png_128/Chemise_de_maille/Chemise_de_maille_R03_rare.png"
   },
   {
     "icon": "Chemise_de_maille",
@@ -848,8 +778,7 @@
     "border_color": "rgba(180, 140, 255, 0.50)",
     "background": "rgba(180, 140, 255, 0.14)",
     "box_shadow": "",
-    "svg_path": "svg/Chemise_de_maille/Chemise_de_maille_R04_exceptionnel.svg",
-    "png_path": "png_512/Chemise_de_maille/Chemise_de_maille_R04_exceptionnel.png"
+    "png_path": "png_128/Chemise_de_maille/Chemise_de_maille_R04_exceptionnel.png"
   },
   {
     "icon": "Chemise_de_maille",
@@ -860,8 +789,7 @@
     "border_color": "rgba(255, 211, 106, 0.52)",
     "background": "rgba(255, 211, 106, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Chemise_de_maille/Chemise_de_maille_R05_precieux.svg",
-    "png_path": "png_512/Chemise_de_maille/Chemise_de_maille_R05_precieux.png"
+    "png_path": "png_128/Chemise_de_maille/Chemise_de_maille_R05_precieux.png"
   },
   {
     "icon": "Chemise_de_maille",
@@ -872,8 +800,7 @@
     "border_color": "rgba(255, 126, 231, 0.52)",
     "background": "rgba(255, 126, 231, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Chemise_de_maille/Chemise_de_maille_R06_epique.svg",
-    "png_path": "png_512/Chemise_de_maille/Chemise_de_maille_R06_epique.png"
+    "png_path": "png_128/Chemise_de_maille/Chemise_de_maille_R06_epique.png"
   },
   {
     "icon": "Chemise_de_maille",
@@ -884,8 +811,7 @@
     "border_color": "rgba(255, 159, 67, 0.56)",
     "background": "rgba(255, 159, 67, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Chemise_de_maille/Chemise_de_maille_R07_legendaire.svg",
-    "png_path": "png_512/Chemise_de_maille/Chemise_de_maille_R07_legendaire.png"
+    "png_path": "png_128/Chemise_de_maille/Chemise_de_maille_R07_legendaire.png"
   },
   {
     "icon": "Chemise_de_maille",
@@ -896,8 +822,7 @@
     "border_color": "rgba(255, 95, 109, 0.58)",
     "background": "rgba(255, 95, 109, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Chemise_de_maille/Chemise_de_maille_R08_mythique.svg",
-    "png_path": "png_512/Chemise_de_maille/Chemise_de_maille_R08_mythique.png"
+    "png_path": "png_128/Chemise_de_maille/Chemise_de_maille_R08_mythique.png"
   },
   {
     "icon": "Chemise_de_maille",
@@ -908,8 +833,7 @@
     "border_color": "rgba(255, 255, 255, 0.62)",
     "background": "linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(241, 197, 106, 0.12))",
     "box_shadow": "0 0 18px rgba(255, 255, 255, 0.12)",
-    "svg_path": "svg/Chemise_de_maille/Chemise_de_maille_R09_artefact.svg",
-    "png_path": "png_512/Chemise_de_maille/Chemise_de_maille_R09_artefact.png"
+    "png_path": "png_128/Chemise_de_maille/Chemise_de_maille_R09_artefact.png"
   },
   {
     "icon": "Chemise_de_maille",
@@ -920,8 +844,7 @@
     "border_color": "rgba(255, 243, 176, 0.75)",
     "background": "linear-gradient(135deg, rgba(255, 243, 176, 0.25), rgba(255, 126, 231, 0.14))",
     "box_shadow": "0 0 18px rgba(255, 243, 176, 0.22), 0 0 36px rgba(255, 126, 231, 0.10)",
-    "svg_path": "svg/Chemise_de_maille/Chemise_de_maille_R10_objet-divin.svg",
-    "png_path": "png_512/Chemise_de_maille/Chemise_de_maille_R10_objet-divin.png"
+    "png_path": "png_128/Chemise_de_maille/Chemise_de_maille_R10_objet-divin.png"
   },
   {
     "icon": "cloak",
@@ -932,8 +855,7 @@
     "border_color": "rgba(216, 216, 216, 0.38)",
     "background": "rgba(216, 216, 216, 0.10)",
     "box_shadow": "",
-    "svg_path": "svg/cloak/cloak_R00_commun.svg",
-    "png_path": "png_512/cloak/cloak_R00_commun.png"
+    "png_path": "png_128/cloak/cloak_R00_commun.png"
   },
   {
     "icon": "cloak",
@@ -944,8 +866,7 @@
     "border_color": "rgba(157, 255, 176, 0.42)",
     "background": "rgba(157, 255, 176, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/cloak/cloak_R01_peu-commun.svg",
-    "png_path": "png_512/cloak/cloak_R01_peu-commun.png"
+    "png_path": "png_128/cloak/cloak_R01_peu-commun.png"
   },
   {
     "icon": "cloak",
@@ -956,8 +877,7 @@
     "border_color": "rgba(126, 231, 255, 0.42)",
     "background": "rgba(126, 231, 255, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/cloak/cloak_R02_inhabituel.svg",
-    "png_path": "png_512/cloak/cloak_R02_inhabituel.png"
+    "png_path": "png_128/cloak/cloak_R02_inhabituel.png"
   },
   {
     "icon": "cloak",
@@ -968,8 +888,7 @@
     "border_color": "rgba(106, 168, 255, 0.48)",
     "background": "rgba(106, 168, 255, 0.13)",
     "box_shadow": "",
-    "svg_path": "svg/cloak/cloak_R03_rare.svg",
-    "png_path": "png_512/cloak/cloak_R03_rare.png"
+    "png_path": "png_128/cloak/cloak_R03_rare.png"
   },
   {
     "icon": "cloak",
@@ -980,8 +899,7 @@
     "border_color": "rgba(180, 140, 255, 0.50)",
     "background": "rgba(180, 140, 255, 0.14)",
     "box_shadow": "",
-    "svg_path": "svg/cloak/cloak_R04_exceptionnel.svg",
-    "png_path": "png_512/cloak/cloak_R04_exceptionnel.png"
+    "png_path": "png_128/cloak/cloak_R04_exceptionnel.png"
   },
   {
     "icon": "cloak",
@@ -992,8 +910,7 @@
     "border_color": "rgba(255, 211, 106, 0.52)",
     "background": "rgba(255, 211, 106, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/cloak/cloak_R05_precieux.svg",
-    "png_path": "png_512/cloak/cloak_R05_precieux.png"
+    "png_path": "png_128/cloak/cloak_R05_precieux.png"
   },
   {
     "icon": "cloak",
@@ -1004,8 +921,7 @@
     "border_color": "rgba(255, 126, 231, 0.52)",
     "background": "rgba(255, 126, 231, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/cloak/cloak_R06_epique.svg",
-    "png_path": "png_512/cloak/cloak_R06_epique.png"
+    "png_path": "png_128/cloak/cloak_R06_epique.png"
   },
   {
     "icon": "cloak",
@@ -1016,8 +932,7 @@
     "border_color": "rgba(255, 159, 67, 0.56)",
     "background": "rgba(255, 159, 67, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/cloak/cloak_R07_legendaire.svg",
-    "png_path": "png_512/cloak/cloak_R07_legendaire.png"
+    "png_path": "png_128/cloak/cloak_R07_legendaire.png"
   },
   {
     "icon": "cloak",
@@ -1028,8 +943,7 @@
     "border_color": "rgba(255, 95, 109, 0.58)",
     "background": "rgba(255, 95, 109, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/cloak/cloak_R08_mythique.svg",
-    "png_path": "png_512/cloak/cloak_R08_mythique.png"
+    "png_path": "png_128/cloak/cloak_R08_mythique.png"
   },
   {
     "icon": "cloak",
@@ -1040,8 +954,7 @@
     "border_color": "rgba(255, 255, 255, 0.62)",
     "background": "linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(241, 197, 106, 0.12))",
     "box_shadow": "0 0 18px rgba(255, 255, 255, 0.12)",
-    "svg_path": "svg/cloak/cloak_R09_artefact.svg",
-    "png_path": "png_512/cloak/cloak_R09_artefact.png"
+    "png_path": "png_128/cloak/cloak_R09_artefact.png"
   },
   {
     "icon": "cloak",
@@ -1052,8 +965,7 @@
     "border_color": "rgba(255, 243, 176, 0.75)",
     "background": "linear-gradient(135deg, rgba(255, 243, 176, 0.25), rgba(255, 126, 231, 0.14))",
     "box_shadow": "0 0 18px rgba(255, 243, 176, 0.22), 0 0 36px rgba(255, 126, 231, 0.10)",
-    "svg_path": "svg/cloak/cloak_R10_objet-divin.svg",
-    "png_path": "png_512/cloak/cloak_R10_objet-divin.png"
+    "png_path": "png_128/cloak/cloak_R10_objet-divin.png"
   },
   {
     "icon": "Cuir",
@@ -1064,8 +976,7 @@
     "border_color": "rgba(216, 216, 216, 0.38)",
     "background": "rgba(216, 216, 216, 0.10)",
     "box_shadow": "",
-    "svg_path": "svg/Cuir/Cuir_R00_commun.svg",
-    "png_path": "png_512/Cuir/Cuir_R00_commun.png"
+    "png_path": "png_128/Cuir/Cuir_R00_commun.png"
   },
   {
     "icon": "Cuir",
@@ -1076,8 +987,7 @@
     "border_color": "rgba(157, 255, 176, 0.42)",
     "background": "rgba(157, 255, 176, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Cuir/Cuir_R01_peu-commun.svg",
-    "png_path": "png_512/Cuir/Cuir_R01_peu-commun.png"
+    "png_path": "png_128/Cuir/Cuir_R01_peu-commun.png"
   },
   {
     "icon": "Cuir",
@@ -1088,8 +998,7 @@
     "border_color": "rgba(126, 231, 255, 0.42)",
     "background": "rgba(126, 231, 255, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Cuir/Cuir_R02_inhabituel.svg",
-    "png_path": "png_512/Cuir/Cuir_R02_inhabituel.png"
+    "png_path": "png_128/Cuir/Cuir_R02_inhabituel.png"
   },
   {
     "icon": "Cuir",
@@ -1100,8 +1009,7 @@
     "border_color": "rgba(106, 168, 255, 0.48)",
     "background": "rgba(106, 168, 255, 0.13)",
     "box_shadow": "",
-    "svg_path": "svg/Cuir/Cuir_R03_rare.svg",
-    "png_path": "png_512/Cuir/Cuir_R03_rare.png"
+    "png_path": "png_128/Cuir/Cuir_R03_rare.png"
   },
   {
     "icon": "Cuir",
@@ -1112,8 +1020,7 @@
     "border_color": "rgba(180, 140, 255, 0.50)",
     "background": "rgba(180, 140, 255, 0.14)",
     "box_shadow": "",
-    "svg_path": "svg/Cuir/Cuir_R04_exceptionnel.svg",
-    "png_path": "png_512/Cuir/Cuir_R04_exceptionnel.png"
+    "png_path": "png_128/Cuir/Cuir_R04_exceptionnel.png"
   },
   {
     "icon": "Cuir",
@@ -1124,8 +1031,7 @@
     "border_color": "rgba(255, 211, 106, 0.52)",
     "background": "rgba(255, 211, 106, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Cuir/Cuir_R05_precieux.svg",
-    "png_path": "png_512/Cuir/Cuir_R05_precieux.png"
+    "png_path": "png_128/Cuir/Cuir_R05_precieux.png"
   },
   {
     "icon": "Cuir",
@@ -1136,8 +1042,7 @@
     "border_color": "rgba(255, 126, 231, 0.52)",
     "background": "rgba(255, 126, 231, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Cuir/Cuir_R06_epique.svg",
-    "png_path": "png_512/Cuir/Cuir_R06_epique.png"
+    "png_path": "png_128/Cuir/Cuir_R06_epique.png"
   },
   {
     "icon": "Cuir",
@@ -1148,8 +1053,7 @@
     "border_color": "rgba(255, 159, 67, 0.56)",
     "background": "rgba(255, 159, 67, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Cuir/Cuir_R07_legendaire.svg",
-    "png_path": "png_512/Cuir/Cuir_R07_legendaire.png"
+    "png_path": "png_128/Cuir/Cuir_R07_legendaire.png"
   },
   {
     "icon": "Cuir",
@@ -1160,8 +1064,7 @@
     "border_color": "rgba(255, 95, 109, 0.58)",
     "background": "rgba(255, 95, 109, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Cuir/Cuir_R08_mythique.svg",
-    "png_path": "png_512/Cuir/Cuir_R08_mythique.png"
+    "png_path": "png_128/Cuir/Cuir_R08_mythique.png"
   },
   {
     "icon": "Cuir",
@@ -1172,8 +1075,7 @@
     "border_color": "rgba(255, 255, 255, 0.62)",
     "background": "linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(241, 197, 106, 0.12))",
     "box_shadow": "0 0 18px rgba(255, 255, 255, 0.12)",
-    "svg_path": "svg/Cuir/Cuir_R09_artefact.svg",
-    "png_path": "png_512/Cuir/Cuir_R09_artefact.png"
+    "png_path": "png_128/Cuir/Cuir_R09_artefact.png"
   },
   {
     "icon": "Cuir",
@@ -1184,8 +1086,7 @@
     "border_color": "rgba(255, 243, 176, 0.75)",
     "background": "linear-gradient(135deg, rgba(255, 243, 176, 0.25), rgba(255, 126, 231, 0.14))",
     "box_shadow": "0 0 18px rgba(255, 243, 176, 0.22), 0 0 36px rgba(255, 126, 231, 0.10)",
-    "svg_path": "svg/Cuir/Cuir_R10_objet-divin.svg",
-    "png_path": "png_512/Cuir/Cuir_R10_objet-divin.png"
+    "png_path": "png_128/Cuir/Cuir_R10_objet-divin.png"
   },
   {
     "icon": "Dague",
@@ -1196,8 +1097,7 @@
     "border_color": "rgba(216, 216, 216, 0.38)",
     "background": "rgba(216, 216, 216, 0.10)",
     "box_shadow": "",
-    "svg_path": "svg/Dague/Dague_R00_commun.svg",
-    "png_path": "png_512/Dague/Dague_R00_commun.png"
+    "png_path": "png_128/Dague/Dague_R00_commun.png"
   },
   {
     "icon": "Dague",
@@ -1208,8 +1108,7 @@
     "border_color": "rgba(157, 255, 176, 0.42)",
     "background": "rgba(157, 255, 176, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Dague/Dague_R01_peu-commun.svg",
-    "png_path": "png_512/Dague/Dague_R01_peu-commun.png"
+    "png_path": "png_128/Dague/Dague_R01_peu-commun.png"
   },
   {
     "icon": "Dague",
@@ -1220,8 +1119,7 @@
     "border_color": "rgba(126, 231, 255, 0.42)",
     "background": "rgba(126, 231, 255, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Dague/Dague_R02_inhabituel.svg",
-    "png_path": "png_512/Dague/Dague_R02_inhabituel.png"
+    "png_path": "png_128/Dague/Dague_R02_inhabituel.png"
   },
   {
     "icon": "Dague",
@@ -1232,8 +1130,7 @@
     "border_color": "rgba(106, 168, 255, 0.48)",
     "background": "rgba(106, 168, 255, 0.13)",
     "box_shadow": "",
-    "svg_path": "svg/Dague/Dague_R03_rare.svg",
-    "png_path": "png_512/Dague/Dague_R03_rare.png"
+    "png_path": "png_128/Dague/Dague_R03_rare.png"
   },
   {
     "icon": "Dague",
@@ -1244,8 +1141,7 @@
     "border_color": "rgba(180, 140, 255, 0.50)",
     "background": "rgba(180, 140, 255, 0.14)",
     "box_shadow": "",
-    "svg_path": "svg/Dague/Dague_R04_exceptionnel.svg",
-    "png_path": "png_512/Dague/Dague_R04_exceptionnel.png"
+    "png_path": "png_128/Dague/Dague_R04_exceptionnel.png"
   },
   {
     "icon": "Dague",
@@ -1256,8 +1152,7 @@
     "border_color": "rgba(255, 211, 106, 0.52)",
     "background": "rgba(255, 211, 106, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Dague/Dague_R05_precieux.svg",
-    "png_path": "png_512/Dague/Dague_R05_precieux.png"
+    "png_path": "png_128/Dague/Dague_R05_precieux.png"
   },
   {
     "icon": "Dague",
@@ -1268,8 +1163,7 @@
     "border_color": "rgba(255, 126, 231, 0.52)",
     "background": "rgba(255, 126, 231, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Dague/Dague_R06_epique.svg",
-    "png_path": "png_512/Dague/Dague_R06_epique.png"
+    "png_path": "png_128/Dague/Dague_R06_epique.png"
   },
   {
     "icon": "Dague",
@@ -1280,8 +1174,7 @@
     "border_color": "rgba(255, 159, 67, 0.56)",
     "background": "rgba(255, 159, 67, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Dague/Dague_R07_legendaire.svg",
-    "png_path": "png_512/Dague/Dague_R07_legendaire.png"
+    "png_path": "png_128/Dague/Dague_R07_legendaire.png"
   },
   {
     "icon": "Dague",
@@ -1292,8 +1185,7 @@
     "border_color": "rgba(255, 95, 109, 0.58)",
     "background": "rgba(255, 95, 109, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Dague/Dague_R08_mythique.svg",
-    "png_path": "png_512/Dague/Dague_R08_mythique.png"
+    "png_path": "png_128/Dague/Dague_R08_mythique.png"
   },
   {
     "icon": "Dague",
@@ -1304,8 +1196,7 @@
     "border_color": "rgba(255, 255, 255, 0.62)",
     "background": "linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(241, 197, 106, 0.12))",
     "box_shadow": "0 0 18px rgba(255, 255, 255, 0.12)",
-    "svg_path": "svg/Dague/Dague_R09_artefact.svg",
-    "png_path": "png_512/Dague/Dague_R09_artefact.png"
+    "png_path": "png_128/Dague/Dague_R09_artefact.png"
   },
   {
     "icon": "Dague",
@@ -1316,8 +1207,7 @@
     "border_color": "rgba(255, 243, 176, 0.75)",
     "background": "linear-gradient(135deg, rgba(255, 243, 176, 0.25), rgba(255, 126, 231, 0.14))",
     "box_shadow": "0 0 18px rgba(255, 243, 176, 0.22), 0 0 36px rgba(255, 126, 231, 0.10)",
-    "svg_path": "svg/Dague/Dague_R10_objet-divin.svg",
-    "png_path": "png_512/Dague/Dague_R10_objet-divin.png"
+    "png_path": "png_128/Dague/Dague_R10_objet-divin.png"
   },
   {
     "icon": "emerald-necklace",
@@ -1328,8 +1218,7 @@
     "border_color": "rgba(216, 216, 216, 0.38)",
     "background": "rgba(216, 216, 216, 0.10)",
     "box_shadow": "",
-    "svg_path": "svg/emerald-necklace/emerald-necklace_R00_commun.svg",
-    "png_path": "png_512/emerald-necklace/emerald-necklace_R00_commun.png"
+    "png_path": "png_128/emerald-necklace/emerald-necklace_R00_commun.png"
   },
   {
     "icon": "emerald-necklace",
@@ -1340,8 +1229,7 @@
     "border_color": "rgba(157, 255, 176, 0.42)",
     "background": "rgba(157, 255, 176, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/emerald-necklace/emerald-necklace_R01_peu-commun.svg",
-    "png_path": "png_512/emerald-necklace/emerald-necklace_R01_peu-commun.png"
+    "png_path": "png_128/emerald-necklace/emerald-necklace_R01_peu-commun.png"
   },
   {
     "icon": "emerald-necklace",
@@ -1352,8 +1240,7 @@
     "border_color": "rgba(126, 231, 255, 0.42)",
     "background": "rgba(126, 231, 255, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/emerald-necklace/emerald-necklace_R02_inhabituel.svg",
-    "png_path": "png_512/emerald-necklace/emerald-necklace_R02_inhabituel.png"
+    "png_path": "png_128/emerald-necklace/emerald-necklace_R02_inhabituel.png"
   },
   {
     "icon": "emerald-necklace",
@@ -1364,8 +1251,7 @@
     "border_color": "rgba(106, 168, 255, 0.48)",
     "background": "rgba(106, 168, 255, 0.13)",
     "box_shadow": "",
-    "svg_path": "svg/emerald-necklace/emerald-necklace_R03_rare.svg",
-    "png_path": "png_512/emerald-necklace/emerald-necklace_R03_rare.png"
+    "png_path": "png_128/emerald-necklace/emerald-necklace_R03_rare.png"
   },
   {
     "icon": "emerald-necklace",
@@ -1376,8 +1262,7 @@
     "border_color": "rgba(180, 140, 255, 0.50)",
     "background": "rgba(180, 140, 255, 0.14)",
     "box_shadow": "",
-    "svg_path": "svg/emerald-necklace/emerald-necklace_R04_exceptionnel.svg",
-    "png_path": "png_512/emerald-necklace/emerald-necklace_R04_exceptionnel.png"
+    "png_path": "png_128/emerald-necklace/emerald-necklace_R04_exceptionnel.png"
   },
   {
     "icon": "emerald-necklace",
@@ -1388,8 +1273,7 @@
     "border_color": "rgba(255, 211, 106, 0.52)",
     "background": "rgba(255, 211, 106, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/emerald-necklace/emerald-necklace_R05_precieux.svg",
-    "png_path": "png_512/emerald-necklace/emerald-necklace_R05_precieux.png"
+    "png_path": "png_128/emerald-necklace/emerald-necklace_R05_precieux.png"
   },
   {
     "icon": "emerald-necklace",
@@ -1400,8 +1284,7 @@
     "border_color": "rgba(255, 126, 231, 0.52)",
     "background": "rgba(255, 126, 231, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/emerald-necklace/emerald-necklace_R06_epique.svg",
-    "png_path": "png_512/emerald-necklace/emerald-necklace_R06_epique.png"
+    "png_path": "png_128/emerald-necklace/emerald-necklace_R06_epique.png"
   },
   {
     "icon": "emerald-necklace",
@@ -1412,8 +1295,7 @@
     "border_color": "rgba(255, 159, 67, 0.56)",
     "background": "rgba(255, 159, 67, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/emerald-necklace/emerald-necklace_R07_legendaire.svg",
-    "png_path": "png_512/emerald-necklace/emerald-necklace_R07_legendaire.png"
+    "png_path": "png_128/emerald-necklace/emerald-necklace_R07_legendaire.png"
   },
   {
     "icon": "emerald-necklace",
@@ -1424,8 +1306,7 @@
     "border_color": "rgba(255, 95, 109, 0.58)",
     "background": "rgba(255, 95, 109, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/emerald-necklace/emerald-necklace_R08_mythique.svg",
-    "png_path": "png_512/emerald-necklace/emerald-necklace_R08_mythique.png"
+    "png_path": "png_128/emerald-necklace/emerald-necklace_R08_mythique.png"
   },
   {
     "icon": "emerald-necklace",
@@ -1436,8 +1317,7 @@
     "border_color": "rgba(255, 255, 255, 0.62)",
     "background": "linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(241, 197, 106, 0.12))",
     "box_shadow": "0 0 18px rgba(255, 255, 255, 0.12)",
-    "svg_path": "svg/emerald-necklace/emerald-necklace_R09_artefact.svg",
-    "png_path": "png_512/emerald-necklace/emerald-necklace_R09_artefact.png"
+    "png_path": "png_128/emerald-necklace/emerald-necklace_R09_artefact.png"
   },
   {
     "icon": "emerald-necklace",
@@ -1448,8 +1328,7 @@
     "border_color": "rgba(255, 243, 176, 0.75)",
     "background": "linear-gradient(135deg, rgba(255, 243, 176, 0.25), rgba(255, 126, 231, 0.14))",
     "box_shadow": "0 0 18px rgba(255, 243, 176, 0.22), 0 0 36px rgba(255, 126, 231, 0.10)",
-    "svg_path": "svg/emerald-necklace/emerald-necklace_R10_objet-divin.svg",
-    "png_path": "png_512/emerald-necklace/emerald-necklace_R10_objet-divin.png"
+    "png_path": "png_128/emerald-necklace/emerald-necklace_R10_objet-divin.png"
   },
   {
     "icon": "Epee_Batarde",
@@ -1460,8 +1339,7 @@
     "border_color": "rgba(216, 216, 216, 0.38)",
     "background": "rgba(216, 216, 216, 0.10)",
     "box_shadow": "",
-    "svg_path": "svg/Epee_Batarde/Epee_Batarde_R00_commun.svg",
-    "png_path": "png_512/Epee_Batarde/Epee_Batarde_R00_commun.png"
+    "png_path": "png_128/Epee_Batarde/Epee_Batarde_R00_commun.png"
   },
   {
     "icon": "Epee_Batarde",
@@ -1472,8 +1350,7 @@
     "border_color": "rgba(157, 255, 176, 0.42)",
     "background": "rgba(157, 255, 176, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Epee_Batarde/Epee_Batarde_R01_peu-commun.svg",
-    "png_path": "png_512/Epee_Batarde/Epee_Batarde_R01_peu-commun.png"
+    "png_path": "png_128/Epee_Batarde/Epee_Batarde_R01_peu-commun.png"
   },
   {
     "icon": "Epee_Batarde",
@@ -1484,8 +1361,7 @@
     "border_color": "rgba(126, 231, 255, 0.42)",
     "background": "rgba(126, 231, 255, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Epee_Batarde/Epee_Batarde_R02_inhabituel.svg",
-    "png_path": "png_512/Epee_Batarde/Epee_Batarde_R02_inhabituel.png"
+    "png_path": "png_128/Epee_Batarde/Epee_Batarde_R02_inhabituel.png"
   },
   {
     "icon": "Epee_Batarde",
@@ -1496,8 +1372,7 @@
     "border_color": "rgba(106, 168, 255, 0.48)",
     "background": "rgba(106, 168, 255, 0.13)",
     "box_shadow": "",
-    "svg_path": "svg/Epee_Batarde/Epee_Batarde_R03_rare.svg",
-    "png_path": "png_512/Epee_Batarde/Epee_Batarde_R03_rare.png"
+    "png_path": "png_128/Epee_Batarde/Epee_Batarde_R03_rare.png"
   },
   {
     "icon": "Epee_Batarde",
@@ -1508,8 +1383,7 @@
     "border_color": "rgba(180, 140, 255, 0.50)",
     "background": "rgba(180, 140, 255, 0.14)",
     "box_shadow": "",
-    "svg_path": "svg/Epee_Batarde/Epee_Batarde_R04_exceptionnel.svg",
-    "png_path": "png_512/Epee_Batarde/Epee_Batarde_R04_exceptionnel.png"
+    "png_path": "png_128/Epee_Batarde/Epee_Batarde_R04_exceptionnel.png"
   },
   {
     "icon": "Epee_Batarde",
@@ -1520,8 +1394,7 @@
     "border_color": "rgba(255, 211, 106, 0.52)",
     "background": "rgba(255, 211, 106, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Epee_Batarde/Epee_Batarde_R05_precieux.svg",
-    "png_path": "png_512/Epee_Batarde/Epee_Batarde_R05_precieux.png"
+    "png_path": "png_128/Epee_Batarde/Epee_Batarde_R05_precieux.png"
   },
   {
     "icon": "Epee_Batarde",
@@ -1532,8 +1405,7 @@
     "border_color": "rgba(255, 126, 231, 0.52)",
     "background": "rgba(255, 126, 231, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Epee_Batarde/Epee_Batarde_R06_epique.svg",
-    "png_path": "png_512/Epee_Batarde/Epee_Batarde_R06_epique.png"
+    "png_path": "png_128/Epee_Batarde/Epee_Batarde_R06_epique.png"
   },
   {
     "icon": "Epee_Batarde",
@@ -1544,8 +1416,7 @@
     "border_color": "rgba(255, 159, 67, 0.56)",
     "background": "rgba(255, 159, 67, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Epee_Batarde/Epee_Batarde_R07_legendaire.svg",
-    "png_path": "png_512/Epee_Batarde/Epee_Batarde_R07_legendaire.png"
+    "png_path": "png_128/Epee_Batarde/Epee_Batarde_R07_legendaire.png"
   },
   {
     "icon": "Epee_Batarde",
@@ -1556,8 +1427,7 @@
     "border_color": "rgba(255, 95, 109, 0.58)",
     "background": "rgba(255, 95, 109, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Epee_Batarde/Epee_Batarde_R08_mythique.svg",
-    "png_path": "png_512/Epee_Batarde/Epee_Batarde_R08_mythique.png"
+    "png_path": "png_128/Epee_Batarde/Epee_Batarde_R08_mythique.png"
   },
   {
     "icon": "Epee_Batarde",
@@ -1568,8 +1438,7 @@
     "border_color": "rgba(255, 255, 255, 0.62)",
     "background": "linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(241, 197, 106, 0.12))",
     "box_shadow": "0 0 18px rgba(255, 255, 255, 0.12)",
-    "svg_path": "svg/Epee_Batarde/Epee_Batarde_R09_artefact.svg",
-    "png_path": "png_512/Epee_Batarde/Epee_Batarde_R09_artefact.png"
+    "png_path": "png_128/Epee_Batarde/Epee_Batarde_R09_artefact.png"
   },
   {
     "icon": "Epee_Batarde",
@@ -1580,8 +1449,7 @@
     "border_color": "rgba(255, 243, 176, 0.75)",
     "background": "linear-gradient(135deg, rgba(255, 243, 176, 0.25), rgba(255, 126, 231, 0.14))",
     "box_shadow": "0 0 18px rgba(255, 243, 176, 0.22), 0 0 36px rgba(255, 126, 231, 0.10)",
-    "svg_path": "svg/Epee_Batarde/Epee_Batarde_R10_objet-divin.svg",
-    "png_path": "png_512/Epee_Batarde/Epee_Batarde_R10_objet-divin.png"
+    "png_path": "png_128/Epee_Batarde/Epee_Batarde_R10_objet-divin.png"
   },
   {
     "icon": "Epee_longue",
@@ -1592,8 +1460,7 @@
     "border_color": "rgba(216, 216, 216, 0.38)",
     "background": "rgba(216, 216, 216, 0.10)",
     "box_shadow": "",
-    "svg_path": "svg/Epee_longue/Epee_longue_R00_commun.svg",
-    "png_path": "png_512/Epee_longue/Epee_longue_R00_commun.png"
+    "png_path": "png_128/Epee_longue/Epee_longue_R00_commun.png"
   },
   {
     "icon": "Epee_longue",
@@ -1604,8 +1471,7 @@
     "border_color": "rgba(157, 255, 176, 0.42)",
     "background": "rgba(157, 255, 176, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Epee_longue/Epee_longue_R01_peu-commun.svg",
-    "png_path": "png_512/Epee_longue/Epee_longue_R01_peu-commun.png"
+    "png_path": "png_128/Epee_longue/Epee_longue_R01_peu-commun.png"
   },
   {
     "icon": "Epee_longue",
@@ -1616,8 +1482,7 @@
     "border_color": "rgba(126, 231, 255, 0.42)",
     "background": "rgba(126, 231, 255, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Epee_longue/Epee_longue_R02_inhabituel.svg",
-    "png_path": "png_512/Epee_longue/Epee_longue_R02_inhabituel.png"
+    "png_path": "png_128/Epee_longue/Epee_longue_R02_inhabituel.png"
   },
   {
     "icon": "Epee_longue",
@@ -1628,8 +1493,7 @@
     "border_color": "rgba(106, 168, 255, 0.48)",
     "background": "rgba(106, 168, 255, 0.13)",
     "box_shadow": "",
-    "svg_path": "svg/Epee_longue/Epee_longue_R03_rare.svg",
-    "png_path": "png_512/Epee_longue/Epee_longue_R03_rare.png"
+    "png_path": "png_128/Epee_longue/Epee_longue_R03_rare.png"
   },
   {
     "icon": "Epee_longue",
@@ -1640,8 +1504,7 @@
     "border_color": "rgba(180, 140, 255, 0.50)",
     "background": "rgba(180, 140, 255, 0.14)",
     "box_shadow": "",
-    "svg_path": "svg/Epee_longue/Epee_longue_R04_exceptionnel.svg",
-    "png_path": "png_512/Epee_longue/Epee_longue_R04_exceptionnel.png"
+    "png_path": "png_128/Epee_longue/Epee_longue_R04_exceptionnel.png"
   },
   {
     "icon": "Epee_longue",
@@ -1652,8 +1515,7 @@
     "border_color": "rgba(255, 211, 106, 0.52)",
     "background": "rgba(255, 211, 106, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Epee_longue/Epee_longue_R05_precieux.svg",
-    "png_path": "png_512/Epee_longue/Epee_longue_R05_precieux.png"
+    "png_path": "png_128/Epee_longue/Epee_longue_R05_precieux.png"
   },
   {
     "icon": "Epee_longue",
@@ -1664,8 +1526,7 @@
     "border_color": "rgba(255, 126, 231, 0.52)",
     "background": "rgba(255, 126, 231, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Epee_longue/Epee_longue_R06_epique.svg",
-    "png_path": "png_512/Epee_longue/Epee_longue_R06_epique.png"
+    "png_path": "png_128/Epee_longue/Epee_longue_R06_epique.png"
   },
   {
     "icon": "Epee_longue",
@@ -1676,8 +1537,7 @@
     "border_color": "rgba(255, 159, 67, 0.56)",
     "background": "rgba(255, 159, 67, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Epee_longue/Epee_longue_R07_legendaire.svg",
-    "png_path": "png_512/Epee_longue/Epee_longue_R07_legendaire.png"
+    "png_path": "png_128/Epee_longue/Epee_longue_R07_legendaire.png"
   },
   {
     "icon": "Epee_longue",
@@ -1688,8 +1548,7 @@
     "border_color": "rgba(255, 95, 109, 0.58)",
     "background": "rgba(255, 95, 109, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Epee_longue/Epee_longue_R08_mythique.svg",
-    "png_path": "png_512/Epee_longue/Epee_longue_R08_mythique.png"
+    "png_path": "png_128/Epee_longue/Epee_longue_R08_mythique.png"
   },
   {
     "icon": "Epee_longue",
@@ -1700,8 +1559,7 @@
     "border_color": "rgba(255, 255, 255, 0.62)",
     "background": "linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(241, 197, 106, 0.12))",
     "box_shadow": "0 0 18px rgba(255, 255, 255, 0.12)",
-    "svg_path": "svg/Epee_longue/Epee_longue_R09_artefact.svg",
-    "png_path": "png_512/Epee_longue/Epee_longue_R09_artefact.png"
+    "png_path": "png_128/Epee_longue/Epee_longue_R09_artefact.png"
   },
   {
     "icon": "Epee_longue",
@@ -1712,8 +1570,7 @@
     "border_color": "rgba(255, 243, 176, 0.75)",
     "background": "linear-gradient(135deg, rgba(255, 243, 176, 0.25), rgba(255, 126, 231, 0.14))",
     "box_shadow": "0 0 18px rgba(255, 243, 176, 0.22), 0 0 36px rgba(255, 126, 231, 0.10)",
-    "svg_path": "svg/Epee_longue/Epee_longue_R10_objet-divin.svg",
-    "png_path": "png_512/Epee_longue/Epee_longue_R10_objet-divin.png"
+    "png_path": "png_128/Epee_longue/Epee_longue_R10_objet-divin.png"
   },
   {
     "icon": "Epee___2_main",
@@ -1724,8 +1581,7 @@
     "border_color": "rgba(216, 216, 216, 0.38)",
     "background": "rgba(216, 216, 216, 0.10)",
     "box_shadow": "",
-    "svg_path": "svg/Epee___2_main/Epee___2_main_R00_commun.svg",
-    "png_path": "png_512/Epee___2_main/Epee___2_main_R00_commun.png"
+    "png_path": "png_128/Epee___2_main/Epee___2_main_R00_commun.png"
   },
   {
     "icon": "Epee___2_main",
@@ -1736,8 +1592,7 @@
     "border_color": "rgba(157, 255, 176, 0.42)",
     "background": "rgba(157, 255, 176, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Epee___2_main/Epee___2_main_R01_peu-commun.svg",
-    "png_path": "png_512/Epee___2_main/Epee___2_main_R01_peu-commun.png"
+    "png_path": "png_128/Epee___2_main/Epee___2_main_R01_peu-commun.png"
   },
   {
     "icon": "Epee___2_main",
@@ -1748,8 +1603,7 @@
     "border_color": "rgba(126, 231, 255, 0.42)",
     "background": "rgba(126, 231, 255, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Epee___2_main/Epee___2_main_R02_inhabituel.svg",
-    "png_path": "png_512/Epee___2_main/Epee___2_main_R02_inhabituel.png"
+    "png_path": "png_128/Epee___2_main/Epee___2_main_R02_inhabituel.png"
   },
   {
     "icon": "Epee___2_main",
@@ -1760,8 +1614,7 @@
     "border_color": "rgba(106, 168, 255, 0.48)",
     "background": "rgba(106, 168, 255, 0.13)",
     "box_shadow": "",
-    "svg_path": "svg/Epee___2_main/Epee___2_main_R03_rare.svg",
-    "png_path": "png_512/Epee___2_main/Epee___2_main_R03_rare.png"
+    "png_path": "png_128/Epee___2_main/Epee___2_main_R03_rare.png"
   },
   {
     "icon": "Epee___2_main",
@@ -1772,8 +1625,7 @@
     "border_color": "rgba(180, 140, 255, 0.50)",
     "background": "rgba(180, 140, 255, 0.14)",
     "box_shadow": "",
-    "svg_path": "svg/Epee___2_main/Epee___2_main_R04_exceptionnel.svg",
-    "png_path": "png_512/Epee___2_main/Epee___2_main_R04_exceptionnel.png"
+    "png_path": "png_128/Epee___2_main/Epee___2_main_R04_exceptionnel.png"
   },
   {
     "icon": "Epee___2_main",
@@ -1784,8 +1636,7 @@
     "border_color": "rgba(255, 211, 106, 0.52)",
     "background": "rgba(255, 211, 106, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Epee___2_main/Epee___2_main_R05_precieux.svg",
-    "png_path": "png_512/Epee___2_main/Epee___2_main_R05_precieux.png"
+    "png_path": "png_128/Epee___2_main/Epee___2_main_R05_precieux.png"
   },
   {
     "icon": "Epee___2_main",
@@ -1796,8 +1647,7 @@
     "border_color": "rgba(255, 126, 231, 0.52)",
     "background": "rgba(255, 126, 231, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Epee___2_main/Epee___2_main_R06_epique.svg",
-    "png_path": "png_512/Epee___2_main/Epee___2_main_R06_epique.png"
+    "png_path": "png_128/Epee___2_main/Epee___2_main_R06_epique.png"
   },
   {
     "icon": "Epee___2_main",
@@ -1808,8 +1658,7 @@
     "border_color": "rgba(255, 159, 67, 0.56)",
     "background": "rgba(255, 159, 67, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Epee___2_main/Epee___2_main_R07_legendaire.svg",
-    "png_path": "png_512/Epee___2_main/Epee___2_main_R07_legendaire.png"
+    "png_path": "png_128/Epee___2_main/Epee___2_main_R07_legendaire.png"
   },
   {
     "icon": "Epee___2_main",
@@ -1820,8 +1669,7 @@
     "border_color": "rgba(255, 95, 109, 0.58)",
     "background": "rgba(255, 95, 109, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Epee___2_main/Epee___2_main_R08_mythique.svg",
-    "png_path": "png_512/Epee___2_main/Epee___2_main_R08_mythique.png"
+    "png_path": "png_128/Epee___2_main/Epee___2_main_R08_mythique.png"
   },
   {
     "icon": "Epee___2_main",
@@ -1832,8 +1680,7 @@
     "border_color": "rgba(255, 255, 255, 0.62)",
     "background": "linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(241, 197, 106, 0.12))",
     "box_shadow": "0 0 18px rgba(255, 255, 255, 0.12)",
-    "svg_path": "svg/Epee___2_main/Epee___2_main_R09_artefact.svg",
-    "png_path": "png_512/Epee___2_main/Epee___2_main_R09_artefact.png"
+    "png_path": "png_128/Epee___2_main/Epee___2_main_R09_artefact.png"
   },
   {
     "icon": "Epee___2_main",
@@ -1844,8 +1691,7 @@
     "border_color": "rgba(255, 243, 176, 0.75)",
     "background": "linear-gradient(135deg, rgba(255, 243, 176, 0.25), rgba(255, 126, 231, 0.14))",
     "box_shadow": "0 0 18px rgba(255, 243, 176, 0.22), 0 0 36px rgba(255, 126, 231, 0.10)",
-    "svg_path": "svg/Epee___2_main/Epee___2_main_R10_objet-divin.svg",
-    "png_path": "png_512/Epee___2_main/Epee___2_main_R10_objet-divin.png"
+    "png_path": "png_128/Epee___2_main/Epee___2_main_R10_objet-divin.png"
   },
   {
     "icon": "Epee",
@@ -1856,8 +1702,7 @@
     "border_color": "rgba(216, 216, 216, 0.38)",
     "background": "rgba(216, 216, 216, 0.10)",
     "box_shadow": "",
-    "svg_path": "svg/Epee/Epee_R00_commun.svg",
-    "png_path": "png_512/Epee/Epee_R00_commun.png"
+    "png_path": "png_128/Epee/Epee_R00_commun.png"
   },
   {
     "icon": "Epee",
@@ -1868,8 +1713,7 @@
     "border_color": "rgba(157, 255, 176, 0.42)",
     "background": "rgba(157, 255, 176, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Epee/Epee_R01_peu-commun.svg",
-    "png_path": "png_512/Epee/Epee_R01_peu-commun.png"
+    "png_path": "png_128/Epee/Epee_R01_peu-commun.png"
   },
   {
     "icon": "Epee",
@@ -1880,8 +1724,7 @@
     "border_color": "rgba(126, 231, 255, 0.42)",
     "background": "rgba(126, 231, 255, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Epee/Epee_R02_inhabituel.svg",
-    "png_path": "png_512/Epee/Epee_R02_inhabituel.png"
+    "png_path": "png_128/Epee/Epee_R02_inhabituel.png"
   },
   {
     "icon": "Epee",
@@ -1892,8 +1735,7 @@
     "border_color": "rgba(106, 168, 255, 0.48)",
     "background": "rgba(106, 168, 255, 0.13)",
     "box_shadow": "",
-    "svg_path": "svg/Epee/Epee_R03_rare.svg",
-    "png_path": "png_512/Epee/Epee_R03_rare.png"
+    "png_path": "png_128/Epee/Epee_R03_rare.png"
   },
   {
     "icon": "Epee",
@@ -1904,8 +1746,7 @@
     "border_color": "rgba(180, 140, 255, 0.50)",
     "background": "rgba(180, 140, 255, 0.14)",
     "box_shadow": "",
-    "svg_path": "svg/Epee/Epee_R04_exceptionnel.svg",
-    "png_path": "png_512/Epee/Epee_R04_exceptionnel.png"
+    "png_path": "png_128/Epee/Epee_R04_exceptionnel.png"
   },
   {
     "icon": "Epee",
@@ -1916,8 +1757,7 @@
     "border_color": "rgba(255, 211, 106, 0.52)",
     "background": "rgba(255, 211, 106, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Epee/Epee_R05_precieux.svg",
-    "png_path": "png_512/Epee/Epee_R05_precieux.png"
+    "png_path": "png_128/Epee/Epee_R05_precieux.png"
   },
   {
     "icon": "Epee",
@@ -1928,8 +1768,7 @@
     "border_color": "rgba(255, 126, 231, 0.52)",
     "background": "rgba(255, 126, 231, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Epee/Epee_R06_epique.svg",
-    "png_path": "png_512/Epee/Epee_R06_epique.png"
+    "png_path": "png_128/Epee/Epee_R06_epique.png"
   },
   {
     "icon": "Epee",
@@ -1940,8 +1779,7 @@
     "border_color": "rgba(255, 159, 67, 0.56)",
     "background": "rgba(255, 159, 67, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Epee/Epee_R07_legendaire.svg",
-    "png_path": "png_512/Epee/Epee_R07_legendaire.png"
+    "png_path": "png_128/Epee/Epee_R07_legendaire.png"
   },
   {
     "icon": "Epee",
@@ -1952,8 +1790,7 @@
     "border_color": "rgba(255, 95, 109, 0.58)",
     "background": "rgba(255, 95, 109, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Epee/Epee_R08_mythique.svg",
-    "png_path": "png_512/Epee/Epee_R08_mythique.png"
+    "png_path": "png_128/Epee/Epee_R08_mythique.png"
   },
   {
     "icon": "Epee",
@@ -1964,8 +1801,7 @@
     "border_color": "rgba(255, 255, 255, 0.62)",
     "background": "linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(241, 197, 106, 0.12))",
     "box_shadow": "0 0 18px rgba(255, 255, 255, 0.12)",
-    "svg_path": "svg/Epee/Epee_R09_artefact.svg",
-    "png_path": "png_512/Epee/Epee_R09_artefact.png"
+    "png_path": "png_128/Epee/Epee_R09_artefact.png"
   },
   {
     "icon": "Epee",
@@ -1976,8 +1812,7 @@
     "border_color": "rgba(255, 243, 176, 0.75)",
     "background": "linear-gradient(135deg, rgba(255, 243, 176, 0.25), rgba(255, 126, 231, 0.14))",
     "box_shadow": "0 0 18px rgba(255, 243, 176, 0.22), 0 0 36px rgba(255, 126, 231, 0.10)",
-    "svg_path": "svg/Epee/Epee_R10_objet-divin.svg",
-    "png_path": "png_512/Epee/Epee_R10_objet-divin.png"
+    "png_path": "png_128/Epee/Epee_R10_objet-divin.png"
   },
   {
     "icon": "fire-bottle",
@@ -1988,8 +1823,7 @@
     "border_color": "rgba(216, 216, 216, 0.38)",
     "background": "rgba(216, 216, 216, 0.10)",
     "box_shadow": "",
-    "svg_path": "svg/fire-bottle/fire-bottle_R00_commun.svg",
-    "png_path": "png_512/fire-bottle/fire-bottle_R00_commun.png"
+    "png_path": "png_128/fire-bottle/fire-bottle_R00_commun.png"
   },
   {
     "icon": "fire-bottle",
@@ -2000,8 +1834,7 @@
     "border_color": "rgba(157, 255, 176, 0.42)",
     "background": "rgba(157, 255, 176, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/fire-bottle/fire-bottle_R01_peu-commun.svg",
-    "png_path": "png_512/fire-bottle/fire-bottle_R01_peu-commun.png"
+    "png_path": "png_128/fire-bottle/fire-bottle_R01_peu-commun.png"
   },
   {
     "icon": "fire-bottle",
@@ -2012,8 +1845,7 @@
     "border_color": "rgba(126, 231, 255, 0.42)",
     "background": "rgba(126, 231, 255, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/fire-bottle/fire-bottle_R02_inhabituel.svg",
-    "png_path": "png_512/fire-bottle/fire-bottle_R02_inhabituel.png"
+    "png_path": "png_128/fire-bottle/fire-bottle_R02_inhabituel.png"
   },
   {
     "icon": "fire-bottle",
@@ -2024,8 +1856,7 @@
     "border_color": "rgba(106, 168, 255, 0.48)",
     "background": "rgba(106, 168, 255, 0.13)",
     "box_shadow": "",
-    "svg_path": "svg/fire-bottle/fire-bottle_R03_rare.svg",
-    "png_path": "png_512/fire-bottle/fire-bottle_R03_rare.png"
+    "png_path": "png_128/fire-bottle/fire-bottle_R03_rare.png"
   },
   {
     "icon": "fire-bottle",
@@ -2036,8 +1867,7 @@
     "border_color": "rgba(180, 140, 255, 0.50)",
     "background": "rgba(180, 140, 255, 0.14)",
     "box_shadow": "",
-    "svg_path": "svg/fire-bottle/fire-bottle_R04_exceptionnel.svg",
-    "png_path": "png_512/fire-bottle/fire-bottle_R04_exceptionnel.png"
+    "png_path": "png_128/fire-bottle/fire-bottle_R04_exceptionnel.png"
   },
   {
     "icon": "fire-bottle",
@@ -2048,8 +1878,7 @@
     "border_color": "rgba(255, 211, 106, 0.52)",
     "background": "rgba(255, 211, 106, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/fire-bottle/fire-bottle_R05_precieux.svg",
-    "png_path": "png_512/fire-bottle/fire-bottle_R05_precieux.png"
+    "png_path": "png_128/fire-bottle/fire-bottle_R05_precieux.png"
   },
   {
     "icon": "fire-bottle",
@@ -2060,8 +1889,7 @@
     "border_color": "rgba(255, 126, 231, 0.52)",
     "background": "rgba(255, 126, 231, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/fire-bottle/fire-bottle_R06_epique.svg",
-    "png_path": "png_512/fire-bottle/fire-bottle_R06_epique.png"
+    "png_path": "png_128/fire-bottle/fire-bottle_R06_epique.png"
   },
   {
     "icon": "fire-bottle",
@@ -2072,8 +1900,7 @@
     "border_color": "rgba(255, 159, 67, 0.56)",
     "background": "rgba(255, 159, 67, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/fire-bottle/fire-bottle_R07_legendaire.svg",
-    "png_path": "png_512/fire-bottle/fire-bottle_R07_legendaire.png"
+    "png_path": "png_128/fire-bottle/fire-bottle_R07_legendaire.png"
   },
   {
     "icon": "fire-bottle",
@@ -2084,8 +1911,7 @@
     "border_color": "rgba(255, 95, 109, 0.58)",
     "background": "rgba(255, 95, 109, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/fire-bottle/fire-bottle_R08_mythique.svg",
-    "png_path": "png_512/fire-bottle/fire-bottle_R08_mythique.png"
+    "png_path": "png_128/fire-bottle/fire-bottle_R08_mythique.png"
   },
   {
     "icon": "fire-bottle",
@@ -2096,8 +1922,7 @@
     "border_color": "rgba(255, 255, 255, 0.62)",
     "background": "linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(241, 197, 106, 0.12))",
     "box_shadow": "0 0 18px rgba(255, 255, 255, 0.12)",
-    "svg_path": "svg/fire-bottle/fire-bottle_R09_artefact.svg",
-    "png_path": "png_512/fire-bottle/fire-bottle_R09_artefact.png"
+    "png_path": "png_128/fire-bottle/fire-bottle_R09_artefact.png"
   },
   {
     "icon": "fire-bottle",
@@ -2108,8 +1933,7 @@
     "border_color": "rgba(255, 243, 176, 0.75)",
     "background": "linear-gradient(135deg, rgba(255, 243, 176, 0.25), rgba(255, 126, 231, 0.14))",
     "box_shadow": "0 0 18px rgba(255, 243, 176, 0.22), 0 0 36px rgba(255, 126, 231, 0.10)",
-    "svg_path": "svg/fire-bottle/fire-bottle_R10_objet-divin.svg",
-    "png_path": "png_512/fire-bottle/fire-bottle_R10_objet-divin.png"
+    "png_path": "png_128/fire-bottle/fire-bottle_R10_objet-divin.png"
   },
   {
     "icon": "gloves",
@@ -2120,8 +1944,7 @@
     "border_color": "rgba(216, 216, 216, 0.38)",
     "background": "rgba(216, 216, 216, 0.10)",
     "box_shadow": "",
-    "svg_path": "svg/gloves/gloves_R00_commun.svg",
-    "png_path": "png_512/gloves/gloves_R00_commun.png"
+    "png_path": "png_128/gloves/gloves_R00_commun.png"
   },
   {
     "icon": "gloves",
@@ -2132,8 +1955,7 @@
     "border_color": "rgba(157, 255, 176, 0.42)",
     "background": "rgba(157, 255, 176, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/gloves/gloves_R01_peu-commun.svg",
-    "png_path": "png_512/gloves/gloves_R01_peu-commun.png"
+    "png_path": "png_128/gloves/gloves_R01_peu-commun.png"
   },
   {
     "icon": "gloves",
@@ -2144,8 +1966,7 @@
     "border_color": "rgba(126, 231, 255, 0.42)",
     "background": "rgba(126, 231, 255, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/gloves/gloves_R02_inhabituel.svg",
-    "png_path": "png_512/gloves/gloves_R02_inhabituel.png"
+    "png_path": "png_128/gloves/gloves_R02_inhabituel.png"
   },
   {
     "icon": "gloves",
@@ -2156,8 +1977,7 @@
     "border_color": "rgba(106, 168, 255, 0.48)",
     "background": "rgba(106, 168, 255, 0.13)",
     "box_shadow": "",
-    "svg_path": "svg/gloves/gloves_R03_rare.svg",
-    "png_path": "png_512/gloves/gloves_R03_rare.png"
+    "png_path": "png_128/gloves/gloves_R03_rare.png"
   },
   {
     "icon": "gloves",
@@ -2168,8 +1988,7 @@
     "border_color": "rgba(180, 140, 255, 0.50)",
     "background": "rgba(180, 140, 255, 0.14)",
     "box_shadow": "",
-    "svg_path": "svg/gloves/gloves_R04_exceptionnel.svg",
-    "png_path": "png_512/gloves/gloves_R04_exceptionnel.png"
+    "png_path": "png_128/gloves/gloves_R04_exceptionnel.png"
   },
   {
     "icon": "gloves",
@@ -2180,8 +1999,7 @@
     "border_color": "rgba(255, 211, 106, 0.52)",
     "background": "rgba(255, 211, 106, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/gloves/gloves_R05_precieux.svg",
-    "png_path": "png_512/gloves/gloves_R05_precieux.png"
+    "png_path": "png_128/gloves/gloves_R05_precieux.png"
   },
   {
     "icon": "gloves",
@@ -2192,8 +2010,7 @@
     "border_color": "rgba(255, 126, 231, 0.52)",
     "background": "rgba(255, 126, 231, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/gloves/gloves_R06_epique.svg",
-    "png_path": "png_512/gloves/gloves_R06_epique.png"
+    "png_path": "png_128/gloves/gloves_R06_epique.png"
   },
   {
     "icon": "gloves",
@@ -2204,8 +2021,7 @@
     "border_color": "rgba(255, 159, 67, 0.56)",
     "background": "rgba(255, 159, 67, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/gloves/gloves_R07_legendaire.svg",
-    "png_path": "png_512/gloves/gloves_R07_legendaire.png"
+    "png_path": "png_128/gloves/gloves_R07_legendaire.png"
   },
   {
     "icon": "gloves",
@@ -2216,8 +2032,7 @@
     "border_color": "rgba(255, 95, 109, 0.58)",
     "background": "rgba(255, 95, 109, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/gloves/gloves_R08_mythique.svg",
-    "png_path": "png_512/gloves/gloves_R08_mythique.png"
+    "png_path": "png_128/gloves/gloves_R08_mythique.png"
   },
   {
     "icon": "gloves",
@@ -2228,8 +2043,7 @@
     "border_color": "rgba(255, 255, 255, 0.62)",
     "background": "linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(241, 197, 106, 0.12))",
     "box_shadow": "0 0 18px rgba(255, 255, 255, 0.12)",
-    "svg_path": "svg/gloves/gloves_R09_artefact.svg",
-    "png_path": "png_512/gloves/gloves_R09_artefact.png"
+    "png_path": "png_128/gloves/gloves_R09_artefact.png"
   },
   {
     "icon": "gloves",
@@ -2240,8 +2054,7 @@
     "border_color": "rgba(255, 243, 176, 0.75)",
     "background": "linear-gradient(135deg, rgba(255, 243, 176, 0.25), rgba(255, 126, 231, 0.14))",
     "box_shadow": "0 0 18px rgba(255, 243, 176, 0.22), 0 0 36px rgba(255, 126, 231, 0.10)",
-    "svg_path": "svg/gloves/gloves_R10_objet-divin.svg",
-    "png_path": "png_512/gloves/gloves_R10_objet-divin.png"
+    "png_path": "png_128/gloves/gloves_R10_objet-divin.png"
   },
   {
     "icon": "Grand_Bouclier",
@@ -2252,8 +2065,7 @@
     "border_color": "rgba(216, 216, 216, 0.38)",
     "background": "rgba(216, 216, 216, 0.10)",
     "box_shadow": "",
-    "svg_path": "svg/Grand_Bouclier/Grand_Bouclier_R00_commun.svg",
-    "png_path": "png_512/Grand_Bouclier/Grand_Bouclier_R00_commun.png"
+    "png_path": "png_128/Grand_Bouclier/Grand_Bouclier_R00_commun.png"
   },
   {
     "icon": "Grand_Bouclier",
@@ -2264,8 +2076,7 @@
     "border_color": "rgba(157, 255, 176, 0.42)",
     "background": "rgba(157, 255, 176, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Grand_Bouclier/Grand_Bouclier_R01_peu-commun.svg",
-    "png_path": "png_512/Grand_Bouclier/Grand_Bouclier_R01_peu-commun.png"
+    "png_path": "png_128/Grand_Bouclier/Grand_Bouclier_R01_peu-commun.png"
   },
   {
     "icon": "Grand_Bouclier",
@@ -2276,8 +2087,7 @@
     "border_color": "rgba(126, 231, 255, 0.42)",
     "background": "rgba(126, 231, 255, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Grand_Bouclier/Grand_Bouclier_R02_inhabituel.svg",
-    "png_path": "png_512/Grand_Bouclier/Grand_Bouclier_R02_inhabituel.png"
+    "png_path": "png_128/Grand_Bouclier/Grand_Bouclier_R02_inhabituel.png"
   },
   {
     "icon": "Grand_Bouclier",
@@ -2288,8 +2098,7 @@
     "border_color": "rgba(106, 168, 255, 0.48)",
     "background": "rgba(106, 168, 255, 0.13)",
     "box_shadow": "",
-    "svg_path": "svg/Grand_Bouclier/Grand_Bouclier_R03_rare.svg",
-    "png_path": "png_512/Grand_Bouclier/Grand_Bouclier_R03_rare.png"
+    "png_path": "png_128/Grand_Bouclier/Grand_Bouclier_R03_rare.png"
   },
   {
     "icon": "Grand_Bouclier",
@@ -2300,8 +2109,7 @@
     "border_color": "rgba(180, 140, 255, 0.50)",
     "background": "rgba(180, 140, 255, 0.14)",
     "box_shadow": "",
-    "svg_path": "svg/Grand_Bouclier/Grand_Bouclier_R04_exceptionnel.svg",
-    "png_path": "png_512/Grand_Bouclier/Grand_Bouclier_R04_exceptionnel.png"
+    "png_path": "png_128/Grand_Bouclier/Grand_Bouclier_R04_exceptionnel.png"
   },
   {
     "icon": "Grand_Bouclier",
@@ -2312,8 +2120,7 @@
     "border_color": "rgba(255, 211, 106, 0.52)",
     "background": "rgba(255, 211, 106, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Grand_Bouclier/Grand_Bouclier_R05_precieux.svg",
-    "png_path": "png_512/Grand_Bouclier/Grand_Bouclier_R05_precieux.png"
+    "png_path": "png_128/Grand_Bouclier/Grand_Bouclier_R05_precieux.png"
   },
   {
     "icon": "Grand_Bouclier",
@@ -2324,8 +2131,7 @@
     "border_color": "rgba(255, 126, 231, 0.52)",
     "background": "rgba(255, 126, 231, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Grand_Bouclier/Grand_Bouclier_R06_epique.svg",
-    "png_path": "png_512/Grand_Bouclier/Grand_Bouclier_R06_epique.png"
+    "png_path": "png_128/Grand_Bouclier/Grand_Bouclier_R06_epique.png"
   },
   {
     "icon": "Grand_Bouclier",
@@ -2336,8 +2142,7 @@
     "border_color": "rgba(255, 159, 67, 0.56)",
     "background": "rgba(255, 159, 67, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Grand_Bouclier/Grand_Bouclier_R07_legendaire.svg",
-    "png_path": "png_512/Grand_Bouclier/Grand_Bouclier_R07_legendaire.png"
+    "png_path": "png_128/Grand_Bouclier/Grand_Bouclier_R07_legendaire.png"
   },
   {
     "icon": "Grand_Bouclier",
@@ -2348,8 +2153,7 @@
     "border_color": "rgba(255, 95, 109, 0.58)",
     "background": "rgba(255, 95, 109, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Grand_Bouclier/Grand_Bouclier_R08_mythique.svg",
-    "png_path": "png_512/Grand_Bouclier/Grand_Bouclier_R08_mythique.png"
+    "png_path": "png_128/Grand_Bouclier/Grand_Bouclier_R08_mythique.png"
   },
   {
     "icon": "Grand_Bouclier",
@@ -2360,8 +2164,7 @@
     "border_color": "rgba(255, 255, 255, 0.62)",
     "background": "linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(241, 197, 106, 0.12))",
     "box_shadow": "0 0 18px rgba(255, 255, 255, 0.12)",
-    "svg_path": "svg/Grand_Bouclier/Grand_Bouclier_R09_artefact.svg",
-    "png_path": "png_512/Grand_Bouclier/Grand_Bouclier_R09_artefact.png"
+    "png_path": "png_128/Grand_Bouclier/Grand_Bouclier_R09_artefact.png"
   },
   {
     "icon": "Grand_Bouclier",
@@ -2372,8 +2175,7 @@
     "border_color": "rgba(255, 243, 176, 0.75)",
     "background": "linear-gradient(135deg, rgba(255, 243, 176, 0.25), rgba(255, 126, 231, 0.14))",
     "box_shadow": "0 0 18px rgba(255, 243, 176, 0.22), 0 0 36px rgba(255, 126, 231, 0.10)",
-    "svg_path": "svg/Grand_Bouclier/Grand_Bouclier_R10_objet-divin.svg",
-    "png_path": "png_512/Grand_Bouclier/Grand_Bouclier_R10_objet-divin.png"
+    "png_path": "png_128/Grand_Bouclier/Grand_Bouclier_R10_objet-divin.png"
   },
   {
     "icon": "Hache___2_main",
@@ -2384,8 +2186,7 @@
     "border_color": "rgba(216, 216, 216, 0.38)",
     "background": "rgba(216, 216, 216, 0.10)",
     "box_shadow": "",
-    "svg_path": "svg/Hache___2_main/Hache___2_main_R00_commun.svg",
-    "png_path": "png_512/Hache___2_main/Hache___2_main_R00_commun.png"
+    "png_path": "png_128/Hache___2_main/Hache___2_main_R00_commun.png"
   },
   {
     "icon": "Hache___2_main",
@@ -2396,8 +2197,7 @@
     "border_color": "rgba(157, 255, 176, 0.42)",
     "background": "rgba(157, 255, 176, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Hache___2_main/Hache___2_main_R01_peu-commun.svg",
-    "png_path": "png_512/Hache___2_main/Hache___2_main_R01_peu-commun.png"
+    "png_path": "png_128/Hache___2_main/Hache___2_main_R01_peu-commun.png"
   },
   {
     "icon": "Hache___2_main",
@@ -2408,8 +2208,7 @@
     "border_color": "rgba(126, 231, 255, 0.42)",
     "background": "rgba(126, 231, 255, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Hache___2_main/Hache___2_main_R02_inhabituel.svg",
-    "png_path": "png_512/Hache___2_main/Hache___2_main_R02_inhabituel.png"
+    "png_path": "png_128/Hache___2_main/Hache___2_main_R02_inhabituel.png"
   },
   {
     "icon": "Hache___2_main",
@@ -2420,8 +2219,7 @@
     "border_color": "rgba(106, 168, 255, 0.48)",
     "background": "rgba(106, 168, 255, 0.13)",
     "box_shadow": "",
-    "svg_path": "svg/Hache___2_main/Hache___2_main_R03_rare.svg",
-    "png_path": "png_512/Hache___2_main/Hache___2_main_R03_rare.png"
+    "png_path": "png_128/Hache___2_main/Hache___2_main_R03_rare.png"
   },
   {
     "icon": "Hache___2_main",
@@ -2432,8 +2230,7 @@
     "border_color": "rgba(180, 140, 255, 0.50)",
     "background": "rgba(180, 140, 255, 0.14)",
     "box_shadow": "",
-    "svg_path": "svg/Hache___2_main/Hache___2_main_R04_exceptionnel.svg",
-    "png_path": "png_512/Hache___2_main/Hache___2_main_R04_exceptionnel.png"
+    "png_path": "png_128/Hache___2_main/Hache___2_main_R04_exceptionnel.png"
   },
   {
     "icon": "Hache___2_main",
@@ -2444,8 +2241,7 @@
     "border_color": "rgba(255, 211, 106, 0.52)",
     "background": "rgba(255, 211, 106, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Hache___2_main/Hache___2_main_R05_precieux.svg",
-    "png_path": "png_512/Hache___2_main/Hache___2_main_R05_precieux.png"
+    "png_path": "png_128/Hache___2_main/Hache___2_main_R05_precieux.png"
   },
   {
     "icon": "Hache___2_main",
@@ -2456,8 +2252,7 @@
     "border_color": "rgba(255, 126, 231, 0.52)",
     "background": "rgba(255, 126, 231, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Hache___2_main/Hache___2_main_R06_epique.svg",
-    "png_path": "png_512/Hache___2_main/Hache___2_main_R06_epique.png"
+    "png_path": "png_128/Hache___2_main/Hache___2_main_R06_epique.png"
   },
   {
     "icon": "Hache___2_main",
@@ -2468,8 +2263,7 @@
     "border_color": "rgba(255, 159, 67, 0.56)",
     "background": "rgba(255, 159, 67, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Hache___2_main/Hache___2_main_R07_legendaire.svg",
-    "png_path": "png_512/Hache___2_main/Hache___2_main_R07_legendaire.png"
+    "png_path": "png_128/Hache___2_main/Hache___2_main_R07_legendaire.png"
   },
   {
     "icon": "Hache___2_main",
@@ -2480,8 +2274,7 @@
     "border_color": "rgba(255, 95, 109, 0.58)",
     "background": "rgba(255, 95, 109, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Hache___2_main/Hache___2_main_R08_mythique.svg",
-    "png_path": "png_512/Hache___2_main/Hache___2_main_R08_mythique.png"
+    "png_path": "png_128/Hache___2_main/Hache___2_main_R08_mythique.png"
   },
   {
     "icon": "Hache___2_main",
@@ -2492,8 +2285,7 @@
     "border_color": "rgba(255, 255, 255, 0.62)",
     "background": "linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(241, 197, 106, 0.12))",
     "box_shadow": "0 0 18px rgba(255, 255, 255, 0.12)",
-    "svg_path": "svg/Hache___2_main/Hache___2_main_R09_artefact.svg",
-    "png_path": "png_512/Hache___2_main/Hache___2_main_R09_artefact.png"
+    "png_path": "png_128/Hache___2_main/Hache___2_main_R09_artefact.png"
   },
   {
     "icon": "Hache___2_main",
@@ -2504,8 +2296,7 @@
     "border_color": "rgba(255, 243, 176, 0.75)",
     "background": "linear-gradient(135deg, rgba(255, 243, 176, 0.25), rgba(255, 126, 231, 0.14))",
     "box_shadow": "0 0 18px rgba(255, 243, 176, 0.22), 0 0 36px rgba(255, 126, 231, 0.10)",
-    "svg_path": "svg/Hache___2_main/Hache___2_main_R10_objet-divin.svg",
-    "png_path": "png_512/Hache___2_main/Hache___2_main_R10_objet-divin.png"
+    "png_path": "png_128/Hache___2_main/Hache___2_main_R10_objet-divin.png"
   },
   {
     "icon": "Hache",
@@ -2516,8 +2307,7 @@
     "border_color": "rgba(216, 216, 216, 0.38)",
     "background": "rgba(216, 216, 216, 0.10)",
     "box_shadow": "",
-    "svg_path": "svg/Hache/Hache_R00_commun.svg",
-    "png_path": "png_512/Hache/Hache_R00_commun.png"
+    "png_path": "png_128/Hache/Hache_R00_commun.png"
   },
   {
     "icon": "Hache",
@@ -2528,8 +2318,7 @@
     "border_color": "rgba(157, 255, 176, 0.42)",
     "background": "rgba(157, 255, 176, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Hache/Hache_R01_peu-commun.svg",
-    "png_path": "png_512/Hache/Hache_R01_peu-commun.png"
+    "png_path": "png_128/Hache/Hache_R01_peu-commun.png"
   },
   {
     "icon": "Hache",
@@ -2540,8 +2329,7 @@
     "border_color": "rgba(126, 231, 255, 0.42)",
     "background": "rgba(126, 231, 255, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Hache/Hache_R02_inhabituel.svg",
-    "png_path": "png_512/Hache/Hache_R02_inhabituel.png"
+    "png_path": "png_128/Hache/Hache_R02_inhabituel.png"
   },
   {
     "icon": "Hache",
@@ -2552,8 +2340,7 @@
     "border_color": "rgba(106, 168, 255, 0.48)",
     "background": "rgba(106, 168, 255, 0.13)",
     "box_shadow": "",
-    "svg_path": "svg/Hache/Hache_R03_rare.svg",
-    "png_path": "png_512/Hache/Hache_R03_rare.png"
+    "png_path": "png_128/Hache/Hache_R03_rare.png"
   },
   {
     "icon": "Hache",
@@ -2564,8 +2351,7 @@
     "border_color": "rgba(180, 140, 255, 0.50)",
     "background": "rgba(180, 140, 255, 0.14)",
     "box_shadow": "",
-    "svg_path": "svg/Hache/Hache_R04_exceptionnel.svg",
-    "png_path": "png_512/Hache/Hache_R04_exceptionnel.png"
+    "png_path": "png_128/Hache/Hache_R04_exceptionnel.png"
   },
   {
     "icon": "Hache",
@@ -2576,8 +2362,7 @@
     "border_color": "rgba(255, 211, 106, 0.52)",
     "background": "rgba(255, 211, 106, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Hache/Hache_R05_precieux.svg",
-    "png_path": "png_512/Hache/Hache_R05_precieux.png"
+    "png_path": "png_128/Hache/Hache_R05_precieux.png"
   },
   {
     "icon": "Hache",
@@ -2588,8 +2373,7 @@
     "border_color": "rgba(255, 126, 231, 0.52)",
     "background": "rgba(255, 126, 231, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Hache/Hache_R06_epique.svg",
-    "png_path": "png_512/Hache/Hache_R06_epique.png"
+    "png_path": "png_128/Hache/Hache_R06_epique.png"
   },
   {
     "icon": "Hache",
@@ -2600,8 +2384,7 @@
     "border_color": "rgba(255, 159, 67, 0.56)",
     "background": "rgba(255, 159, 67, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Hache/Hache_R07_legendaire.svg",
-    "png_path": "png_512/Hache/Hache_R07_legendaire.png"
+    "png_path": "png_128/Hache/Hache_R07_legendaire.png"
   },
   {
     "icon": "Hache",
@@ -2612,8 +2395,7 @@
     "border_color": "rgba(255, 95, 109, 0.58)",
     "background": "rgba(255, 95, 109, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Hache/Hache_R08_mythique.svg",
-    "png_path": "png_512/Hache/Hache_R08_mythique.png"
+    "png_path": "png_128/Hache/Hache_R08_mythique.png"
   },
   {
     "icon": "Hache",
@@ -2624,8 +2406,7 @@
     "border_color": "rgba(255, 255, 255, 0.62)",
     "background": "linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(241, 197, 106, 0.12))",
     "box_shadow": "0 0 18px rgba(255, 255, 255, 0.12)",
-    "svg_path": "svg/Hache/Hache_R09_artefact.svg",
-    "png_path": "png_512/Hache/Hache_R09_artefact.png"
+    "png_path": "png_128/Hache/Hache_R09_artefact.png"
   },
   {
     "icon": "Hache",
@@ -2636,8 +2417,7 @@
     "border_color": "rgba(255, 243, 176, 0.75)",
     "background": "linear-gradient(135deg, rgba(255, 243, 176, 0.25), rgba(255, 126, 231, 0.14))",
     "box_shadow": "0 0 18px rgba(255, 243, 176, 0.22), 0 0 36px rgba(255, 126, 231, 0.10)",
-    "svg_path": "svg/Hache/Hache_R10_objet-divin.svg",
-    "png_path": "png_512/Hache/Hache_R10_objet-divin.png"
+    "png_path": "png_128/Hache/Hache_R10_objet-divin.png"
   },
   {
     "icon": "heavy-bullets",
@@ -2648,8 +2428,7 @@
     "border_color": "rgba(216, 216, 216, 0.38)",
     "background": "rgba(216, 216, 216, 0.10)",
     "box_shadow": "",
-    "svg_path": "svg/heavy-bullets/heavy-bullets_R00_commun.svg",
-    "png_path": "png_512/heavy-bullets/heavy-bullets_R00_commun.png"
+    "png_path": "png_128/heavy-bullets/heavy-bullets_R00_commun.png"
   },
   {
     "icon": "heavy-bullets",
@@ -2660,8 +2439,7 @@
     "border_color": "rgba(157, 255, 176, 0.42)",
     "background": "rgba(157, 255, 176, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/heavy-bullets/heavy-bullets_R01_peu-commun.svg",
-    "png_path": "png_512/heavy-bullets/heavy-bullets_R01_peu-commun.png"
+    "png_path": "png_128/heavy-bullets/heavy-bullets_R01_peu-commun.png"
   },
   {
     "icon": "heavy-bullets",
@@ -2672,8 +2450,7 @@
     "border_color": "rgba(126, 231, 255, 0.42)",
     "background": "rgba(126, 231, 255, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/heavy-bullets/heavy-bullets_R02_inhabituel.svg",
-    "png_path": "png_512/heavy-bullets/heavy-bullets_R02_inhabituel.png"
+    "png_path": "png_128/heavy-bullets/heavy-bullets_R02_inhabituel.png"
   },
   {
     "icon": "heavy-bullets",
@@ -2684,8 +2461,7 @@
     "border_color": "rgba(106, 168, 255, 0.48)",
     "background": "rgba(106, 168, 255, 0.13)",
     "box_shadow": "",
-    "svg_path": "svg/heavy-bullets/heavy-bullets_R03_rare.svg",
-    "png_path": "png_512/heavy-bullets/heavy-bullets_R03_rare.png"
+    "png_path": "png_128/heavy-bullets/heavy-bullets_R03_rare.png"
   },
   {
     "icon": "heavy-bullets",
@@ -2696,8 +2472,7 @@
     "border_color": "rgba(180, 140, 255, 0.50)",
     "background": "rgba(180, 140, 255, 0.14)",
     "box_shadow": "",
-    "svg_path": "svg/heavy-bullets/heavy-bullets_R04_exceptionnel.svg",
-    "png_path": "png_512/heavy-bullets/heavy-bullets_R04_exceptionnel.png"
+    "png_path": "png_128/heavy-bullets/heavy-bullets_R04_exceptionnel.png"
   },
   {
     "icon": "heavy-bullets",
@@ -2708,8 +2483,7 @@
     "border_color": "rgba(255, 211, 106, 0.52)",
     "background": "rgba(255, 211, 106, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/heavy-bullets/heavy-bullets_R05_precieux.svg",
-    "png_path": "png_512/heavy-bullets/heavy-bullets_R05_precieux.png"
+    "png_path": "png_128/heavy-bullets/heavy-bullets_R05_precieux.png"
   },
   {
     "icon": "heavy-bullets",
@@ -2720,8 +2494,7 @@
     "border_color": "rgba(255, 126, 231, 0.52)",
     "background": "rgba(255, 126, 231, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/heavy-bullets/heavy-bullets_R06_epique.svg",
-    "png_path": "png_512/heavy-bullets/heavy-bullets_R06_epique.png"
+    "png_path": "png_128/heavy-bullets/heavy-bullets_R06_epique.png"
   },
   {
     "icon": "heavy-bullets",
@@ -2732,8 +2505,7 @@
     "border_color": "rgba(255, 159, 67, 0.56)",
     "background": "rgba(255, 159, 67, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/heavy-bullets/heavy-bullets_R07_legendaire.svg",
-    "png_path": "png_512/heavy-bullets/heavy-bullets_R07_legendaire.png"
+    "png_path": "png_128/heavy-bullets/heavy-bullets_R07_legendaire.png"
   },
   {
     "icon": "heavy-bullets",
@@ -2744,8 +2516,7 @@
     "border_color": "rgba(255, 95, 109, 0.58)",
     "background": "rgba(255, 95, 109, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/heavy-bullets/heavy-bullets_R08_mythique.svg",
-    "png_path": "png_512/heavy-bullets/heavy-bullets_R08_mythique.png"
+    "png_path": "png_128/heavy-bullets/heavy-bullets_R08_mythique.png"
   },
   {
     "icon": "heavy-bullets",
@@ -2756,8 +2527,7 @@
     "border_color": "rgba(255, 255, 255, 0.62)",
     "background": "linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(241, 197, 106, 0.12))",
     "box_shadow": "0 0 18px rgba(255, 255, 255, 0.12)",
-    "svg_path": "svg/heavy-bullets/heavy-bullets_R09_artefact.svg",
-    "png_path": "png_512/heavy-bullets/heavy-bullets_R09_artefact.png"
+    "png_path": "png_128/heavy-bullets/heavy-bullets_R09_artefact.png"
   },
   {
     "icon": "heavy-bullets",
@@ -2768,8 +2538,7 @@
     "border_color": "rgba(255, 243, 176, 0.75)",
     "background": "linear-gradient(135deg, rgba(255, 243, 176, 0.25), rgba(255, 126, 231, 0.14))",
     "box_shadow": "0 0 18px rgba(255, 243, 176, 0.22), 0 0 36px rgba(255, 126, 231, 0.10)",
-    "svg_path": "svg/heavy-bullets/heavy-bullets_R10_objet-divin.svg",
-    "png_path": "png_512/heavy-bullets/heavy-bullets_R10_objet-divin.png"
+    "png_path": "png_128/heavy-bullets/heavy-bullets_R10_objet-divin.png"
   },
   {
     "icon": "Javelot",
@@ -2780,8 +2549,7 @@
     "border_color": "rgba(216, 216, 216, 0.38)",
     "background": "rgba(216, 216, 216, 0.10)",
     "box_shadow": "",
-    "svg_path": "svg/Javelot/Javelot_R00_commun.svg",
-    "png_path": "png_512/Javelot/Javelot_R00_commun.png"
+    "png_path": "png_128/Javelot/Javelot_R00_commun.png"
   },
   {
     "icon": "Javelot",
@@ -2792,8 +2560,7 @@
     "border_color": "rgba(157, 255, 176, 0.42)",
     "background": "rgba(157, 255, 176, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Javelot/Javelot_R01_peu-commun.svg",
-    "png_path": "png_512/Javelot/Javelot_R01_peu-commun.png"
+    "png_path": "png_128/Javelot/Javelot_R01_peu-commun.png"
   },
   {
     "icon": "Javelot",
@@ -2804,8 +2571,7 @@
     "border_color": "rgba(126, 231, 255, 0.42)",
     "background": "rgba(126, 231, 255, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Javelot/Javelot_R02_inhabituel.svg",
-    "png_path": "png_512/Javelot/Javelot_R02_inhabituel.png"
+    "png_path": "png_128/Javelot/Javelot_R02_inhabituel.png"
   },
   {
     "icon": "Javelot",
@@ -2816,8 +2582,7 @@
     "border_color": "rgba(106, 168, 255, 0.48)",
     "background": "rgba(106, 168, 255, 0.13)",
     "box_shadow": "",
-    "svg_path": "svg/Javelot/Javelot_R03_rare.svg",
-    "png_path": "png_512/Javelot/Javelot_R03_rare.png"
+    "png_path": "png_128/Javelot/Javelot_R03_rare.png"
   },
   {
     "icon": "Javelot",
@@ -2828,8 +2593,7 @@
     "border_color": "rgba(180, 140, 255, 0.50)",
     "background": "rgba(180, 140, 255, 0.14)",
     "box_shadow": "",
-    "svg_path": "svg/Javelot/Javelot_R04_exceptionnel.svg",
-    "png_path": "png_512/Javelot/Javelot_R04_exceptionnel.png"
+    "png_path": "png_128/Javelot/Javelot_R04_exceptionnel.png"
   },
   {
     "icon": "Javelot",
@@ -2840,8 +2604,7 @@
     "border_color": "rgba(255, 211, 106, 0.52)",
     "background": "rgba(255, 211, 106, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Javelot/Javelot_R05_precieux.svg",
-    "png_path": "png_512/Javelot/Javelot_R05_precieux.png"
+    "png_path": "png_128/Javelot/Javelot_R05_precieux.png"
   },
   {
     "icon": "Javelot",
@@ -2852,8 +2615,7 @@
     "border_color": "rgba(255, 126, 231, 0.52)",
     "background": "rgba(255, 126, 231, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Javelot/Javelot_R06_epique.svg",
-    "png_path": "png_512/Javelot/Javelot_R06_epique.png"
+    "png_path": "png_128/Javelot/Javelot_R06_epique.png"
   },
   {
     "icon": "Javelot",
@@ -2864,8 +2626,7 @@
     "border_color": "rgba(255, 159, 67, 0.56)",
     "background": "rgba(255, 159, 67, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Javelot/Javelot_R07_legendaire.svg",
-    "png_path": "png_512/Javelot/Javelot_R07_legendaire.png"
+    "png_path": "png_128/Javelot/Javelot_R07_legendaire.png"
   },
   {
     "icon": "Javelot",
@@ -2876,8 +2637,7 @@
     "border_color": "rgba(255, 95, 109, 0.58)",
     "background": "rgba(255, 95, 109, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Javelot/Javelot_R08_mythique.svg",
-    "png_path": "png_512/Javelot/Javelot_R08_mythique.png"
+    "png_path": "png_128/Javelot/Javelot_R08_mythique.png"
   },
   {
     "icon": "Javelot",
@@ -2888,8 +2648,7 @@
     "border_color": "rgba(255, 255, 255, 0.62)",
     "background": "linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(241, 197, 106, 0.12))",
     "box_shadow": "0 0 18px rgba(255, 255, 255, 0.12)",
-    "svg_path": "svg/Javelot/Javelot_R09_artefact.svg",
-    "png_path": "png_512/Javelot/Javelot_R09_artefact.png"
+    "png_path": "png_128/Javelot/Javelot_R09_artefact.png"
   },
   {
     "icon": "Javelot",
@@ -2900,8 +2659,7 @@
     "border_color": "rgba(255, 243, 176, 0.75)",
     "background": "linear-gradient(135deg, rgba(255, 243, 176, 0.25), rgba(255, 126, 231, 0.14))",
     "box_shadow": "0 0 18px rgba(255, 243, 176, 0.22), 0 0 36px rgba(255, 126, 231, 0.10)",
-    "svg_path": "svg/Javelot/Javelot_R10_objet-divin.svg",
-    "png_path": "png_512/Javelot/Javelot_R10_objet-divin.png"
+    "png_path": "png_128/Javelot/Javelot_R10_objet-divin.png"
   },
   {
     "icon": "Lance",
@@ -2912,8 +2670,7 @@
     "border_color": "rgba(216, 216, 216, 0.38)",
     "background": "rgba(216, 216, 216, 0.10)",
     "box_shadow": "",
-    "svg_path": "svg/Lance/Lance_R00_commun.svg",
-    "png_path": "png_512/Lance/Lance_R00_commun.png"
+    "png_path": "png_128/Lance/Lance_R00_commun.png"
   },
   {
     "icon": "Lance",
@@ -2924,8 +2681,7 @@
     "border_color": "rgba(157, 255, 176, 0.42)",
     "background": "rgba(157, 255, 176, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Lance/Lance_R01_peu-commun.svg",
-    "png_path": "png_512/Lance/Lance_R01_peu-commun.png"
+    "png_path": "png_128/Lance/Lance_R01_peu-commun.png"
   },
   {
     "icon": "Lance",
@@ -2936,8 +2692,7 @@
     "border_color": "rgba(126, 231, 255, 0.42)",
     "background": "rgba(126, 231, 255, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Lance/Lance_R02_inhabituel.svg",
-    "png_path": "png_512/Lance/Lance_R02_inhabituel.png"
+    "png_path": "png_128/Lance/Lance_R02_inhabituel.png"
   },
   {
     "icon": "Lance",
@@ -2948,8 +2703,7 @@
     "border_color": "rgba(106, 168, 255, 0.48)",
     "background": "rgba(106, 168, 255, 0.13)",
     "box_shadow": "",
-    "svg_path": "svg/Lance/Lance_R03_rare.svg",
-    "png_path": "png_512/Lance/Lance_R03_rare.png"
+    "png_path": "png_128/Lance/Lance_R03_rare.png"
   },
   {
     "icon": "Lance",
@@ -2960,8 +2714,7 @@
     "border_color": "rgba(180, 140, 255, 0.50)",
     "background": "rgba(180, 140, 255, 0.14)",
     "box_shadow": "",
-    "svg_path": "svg/Lance/Lance_R04_exceptionnel.svg",
-    "png_path": "png_512/Lance/Lance_R04_exceptionnel.png"
+    "png_path": "png_128/Lance/Lance_R04_exceptionnel.png"
   },
   {
     "icon": "Lance",
@@ -2972,8 +2725,7 @@
     "border_color": "rgba(255, 211, 106, 0.52)",
     "background": "rgba(255, 211, 106, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Lance/Lance_R05_precieux.svg",
-    "png_path": "png_512/Lance/Lance_R05_precieux.png"
+    "png_path": "png_128/Lance/Lance_R05_precieux.png"
   },
   {
     "icon": "Lance",
@@ -2984,8 +2736,7 @@
     "border_color": "rgba(255, 126, 231, 0.52)",
     "background": "rgba(255, 126, 231, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Lance/Lance_R06_epique.svg",
-    "png_path": "png_512/Lance/Lance_R06_epique.png"
+    "png_path": "png_128/Lance/Lance_R06_epique.png"
   },
   {
     "icon": "Lance",
@@ -2996,8 +2747,7 @@
     "border_color": "rgba(255, 159, 67, 0.56)",
     "background": "rgba(255, 159, 67, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Lance/Lance_R07_legendaire.svg",
-    "png_path": "png_512/Lance/Lance_R07_legendaire.png"
+    "png_path": "png_128/Lance/Lance_R07_legendaire.png"
   },
   {
     "icon": "Lance",
@@ -3008,8 +2758,7 @@
     "border_color": "rgba(255, 95, 109, 0.58)",
     "background": "rgba(255, 95, 109, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Lance/Lance_R08_mythique.svg",
-    "png_path": "png_512/Lance/Lance_R08_mythique.png"
+    "png_path": "png_128/Lance/Lance_R08_mythique.png"
   },
   {
     "icon": "Lance",
@@ -3020,8 +2769,7 @@
     "border_color": "rgba(255, 255, 255, 0.62)",
     "background": "linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(241, 197, 106, 0.12))",
     "box_shadow": "0 0 18px rgba(255, 255, 255, 0.12)",
-    "svg_path": "svg/Lance/Lance_R09_artefact.svg",
-    "png_path": "png_512/Lance/Lance_R09_artefact.png"
+    "png_path": "png_128/Lance/Lance_R09_artefact.png"
   },
   {
     "icon": "Lance",
@@ -3032,8 +2780,7 @@
     "border_color": "rgba(255, 243, 176, 0.75)",
     "background": "linear-gradient(135deg, rgba(255, 243, 176, 0.25), rgba(255, 126, 231, 0.14))",
     "box_shadow": "0 0 18px rgba(255, 243, 176, 0.22), 0 0 36px rgba(255, 126, 231, 0.10)",
-    "svg_path": "svg/Lance/Lance_R10_objet-divin.svg",
-    "png_path": "png_512/Lance/Lance_R10_objet-divin.png"
+    "png_path": "png_128/Lance/Lance_R10_objet-divin.png"
   },
   {
     "icon": "Marteau",
@@ -3044,8 +2791,7 @@
     "border_color": "rgba(216, 216, 216, 0.38)",
     "background": "rgba(216, 216, 216, 0.10)",
     "box_shadow": "",
-    "svg_path": "svg/Marteau/Marteau_R00_commun.svg",
-    "png_path": "png_512/Marteau/Marteau_R00_commun.png"
+    "png_path": "png_128/Marteau/Marteau_R00_commun.png"
   },
   {
     "icon": "Marteau",
@@ -3056,8 +2802,7 @@
     "border_color": "rgba(157, 255, 176, 0.42)",
     "background": "rgba(157, 255, 176, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Marteau/Marteau_R01_peu-commun.svg",
-    "png_path": "png_512/Marteau/Marteau_R01_peu-commun.png"
+    "png_path": "png_128/Marteau/Marteau_R01_peu-commun.png"
   },
   {
     "icon": "Marteau",
@@ -3068,8 +2813,7 @@
     "border_color": "rgba(126, 231, 255, 0.42)",
     "background": "rgba(126, 231, 255, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Marteau/Marteau_R02_inhabituel.svg",
-    "png_path": "png_512/Marteau/Marteau_R02_inhabituel.png"
+    "png_path": "png_128/Marteau/Marteau_R02_inhabituel.png"
   },
   {
     "icon": "Marteau",
@@ -3080,8 +2824,7 @@
     "border_color": "rgba(106, 168, 255, 0.48)",
     "background": "rgba(106, 168, 255, 0.13)",
     "box_shadow": "",
-    "svg_path": "svg/Marteau/Marteau_R03_rare.svg",
-    "png_path": "png_512/Marteau/Marteau_R03_rare.png"
+    "png_path": "png_128/Marteau/Marteau_R03_rare.png"
   },
   {
     "icon": "Marteau",
@@ -3092,8 +2835,7 @@
     "border_color": "rgba(180, 140, 255, 0.50)",
     "background": "rgba(180, 140, 255, 0.14)",
     "box_shadow": "",
-    "svg_path": "svg/Marteau/Marteau_R04_exceptionnel.svg",
-    "png_path": "png_512/Marteau/Marteau_R04_exceptionnel.png"
+    "png_path": "png_128/Marteau/Marteau_R04_exceptionnel.png"
   },
   {
     "icon": "Marteau",
@@ -3104,8 +2846,7 @@
     "border_color": "rgba(255, 211, 106, 0.52)",
     "background": "rgba(255, 211, 106, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Marteau/Marteau_R05_precieux.svg",
-    "png_path": "png_512/Marteau/Marteau_R05_precieux.png"
+    "png_path": "png_128/Marteau/Marteau_R05_precieux.png"
   },
   {
     "icon": "Marteau",
@@ -3116,8 +2857,7 @@
     "border_color": "rgba(255, 126, 231, 0.52)",
     "background": "rgba(255, 126, 231, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Marteau/Marteau_R06_epique.svg",
-    "png_path": "png_512/Marteau/Marteau_R06_epique.png"
+    "png_path": "png_128/Marteau/Marteau_R06_epique.png"
   },
   {
     "icon": "Marteau",
@@ -3128,8 +2868,7 @@
     "border_color": "rgba(255, 159, 67, 0.56)",
     "background": "rgba(255, 159, 67, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Marteau/Marteau_R07_legendaire.svg",
-    "png_path": "png_512/Marteau/Marteau_R07_legendaire.png"
+    "png_path": "png_128/Marteau/Marteau_R07_legendaire.png"
   },
   {
     "icon": "Marteau",
@@ -3140,8 +2879,7 @@
     "border_color": "rgba(255, 95, 109, 0.58)",
     "background": "rgba(255, 95, 109, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Marteau/Marteau_R08_mythique.svg",
-    "png_path": "png_512/Marteau/Marteau_R08_mythique.png"
+    "png_path": "png_128/Marteau/Marteau_R08_mythique.png"
   },
   {
     "icon": "Marteau",
@@ -3152,8 +2890,7 @@
     "border_color": "rgba(255, 255, 255, 0.62)",
     "background": "linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(241, 197, 106, 0.12))",
     "box_shadow": "0 0 18px rgba(255, 255, 255, 0.12)",
-    "svg_path": "svg/Marteau/Marteau_R09_artefact.svg",
-    "png_path": "png_512/Marteau/Marteau_R09_artefact.png"
+    "png_path": "png_128/Marteau/Marteau_R09_artefact.png"
   },
   {
     "icon": "Marteau",
@@ -3164,8 +2901,7 @@
     "border_color": "rgba(255, 243, 176, 0.75)",
     "background": "linear-gradient(135deg, rgba(255, 243, 176, 0.25), rgba(255, 126, 231, 0.14))",
     "box_shadow": "0 0 18px rgba(255, 243, 176, 0.22), 0 0 36px rgba(255, 126, 231, 0.10)",
-    "svg_path": "svg/Marteau/Marteau_R10_objet-divin.svg",
-    "png_path": "png_512/Marteau/Marteau_R10_objet-divin.png"
+    "png_path": "png_128/Marteau/Marteau_R10_objet-divin.png"
   },
   {
     "icon": "Masse___2_main",
@@ -3176,8 +2912,7 @@
     "border_color": "rgba(216, 216, 216, 0.38)",
     "background": "rgba(216, 216, 216, 0.10)",
     "box_shadow": "",
-    "svg_path": "svg/Masse___2_main/Masse___2_main_R00_commun.svg",
-    "png_path": "png_512/Masse___2_main/Masse___2_main_R00_commun.png"
+    "png_path": "png_128/Masse___2_main/Masse___2_main_R00_commun.png"
   },
   {
     "icon": "Masse___2_main",
@@ -3188,8 +2923,7 @@
     "border_color": "rgba(157, 255, 176, 0.42)",
     "background": "rgba(157, 255, 176, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Masse___2_main/Masse___2_main_R01_peu-commun.svg",
-    "png_path": "png_512/Masse___2_main/Masse___2_main_R01_peu-commun.png"
+    "png_path": "png_128/Masse___2_main/Masse___2_main_R01_peu-commun.png"
   },
   {
     "icon": "Masse___2_main",
@@ -3200,8 +2934,7 @@
     "border_color": "rgba(126, 231, 255, 0.42)",
     "background": "rgba(126, 231, 255, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Masse___2_main/Masse___2_main_R02_inhabituel.svg",
-    "png_path": "png_512/Masse___2_main/Masse___2_main_R02_inhabituel.png"
+    "png_path": "png_128/Masse___2_main/Masse___2_main_R02_inhabituel.png"
   },
   {
     "icon": "Masse___2_main",
@@ -3212,8 +2945,7 @@
     "border_color": "rgba(106, 168, 255, 0.48)",
     "background": "rgba(106, 168, 255, 0.13)",
     "box_shadow": "",
-    "svg_path": "svg/Masse___2_main/Masse___2_main_R03_rare.svg",
-    "png_path": "png_512/Masse___2_main/Masse___2_main_R03_rare.png"
+    "png_path": "png_128/Masse___2_main/Masse___2_main_R03_rare.png"
   },
   {
     "icon": "Masse___2_main",
@@ -3224,8 +2956,7 @@
     "border_color": "rgba(180, 140, 255, 0.50)",
     "background": "rgba(180, 140, 255, 0.14)",
     "box_shadow": "",
-    "svg_path": "svg/Masse___2_main/Masse___2_main_R04_exceptionnel.svg",
-    "png_path": "png_512/Masse___2_main/Masse___2_main_R04_exceptionnel.png"
+    "png_path": "png_128/Masse___2_main/Masse___2_main_R04_exceptionnel.png"
   },
   {
     "icon": "Masse___2_main",
@@ -3236,8 +2967,7 @@
     "border_color": "rgba(255, 211, 106, 0.52)",
     "background": "rgba(255, 211, 106, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Masse___2_main/Masse___2_main_R05_precieux.svg",
-    "png_path": "png_512/Masse___2_main/Masse___2_main_R05_precieux.png"
+    "png_path": "png_128/Masse___2_main/Masse___2_main_R05_precieux.png"
   },
   {
     "icon": "Masse___2_main",
@@ -3248,8 +2978,7 @@
     "border_color": "rgba(255, 126, 231, 0.52)",
     "background": "rgba(255, 126, 231, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Masse___2_main/Masse___2_main_R06_epique.svg",
-    "png_path": "png_512/Masse___2_main/Masse___2_main_R06_epique.png"
+    "png_path": "png_128/Masse___2_main/Masse___2_main_R06_epique.png"
   },
   {
     "icon": "Masse___2_main",
@@ -3260,8 +2989,7 @@
     "border_color": "rgba(255, 159, 67, 0.56)",
     "background": "rgba(255, 159, 67, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Masse___2_main/Masse___2_main_R07_legendaire.svg",
-    "png_path": "png_512/Masse___2_main/Masse___2_main_R07_legendaire.png"
+    "png_path": "png_128/Masse___2_main/Masse___2_main_R07_legendaire.png"
   },
   {
     "icon": "Masse___2_main",
@@ -3272,8 +3000,7 @@
     "border_color": "rgba(255, 95, 109, 0.58)",
     "background": "rgba(255, 95, 109, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Masse___2_main/Masse___2_main_R08_mythique.svg",
-    "png_path": "png_512/Masse___2_main/Masse___2_main_R08_mythique.png"
+    "png_path": "png_128/Masse___2_main/Masse___2_main_R08_mythique.png"
   },
   {
     "icon": "Masse___2_main",
@@ -3284,8 +3011,7 @@
     "border_color": "rgba(255, 255, 255, 0.62)",
     "background": "linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(241, 197, 106, 0.12))",
     "box_shadow": "0 0 18px rgba(255, 255, 255, 0.12)",
-    "svg_path": "svg/Masse___2_main/Masse___2_main_R09_artefact.svg",
-    "png_path": "png_512/Masse___2_main/Masse___2_main_R09_artefact.png"
+    "png_path": "png_128/Masse___2_main/Masse___2_main_R09_artefact.png"
   },
   {
     "icon": "Masse___2_main",
@@ -3296,8 +3022,7 @@
     "border_color": "rgba(255, 243, 176, 0.75)",
     "background": "linear-gradient(135deg, rgba(255, 243, 176, 0.25), rgba(255, 126, 231, 0.14))",
     "box_shadow": "0 0 18px rgba(255, 243, 176, 0.22), 0 0 36px rgba(255, 126, 231, 0.10)",
-    "svg_path": "svg/Masse___2_main/Masse___2_main_R10_objet-divin.svg",
-    "png_path": "png_512/Masse___2_main/Masse___2_main_R10_objet-divin.png"
+    "png_path": "png_128/Masse___2_main/Masse___2_main_R10_objet-divin.png"
   },
   {
     "icon": "Masse",
@@ -3308,8 +3033,7 @@
     "border_color": "rgba(216, 216, 216, 0.38)",
     "background": "rgba(216, 216, 216, 0.10)",
     "box_shadow": "",
-    "svg_path": "svg/Masse/Masse_R00_commun.svg",
-    "png_path": "png_512/Masse/Masse_R00_commun.png"
+    "png_path": "png_128/Masse/Masse_R00_commun.png"
   },
   {
     "icon": "Masse",
@@ -3320,8 +3044,7 @@
     "border_color": "rgba(157, 255, 176, 0.42)",
     "background": "rgba(157, 255, 176, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Masse/Masse_R01_peu-commun.svg",
-    "png_path": "png_512/Masse/Masse_R01_peu-commun.png"
+    "png_path": "png_128/Masse/Masse_R01_peu-commun.png"
   },
   {
     "icon": "Masse",
@@ -3332,8 +3055,7 @@
     "border_color": "rgba(126, 231, 255, 0.42)",
     "background": "rgba(126, 231, 255, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Masse/Masse_R02_inhabituel.svg",
-    "png_path": "png_512/Masse/Masse_R02_inhabituel.png"
+    "png_path": "png_128/Masse/Masse_R02_inhabituel.png"
   },
   {
     "icon": "Masse",
@@ -3344,8 +3066,7 @@
     "border_color": "rgba(106, 168, 255, 0.48)",
     "background": "rgba(106, 168, 255, 0.13)",
     "box_shadow": "",
-    "svg_path": "svg/Masse/Masse_R03_rare.svg",
-    "png_path": "png_512/Masse/Masse_R03_rare.png"
+    "png_path": "png_128/Masse/Masse_R03_rare.png"
   },
   {
     "icon": "Masse",
@@ -3356,8 +3077,7 @@
     "border_color": "rgba(180, 140, 255, 0.50)",
     "background": "rgba(180, 140, 255, 0.14)",
     "box_shadow": "",
-    "svg_path": "svg/Masse/Masse_R04_exceptionnel.svg",
-    "png_path": "png_512/Masse/Masse_R04_exceptionnel.png"
+    "png_path": "png_128/Masse/Masse_R04_exceptionnel.png"
   },
   {
     "icon": "Masse",
@@ -3368,8 +3088,7 @@
     "border_color": "rgba(255, 211, 106, 0.52)",
     "background": "rgba(255, 211, 106, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Masse/Masse_R05_precieux.svg",
-    "png_path": "png_512/Masse/Masse_R05_precieux.png"
+    "png_path": "png_128/Masse/Masse_R05_precieux.png"
   },
   {
     "icon": "Masse",
@@ -3380,8 +3099,7 @@
     "border_color": "rgba(255, 126, 231, 0.52)",
     "background": "rgba(255, 126, 231, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Masse/Masse_R06_epique.svg",
-    "png_path": "png_512/Masse/Masse_R06_epique.png"
+    "png_path": "png_128/Masse/Masse_R06_epique.png"
   },
   {
     "icon": "Masse",
@@ -3392,8 +3110,7 @@
     "border_color": "rgba(255, 159, 67, 0.56)",
     "background": "rgba(255, 159, 67, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Masse/Masse_R07_legendaire.svg",
-    "png_path": "png_512/Masse/Masse_R07_legendaire.png"
+    "png_path": "png_128/Masse/Masse_R07_legendaire.png"
   },
   {
     "icon": "Masse",
@@ -3404,8 +3121,7 @@
     "border_color": "rgba(255, 95, 109, 0.58)",
     "background": "rgba(255, 95, 109, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Masse/Masse_R08_mythique.svg",
-    "png_path": "png_512/Masse/Masse_R08_mythique.png"
+    "png_path": "png_128/Masse/Masse_R08_mythique.png"
   },
   {
     "icon": "Masse",
@@ -3416,8 +3132,7 @@
     "border_color": "rgba(255, 255, 255, 0.62)",
     "background": "linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(241, 197, 106, 0.12))",
     "box_shadow": "0 0 18px rgba(255, 255, 255, 0.12)",
-    "svg_path": "svg/Masse/Masse_R09_artefact.svg",
-    "png_path": "png_512/Masse/Masse_R09_artefact.png"
+    "png_path": "png_128/Masse/Masse_R09_artefact.png"
   },
   {
     "icon": "Masse",
@@ -3428,8 +3143,7 @@
     "border_color": "rgba(255, 243, 176, 0.75)",
     "background": "linear-gradient(135deg, rgba(255, 243, 176, 0.25), rgba(255, 126, 231, 0.14))",
     "box_shadow": "0 0 18px rgba(255, 243, 176, 0.22), 0 0 36px rgba(255, 126, 231, 0.10)",
-    "svg_path": "svg/Masse/Masse_R10_objet-divin.svg",
-    "png_path": "png_512/Masse/Masse_R10_objet-divin.png"
+    "png_path": "png_128/Masse/Masse_R10_objet-divin.png"
   },
   {
     "icon": "Mousquet",
@@ -3440,8 +3154,7 @@
     "border_color": "rgba(216, 216, 216, 0.38)",
     "background": "rgba(216, 216, 216, 0.10)",
     "box_shadow": "",
-    "svg_path": "svg/Mousquet/Mousquet_R00_commun.svg",
-    "png_path": "png_512/Mousquet/Mousquet_R00_commun.png"
+    "png_path": "png_128/Mousquet/Mousquet_R00_commun.png"
   },
   {
     "icon": "Mousquet",
@@ -3452,8 +3165,7 @@
     "border_color": "rgba(157, 255, 176, 0.42)",
     "background": "rgba(157, 255, 176, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Mousquet/Mousquet_R01_peu-commun.svg",
-    "png_path": "png_512/Mousquet/Mousquet_R01_peu-commun.png"
+    "png_path": "png_128/Mousquet/Mousquet_R01_peu-commun.png"
   },
   {
     "icon": "Mousquet",
@@ -3464,8 +3176,7 @@
     "border_color": "rgba(126, 231, 255, 0.42)",
     "background": "rgba(126, 231, 255, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Mousquet/Mousquet_R02_inhabituel.svg",
-    "png_path": "png_512/Mousquet/Mousquet_R02_inhabituel.png"
+    "png_path": "png_128/Mousquet/Mousquet_R02_inhabituel.png"
   },
   {
     "icon": "Mousquet",
@@ -3476,8 +3187,7 @@
     "border_color": "rgba(106, 168, 255, 0.48)",
     "background": "rgba(106, 168, 255, 0.13)",
     "box_shadow": "",
-    "svg_path": "svg/Mousquet/Mousquet_R03_rare.svg",
-    "png_path": "png_512/Mousquet/Mousquet_R03_rare.png"
+    "png_path": "png_128/Mousquet/Mousquet_R03_rare.png"
   },
   {
     "icon": "Mousquet",
@@ -3488,8 +3198,7 @@
     "border_color": "rgba(180, 140, 255, 0.50)",
     "background": "rgba(180, 140, 255, 0.14)",
     "box_shadow": "",
-    "svg_path": "svg/Mousquet/Mousquet_R04_exceptionnel.svg",
-    "png_path": "png_512/Mousquet/Mousquet_R04_exceptionnel.png"
+    "png_path": "png_128/Mousquet/Mousquet_R04_exceptionnel.png"
   },
   {
     "icon": "Mousquet",
@@ -3500,8 +3209,7 @@
     "border_color": "rgba(255, 211, 106, 0.52)",
     "background": "rgba(255, 211, 106, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Mousquet/Mousquet_R05_precieux.svg",
-    "png_path": "png_512/Mousquet/Mousquet_R05_precieux.png"
+    "png_path": "png_128/Mousquet/Mousquet_R05_precieux.png"
   },
   {
     "icon": "Mousquet",
@@ -3512,8 +3220,7 @@
     "border_color": "rgba(255, 126, 231, 0.52)",
     "background": "rgba(255, 126, 231, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Mousquet/Mousquet_R06_epique.svg",
-    "png_path": "png_512/Mousquet/Mousquet_R06_epique.png"
+    "png_path": "png_128/Mousquet/Mousquet_R06_epique.png"
   },
   {
     "icon": "Mousquet",
@@ -3524,8 +3231,7 @@
     "border_color": "rgba(255, 159, 67, 0.56)",
     "background": "rgba(255, 159, 67, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Mousquet/Mousquet_R07_legendaire.svg",
-    "png_path": "png_512/Mousquet/Mousquet_R07_legendaire.png"
+    "png_path": "png_128/Mousquet/Mousquet_R07_legendaire.png"
   },
   {
     "icon": "Mousquet",
@@ -3536,8 +3242,7 @@
     "border_color": "rgba(255, 95, 109, 0.58)",
     "background": "rgba(255, 95, 109, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Mousquet/Mousquet_R08_mythique.svg",
-    "png_path": "png_512/Mousquet/Mousquet_R08_mythique.png"
+    "png_path": "png_128/Mousquet/Mousquet_R08_mythique.png"
   },
   {
     "icon": "Mousquet",
@@ -3548,8 +3253,7 @@
     "border_color": "rgba(255, 255, 255, 0.62)",
     "background": "linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(241, 197, 106, 0.12))",
     "box_shadow": "0 0 18px rgba(255, 255, 255, 0.12)",
-    "svg_path": "svg/Mousquet/Mousquet_R09_artefact.svg",
-    "png_path": "png_512/Mousquet/Mousquet_R09_artefact.png"
+    "png_path": "png_128/Mousquet/Mousquet_R09_artefact.png"
   },
   {
     "icon": "Mousquet",
@@ -3560,8 +3264,7 @@
     "border_color": "rgba(255, 243, 176, 0.75)",
     "background": "linear-gradient(135deg, rgba(255, 243, 176, 0.25), rgba(255, 126, 231, 0.14))",
     "box_shadow": "0 0 18px rgba(255, 243, 176, 0.22), 0 0 36px rgba(255, 126, 231, 0.10)",
-    "svg_path": "svg/Mousquet/Mousquet_R10_objet-divin.svg",
-    "png_path": "png_512/Mousquet/Mousquet_R10_objet-divin.png"
+    "png_path": "png_128/Mousquet/Mousquet_R10_objet-divin.png"
   },
   {
     "icon": "Petit_Bouclier",
@@ -3572,8 +3275,7 @@
     "border_color": "rgba(216, 216, 216, 0.38)",
     "background": "rgba(216, 216, 216, 0.10)",
     "box_shadow": "",
-    "svg_path": "svg/Petit_Bouclier/Petit_Bouclier_R00_commun.svg",
-    "png_path": "png_512/Petit_Bouclier/Petit_Bouclier_R00_commun.png"
+    "png_path": "png_128/Petit_Bouclier/Petit_Bouclier_R00_commun.png"
   },
   {
     "icon": "Petit_Bouclier",
@@ -3584,8 +3286,7 @@
     "border_color": "rgba(157, 255, 176, 0.42)",
     "background": "rgba(157, 255, 176, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Petit_Bouclier/Petit_Bouclier_R01_peu-commun.svg",
-    "png_path": "png_512/Petit_Bouclier/Petit_Bouclier_R01_peu-commun.png"
+    "png_path": "png_128/Petit_Bouclier/Petit_Bouclier_R01_peu-commun.png"
   },
   {
     "icon": "Petit_Bouclier",
@@ -3596,8 +3297,7 @@
     "border_color": "rgba(126, 231, 255, 0.42)",
     "background": "rgba(126, 231, 255, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Petit_Bouclier/Petit_Bouclier_R02_inhabituel.svg",
-    "png_path": "png_512/Petit_Bouclier/Petit_Bouclier_R02_inhabituel.png"
+    "png_path": "png_128/Petit_Bouclier/Petit_Bouclier_R02_inhabituel.png"
   },
   {
     "icon": "Petit_Bouclier",
@@ -3608,8 +3308,7 @@
     "border_color": "rgba(106, 168, 255, 0.48)",
     "background": "rgba(106, 168, 255, 0.13)",
     "box_shadow": "",
-    "svg_path": "svg/Petit_Bouclier/Petit_Bouclier_R03_rare.svg",
-    "png_path": "png_512/Petit_Bouclier/Petit_Bouclier_R03_rare.png"
+    "png_path": "png_128/Petit_Bouclier/Petit_Bouclier_R03_rare.png"
   },
   {
     "icon": "Petit_Bouclier",
@@ -3620,8 +3319,7 @@
     "border_color": "rgba(180, 140, 255, 0.50)",
     "background": "rgba(180, 140, 255, 0.14)",
     "box_shadow": "",
-    "svg_path": "svg/Petit_Bouclier/Petit_Bouclier_R04_exceptionnel.svg",
-    "png_path": "png_512/Petit_Bouclier/Petit_Bouclier_R04_exceptionnel.png"
+    "png_path": "png_128/Petit_Bouclier/Petit_Bouclier_R04_exceptionnel.png"
   },
   {
     "icon": "Petit_Bouclier",
@@ -3632,8 +3330,7 @@
     "border_color": "rgba(255, 211, 106, 0.52)",
     "background": "rgba(255, 211, 106, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Petit_Bouclier/Petit_Bouclier_R05_precieux.svg",
-    "png_path": "png_512/Petit_Bouclier/Petit_Bouclier_R05_precieux.png"
+    "png_path": "png_128/Petit_Bouclier/Petit_Bouclier_R05_precieux.png"
   },
   {
     "icon": "Petit_Bouclier",
@@ -3644,8 +3341,7 @@
     "border_color": "rgba(255, 126, 231, 0.52)",
     "background": "rgba(255, 126, 231, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Petit_Bouclier/Petit_Bouclier_R06_epique.svg",
-    "png_path": "png_512/Petit_Bouclier/Petit_Bouclier_R06_epique.png"
+    "png_path": "png_128/Petit_Bouclier/Petit_Bouclier_R06_epique.png"
   },
   {
     "icon": "Petit_Bouclier",
@@ -3656,8 +3352,7 @@
     "border_color": "rgba(255, 159, 67, 0.56)",
     "background": "rgba(255, 159, 67, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Petit_Bouclier/Petit_Bouclier_R07_legendaire.svg",
-    "png_path": "png_512/Petit_Bouclier/Petit_Bouclier_R07_legendaire.png"
+    "png_path": "png_128/Petit_Bouclier/Petit_Bouclier_R07_legendaire.png"
   },
   {
     "icon": "Petit_Bouclier",
@@ -3668,8 +3363,7 @@
     "border_color": "rgba(255, 95, 109, 0.58)",
     "background": "rgba(255, 95, 109, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Petit_Bouclier/Petit_Bouclier_R08_mythique.svg",
-    "png_path": "png_512/Petit_Bouclier/Petit_Bouclier_R08_mythique.png"
+    "png_path": "png_128/Petit_Bouclier/Petit_Bouclier_R08_mythique.png"
   },
   {
     "icon": "Petit_Bouclier",
@@ -3680,8 +3374,7 @@
     "border_color": "rgba(255, 255, 255, 0.62)",
     "background": "linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(241, 197, 106, 0.12))",
     "box_shadow": "0 0 18px rgba(255, 255, 255, 0.12)",
-    "svg_path": "svg/Petit_Bouclier/Petit_Bouclier_R09_artefact.svg",
-    "png_path": "png_512/Petit_Bouclier/Petit_Bouclier_R09_artefact.png"
+    "png_path": "png_128/Petit_Bouclier/Petit_Bouclier_R09_artefact.png"
   },
   {
     "icon": "Petit_Bouclier",
@@ -3692,8 +3385,7 @@
     "border_color": "rgba(255, 243, 176, 0.75)",
     "background": "linear-gradient(135deg, rgba(255, 243, 176, 0.25), rgba(255, 126, 231, 0.14))",
     "box_shadow": "0 0 18px rgba(255, 243, 176, 0.22), 0 0 36px rgba(255, 126, 231, 0.10)",
-    "svg_path": "svg/Petit_Bouclier/Petit_Bouclier_R10_objet-divin.svg",
-    "png_path": "png_512/Petit_Bouclier/Petit_Bouclier_R10_objet-divin.png"
+    "png_path": "png_128/Petit_Bouclier/Petit_Bouclier_R10_objet-divin.png"
   },
   {
     "icon": "Petoire",
@@ -3704,8 +3396,7 @@
     "border_color": "rgba(216, 216, 216, 0.38)",
     "background": "rgba(216, 216, 216, 0.10)",
     "box_shadow": "",
-    "svg_path": "svg/Petoire/Petoire_R00_commun.svg",
-    "png_path": "png_512/Petoire/Petoire_R00_commun.png"
+    "png_path": "png_128/Petoire/Petoire_R00_commun.png"
   },
   {
     "icon": "Petoire",
@@ -3716,8 +3407,7 @@
     "border_color": "rgba(157, 255, 176, 0.42)",
     "background": "rgba(157, 255, 176, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Petoire/Petoire_R01_peu-commun.svg",
-    "png_path": "png_512/Petoire/Petoire_R01_peu-commun.png"
+    "png_path": "png_128/Petoire/Petoire_R01_peu-commun.png"
   },
   {
     "icon": "Petoire",
@@ -3728,8 +3418,7 @@
     "border_color": "rgba(126, 231, 255, 0.42)",
     "background": "rgba(126, 231, 255, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Petoire/Petoire_R02_inhabituel.svg",
-    "png_path": "png_512/Petoire/Petoire_R02_inhabituel.png"
+    "png_path": "png_128/Petoire/Petoire_R02_inhabituel.png"
   },
   {
     "icon": "Petoire",
@@ -3740,8 +3429,7 @@
     "border_color": "rgba(106, 168, 255, 0.48)",
     "background": "rgba(106, 168, 255, 0.13)",
     "box_shadow": "",
-    "svg_path": "svg/Petoire/Petoire_R03_rare.svg",
-    "png_path": "png_512/Petoire/Petoire_R03_rare.png"
+    "png_path": "png_128/Petoire/Petoire_R03_rare.png"
   },
   {
     "icon": "Petoire",
@@ -3752,8 +3440,7 @@
     "border_color": "rgba(180, 140, 255, 0.50)",
     "background": "rgba(180, 140, 255, 0.14)",
     "box_shadow": "",
-    "svg_path": "svg/Petoire/Petoire_R04_exceptionnel.svg",
-    "png_path": "png_512/Petoire/Petoire_R04_exceptionnel.png"
+    "png_path": "png_128/Petoire/Petoire_R04_exceptionnel.png"
   },
   {
     "icon": "Petoire",
@@ -3764,8 +3451,7 @@
     "border_color": "rgba(255, 211, 106, 0.52)",
     "background": "rgba(255, 211, 106, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Petoire/Petoire_R05_precieux.svg",
-    "png_path": "png_512/Petoire/Petoire_R05_precieux.png"
+    "png_path": "png_128/Petoire/Petoire_R05_precieux.png"
   },
   {
     "icon": "Petoire",
@@ -3776,8 +3462,7 @@
     "border_color": "rgba(255, 126, 231, 0.52)",
     "background": "rgba(255, 126, 231, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Petoire/Petoire_R06_epique.svg",
-    "png_path": "png_512/Petoire/Petoire_R06_epique.png"
+    "png_path": "png_128/Petoire/Petoire_R06_epique.png"
   },
   {
     "icon": "Petoire",
@@ -3788,8 +3473,7 @@
     "border_color": "rgba(255, 159, 67, 0.56)",
     "background": "rgba(255, 159, 67, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Petoire/Petoire_R07_legendaire.svg",
-    "png_path": "png_512/Petoire/Petoire_R07_legendaire.png"
+    "png_path": "png_128/Petoire/Petoire_R07_legendaire.png"
   },
   {
     "icon": "Petoire",
@@ -3800,8 +3484,7 @@
     "border_color": "rgba(255, 95, 109, 0.58)",
     "background": "rgba(255, 95, 109, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Petoire/Petoire_R08_mythique.svg",
-    "png_path": "png_512/Petoire/Petoire_R08_mythique.png"
+    "png_path": "png_128/Petoire/Petoire_R08_mythique.png"
   },
   {
     "icon": "Petoire",
@@ -3812,8 +3495,7 @@
     "border_color": "rgba(255, 255, 255, 0.62)",
     "background": "linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(241, 197, 106, 0.12))",
     "box_shadow": "0 0 18px rgba(255, 255, 255, 0.12)",
-    "svg_path": "svg/Petoire/Petoire_R09_artefact.svg",
-    "png_path": "png_512/Petoire/Petoire_R09_artefact.png"
+    "png_path": "png_128/Petoire/Petoire_R09_artefact.png"
   },
   {
     "icon": "Petoire",
@@ -3824,8 +3506,7 @@
     "border_color": "rgba(255, 243, 176, 0.75)",
     "background": "linear-gradient(135deg, rgba(255, 243, 176, 0.25), rgba(255, 126, 231, 0.14))",
     "box_shadow": "0 0 18px rgba(255, 243, 176, 0.22), 0 0 36px rgba(255, 126, 231, 0.10)",
-    "svg_path": "svg/Petoire/Petoire_R10_objet-divin.svg",
-    "png_path": "png_512/Petoire/Petoire_R10_objet-divin.png"
+    "png_path": "png_128/Petoire/Petoire_R10_objet-divin.png"
   },
   {
     "icon": "plaque",
@@ -3836,8 +3517,7 @@
     "border_color": "rgba(216, 216, 216, 0.38)",
     "background": "rgba(216, 216, 216, 0.10)",
     "box_shadow": "",
-    "svg_path": "svg/plaque/plaque_R00_commun.svg",
-    "png_path": "png_512/plaque/plaque_R00_commun.png"
+    "png_path": "png_128/plaque/plaque_R00_commun.png"
   },
   {
     "icon": "plaque",
@@ -3848,8 +3528,7 @@
     "border_color": "rgba(157, 255, 176, 0.42)",
     "background": "rgba(157, 255, 176, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/plaque/plaque_R01_peu-commun.svg",
-    "png_path": "png_512/plaque/plaque_R01_peu-commun.png"
+    "png_path": "png_128/plaque/plaque_R01_peu-commun.png"
   },
   {
     "icon": "plaque",
@@ -3860,8 +3539,7 @@
     "border_color": "rgba(126, 231, 255, 0.42)",
     "background": "rgba(126, 231, 255, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/plaque/plaque_R02_inhabituel.svg",
-    "png_path": "png_512/plaque/plaque_R02_inhabituel.png"
+    "png_path": "png_128/plaque/plaque_R02_inhabituel.png"
   },
   {
     "icon": "plaque",
@@ -3872,8 +3550,7 @@
     "border_color": "rgba(106, 168, 255, 0.48)",
     "background": "rgba(106, 168, 255, 0.13)",
     "box_shadow": "",
-    "svg_path": "svg/plaque/plaque_R03_rare.svg",
-    "png_path": "png_512/plaque/plaque_R03_rare.png"
+    "png_path": "png_128/plaque/plaque_R03_rare.png"
   },
   {
     "icon": "plaque",
@@ -3884,8 +3561,7 @@
     "border_color": "rgba(180, 140, 255, 0.50)",
     "background": "rgba(180, 140, 255, 0.14)",
     "box_shadow": "",
-    "svg_path": "svg/plaque/plaque_R04_exceptionnel.svg",
-    "png_path": "png_512/plaque/plaque_R04_exceptionnel.png"
+    "png_path": "png_128/plaque/plaque_R04_exceptionnel.png"
   },
   {
     "icon": "plaque",
@@ -3896,8 +3572,7 @@
     "border_color": "rgba(255, 211, 106, 0.52)",
     "background": "rgba(255, 211, 106, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/plaque/plaque_R05_precieux.svg",
-    "png_path": "png_512/plaque/plaque_R05_precieux.png"
+    "png_path": "png_128/plaque/plaque_R05_precieux.png"
   },
   {
     "icon": "plaque",
@@ -3908,8 +3583,7 @@
     "border_color": "rgba(255, 126, 231, 0.52)",
     "background": "rgba(255, 126, 231, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/plaque/plaque_R06_epique.svg",
-    "png_path": "png_512/plaque/plaque_R06_epique.png"
+    "png_path": "png_128/plaque/plaque_R06_epique.png"
   },
   {
     "icon": "plaque",
@@ -3920,8 +3594,7 @@
     "border_color": "rgba(255, 159, 67, 0.56)",
     "background": "rgba(255, 159, 67, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/plaque/plaque_R07_legendaire.svg",
-    "png_path": "png_512/plaque/plaque_R07_legendaire.png"
+    "png_path": "png_128/plaque/plaque_R07_legendaire.png"
   },
   {
     "icon": "plaque",
@@ -3932,8 +3605,7 @@
     "border_color": "rgba(255, 95, 109, 0.58)",
     "background": "rgba(255, 95, 109, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/plaque/plaque_R08_mythique.svg",
-    "png_path": "png_512/plaque/plaque_R08_mythique.png"
+    "png_path": "png_128/plaque/plaque_R08_mythique.png"
   },
   {
     "icon": "plaque",
@@ -3944,8 +3616,7 @@
     "border_color": "rgba(255, 255, 255, 0.62)",
     "background": "linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(241, 197, 106, 0.12))",
     "box_shadow": "0 0 18px rgba(255, 255, 255, 0.12)",
-    "svg_path": "svg/plaque/plaque_R09_artefact.svg",
-    "png_path": "png_512/plaque/plaque_R09_artefact.png"
+    "png_path": "png_128/plaque/plaque_R09_artefact.png"
   },
   {
     "icon": "plaque",
@@ -3956,8 +3627,7 @@
     "border_color": "rgba(255, 243, 176, 0.75)",
     "background": "linear-gradient(135deg, rgba(255, 243, 176, 0.25), rgba(255, 126, 231, 0.14))",
     "box_shadow": "0 0 18px rgba(255, 243, 176, 0.22), 0 0 36px rgba(255, 126, 231, 0.10)",
-    "svg_path": "svg/plaque/plaque_R10_objet-divin.svg",
-    "png_path": "png_512/plaque/plaque_R10_objet-divin.png"
+    "png_path": "png_128/plaque/plaque_R10_objet-divin.png"
   },
   {
     "icon": "potion-ball",
@@ -3968,8 +3638,7 @@
     "border_color": "rgba(216, 216, 216, 0.38)",
     "background": "rgba(216, 216, 216, 0.10)",
     "box_shadow": "",
-    "svg_path": "svg/potion-ball/potion-ball_R00_commun.svg",
-    "png_path": "png_512/potion-ball/potion-ball_R00_commun.png"
+    "png_path": "png_128/potion-ball/potion-ball_R00_commun.png"
   },
   {
     "icon": "potion-ball",
@@ -3980,8 +3649,7 @@
     "border_color": "rgba(157, 255, 176, 0.42)",
     "background": "rgba(157, 255, 176, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/potion-ball/potion-ball_R01_peu-commun.svg",
-    "png_path": "png_512/potion-ball/potion-ball_R01_peu-commun.png"
+    "png_path": "png_128/potion-ball/potion-ball_R01_peu-commun.png"
   },
   {
     "icon": "potion-ball",
@@ -3992,8 +3660,7 @@
     "border_color": "rgba(126, 231, 255, 0.42)",
     "background": "rgba(126, 231, 255, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/potion-ball/potion-ball_R02_inhabituel.svg",
-    "png_path": "png_512/potion-ball/potion-ball_R02_inhabituel.png"
+    "png_path": "png_128/potion-ball/potion-ball_R02_inhabituel.png"
   },
   {
     "icon": "potion-ball",
@@ -4004,8 +3671,7 @@
     "border_color": "rgba(106, 168, 255, 0.48)",
     "background": "rgba(106, 168, 255, 0.13)",
     "box_shadow": "",
-    "svg_path": "svg/potion-ball/potion-ball_R03_rare.svg",
-    "png_path": "png_512/potion-ball/potion-ball_R03_rare.png"
+    "png_path": "png_128/potion-ball/potion-ball_R03_rare.png"
   },
   {
     "icon": "potion-ball",
@@ -4016,8 +3682,7 @@
     "border_color": "rgba(180, 140, 255, 0.50)",
     "background": "rgba(180, 140, 255, 0.14)",
     "box_shadow": "",
-    "svg_path": "svg/potion-ball/potion-ball_R04_exceptionnel.svg",
-    "png_path": "png_512/potion-ball/potion-ball_R04_exceptionnel.png"
+    "png_path": "png_128/potion-ball/potion-ball_R04_exceptionnel.png"
   },
   {
     "icon": "potion-ball",
@@ -4028,8 +3693,7 @@
     "border_color": "rgba(255, 211, 106, 0.52)",
     "background": "rgba(255, 211, 106, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/potion-ball/potion-ball_R05_precieux.svg",
-    "png_path": "png_512/potion-ball/potion-ball_R05_precieux.png"
+    "png_path": "png_128/potion-ball/potion-ball_R05_precieux.png"
   },
   {
     "icon": "potion-ball",
@@ -4040,8 +3704,7 @@
     "border_color": "rgba(255, 126, 231, 0.52)",
     "background": "rgba(255, 126, 231, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/potion-ball/potion-ball_R06_epique.svg",
-    "png_path": "png_512/potion-ball/potion-ball_R06_epique.png"
+    "png_path": "png_128/potion-ball/potion-ball_R06_epique.png"
   },
   {
     "icon": "potion-ball",
@@ -4052,8 +3715,7 @@
     "border_color": "rgba(255, 159, 67, 0.56)",
     "background": "rgba(255, 159, 67, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/potion-ball/potion-ball_R07_legendaire.svg",
-    "png_path": "png_512/potion-ball/potion-ball_R07_legendaire.png"
+    "png_path": "png_128/potion-ball/potion-ball_R07_legendaire.png"
   },
   {
     "icon": "potion-ball",
@@ -4064,8 +3726,7 @@
     "border_color": "rgba(255, 95, 109, 0.58)",
     "background": "rgba(255, 95, 109, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/potion-ball/potion-ball_R08_mythique.svg",
-    "png_path": "png_512/potion-ball/potion-ball_R08_mythique.png"
+    "png_path": "png_128/potion-ball/potion-ball_R08_mythique.png"
   },
   {
     "icon": "potion-ball",
@@ -4076,8 +3737,7 @@
     "border_color": "rgba(255, 255, 255, 0.62)",
     "background": "linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(241, 197, 106, 0.12))",
     "box_shadow": "0 0 18px rgba(255, 255, 255, 0.12)",
-    "svg_path": "svg/potion-ball/potion-ball_R09_artefact.svg",
-    "png_path": "png_512/potion-ball/potion-ball_R09_artefact.png"
+    "png_path": "png_128/potion-ball/potion-ball_R09_artefact.png"
   },
   {
     "icon": "potion-ball",
@@ -4088,8 +3748,7 @@
     "border_color": "rgba(255, 243, 176, 0.75)",
     "background": "linear-gradient(135deg, rgba(255, 243, 176, 0.25), rgba(255, 126, 231, 0.14))",
     "box_shadow": "0 0 18px rgba(255, 243, 176, 0.22), 0 0 36px rgba(255, 126, 231, 0.10)",
-    "svg_path": "svg/potion-ball/potion-ball_R10_objet-divin.svg",
-    "png_path": "png_512/potion-ball/potion-ball_R10_objet-divin.png"
+    "png_path": "png_128/potion-ball/potion-ball_R10_objet-divin.png"
   },
   {
     "icon": "potion-of-madness",
@@ -4100,8 +3759,7 @@
     "border_color": "rgba(216, 216, 216, 0.38)",
     "background": "rgba(216, 216, 216, 0.10)",
     "box_shadow": "",
-    "svg_path": "svg/potion-of-madness/potion-of-madness_R00_commun.svg",
-    "png_path": "png_512/potion-of-madness/potion-of-madness_R00_commun.png"
+    "png_path": "png_128/potion-of-madness/potion-of-madness_R00_commun.png"
   },
   {
     "icon": "potion-of-madness",
@@ -4112,8 +3770,7 @@
     "border_color": "rgba(157, 255, 176, 0.42)",
     "background": "rgba(157, 255, 176, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/potion-of-madness/potion-of-madness_R01_peu-commun.svg",
-    "png_path": "png_512/potion-of-madness/potion-of-madness_R01_peu-commun.png"
+    "png_path": "png_128/potion-of-madness/potion-of-madness_R01_peu-commun.png"
   },
   {
     "icon": "potion-of-madness",
@@ -4124,8 +3781,7 @@
     "border_color": "rgba(126, 231, 255, 0.42)",
     "background": "rgba(126, 231, 255, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/potion-of-madness/potion-of-madness_R02_inhabituel.svg",
-    "png_path": "png_512/potion-of-madness/potion-of-madness_R02_inhabituel.png"
+    "png_path": "png_128/potion-of-madness/potion-of-madness_R02_inhabituel.png"
   },
   {
     "icon": "potion-of-madness",
@@ -4136,8 +3792,7 @@
     "border_color": "rgba(106, 168, 255, 0.48)",
     "background": "rgba(106, 168, 255, 0.13)",
     "box_shadow": "",
-    "svg_path": "svg/potion-of-madness/potion-of-madness_R03_rare.svg",
-    "png_path": "png_512/potion-of-madness/potion-of-madness_R03_rare.png"
+    "png_path": "png_128/potion-of-madness/potion-of-madness_R03_rare.png"
   },
   {
     "icon": "potion-of-madness",
@@ -4148,8 +3803,7 @@
     "border_color": "rgba(180, 140, 255, 0.50)",
     "background": "rgba(180, 140, 255, 0.14)",
     "box_shadow": "",
-    "svg_path": "svg/potion-of-madness/potion-of-madness_R04_exceptionnel.svg",
-    "png_path": "png_512/potion-of-madness/potion-of-madness_R04_exceptionnel.png"
+    "png_path": "png_128/potion-of-madness/potion-of-madness_R04_exceptionnel.png"
   },
   {
     "icon": "potion-of-madness",
@@ -4160,8 +3814,7 @@
     "border_color": "rgba(255, 211, 106, 0.52)",
     "background": "rgba(255, 211, 106, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/potion-of-madness/potion-of-madness_R05_precieux.svg",
-    "png_path": "png_512/potion-of-madness/potion-of-madness_R05_precieux.png"
+    "png_path": "png_128/potion-of-madness/potion-of-madness_R05_precieux.png"
   },
   {
     "icon": "potion-of-madness",
@@ -4172,8 +3825,7 @@
     "border_color": "rgba(255, 126, 231, 0.52)",
     "background": "rgba(255, 126, 231, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/potion-of-madness/potion-of-madness_R06_epique.svg",
-    "png_path": "png_512/potion-of-madness/potion-of-madness_R06_epique.png"
+    "png_path": "png_128/potion-of-madness/potion-of-madness_R06_epique.png"
   },
   {
     "icon": "potion-of-madness",
@@ -4184,8 +3836,7 @@
     "border_color": "rgba(255, 159, 67, 0.56)",
     "background": "rgba(255, 159, 67, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/potion-of-madness/potion-of-madness_R07_legendaire.svg",
-    "png_path": "png_512/potion-of-madness/potion-of-madness_R07_legendaire.png"
+    "png_path": "png_128/potion-of-madness/potion-of-madness_R07_legendaire.png"
   },
   {
     "icon": "potion-of-madness",
@@ -4196,8 +3847,7 @@
     "border_color": "rgba(255, 95, 109, 0.58)",
     "background": "rgba(255, 95, 109, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/potion-of-madness/potion-of-madness_R08_mythique.svg",
-    "png_path": "png_512/potion-of-madness/potion-of-madness_R08_mythique.png"
+    "png_path": "png_128/potion-of-madness/potion-of-madness_R08_mythique.png"
   },
   {
     "icon": "potion-of-madness",
@@ -4208,8 +3858,7 @@
     "border_color": "rgba(255, 255, 255, 0.62)",
     "background": "linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(241, 197, 106, 0.12))",
     "box_shadow": "0 0 18px rgba(255, 255, 255, 0.12)",
-    "svg_path": "svg/potion-of-madness/potion-of-madness_R09_artefact.svg",
-    "png_path": "png_512/potion-of-madness/potion-of-madness_R09_artefact.png"
+    "png_path": "png_128/potion-of-madness/potion-of-madness_R09_artefact.png"
   },
   {
     "icon": "potion-of-madness",
@@ -4220,8 +3869,7 @@
     "border_color": "rgba(255, 243, 176, 0.75)",
     "background": "linear-gradient(135deg, rgba(255, 243, 176, 0.25), rgba(255, 126, 231, 0.14))",
     "box_shadow": "0 0 18px rgba(255, 243, 176, 0.22), 0 0 36px rgba(255, 126, 231, 0.10)",
-    "svg_path": "svg/potion-of-madness/potion-of-madness_R10_objet-divin.svg",
-    "png_path": "png_512/potion-of-madness/potion-of-madness_R10_objet-divin.png"
+    "png_path": "png_128/potion-of-madness/potion-of-madness_R10_objet-divin.png"
   },
   {
     "icon": "Rapiere",
@@ -4232,8 +3880,7 @@
     "border_color": "rgba(216, 216, 216, 0.38)",
     "background": "rgba(216, 216, 216, 0.10)",
     "box_shadow": "",
-    "svg_path": "svg/Rapiere/Rapiere_R00_commun.svg",
-    "png_path": "png_512/Rapiere/Rapiere_R00_commun.png"
+    "png_path": "png_128/Rapiere/Rapiere_R00_commun.png"
   },
   {
     "icon": "Rapiere",
@@ -4244,8 +3891,7 @@
     "border_color": "rgba(157, 255, 176, 0.42)",
     "background": "rgba(157, 255, 176, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Rapiere/Rapiere_R01_peu-commun.svg",
-    "png_path": "png_512/Rapiere/Rapiere_R01_peu-commun.png"
+    "png_path": "png_128/Rapiere/Rapiere_R01_peu-commun.png"
   },
   {
     "icon": "Rapiere",
@@ -4256,8 +3902,7 @@
     "border_color": "rgba(126, 231, 255, 0.42)",
     "background": "rgba(126, 231, 255, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Rapiere/Rapiere_R02_inhabituel.svg",
-    "png_path": "png_512/Rapiere/Rapiere_R02_inhabituel.png"
+    "png_path": "png_128/Rapiere/Rapiere_R02_inhabituel.png"
   },
   {
     "icon": "Rapiere",
@@ -4268,8 +3913,7 @@
     "border_color": "rgba(106, 168, 255, 0.48)",
     "background": "rgba(106, 168, 255, 0.13)",
     "box_shadow": "",
-    "svg_path": "svg/Rapiere/Rapiere_R03_rare.svg",
-    "png_path": "png_512/Rapiere/Rapiere_R03_rare.png"
+    "png_path": "png_128/Rapiere/Rapiere_R03_rare.png"
   },
   {
     "icon": "Rapiere",
@@ -4280,8 +3924,7 @@
     "border_color": "rgba(180, 140, 255, 0.50)",
     "background": "rgba(180, 140, 255, 0.14)",
     "box_shadow": "",
-    "svg_path": "svg/Rapiere/Rapiere_R04_exceptionnel.svg",
-    "png_path": "png_512/Rapiere/Rapiere_R04_exceptionnel.png"
+    "png_path": "png_128/Rapiere/Rapiere_R04_exceptionnel.png"
   },
   {
     "icon": "Rapiere",
@@ -4292,8 +3935,7 @@
     "border_color": "rgba(255, 211, 106, 0.52)",
     "background": "rgba(255, 211, 106, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Rapiere/Rapiere_R05_precieux.svg",
-    "png_path": "png_512/Rapiere/Rapiere_R05_precieux.png"
+    "png_path": "png_128/Rapiere/Rapiere_R05_precieux.png"
   },
   {
     "icon": "Rapiere",
@@ -4304,8 +3946,7 @@
     "border_color": "rgba(255, 126, 231, 0.52)",
     "background": "rgba(255, 126, 231, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Rapiere/Rapiere_R06_epique.svg",
-    "png_path": "png_512/Rapiere/Rapiere_R06_epique.png"
+    "png_path": "png_128/Rapiere/Rapiere_R06_epique.png"
   },
   {
     "icon": "Rapiere",
@@ -4316,8 +3957,7 @@
     "border_color": "rgba(255, 159, 67, 0.56)",
     "background": "rgba(255, 159, 67, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Rapiere/Rapiere_R07_legendaire.svg",
-    "png_path": "png_512/Rapiere/Rapiere_R07_legendaire.png"
+    "png_path": "png_128/Rapiere/Rapiere_R07_legendaire.png"
   },
   {
     "icon": "Rapiere",
@@ -4328,8 +3968,7 @@
     "border_color": "rgba(255, 95, 109, 0.58)",
     "background": "rgba(255, 95, 109, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Rapiere/Rapiere_R08_mythique.svg",
-    "png_path": "png_512/Rapiere/Rapiere_R08_mythique.png"
+    "png_path": "png_128/Rapiere/Rapiere_R08_mythique.png"
   },
   {
     "icon": "Rapiere",
@@ -4340,8 +3979,7 @@
     "border_color": "rgba(255, 255, 255, 0.62)",
     "background": "linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(241, 197, 106, 0.12))",
     "box_shadow": "0 0 18px rgba(255, 255, 255, 0.12)",
-    "svg_path": "svg/Rapiere/Rapiere_R09_artefact.svg",
-    "png_path": "png_512/Rapiere/Rapiere_R09_artefact.png"
+    "png_path": "png_128/Rapiere/Rapiere_R09_artefact.png"
   },
   {
     "icon": "Rapiere",
@@ -4352,8 +3990,7 @@
     "border_color": "rgba(255, 243, 176, 0.75)",
     "background": "linear-gradient(135deg, rgba(255, 243, 176, 0.25), rgba(255, 126, 231, 0.14))",
     "box_shadow": "0 0 18px rgba(255, 243, 176, 0.22), 0 0 36px rgba(255, 126, 231, 0.10)",
-    "svg_path": "svg/Rapiere/Rapiere_R10_objet-divin.svg",
-    "png_path": "png_512/Rapiere/Rapiere_R10_objet-divin.png"
+    "png_path": "png_128/Rapiere/Rapiere_R10_objet-divin.png"
   },
   {
     "icon": "ring",
@@ -4364,8 +4001,7 @@
     "border_color": "rgba(216, 216, 216, 0.38)",
     "background": "rgba(216, 216, 216, 0.10)",
     "box_shadow": "",
-    "svg_path": "svg/ring/ring_R00_commun.svg",
-    "png_path": "png_512/ring/ring_R00_commun.png"
+    "png_path": "png_128/ring/ring_R00_commun.png"
   },
   {
     "icon": "ring",
@@ -4376,8 +4012,7 @@
     "border_color": "rgba(157, 255, 176, 0.42)",
     "background": "rgba(157, 255, 176, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/ring/ring_R01_peu-commun.svg",
-    "png_path": "png_512/ring/ring_R01_peu-commun.png"
+    "png_path": "png_128/ring/ring_R01_peu-commun.png"
   },
   {
     "icon": "ring",
@@ -4388,8 +4023,7 @@
     "border_color": "rgba(126, 231, 255, 0.42)",
     "background": "rgba(126, 231, 255, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/ring/ring_R02_inhabituel.svg",
-    "png_path": "png_512/ring/ring_R02_inhabituel.png"
+    "png_path": "png_128/ring/ring_R02_inhabituel.png"
   },
   {
     "icon": "ring",
@@ -4400,8 +4034,7 @@
     "border_color": "rgba(106, 168, 255, 0.48)",
     "background": "rgba(106, 168, 255, 0.13)",
     "box_shadow": "",
-    "svg_path": "svg/ring/ring_R03_rare.svg",
-    "png_path": "png_512/ring/ring_R03_rare.png"
+    "png_path": "png_128/ring/ring_R03_rare.png"
   },
   {
     "icon": "ring",
@@ -4412,8 +4045,7 @@
     "border_color": "rgba(180, 140, 255, 0.50)",
     "background": "rgba(180, 140, 255, 0.14)",
     "box_shadow": "",
-    "svg_path": "svg/ring/ring_R04_exceptionnel.svg",
-    "png_path": "png_512/ring/ring_R04_exceptionnel.png"
+    "png_path": "png_128/ring/ring_R04_exceptionnel.png"
   },
   {
     "icon": "ring",
@@ -4424,8 +4056,7 @@
     "border_color": "rgba(255, 211, 106, 0.52)",
     "background": "rgba(255, 211, 106, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/ring/ring_R05_precieux.svg",
-    "png_path": "png_512/ring/ring_R05_precieux.png"
+    "png_path": "png_128/ring/ring_R05_precieux.png"
   },
   {
     "icon": "ring",
@@ -4436,8 +4067,7 @@
     "border_color": "rgba(255, 126, 231, 0.52)",
     "background": "rgba(255, 126, 231, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/ring/ring_R06_epique.svg",
-    "png_path": "png_512/ring/ring_R06_epique.png"
+    "png_path": "png_128/ring/ring_R06_epique.png"
   },
   {
     "icon": "ring",
@@ -4448,8 +4078,7 @@
     "border_color": "rgba(255, 159, 67, 0.56)",
     "background": "rgba(255, 159, 67, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/ring/ring_R07_legendaire.svg",
-    "png_path": "png_512/ring/ring_R07_legendaire.png"
+    "png_path": "png_128/ring/ring_R07_legendaire.png"
   },
   {
     "icon": "ring",
@@ -4460,8 +4089,7 @@
     "border_color": "rgba(255, 95, 109, 0.58)",
     "background": "rgba(255, 95, 109, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/ring/ring_R08_mythique.svg",
-    "png_path": "png_512/ring/ring_R08_mythique.png"
+    "png_path": "png_128/ring/ring_R08_mythique.png"
   },
   {
     "icon": "ring",
@@ -4472,8 +4100,7 @@
     "border_color": "rgba(255, 255, 255, 0.62)",
     "background": "linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(241, 197, 106, 0.12))",
     "box_shadow": "0 0 18px rgba(255, 255, 255, 0.12)",
-    "svg_path": "svg/ring/ring_R09_artefact.svg",
-    "png_path": "png_512/ring/ring_R09_artefact.png"
+    "png_path": "png_128/ring/ring_R09_artefact.png"
   },
   {
     "icon": "ring",
@@ -4484,8 +4111,7 @@
     "border_color": "rgba(255, 243, 176, 0.75)",
     "background": "linear-gradient(135deg, rgba(255, 243, 176, 0.25), rgba(255, 126, 231, 0.14))",
     "box_shadow": "0 0 18px rgba(255, 243, 176, 0.22), 0 0 36px rgba(255, 126, 231, 0.10)",
-    "svg_path": "svg/ring/ring_R10_objet-divin.svg",
-    "png_path": "png_512/ring/ring_R10_objet-divin.png"
+    "png_path": "png_128/ring/ring_R10_objet-divin.png"
   },
   {
     "icon": "round-potion",
@@ -4496,8 +4122,7 @@
     "border_color": "rgba(216, 216, 216, 0.38)",
     "background": "rgba(216, 216, 216, 0.10)",
     "box_shadow": "",
-    "svg_path": "svg/round-potion/round-potion_R00_commun.svg",
-    "png_path": "png_512/round-potion/round-potion_R00_commun.png"
+    "png_path": "png_128/round-potion/round-potion_R00_commun.png"
   },
   {
     "icon": "round-potion",
@@ -4508,8 +4133,7 @@
     "border_color": "rgba(157, 255, 176, 0.42)",
     "background": "rgba(157, 255, 176, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/round-potion/round-potion_R01_peu-commun.svg",
-    "png_path": "png_512/round-potion/round-potion_R01_peu-commun.png"
+    "png_path": "png_128/round-potion/round-potion_R01_peu-commun.png"
   },
   {
     "icon": "round-potion",
@@ -4520,8 +4144,7 @@
     "border_color": "rgba(126, 231, 255, 0.42)",
     "background": "rgba(126, 231, 255, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/round-potion/round-potion_R02_inhabituel.svg",
-    "png_path": "png_512/round-potion/round-potion_R02_inhabituel.png"
+    "png_path": "png_128/round-potion/round-potion_R02_inhabituel.png"
   },
   {
     "icon": "round-potion",
@@ -4532,8 +4155,7 @@
     "border_color": "rgba(106, 168, 255, 0.48)",
     "background": "rgba(106, 168, 255, 0.13)",
     "box_shadow": "",
-    "svg_path": "svg/round-potion/round-potion_R03_rare.svg",
-    "png_path": "png_512/round-potion/round-potion_R03_rare.png"
+    "png_path": "png_128/round-potion/round-potion_R03_rare.png"
   },
   {
     "icon": "round-potion",
@@ -4544,8 +4166,7 @@
     "border_color": "rgba(180, 140, 255, 0.50)",
     "background": "rgba(180, 140, 255, 0.14)",
     "box_shadow": "",
-    "svg_path": "svg/round-potion/round-potion_R04_exceptionnel.svg",
-    "png_path": "png_512/round-potion/round-potion_R04_exceptionnel.png"
+    "png_path": "png_128/round-potion/round-potion_R04_exceptionnel.png"
   },
   {
     "icon": "round-potion",
@@ -4556,8 +4177,7 @@
     "border_color": "rgba(255, 211, 106, 0.52)",
     "background": "rgba(255, 211, 106, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/round-potion/round-potion_R05_precieux.svg",
-    "png_path": "png_512/round-potion/round-potion_R05_precieux.png"
+    "png_path": "png_128/round-potion/round-potion_R05_precieux.png"
   },
   {
     "icon": "round-potion",
@@ -4568,8 +4188,7 @@
     "border_color": "rgba(255, 126, 231, 0.52)",
     "background": "rgba(255, 126, 231, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/round-potion/round-potion_R06_epique.svg",
-    "png_path": "png_512/round-potion/round-potion_R06_epique.png"
+    "png_path": "png_128/round-potion/round-potion_R06_epique.png"
   },
   {
     "icon": "round-potion",
@@ -4580,8 +4199,7 @@
     "border_color": "rgba(255, 159, 67, 0.56)",
     "background": "rgba(255, 159, 67, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/round-potion/round-potion_R07_legendaire.svg",
-    "png_path": "png_512/round-potion/round-potion_R07_legendaire.png"
+    "png_path": "png_128/round-potion/round-potion_R07_legendaire.png"
   },
   {
     "icon": "round-potion",
@@ -4592,8 +4210,7 @@
     "border_color": "rgba(255, 95, 109, 0.58)",
     "background": "rgba(255, 95, 109, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/round-potion/round-potion_R08_mythique.svg",
-    "png_path": "png_512/round-potion/round-potion_R08_mythique.png"
+    "png_path": "png_128/round-potion/round-potion_R08_mythique.png"
   },
   {
     "icon": "round-potion",
@@ -4604,8 +4221,7 @@
     "border_color": "rgba(255, 255, 255, 0.62)",
     "background": "linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(241, 197, 106, 0.12))",
     "box_shadow": "0 0 18px rgba(255, 255, 255, 0.12)",
-    "svg_path": "svg/round-potion/round-potion_R09_artefact.svg",
-    "png_path": "png_512/round-potion/round-potion_R09_artefact.png"
+    "png_path": "png_128/round-potion/round-potion_R09_artefact.png"
   },
   {
     "icon": "round-potion",
@@ -4616,8 +4232,7 @@
     "border_color": "rgba(255, 243, 176, 0.75)",
     "background": "linear-gradient(135deg, rgba(255, 243, 176, 0.25), rgba(255, 126, 231, 0.14))",
     "box_shadow": "0 0 18px rgba(255, 243, 176, 0.22), 0 0 36px rgba(255, 126, 231, 0.10)",
-    "svg_path": "svg/round-potion/round-potion_R10_objet-divin.svg",
-    "png_path": "png_512/round-potion/round-potion_R10_objet-divin.png"
+    "png_path": "png_128/round-potion/round-potion_R10_objet-divin.png"
   },
   {
     "icon": "scroll-unfurled",
@@ -4628,8 +4243,7 @@
     "border_color": "rgba(216, 216, 216, 0.38)",
     "background": "rgba(216, 216, 216, 0.10)",
     "box_shadow": "",
-    "svg_path": "svg/scroll-unfurled/scroll-unfurled_R00_commun.svg",
-    "png_path": "png_512/scroll-unfurled/scroll-unfurled_R00_commun.png"
+    "png_path": "png_128/scroll-unfurled/scroll-unfurled_R00_commun.png"
   },
   {
     "icon": "scroll-unfurled",
@@ -4640,8 +4254,7 @@
     "border_color": "rgba(157, 255, 176, 0.42)",
     "background": "rgba(157, 255, 176, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/scroll-unfurled/scroll-unfurled_R01_peu-commun.svg",
-    "png_path": "png_512/scroll-unfurled/scroll-unfurled_R01_peu-commun.png"
+    "png_path": "png_128/scroll-unfurled/scroll-unfurled_R01_peu-commun.png"
   },
   {
     "icon": "scroll-unfurled",
@@ -4652,8 +4265,7 @@
     "border_color": "rgba(126, 231, 255, 0.42)",
     "background": "rgba(126, 231, 255, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/scroll-unfurled/scroll-unfurled_R02_inhabituel.svg",
-    "png_path": "png_512/scroll-unfurled/scroll-unfurled_R02_inhabituel.png"
+    "png_path": "png_128/scroll-unfurled/scroll-unfurled_R02_inhabituel.png"
   },
   {
     "icon": "scroll-unfurled",
@@ -4664,8 +4276,7 @@
     "border_color": "rgba(106, 168, 255, 0.48)",
     "background": "rgba(106, 168, 255, 0.13)",
     "box_shadow": "",
-    "svg_path": "svg/scroll-unfurled/scroll-unfurled_R03_rare.svg",
-    "png_path": "png_512/scroll-unfurled/scroll-unfurled_R03_rare.png"
+    "png_path": "png_128/scroll-unfurled/scroll-unfurled_R03_rare.png"
   },
   {
     "icon": "scroll-unfurled",
@@ -4676,8 +4287,7 @@
     "border_color": "rgba(180, 140, 255, 0.50)",
     "background": "rgba(180, 140, 255, 0.14)",
     "box_shadow": "",
-    "svg_path": "svg/scroll-unfurled/scroll-unfurled_R04_exceptionnel.svg",
-    "png_path": "png_512/scroll-unfurled/scroll-unfurled_R04_exceptionnel.png"
+    "png_path": "png_128/scroll-unfurled/scroll-unfurled_R04_exceptionnel.png"
   },
   {
     "icon": "scroll-unfurled",
@@ -4688,8 +4298,7 @@
     "border_color": "rgba(255, 211, 106, 0.52)",
     "background": "rgba(255, 211, 106, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/scroll-unfurled/scroll-unfurled_R05_precieux.svg",
-    "png_path": "png_512/scroll-unfurled/scroll-unfurled_R05_precieux.png"
+    "png_path": "png_128/scroll-unfurled/scroll-unfurled_R05_precieux.png"
   },
   {
     "icon": "scroll-unfurled",
@@ -4700,8 +4309,7 @@
     "border_color": "rgba(255, 126, 231, 0.52)",
     "background": "rgba(255, 126, 231, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/scroll-unfurled/scroll-unfurled_R06_epique.svg",
-    "png_path": "png_512/scroll-unfurled/scroll-unfurled_R06_epique.png"
+    "png_path": "png_128/scroll-unfurled/scroll-unfurled_R06_epique.png"
   },
   {
     "icon": "scroll-unfurled",
@@ -4712,8 +4320,7 @@
     "border_color": "rgba(255, 159, 67, 0.56)",
     "background": "rgba(255, 159, 67, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/scroll-unfurled/scroll-unfurled_R07_legendaire.svg",
-    "png_path": "png_512/scroll-unfurled/scroll-unfurled_R07_legendaire.png"
+    "png_path": "png_128/scroll-unfurled/scroll-unfurled_R07_legendaire.png"
   },
   {
     "icon": "scroll-unfurled",
@@ -4724,8 +4331,7 @@
     "border_color": "rgba(255, 95, 109, 0.58)",
     "background": "rgba(255, 95, 109, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/scroll-unfurled/scroll-unfurled_R08_mythique.svg",
-    "png_path": "png_512/scroll-unfurled/scroll-unfurled_R08_mythique.png"
+    "png_path": "png_128/scroll-unfurled/scroll-unfurled_R08_mythique.png"
   },
   {
     "icon": "scroll-unfurled",
@@ -4736,8 +4342,7 @@
     "border_color": "rgba(255, 255, 255, 0.62)",
     "background": "linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(241, 197, 106, 0.12))",
     "box_shadow": "0 0 18px rgba(255, 255, 255, 0.12)",
-    "svg_path": "svg/scroll-unfurled/scroll-unfurled_R09_artefact.svg",
-    "png_path": "png_512/scroll-unfurled/scroll-unfurled_R09_artefact.png"
+    "png_path": "png_128/scroll-unfurled/scroll-unfurled_R09_artefact.png"
   },
   {
     "icon": "scroll-unfurled",
@@ -4748,8 +4353,7 @@
     "border_color": "rgba(255, 243, 176, 0.75)",
     "background": "linear-gradient(135deg, rgba(255, 243, 176, 0.25), rgba(255, 126, 231, 0.14))",
     "box_shadow": "0 0 18px rgba(255, 243, 176, 0.22), 0 0 36px rgba(255, 126, 231, 0.10)",
-    "svg_path": "svg/scroll-unfurled/scroll-unfurled_R10_objet-divin.svg",
-    "png_path": "png_512/scroll-unfurled/scroll-unfurled_R10_objet-divin.png"
+    "png_path": "png_128/scroll-unfurled/scroll-unfurled_R10_objet-divin.png"
   },
   {
     "icon": "swap-bag",
@@ -4760,8 +4364,7 @@
     "border_color": "rgba(216, 216, 216, 0.38)",
     "background": "rgba(216, 216, 216, 0.10)",
     "box_shadow": "",
-    "svg_path": "svg/swap-bag/swap-bag_R00_commun.svg",
-    "png_path": "png_512/swap-bag/swap-bag_R00_commun.png"
+    "png_path": "png_128/swap-bag/swap-bag_R00_commun.png"
   },
   {
     "icon": "swap-bag",
@@ -4772,8 +4375,7 @@
     "border_color": "rgba(157, 255, 176, 0.42)",
     "background": "rgba(157, 255, 176, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/swap-bag/swap-bag_R01_peu-commun.svg",
-    "png_path": "png_512/swap-bag/swap-bag_R01_peu-commun.png"
+    "png_path": "png_128/swap-bag/swap-bag_R01_peu-commun.png"
   },
   {
     "icon": "swap-bag",
@@ -4784,8 +4386,7 @@
     "border_color": "rgba(126, 231, 255, 0.42)",
     "background": "rgba(126, 231, 255, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/swap-bag/swap-bag_R02_inhabituel.svg",
-    "png_path": "png_512/swap-bag/swap-bag_R02_inhabituel.png"
+    "png_path": "png_128/swap-bag/swap-bag_R02_inhabituel.png"
   },
   {
     "icon": "swap-bag",
@@ -4796,8 +4397,7 @@
     "border_color": "rgba(106, 168, 255, 0.48)",
     "background": "rgba(106, 168, 255, 0.13)",
     "box_shadow": "",
-    "svg_path": "svg/swap-bag/swap-bag_R03_rare.svg",
-    "png_path": "png_512/swap-bag/swap-bag_R03_rare.png"
+    "png_path": "png_128/swap-bag/swap-bag_R03_rare.png"
   },
   {
     "icon": "swap-bag",
@@ -4808,8 +4408,7 @@
     "border_color": "rgba(180, 140, 255, 0.50)",
     "background": "rgba(180, 140, 255, 0.14)",
     "box_shadow": "",
-    "svg_path": "svg/swap-bag/swap-bag_R04_exceptionnel.svg",
-    "png_path": "png_512/swap-bag/swap-bag_R04_exceptionnel.png"
+    "png_path": "png_128/swap-bag/swap-bag_R04_exceptionnel.png"
   },
   {
     "icon": "swap-bag",
@@ -4820,8 +4419,7 @@
     "border_color": "rgba(255, 211, 106, 0.52)",
     "background": "rgba(255, 211, 106, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/swap-bag/swap-bag_R05_precieux.svg",
-    "png_path": "png_512/swap-bag/swap-bag_R05_precieux.png"
+    "png_path": "png_128/swap-bag/swap-bag_R05_precieux.png"
   },
   {
     "icon": "swap-bag",
@@ -4832,8 +4430,7 @@
     "border_color": "rgba(255, 126, 231, 0.52)",
     "background": "rgba(255, 126, 231, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/swap-bag/swap-bag_R06_epique.svg",
-    "png_path": "png_512/swap-bag/swap-bag_R06_epique.png"
+    "png_path": "png_128/swap-bag/swap-bag_R06_epique.png"
   },
   {
     "icon": "swap-bag",
@@ -4844,8 +4441,7 @@
     "border_color": "rgba(255, 159, 67, 0.56)",
     "background": "rgba(255, 159, 67, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/swap-bag/swap-bag_R07_legendaire.svg",
-    "png_path": "png_512/swap-bag/swap-bag_R07_legendaire.png"
+    "png_path": "png_128/swap-bag/swap-bag_R07_legendaire.png"
   },
   {
     "icon": "swap-bag",
@@ -4856,8 +4452,7 @@
     "border_color": "rgba(255, 95, 109, 0.58)",
     "background": "rgba(255, 95, 109, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/swap-bag/swap-bag_R08_mythique.svg",
-    "png_path": "png_512/swap-bag/swap-bag_R08_mythique.png"
+    "png_path": "png_128/swap-bag/swap-bag_R08_mythique.png"
   },
   {
     "icon": "swap-bag",
@@ -4868,8 +4463,7 @@
     "border_color": "rgba(255, 255, 255, 0.62)",
     "background": "linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(241, 197, 106, 0.12))",
     "box_shadow": "0 0 18px rgba(255, 255, 255, 0.12)",
-    "svg_path": "svg/swap-bag/swap-bag_R09_artefact.svg",
-    "png_path": "png_512/swap-bag/swap-bag_R09_artefact.png"
+    "png_path": "png_128/swap-bag/swap-bag_R09_artefact.png"
   },
   {
     "icon": "swap-bag",
@@ -4880,8 +4474,7 @@
     "border_color": "rgba(255, 243, 176, 0.75)",
     "background": "linear-gradient(135deg, rgba(255, 243, 176, 0.25), rgba(255, 126, 231, 0.14))",
     "box_shadow": "0 0 18px rgba(255, 243, 176, 0.22), 0 0 36px rgba(255, 126, 231, 0.10)",
-    "svg_path": "svg/swap-bag/swap-bag_R10_objet-divin.svg",
-    "png_path": "png_512/swap-bag/swap-bag_R10_objet-divin.png"
+    "png_path": "png_128/swap-bag/swap-bag_R10_objet-divin.png"
   },
   {
     "icon": "Tissu",
@@ -4892,8 +4485,7 @@
     "border_color": "rgba(216, 216, 216, 0.38)",
     "background": "rgba(216, 216, 216, 0.10)",
     "box_shadow": "",
-    "svg_path": "svg/Tissu/Tissu_R00_commun.svg",
-    "png_path": "png_512/Tissu/Tissu_R00_commun.png"
+    "png_path": "png_128/Tissu/Tissu_R00_commun.png"
   },
   {
     "icon": "Tissu",
@@ -4904,8 +4496,7 @@
     "border_color": "rgba(157, 255, 176, 0.42)",
     "background": "rgba(157, 255, 176, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Tissu/Tissu_R01_peu-commun.svg",
-    "png_path": "png_512/Tissu/Tissu_R01_peu-commun.png"
+    "png_path": "png_128/Tissu/Tissu_R01_peu-commun.png"
   },
   {
     "icon": "Tissu",
@@ -4916,8 +4507,7 @@
     "border_color": "rgba(126, 231, 255, 0.42)",
     "background": "rgba(126, 231, 255, 0.12)",
     "box_shadow": "",
-    "svg_path": "svg/Tissu/Tissu_R02_inhabituel.svg",
-    "png_path": "png_512/Tissu/Tissu_R02_inhabituel.png"
+    "png_path": "png_128/Tissu/Tissu_R02_inhabituel.png"
   },
   {
     "icon": "Tissu",
@@ -4928,8 +4518,7 @@
     "border_color": "rgba(106, 168, 255, 0.48)",
     "background": "rgba(106, 168, 255, 0.13)",
     "box_shadow": "",
-    "svg_path": "svg/Tissu/Tissu_R03_rare.svg",
-    "png_path": "png_512/Tissu/Tissu_R03_rare.png"
+    "png_path": "png_128/Tissu/Tissu_R03_rare.png"
   },
   {
     "icon": "Tissu",
@@ -4940,8 +4529,7 @@
     "border_color": "rgba(180, 140, 255, 0.50)",
     "background": "rgba(180, 140, 255, 0.14)",
     "box_shadow": "",
-    "svg_path": "svg/Tissu/Tissu_R04_exceptionnel.svg",
-    "png_path": "png_512/Tissu/Tissu_R04_exceptionnel.png"
+    "png_path": "png_128/Tissu/Tissu_R04_exceptionnel.png"
   },
   {
     "icon": "Tissu",
@@ -4952,8 +4540,7 @@
     "border_color": "rgba(255, 211, 106, 0.52)",
     "background": "rgba(255, 211, 106, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Tissu/Tissu_R05_precieux.svg",
-    "png_path": "png_512/Tissu/Tissu_R05_precieux.png"
+    "png_path": "png_128/Tissu/Tissu_R05_precieux.png"
   },
   {
     "icon": "Tissu",
@@ -4964,8 +4551,7 @@
     "border_color": "rgba(255, 126, 231, 0.52)",
     "background": "rgba(255, 126, 231, 0.15)",
     "box_shadow": "",
-    "svg_path": "svg/Tissu/Tissu_R06_epique.svg",
-    "png_path": "png_512/Tissu/Tissu_R06_epique.png"
+    "png_path": "png_128/Tissu/Tissu_R06_epique.png"
   },
   {
     "icon": "Tissu",
@@ -4976,8 +4562,7 @@
     "border_color": "rgba(255, 159, 67, 0.56)",
     "background": "rgba(255, 159, 67, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Tissu/Tissu_R07_legendaire.svg",
-    "png_path": "png_512/Tissu/Tissu_R07_legendaire.png"
+    "png_path": "png_128/Tissu/Tissu_R07_legendaire.png"
   },
   {
     "icon": "Tissu",
@@ -4988,8 +4573,7 @@
     "border_color": "rgba(255, 95, 109, 0.58)",
     "background": "rgba(255, 95, 109, 0.16)",
     "box_shadow": "",
-    "svg_path": "svg/Tissu/Tissu_R08_mythique.svg",
-    "png_path": "png_512/Tissu/Tissu_R08_mythique.png"
+    "png_path": "png_128/Tissu/Tissu_R08_mythique.png"
   },
   {
     "icon": "Tissu",
@@ -5000,8 +4584,7 @@
     "border_color": "rgba(255, 255, 255, 0.62)",
     "background": "linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(241, 197, 106, 0.12))",
     "box_shadow": "0 0 18px rgba(255, 255, 255, 0.12)",
-    "svg_path": "svg/Tissu/Tissu_R09_artefact.svg",
-    "png_path": "png_512/Tissu/Tissu_R09_artefact.png"
+    "png_path": "png_128/Tissu/Tissu_R09_artefact.png"
   },
   {
     "icon": "Tissu",
@@ -5012,7 +4595,6 @@
     "border_color": "rgba(255, 243, 176, 0.75)",
     "background": "linear-gradient(135deg, rgba(255, 243, 176, 0.25), rgba(255, 126, 231, 0.14))",
     "box_shadow": "0 0 18px rgba(255, 243, 176, 0.22), 0 0 36px rgba(255, 126, 231, 0.10)",
-    "svg_path": "svg/Tissu/Tissu_R10_objet-divin.svg",
-    "png_path": "png_512/Tissu/Tissu_R10_objet-divin.png"
+    "png_path": "png_128/Tissu/Tissu_R10_objet-divin.png"
   }
 ]
