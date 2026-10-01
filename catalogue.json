@@ -7,7 +7,7 @@
     "name": "Lance gardienne",
     "rarity": "Peu Commun",
     "description": "DM 1d6 perforants. +1 DEF tant que l’arme est tenue en main.",
-    "price": 180,
+    "price": 180.0,
     "damage": "1d6",
     "cofSpec": {
       "base": "B006",
@@ -28,7 +28,7 @@
     "name": "Masse en laënk solaire",
     "rarity": "Peu Commun",
     "description": "DM 1d6 contondants. Le laënk solaire éclaire dans un rayon de 10 m.",
-    "price": 240,
+    "price": 240.0,
     "damage": "1d6",
     "cofSpec": {
       "base": "B008",
@@ -49,7 +49,7 @@
     "name": "Marteau en héliolite",
     "rarity": "Inhabituel",
     "description": "DM 1d6 contondants +1d4 lumière. L’héliolite diffuse des reflets solaires au point d’impact.",
-    "price": 360,
+    "price": 360.0,
     "damage": "1d6+1d4 lumière",
     "cofSpec": {
       "base": "B007",
@@ -70,7 +70,7 @@
     "name": "Arc long — Instinct du Pisteur",
     "rarity": "Peu Commun",
     "description": "DM 1d8 perforants. Portée 30 m ; FOR minimale +1. +2 aux tests de Survie.",
-    "price": 720,
+    "price": 720.0,
     "damage": "1d8",
     "cofSpec": {
       "base": "B018",
@@ -91,7 +91,7 @@
     "name": "Bâton — Instinct du Naturaliste",
     "rarity": "Peu Commun",
     "description": "DM 1d4 contondants. Arme à deux mains. +2 aux tests de Nature.",
-    "price": 48,
+    "price": 48.0,
     "damage": "1d4",
     "cofSpec": {
       "base": "B001",
@@ -113,7 +113,7 @@
     "name": "Cuir simple mobile",
     "rarity": "Peu Commun",
     "description": "DEF +2. Malus d’armure : +2 à la difficulté des tests de DEX ; DEX max +6. +1 Initiative et +1 m de déplacement.",
-    "price": 624,
+    "price": 624.0,
     "armorMod": "DEF +2",
     "cofSpec": {
       "base": "B027",
@@ -134,7 +134,7 @@
     "name": "Cuir renforcé — Instinct du Pisteur",
     "rarity": "Peu Commun",
     "description": "DEF +3. Malus d’armure : +3 à la difficulté des tests de DEX ; DEX max +5. +2 aux tests de Survie.",
-    "price": 1248,
+    "price": 1248.0,
     "armorMod": "DEF +3",
     "cofSpec": {
       "base": "B026",
@@ -155,7 +155,7 @@
     "name": "Grand bouclier de protection renforcée",
     "rarity": "Peu Commun",
     "description": "DEF +3. La protection renforcée augmente de +1 la DEF fournie par le bouclier.",
-    "price": 480,
+    "price": 480.0,
     "armorMod": "DEF +3",
     "cofSpec": {
       "base": "B028",
@@ -176,7 +176,7 @@
     "name": "Chemise de mailles allégée",
     "rarity": "Peu Commun",
     "description": "DEF +4. Allègement : réduit de 1 le malus d’armure.",
-    "price": 2700,
+    "price": 2700.0,
     "armorMod": "DEF +4",
     "cofSpec": {
       "base": "B024",
@@ -197,7 +197,7 @@
     "name": "Bâton ferré canalisateur",
     "rarity": "Peu Commun",
     "description": "DM 1d6 contondants. Arme à deux mains. +1 aux tests d’attaque magique.",
-    "price": 120,
+    "price": 120.0,
     "damage": "1d6",
     "cofSpec": {
       "base": "B002",
@@ -212,42 +212,42 @@
     "cofCompatible": true
   },
   {
-    "id": "potion-de-soins-renforcee-alaric",
+    "id": "potion-de-soins-simple-alaric",
     "category": "Objet consommable",
     "subcategory": "Fiole / potion",
     "iconKey": "round-potion",
-    "name": "Potion de soins renforcée",
-    "rarity": "Inhabituel",
-    "description": "Rend 3d4 + NivPJ PV au personnage qui la boit.",
-    "price": 25,
+    "name": "Potion de soins simple",
+    "rarity": "Peu Commun",
+    "description": "Rend 2d4 + NivPJ PV au personnage qui la boit.",
+    "price": 10,
     "cofSpec": {
       "base": "B045",
       "affixes": [
-        "A418"
+        "A399"
       ],
-      "name": "Potion de soins renforcée",
-      "price": "25 pa",
-      "rarity": "Inhabituel"
+      "name": "Potion de soins simple",
+      "price": "10 pa",
+      "rarity": "Peu Commun"
     },
     "cofCompatible": true
   },
   {
-    "id": "potion-de-mana-renforcee-alaric",
+    "id": "potion-de-mana-simple-alaric",
     "category": "Objet consommable",
     "subcategory": "Fiole / potion",
     "iconKey": "potion-ball",
-    "name": "Potion de mana renforcée",
-    "rarity": "Inhabituel",
-    "description": "Rend 3d4 + NivPJ points de mana au personnage qui la boit.",
-    "price": 30,
+    "name": "Potion de mana simple",
+    "rarity": "Peu Commun",
+    "description": "Rend 2d4 + NivPJ points de mana au personnage qui la boit.",
+    "price": 12,
     "cofSpec": {
       "base": "B042",
       "affixes": [
-        "A405"
+        "A398"
       ],
-      "name": "Potion de mana renforcée",
-      "price": "30 pa",
-      "rarity": "Inhabituel"
+      "name": "Potion de mana simple",
+      "price": "12 pa",
+      "rarity": "Peu Commun"
     },
     "cofCompatible": true
   }
