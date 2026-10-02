@@ -1,0 +1,57 @@
+[
+  {
+    "rarity": "Commun",
+    "slug": "R00_commun",
+    "color": "#ffffff"
+  },
+  {
+    "rarity": "Peu commun",
+    "slug": "R01_peu-commun",
+    "color": "#9dffb0"
+  },
+  {
+    "rarity": "Inhabituel",
+    "slug": "R02_inhabituel",
+    "color": "#7ee1ff"
+  },
+  {
+    "rarity": "Rare",
+    "slug": "R03_rare",
+    "color": "#6aa8ff"
+  },
+  {
+    "rarity": "Exceptionnel",
+    "slug": "R04_exceptionnel",
+    "color": "#b48cff"
+  },
+  {
+    "rarity": "Précieux",
+    "slug": "R05_precieux",
+    "color": "#ffd36a"
+  },
+  {
+    "rarity": "Épique",
+    "slug": "R06_epique",
+    "color": "#ff7ee7"
+  },
+  {
+    "rarity": "Légendaire",
+    "slug": "R07_legendaire",
+    "color": "#ff9f43"
+  },
+  {
+    "rarity": "Mythique",
+    "slug": "R08_mythique",
+    "color": "#ff5f6d"
+  },
+  {
+    "rarity": "Artefact",
+    "slug": "R09_artefact",
+    "color": "#ff009d"
+  },
+  {
+    "rarity": "Objet divin",
+    "slug": "R10_objet-divin",
+    "color": "#ffd900"
+  }
+]

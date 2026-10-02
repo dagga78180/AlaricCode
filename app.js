@@ -1,5 +1,9 @@
 let ITEMS = [];
 let ICON_MANIFEST = [];
+let STOCK_CLIENT = null;
+let stockRefreshTimer = null;
+
+const STOCK_REFRESH_MS = 30000;
 
 const ICONS_BASE_PATH = "assets/icons/";
 
@@ -52,21 +56,27 @@ const CATEGORY_ORDER = {
 const SUBCATEGORY_ORDER = {
   "armes": {
     "armes d'attaque au contact": 1,
-    "armes d'attaque a distance": 2
+    "armes d'attaque a distance": 2,
+    "armes magiques": 3
   },
   "armure / bouclier": {
-    "armures et boucliers": 1
+    "armures et boucliers": 1,
+    "armures": 1,
+    "boucliers": 2
   },
   "armures": {
+    "armures": 1,
+    "boucliers": 2,
     "armures et boucliers": 1
   },
   "accessoire": {},
   "accessoires": {},
   "objet consommable": {
     "fiole / potion": 1,
-    "munitions": 2,
-    "ration": 3,
-    "parchemin": 4
+    "fiole / dose": 1,
+    "parchemin": 2,
+    "provision": 3,
+    "munitions": 4
   },
   "potions": {
     "fiole / potion": 1
@@ -79,93 +89,94 @@ const SUBCATEGORY_ORDER = {
   }
 };
 
-
 const DEFAULT_ICON_KEYS = {
-  "Armes": "Epee",
-  "Armure / Bouclier": "Cuir",
-  "Armures": "Cuir",
-  "Accessoire": "ring",
-  "Accessoires": "ring",
-  "Objet consommable": "round-potion",
-  "Potions": "round-potion",
-  "Objet": "swap-bag",
-  "Objets": "swap-bag"
+  "Armes": "Epee_longue",
+  "Armure / Bouclier": "Armure_de_plaque",
+  "Armures": "Armure_de_plaque",
+  "Accessoire": "anneaux",
+  "Accessoires": "anneaux",
+  "Objet consommable": "Potion_de_soins",
+  "Potions": "Potion_de_soins",
+  "Objet": "Sac_a_dos",
+  "Objets": "Sac_a_dos"
 };
 
 const FALLBACK_ICONS = DEFAULT_ICON_KEYS;
 
+// Ces alias ne servent que de filet de sécurité. Les catalogues officiels ont
+// tous un iconKey explicite afin de ne jamais dépendre d'une déduction fragile.
 const ICON_ALIASES = {
-  "arbalete": "Arbalette",
-  "arbalette": "Arbalette",
-  "arc": "Arc",
-  "fleche": "broadhead-arrow",
-  "trait": "broadhead-arrow",
-  "carreau": "broadhead-arrow",
-  "baton": "Baton",
-  "dague": "Dague",
-  "epee a 2 mains": "Epee___2_main",
-  "epee 2 mains": "Epee___2_main",
-  "epee deux mains": "Epee___2_main",
+  "parchemin de stabilisation": "tied-scroll",
+  "marteau a deux mains": "Marteau_a_2_main",
+  "marteau 2 mains": "Marteau_a_2_main",
+  "hache a deux mains": "Hache_a_deux_mains",
+  "hache 2 mains": "Hache_a_deux_mains",
+  "epee a deux mains": "Ep_a_2_main",
+  "epee 2 mains": "Ep_a_2_main",
+  "epee batarde": "Ep_batarde",
+  "epee courte": "Ep_courte",
   "epee longue": "Epee_longue",
-  "epee batarde": "Epee_Batarde",
-  "epee bâtarde": "Epee_Batarde",
-  "epee": "Epee",
-  "hache a 2 mains": "Hache___2_main",
-  "hache 2 mains": "Hache___2_main",
-  "hache deux mains": "Hache___2_main",
+  "arbalete de poing": "Arbalete",
+  "arbalete lourde": "Arbalete",
+  "arbalete legere": "Arbalete",
+  "arbalete": "Arbalete",
+  "arc court": "Arc_court",
+  "arc long": "Arc_long",
+  "couteaux de lancer": "Couteaux_de_lancer",
+  "baton ferre": "Baton_ferre",
+  "baton": "Baton",
+  "dague magique": "Dague_magique",
+  "dague": "Dague",
   "hache": "Hache",
   "javelot": "Javelot",
   "lance": "Lance",
   "marteau": "Marteau",
-  "masse a 2 mains": "Masse___2_main",
-  "masse 2 mains": "Masse___2_main",
-  "masse deux mains": "Masse___2_main",
   "masse": "Masse",
+  "pioche": "Pioche",
   "mousquet": "Mousquet",
   "petoire": "Petoire",
-  "pétoire": "Petoire",
   "rapiere": "Rapiere",
-  "rapière": "Rapiere",
-  "munition": "heavy-bullets",
-  "balle": "heavy-bullets",
-  "cuir": "Cuir",
-  "tissu": "Tissu",
-  "plaque": "plaque",
-  "chemise de maille": "Chemise_de_maille",
-  "maille": "Chemise_de_maille",
-  "grand bouclier": "Grand_Bouclier",
-  "petit bouclier": "Petit_Bouclier",
-  "bouclier": "Petit_Bouclier",
-  "anneau": "ring",
-  "bague": "ring",
-  "ring": "ring",
-  "collier": "emerald-necklace",
-  "amulette": "emerald-necklace",
-  "pendentif": "emerald-necklace",
-  "ceinture": "belt",
-  "belt": "belt",
-  "bottes": "boots",
-  "botte": "boots",
-  "boots": "boots",
-  "cape": "cloak",
-  "cloak": "cloak",
-  "gants": "gloves",
-  "gant": "gloves",
-  "gloves": "gloves",
-  "potion de folie": "potion-of-madness",
-  "folie": "potion-of-madness",
-  "potion de feu": "fire-bottle",
-  "feu gregeois": "fire-bottle",
-  "feu grégeois": "fire-bottle",
-  "fiole de feu": "fire-bottle",
-  "bombe": "fire-bottle",
-  "potion": "round-potion",
-  "fiole": "potion-ball",
-  "parchemin": "scroll-unfurled",
-  "scroll": "scroll-unfurled",
-  "sac": "swap-bag",
-  "besace": "swap-bag",
-  "objet": "swap-bag"
+  "armure de plaques": "Armure_de_plaque",
+  "chemise de mailles": "Chemis_de_maille",
+  "cotte de mailles": "Cotte_de_maille",
+  "cuir renforce": "Cuir_renforce",
+  "cuir simple": "Cuir_simple",
+  "tissus matelasses": "Tissus_matelasses",
+  "grand bouclier": "Grand_bouclier",
+  "petit bouclier": "Petit_bouclier",
+  "poison": "Poison",
+  "potion de mana": "Potion_de_mana",
+  "potion de soins": "Potion_de_soins",
+  "potion de celerite": "Potion_de_celerite",
+  "potion de resistance magique": "Potion_de_resistance_magique",
+  "potion de resistance physique": "Potion_de_resistance_physique",
+  "potion de caracteristique": "Potion_de_caracteristique_temporaire",
+  "parchemin": "Parchemin_de_capacite",
+  "ration": "Ration",
+  "briquet": "Briquet_a_silex",
+  "carquois": "Carquois_de_20_fl_hes",
+  "corde": "Corde_15_m",
+  "couverture": "Couverture",
+  "grappin": "Grappin",
+  "huile": "Huile_pour_lanterne",
+  "lanterne": "Lanterne_a_huile",
+  "materiel d'ecriture": "Materiel_d_riture",
+  "outils de crochetage": "Outils_de_crochetage",
+  "sac a dos": "Sac_a_dos",
+  "torches": "Torches_x3",
+  "anneau": "anneaux",
+  "bague": "anneaux",
+  "ceinture": "ceinture",
+  "collier": "Cou",
+  "amulette": "Cou",
+  "cape": "Dos",
+  "manteau": "Dos",
+  "gants": "Gants",
+  "bottes": "Pieds",
+  "casque": "Tete",
+  "sceptre": "Sceptre",
+  "focus": "Focus",
+  "grenade": "grenade"
 };
 
 const state = {
@@ -180,7 +191,9 @@ const state = {
   sort: "alaric-first",
   cart: loadCart(),
   favorites: loadFavorites(),
-  catalogueWarnings: []
+  catalogueWarnings: [],
+  stockWarning: "",
+  stockOnline: false
 };
 
 const elements = {
@@ -208,13 +221,48 @@ const elements = {
   closeCartMobile: document.querySelector("#close-cart-mobile")
 };
 
+function flattenIconManifest(manifest) {
+  if (!Array.isArray(manifest)) return [];
+
+  return manifest.flatMap(entry => {
+    // Nouveau pack : une entrée par icône, avec ses 11 variantes de rareté.
+    if (Array.isArray(entry?.variants)) {
+      const icon = String(entry.icon_key || entry.name || "");
+      return entry.variants
+        .filter(variant => icon && variant?.path)
+        .map(variant => ({
+          icon,
+          rarity_label: String(variant.rarity || "Commun"),
+          rarity_slug: String(variant.slug || ""),
+          png_path: String(variant.path)
+        }));
+    }
+
+    // Compatibilité avec l'ancien manifest plat, au cas où un ancien pack est remis.
+    if (entry?.icon && entry?.png_path) {
+      return [{
+        icon: String(entry.icon),
+        rarity_label: String(entry.rarity_label || "Commun"),
+        rarity_slug: String(entry.rarity_slug || ""),
+        png_path: String(entry.png_path)
+      }];
+    }
+
+    return [];
+  });
+}
+
 async function loadIconManifest() {
   try {
     const response = await fetch(`${ICONS_BASE_PATH}manifest.json`, { cache: "no-store" });
-    if (!response.ok) return;
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
     const manifest = await response.json();
-    ICON_MANIFEST = Array.isArray(manifest) ? manifest : [];
+    ICON_MANIFEST = flattenIconManifest(manifest);
+
+    if (!ICON_MANIFEST.length) {
+      console.warn("Le manifest d'icônes est vide ou dans un format inconnu.");
+    }
   } catch (error) {
     console.warn("Manifest d'icônes indisponible :", error);
     ICON_MANIFEST = [];
@@ -267,6 +315,12 @@ async function loadCatalogue() {
     });
   });
 
+  loadedItems.forEach(item => {
+    if (item.iconKey && !hasIconVariant(item.iconKey, item.rarity)) {
+      warnings.push(`Icône introuvable pour ${item.name} : ${item.iconKey} / ${item.rarity}`);
+    }
+  });
+
   ITEMS = loadedItems;
   state.catalogueWarnings = warnings;
 
@@ -294,7 +348,7 @@ function normalizeItem(item, source = "base", index = 0) {
   const explicitIcon = item.icon ? String(item.icon) : "";
   const rawStock = source === "alaric" ? item.stock : null;
   const hasFiniteStock = rawStock !== null && rawStock !== undefined && rawStock !== "" && Number.isFinite(Number(rawStock));
-  const stock = hasFiniteStock ? Math.max(0, Math.floor(Number(rawStock))) : null;
+  const jsonStock = hasFiniteStock ? Math.max(0, Math.floor(Number(rawStock))) : null;
   const fallbackId = `${source}-${slugify(name)}-${index + 1}`;
 
   return {
@@ -306,7 +360,9 @@ function normalizeItem(item, source = "base", index = 0) {
     rarity,
     description: String(item.description || ""),
     price: Number.isFinite(Number(item.price)) ? Number(item.price) : 0,
-    stock,
+    stock: jsonStock,
+    stockSource: jsonStock === null ? "none" : "json",
+    iconKey: item.iconKey ? String(item.iconKey) : "",
     icon: resolveIcon(item, { explicitIcon, category, subcategory, name, rarity }),
     damage: item.damage ? String(item.damage) : "",
     damageMod: item.damageMod ? String(item.damageMod) : "",
@@ -315,6 +371,66 @@ function normalizeItem(item, source = "base", index = 0) {
     cofCompatible: item.cofCompatible !== false,
     cofError: String(item.cofError || "")
   };
+}
+
+function initStockClient() {
+  const config = window.ALARIC_SUPABASE_CONFIG || {};
+  if (!config.url || !config.publishableKey) {
+    throw new Error("Configuration Supabase absente.");
+  }
+  if (!window.supabase?.createClient) {
+    throw new Error("La bibliothèque Supabase n’a pas pu être chargée.");
+  }
+  STOCK_CLIENT = window.supabase.createClient(config.url, config.publishableKey, {
+    auth: { persistSession: true, autoRefreshToken: true }
+  });
+}
+
+async function loadRemoteStocks({ silent = false } = {}) {
+  if (!STOCK_CLIENT || !ITEMS.length) return false;
+
+  try {
+    const { data, error } = await STOCK_CLIENT
+      .from("stocks")
+      .select("item_id, stock");
+
+    if (error) throw error;
+
+    // Une ligne absente dans Supabase signifie : stock illimité.
+    ITEMS.filter(item => item.source === "alaric").forEach(item => {
+      item.stock = null;
+      item.stockSource = "supabase";
+    });
+
+    (data || []).forEach(row => {
+      const item = itemById(String(row.item_id));
+      if (!item || item.source !== "alaric") return;
+      const value = Number(row.stock);
+      if (!Number.isFinite(value)) return;
+      item.stock = Math.max(0, Math.floor(value));
+      item.stockSource = "supabase";
+    });
+
+    const cartAdjusted = sanitizeCart();
+    state.stockOnline = true;
+    state.stockWarning = "";
+    if (cartAdjusted && !silent) showToast("Panier ajusté au stock actuel.");
+    if (!silent) renderAll(false);
+    return true;
+  } catch (error) {
+    console.warn("Stocks Supabase indisponibles :", error);
+    state.stockOnline = false;
+    state.stockWarning = "Stocks en ligne indisponibles : les dernières valeurs connues/locales sont utilisées.";
+    if (!silent) renderAll(false);
+    return false;
+  }
+}
+
+function scheduleStockRefresh() {
+  if (!STOCK_CLIENT || stockRefreshTimer) return;
+  stockRefreshTimer = window.setInterval(() => {
+    loadRemoteStocks();
+  }, STOCK_REFRESH_MS);
 }
 
 function loadCart() {
@@ -434,6 +550,14 @@ function iconEntryMatchesRarity(entry, rarity) {
 
 function iconPath(entry) {
   return entry?.png_path ? `${ICONS_BASE_PATH}${entry.png_path}` : "";
+}
+
+function hasIconVariant(iconKey, rarity) {
+  if (!iconKey || !ICON_MANIFEST.length) return false;
+  const normalizedKey = normalizeIconKey(iconKey);
+  return ICON_MANIFEST.some(entry =>
+    normalizeIconKey(entry.icon) === normalizedKey && iconEntryMatchesRarity(entry, rarity)
+  );
 }
 
 function resolveIcon(item, { explicitIcon, category, subcategory, name, rarity }) {
@@ -719,7 +843,7 @@ function renderItems() {
                 <dl class="item-row__stats">
                   ${details.map(([label, value]) => `<div><dt>${escapeHTML(label)}</dt><dd>${escapeHTML(value)}</dd></div>`).join("")}
                 </dl>` : ""}
-              ${finiteStock ? `<p class="stock-note">Stock défini dans <code>catalogue.json</code> : <strong>${item.stock}</strong>.</p>` : ""}
+              ${finiteStock ? `<p class="stock-note">Stock en ligne : <strong>${item.stock}</strong>.</p>` : ""}
             </div>
           </details>
         </div>
@@ -843,13 +967,16 @@ function showToast(message) {
 }
 
 function renderCatalogueAlerts() {
-  if (!state.catalogueWarnings.length) {
+  const messages = [...state.catalogueWarnings];
+  if (state.stockWarning) messages.push(state.stockWarning);
+
+  if (!messages.length) {
     elements.catalogueAlerts.hidden = true;
     elements.catalogueAlerts.innerHTML = "";
     return;
   }
   elements.catalogueAlerts.hidden = false;
-  elements.catalogueAlerts.innerHTML = state.catalogueWarnings
+  elements.catalogueAlerts.innerHTML = messages
     .map(message => `<div>⚠ ${escapeHTML(message)}</div>`)
     .join("");
 }
@@ -961,8 +1088,17 @@ async function init() {
   await loadIconManifest();
 
   try {
+    initStockClient();
+  } catch (error) {
+    console.warn(error);
+    state.stockWarning = "Supabase n’est pas configuré : le site utilise les stocks de secours du JSON s’ils existent.";
+  }
+
+  try {
     await loadCatalogue();
+    if (STOCK_CLIENT) await loadRemoteStocks({ silent: true });
     renderAll(true);
+    scheduleStockRefresh();
   } catch (error) {
     console.error(error);
     elements.resultCount.textContent = "Catalogues indisponibles";

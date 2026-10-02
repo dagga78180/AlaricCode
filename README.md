@@ -1,135 +1,64 @@
-# L’échoppe Fantastique d’Alaric
+# AlaricCode V5
 
-Mini-site statique pour une boutique de JDR, utilisable avec GitHub Pages, Netlify ou un petit serveur local. Le site reste en HTML/CSS/JavaScript pur et ne nécessite ni compte, ni base de données.
+Boutique statique pour GitHub Pages, avec catalogue JSON local et **stocks partagés via Supabase**.
 
-## Fichiers principaux
+## Architecture
 
-- `index.html` : boutique destinée aux joueurs.
-- `styles.css` : thème violet/doré et mise en page.
-- `app.js` : chargement des catalogues, filtres, favoris, stock, panier et commande Roll20.
-- `catalogue.json` : **sélection d’Alaric pour la rencontre**. C’est ce fichier qui peut gérer un stock.
-- `catalogue-item-de-base.json` : catalogue de référence. Aucun stock n’est imposé dessus.
-- `stock.html` / `stock.js` : outil MJ pour modifier uniquement les stocks de `catalogue.json` et réexporter le fichier.
-- `assets/` : visuels et icônes nécessaires au site.
+- `catalogue.json` : sélection d’Alaric et données permanentes des objets.
+- `catalogue-item-de-base.json` : catalogue de base.
+- `assets/icons/` : bibliothèque complète d’icônes et variantes de rareté.
+- `supabase-config.js` : URL + publishable key Supabase utilisées par le navigateur.
+- `supabase-setup.sql` : script à exécuter une fois dans Supabase.
+- `stock.html` : interface MJ de gestion des quantités.
 
-## Les deux catalogues
+Les JSON ne servent plus à stocker les quantités courantes. Une ligne absente de la table Supabase `stocks` signifie **stock illimité**.
 
-Le site charge indépendamment les deux fichiers JSON :
+## Convention de stock
 
-1. `catalogue.json` → **Sélection d’Alaric** ;
-2. `catalogue-item-de-base.json` → **Catalogue de base**.
+- aucune ligne Supabase : illimité (`∞`)
+- `stock = 0` : épuisé
+- `stock = 1` : dernier exemplaire
+- `stock >= 2` : quantité disponible
 
-Si un des deux fichiers est absent ou invalide, l’autre reste utilisable et un avertissement est affiché.
+Seuls les objets de `catalogue.json` (Sélection d’Alaric) sont soumis au stock. Le catalogue de base reste une référence sans stock limité.
 
-Les IDs doivent être uniques et stables. Ils servent au panier et aux favoris.
+## Mise en place Supabase
 
-## Gestion du stock
+1. Ouvrir le projet Supabase.
+2. Aller dans **SQL Editor**.
+3. Copier/coller puis exécuter le contenu de `supabase-setup.sql`.
+4. Dans **Authentication > Users**, créer le compte MJ avec email + mot de passe.
+5. Garder les inscriptions publiques désactivées : seul le compte MJ doit pouvoir se connecter.
+6. Déployer le dossier sur GitHub Pages.
 
-Le stock ne concerne que les objets de `catalogue.json`.
+La publishable key présente dans `supabase-config.js` est une clé publique prévue pour une application navigateur. Ne jamais mettre une `service_role` ou une secret key dans GitHub Pages.
 
-Un objet peut contenir :
+## Utilisation
 
-```json
-{
-  "id": "lance-gardienne-alaric",
-  "name": "Lance gardienne",
-  "price": 180,
-  "stock": 2
-}
-```
+### Joueurs
 
-Règles :
+Ils ouvrent `index.html`. Le site charge les catalogues puis récupère les stocks Supabase. Les stocks sont relus automatiquement toutes les 30 secondes.
 
-- `"stock": 0` → objet épuisé ;
-- `"stock": 1` → dernier exemplaire ;
-- `"stock": 2` ou plus → quantité disponible ;
-- champ `stock` absent → stock non limité, comportement identique aux anciennes versions du site.
+### MJ
 
-Le panier ne peut pas dépasser un stock fini. Si un joueur possède un ancien panier et que le nouveau catalogue contient moins d’exemplaires, le panier local est automatiquement ajusté.
-
-### Outil MJ
-
-Ouvre `stock.html` depuis le site publié. La page charge automatiquement `catalogue.json`.
-
-Elle permet de :
-
-- modifier rapidement chaque quantité avec `−`, `+`, `0` ou une saisie directe ;
-- laisser le champ vide pour un stock non limité ;
-- mettre tous les objets à `1` ;
-- remettre tous les objets en stock non limité ;
-- annuler les modifications ;
-- importer manuellement un autre fichier JSON ;
-- exporter un nouveau `catalogue.json`.
-
-L’outil ne modifie jamais automatiquement le fichier hébergé : après export, remplace simplement `catalogue.json` dans le dépôt par le fichier généré.
-
-Le site étant statique, le stock n’est **pas synchronisé en temps réel** entre les navigateurs des joueurs. `catalogue.json` reste la source officielle du stock publié.
-
-## Filtres et favoris
-
-La boutique propose notamment :
-
-- recherche texte ;
-- catégorie et sous-catégorie ;
-- rareté ;
-- prix minimum et maximum ;
-- filtre `Sélection d’Alaric` / `Catalogue de base` ;
-- tri avec la sélection d’Alaric en premier ;
-- favoris stockés dans le navigateur.
-
-Les favoris ne contiennent que les IDs des objets. Changer de catalogue entre deux rencontres ne provoque donc pas d’erreur : un objet absent n’est simplement plus affiché. S’il revient plus tard avec le même ID, il reste favori.
-
-## Panier
-
-Le panier est stocké dans le navigateur avec `localStorage`. Il n’y a pas de paiement réel ni de serveur applicatif.
-
-Le bouton **Copier pour Roll20** génère la commande :
+Ouvrir :
 
 ```text
-!co-alaric panier --target @{target|PJ|character_id} --data ...
+https://<ton-site-github-pages>/stock.html
 ```
 
-Le fonctionnement Roll20 existant n’a pas été modifié : CoFItem reste responsable de la validation mécanique des objets.
+Se connecter avec le compte créé dans Supabase. Les commandes disponibles sont :
 
-## Utilisation locale
+- `−` : retire une unité
+- `+` : ajoute une unité
+- `0` : met immédiatement en rupture
+- `∞` : supprime la limite de stock
+- champ numérique : saisie directe
+- `Tout mettre à 1`
+- `Tout mettre en illimité`
 
-Les navigateurs bloquent souvent `fetch()` lorsqu’un fichier HTML est ouvert directement avec `file://`.
+Chaque modification est enregistrée immédiatement dans Supabase. Aucun export JSON et aucun commit GitHub ne sont nécessaires pour les changements de stock.
 
-Pour tester le site localement, lance par exemple depuis le dossier du projet :
+## Comportement en cas de panne Supabase
 
-```bash
-python -m http.server 8000
-```
-
-Puis ouvre :
-
-```text
-http://localhost:8000/
-```
-
-et pour le gestionnaire MJ :
-
-```text
-http://localhost:8000/stock.html
-```
-
-Si `stock.html` est malgré tout ouvert directement depuis le disque, l’import manuel permet de sélectionner `catalogue.json`.
-
-## Mise en ligne avec GitHub Pages
-
-1. Crée ou utilise ton dépôt GitHub.
-2. Place les fichiers à la racine du dépôt.
-3. Va dans `Settings > Pages`.
-4. Source : `Deploy from a branch`.
-5. Branche : `main`.
-6. Dossier : `/root`.
-
-L’adresse ressemblera à :
-
-```text
-https://ton-pseudo.github.io/boutique-alaric/
-```
-
-## Assets
-
-Les visuels de header/footer sont servis en WebP. Les icônes du catalogue ont été redimensionnées à 128 px, largement suffisant pour leur taille d’affichage tout en réduisant fortement le poids du site.
+La boutique continue de charger les catalogues. Un avertissement est affiché et les éventuelles valeurs `stock` encore présentes dans `catalogue.json` servent de secours. Si aucune valeur locale n’existe, l’objet est considéré comme illimité.

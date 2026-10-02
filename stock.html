@@ -4,35 +4,48 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Alaric · Gestion du stock MJ</title>
-  <meta name="description" content="Outil MJ local pour gérer le stock de catalogue.json et réexporter le fichier." />
+  <meta name="description" content="Interface MJ connectée à Supabase pour gérer le stock de l’échoppe d’Alaric." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body class="stock-admin">
   <main class="admin-shell">
     <header class="admin-header">
-      <p class="eyebrow">Outil MJ · catalogue.json</p>
+      <p class="eyebrow">Outil MJ · Supabase</p>
       <h1>Gestion du stock</h1>
-      <p>Cette page modifie uniquement les quantités du catalogue de la rencontre. Les autres propriétés JSON restent intactes. Un stock vide signifie « non limité ».</p>
+      <p>Les quantités sont enregistrées directement en ligne. Une ligne absente dans Supabase signifie « stock illimité ».</p>
+
+      <div class="admin-auth" id="auth-panel">
+        <form class="admin-auth__form" id="login-form">
+          <label class="field" for="login-email">
+            <span>Email MJ</span>
+            <input id="login-email" type="email" autocomplete="username" required />
+          </label>
+          <label class="field" for="login-password">
+            <span>Mot de passe</span>
+            <input id="login-password" type="password" autocomplete="current-password" required />
+          </label>
+          <button class="button button--primary" type="submit" id="login-button">Connexion MJ</button>
+        </form>
+
+        <div class="admin-auth__session" id="session-panel" hidden>
+          <span id="session-user"></span>
+          <button class="button button--ghost button--small" type="button" id="logout-button">Déconnexion</button>
+        </div>
+      </div>
 
       <div class="admin-actions">
-        <button class="button button--primary" id="export-stock" type="button" disabled>Exporter catalogue.json</button>
-        <button class="button button--ghost" id="reload-stock" type="button">Recharger le fichier</button>
-        <button class="button button--ghost" id="reset-stock" type="button" disabled>Annuler les modifications</button>
+        <button class="button button--ghost" id="reload-stock" type="button">Actualiser les stocks</button>
         <a class="button button--ghost" href="index.html">Retour à la boutique</a>
       </div>
 
       <div class="admin-actions">
-        <label class="field" for="stock-file">
-          <span>Ou importer un catalogue JSON</span>
-          <input id="stock-file" type="file" accept="application/json,.json" />
-        </label>
         <label class="field" for="stock-search">
           <span>Rechercher un objet</span>
           <input id="stock-search" type="search" placeholder="Nom, catégorie…" autocomplete="off" />
         </label>
       </div>
 
-      <p class="admin-message" id="admin-message" role="status">Chargement de catalogue.json…</p>
+      <p class="admin-message" id="admin-message" role="status">Connexion à Supabase…</p>
     </header>
 
     <section class="admin-panel" aria-labelledby="stock-title">
@@ -64,6 +77,8 @@
     </section>
   </main>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
   <script src="stock.js"></script>
 </body>
 </html>
