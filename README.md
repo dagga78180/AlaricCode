@@ -1,4 +1,13 @@
-# AlaricCode V5
+# AlaricCode V5.1
+
+## V5.1 — cartes et stock complet
+
+- Le catalogue public est affiché en cartes compactes et responsives.
+- Le stock est visible directement sur chaque carte, y compris `∞` pour un stock illimité.
+- Supabase peut limiter aussi bien les objets de la Sélection d’Alaric que les objets du catalogue de base.
+- `stock.html` charge les deux catalogues et permet de filtrer : Tous / Sélection d’Alaric / Catalogue de base.
+- Les boutons globaux de `stock.html` s’appliquent au catalogue sélectionné dans le filtre.
+
 
 Boutique statique pour GitHub Pages, avec catalogue JSON local et **stocks partagés via Supabase**.
 
@@ -20,7 +29,7 @@ Les JSON ne servent plus à stocker les quantités courantes. Une ligne absente 
 - `stock = 1` : dernier exemplaire
 - `stock >= 2` : quantité disponible
 
-Seuls les objets de `catalogue.json` (Sélection d’Alaric) sont soumis au stock. Le catalogue de base reste une référence sans stock limité.
+Les objets de `catalogue.json` (Sélection d’Alaric) **et** de `catalogue-item-de-base.json` peuvent tous recevoir un stock Supabase. Une ligne absente reste synonyme de stock illimité.
 
 ## Mise en place Supabase
 

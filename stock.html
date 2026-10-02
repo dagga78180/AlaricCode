@@ -12,7 +12,7 @@
     <header class="admin-header">
       <p class="eyebrow">Outil MJ · Supabase</p>
       <h1>Gestion du stock</h1>
-      <p>Les quantités sont enregistrées directement en ligne. Une ligne absente dans Supabase signifie « stock illimité ».</p>
+      <p>Les quantités sont enregistrées directement en ligne pour la sélection d’Alaric et le catalogue de base. Une ligne absente dans Supabase signifie « stock illimité ».</p>
 
       <div class="admin-auth" id="auth-panel">
         <form class="admin-auth__form" id="login-form">
@@ -38,10 +38,18 @@
         <a class="button button--ghost" href="index.html">Retour à la boutique</a>
       </div>
 
-      <div class="admin-actions">
-        <label class="field" for="stock-search">
+      <div class="admin-actions admin-stock-filters">
+        <label class="field" for="stock-source-filter">
+          <span>Catalogue</span>
+          <select id="stock-source-filter">
+            <option value="all">Tous les objets</option>
+            <option value="alaric">Sélection d’Alaric</option>
+            <option value="base">Catalogue de base</option>
+          </select>
+        </label>
+        <label class="field admin-stock-search" for="stock-search">
           <span>Rechercher un objet</span>
-          <input id="stock-search" type="search" placeholder="Nom, catégorie…" autocomplete="off" />
+          <input id="stock-search" type="search" placeholder="Nom, catégorie, ID…" autocomplete="off" />
         </label>
       </div>
 
@@ -51,7 +59,7 @@
     <section class="admin-panel" aria-labelledby="stock-title">
       <div class="admin-status">
         <div>
-          <strong id="stock-title">Stock de la sélection d’Alaric</strong>
+          <strong id="stock-title">Stock · Tous les objets</strong>
           <span id="stock-summary"></span>
         </div>
         <div class="admin-actions">
@@ -64,13 +72,14 @@
         <table class="stock-table">
           <thead>
             <tr>
+              <th>Source</th>
               <th>Objet</th>
               <th>Prix</th>
               <th>Stock</th>
             </tr>
           </thead>
           <tbody id="stock-rows">
-            <tr><td colspan="3">Chargement…</td></tr>
+            <tr><td colspan="4">Chargement…</td></tr>
           </tbody>
         </table>
       </div>

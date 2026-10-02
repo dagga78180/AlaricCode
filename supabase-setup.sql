@@ -1,4 +1,4 @@
--- AlaricCode V5 - stockage des quantités uniquement.
+-- AlaricCode V5.1 - stockage des quantités uniquement.
 -- Une ligne absente = stock illimité.
 -- stock = 0 = épuisé ; stock > 0 = quantité disponible.
 

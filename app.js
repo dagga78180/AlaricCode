@@ -346,7 +346,7 @@ function normalizeItem(item, source = "base", index = 0) {
   const name = String(item.name || "Objet sans nom");
   const rarity = String(item.rarity || "Commun");
   const explicitIcon = item.icon ? String(item.icon) : "";
-  const rawStock = source === "alaric" ? item.stock : null;
+  const rawStock = item.stock;
   const hasFiniteStock = rawStock !== null && rawStock !== undefined && rawStock !== "" && Number.isFinite(Number(rawStock));
   const jsonStock = hasFiniteStock ? Math.max(0, Math.floor(Number(rawStock))) : null;
   const fallbackId = `${source}-${slugify(name)}-${index + 1}`;
@@ -397,14 +397,14 @@ async function loadRemoteStocks({ silent = false } = {}) {
     if (error) throw error;
 
     // Une ligne absente dans Supabase signifie : stock illimité.
-    ITEMS.filter(item => item.source === "alaric").forEach(item => {
+    ITEMS.forEach(item => {
       item.stock = null;
       item.stockSource = "supabase";
     });
 
     (data || []).forEach(row => {
       const item = itemById(String(row.item_id));
-      if (!item || item.source !== "alaric") return;
+      if (!item || row.stock === null || row.stock === undefined || row.stock === "") return;
       const value = Number(row.stock);
       if (!Number.isFinite(value)) return;
       item.stock = Math.max(0, Math.floor(value));
@@ -472,7 +472,7 @@ function toggleFavorite(id) {
 }
 
 function hasFiniteStock(item) {
-  return item.source === "alaric" && Number.isInteger(item.stock) && item.stock >= 0;
+  return Number.isInteger(item.stock) && item.stock >= 0;
 }
 
 function remainingForCart(item) {
@@ -770,11 +770,11 @@ function iconMarkup(item) {
 }
 
 function stockBadge(item) {
-  if (!hasFiniteStock(item)) return "";
-  if (item.stock === 0) return `<span class="stock-badge stock-badge--empty">Épuisé</span>`;
-  if (item.stock === 1) return `<span class="stock-badge stock-badge--low">Dernier exemplaire</span>`;
+  if (!hasFiniteStock(item)) return `<span class="stock-badge stock-badge--unlimited" title="Stock illimité">Stock : ∞</span>`;
+  if (item.stock === 0) return `<span class="stock-badge stock-badge--empty">Stock : 0 · Épuisé</span>`;
+  if (item.stock === 1) return `<span class="stock-badge stock-badge--low">Stock : 1 · Dernier</span>`;
   if (item.stock <= 3) return `<span class="stock-badge stock-badge--low">Stock : ${item.stock}</span>`;
-  return `<span class="stock-badge">En stock : ${item.stock}</span>`;
+  return `<span class="stock-badge">Stock : ${item.stock}</span>`;
 }
 
 function renderItems() {
@@ -815,7 +815,7 @@ function renderItems() {
         : "";
 
     return `
-      <article class="item-row ${item.source === "alaric" ? "item-row--selection" : ""} item-row--${escapeHTML(rarityTheme)} rarity-${safeClass(item.rarity)}">
+      <article class="item-row ${item.source === "alaric" ? "item-row--selection" : ""} ${finiteStock && item.stock === 0 ? "item-row--sold-out" : ""} item-row--${escapeHTML(rarityTheme)} rarity-${safeClass(item.rarity)}">
         <button class="favorite-button ${favorite ? "is-favorite" : ""}" type="button" data-favorite="${escapeHTML(item.id)}" aria-label="${favorite ? "Retirer des favoris" : "Ajouter aux favoris"}" aria-pressed="${favorite}">${favorite ? "★" : "☆"}</button>
         <div class="item-icon">${iconMarkup(item)}</div>
 
@@ -843,7 +843,7 @@ function renderItems() {
                 <dl class="item-row__stats">
                   ${details.map(([label, value]) => `<div><dt>${escapeHTML(label)}</dt><dd>${escapeHTML(value)}</dd></div>`).join("")}
                 </dl>` : ""}
-              ${finiteStock ? `<p class="stock-note">Stock en ligne : <strong>${item.stock}</strong>.</p>` : ""}
+              <p class="stock-note">Stock en ligne : <strong>${finiteStock ? item.stock : "∞"}</strong>.</p>
             </div>
           </details>
         </div>

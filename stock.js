@@ -1,15 +1,23 @@
 let catalogue = [];
 let stockMap = new Map();
 let currentQuery = "";
+let currentSource = "all";
 let db = null;
 let currentUser = null;
+
+const CATALOGUE_FILES = [
+  { filename: "catalogue.json", source: "alaric", label: "Sélection d’Alaric" },
+  { filename: "catalogue-item-de-base.json", source: "base", label: "Catalogue de base" }
+];
 
 const elements = {
   rows: document.querySelector("#stock-rows"),
   summary: document.querySelector("#stock-summary"),
+  title: document.querySelector("#stock-title"),
   message: document.querySelector("#admin-message"),
   reload: document.querySelector("#reload-stock"),
   search: document.querySelector("#stock-search"),
+  source: document.querySelector("#stock-source-filter"),
   allOne: document.querySelector("#all-one"),
   allUnlimited: document.querySelector("#all-unlimited"),
   loginForm: document.querySelector("#login-form"),
@@ -56,12 +64,27 @@ function initSupabase() {
   });
 }
 
-async function loadCatalogue() {
-  const response = await fetch("catalogue.json", { cache: "no-store" });
-  if (!response.ok) throw new Error(`Impossible de charger catalogue.json (HTTP ${response.status}).`);
+async function loadCatalogueFile(config) {
+  const response = await fetch(config.filename, { cache: "no-store" });
+  if (!response.ok) throw new Error(`Impossible de charger ${config.filename} (HTTP ${response.status}).`);
   const data = await response.json();
-  if (!Array.isArray(data)) throw new Error("catalogue.json doit contenir un tableau d’objets.");
-  catalogue = data.filter(item => item && item.id).map(item => ({ ...item, id: String(item.id) }));
+  if (!Array.isArray(data)) throw new Error(`${config.filename} doit contenir un tableau d’objets.`);
+  return data
+    .filter(item => item && item.id)
+    .map(item => ({ ...item, id: String(item.id), source: config.source, sourceLabel: config.label }));
+}
+
+async function loadCatalogue() {
+  const results = await Promise.all(CATALOGUE_FILES.map(loadCatalogueFile));
+  const seen = new Set();
+  catalogue = results.flat().filter(item => {
+    if (seen.has(item.id)) {
+      console.warn(`ID dupliqué ignoré dans le gestionnaire de stock : ${item.id}`);
+      return false;
+    }
+    seen.add(item.id);
+    return true;
+  });
 }
 
 async function loadStocks({ announce = true } = {}) {
@@ -71,6 +94,7 @@ async function loadStocks({ announce = true } = {}) {
 
   stockMap = new Map();
   (data || []).forEach(row => {
+    if (row.stock === null || row.stock === undefined || row.stock === "") return;
     const value = Number(row.stock);
     if (Number.isFinite(value)) stockMap.set(String(row.item_id), Math.max(0, Math.floor(value)));
   });
@@ -83,36 +107,49 @@ function stockValue(item) {
   return stockMap.has(item.id) ? stockMap.get(item.id) : null;
 }
 
+function sourceCatalogue() {
+  if (currentSource === "all") return catalogue;
+  return catalogue.filter(item => item.source === currentSource);
+}
+
 function filteredCatalogue() {
-  if (!currentQuery.trim()) return catalogue;
+  const scoped = sourceCatalogue();
+  if (!currentQuery.trim()) return scoped;
   const query = normalize(currentQuery);
-  return catalogue.filter(item => [item.name, item.category, item.subcategory, item.rarity, item.id]
+  return scoped.filter(item => [item.name, item.category, item.subcategory, item.rarity, item.id, item.sourceLabel]
     .some(value => normalize(value).includes(query)));
 }
 
 function renderAuth() {
   const loggedIn = Boolean(currentUser);
+  const scope = sourceCatalogue();
   elements.loginForm.hidden = loggedIn;
   elements.sessionPanel.hidden = !loggedIn;
   elements.sessionUser.textContent = loggedIn ? `Connecté : ${currentUser.email || "MJ"}` : "";
-  elements.allOne.disabled = !loggedIn || !catalogue.length;
-  elements.allUnlimited.disabled = !loggedIn || !catalogue.length;
+  elements.allOne.disabled = !loggedIn || !scope.length;
+  elements.allUnlimited.disabled = !loggedIn || !scope.length;
 }
 
 function renderRows() {
+  const scope = sourceCatalogue();
   const items = filteredCatalogue();
-  const finiteCount = catalogue.filter(item => stockValue(item) !== null).length;
-  const soldOutCount = catalogue.filter(item => stockValue(item) === 0).length;
-  elements.summary.textContent = catalogue.length
-    ? ` · ${catalogue.length} objets · ${finiteCount} stocks définis${soldOutCount ? ` · ${soldOutCount} épuisé${soldOutCount > 1 ? "s" : ""}` : ""}`
+  const finiteCount = scope.filter(item => stockValue(item) !== null).length;
+  const soldOutCount = scope.filter(item => stockValue(item) === 0).length;
+  const sourceLabel = currentSource === "alaric" ? "Sélection d’Alaric" : currentSource === "base" ? "Catalogue de base" : "Tous les objets";
+
+  elements.title.textContent = `Stock · ${sourceLabel}`;
+  elements.summary.textContent = scope.length
+    ? ` · ${scope.length} objets · ${finiteCount} stocks définis${soldOutCount ? ` · ${soldOutCount} épuisé${soldOutCount > 1 ? "s" : ""}` : ""}`
     : "";
 
-  if (!catalogue.length) {
-    elements.rows.innerHTML = `<tr><td colspan="3">Aucun catalogue chargé.</td></tr>`;
+  if (!scope.length) {
+    elements.rows.innerHTML = `<tr><td colspan="4">Aucun catalogue chargé.</td></tr>`;
+    renderAuth();
     return;
   }
   if (!items.length) {
-    elements.rows.innerHTML = `<tr><td colspan="3">Aucun objet ne correspond à la recherche.</td></tr>`;
+    elements.rows.innerHTML = `<tr><td colspan="4">Aucun objet ne correspond à la recherche.</td></tr>`;
+    renderAuth();
     return;
   }
 
@@ -121,6 +158,7 @@ function renderRows() {
     const stock = stockValue(item);
     return `
       <tr>
+        <td><span class="source-badge source-badge--${escapeHTML(item.source)}">${escapeHTML(item.source === "alaric" ? "Alaric" : "Base")}</span></td>
         <td class="stock-table__name">
           <strong>${escapeHTML(item.name || item.id)}</strong>
           <span>${escapeHTML(item.category || "Sans catégorie")} · ${escapeHTML(item.rarity || "")}</span>
@@ -138,6 +176,7 @@ function renderRows() {
         </td>
       </tr>`;
   }).join("");
+  renderAuth();
 }
 
 async function saveStock(id, value) {
@@ -174,9 +213,10 @@ async function changeStock(id, delta) {
 }
 
 async function setAllStocks(value) {
-  if (!currentUser || !catalogue.length) return;
+  const scope = sourceCatalogue();
+  if (!currentUser || !scope.length) return;
   try {
-    const ids = catalogue.map(item => item.id);
+    const ids = scope.map(item => item.id);
     if (value === null) {
       const { error } = await db.from("stocks").delete().in("item_id", ids);
       if (error) throw error;
@@ -188,7 +228,7 @@ async function setAllStocks(value) {
       rows.forEach(row => stockMap.set(row.item_id, row.stock));
     }
     renderRows();
-    setMessage(value === null ? "Tous les objets sont maintenant en stock illimité." : `Tous les stocks ont été mis à ${value}.`);
+    setMessage(value === null ? "Les objets de la vue sélectionnée sont maintenant en stock illimité." : `Les stocks de la vue sélectionnée ont été mis à ${value}.`);
   } catch (error) {
     console.error(error);
     setMessage(`Modification globale impossible : ${error.message || error}`, true);
@@ -253,6 +293,11 @@ elements.search.addEventListener("input", event => {
   renderRows();
 });
 
+elements.source.addEventListener("change", event => {
+  currentSource = event.target.value;
+  renderRows();
+});
+
 elements.loginForm.addEventListener("submit", login);
 elements.logout.addEventListener("click", logout);
 elements.reload.addEventListener("click", async () => {
@@ -282,7 +327,7 @@ async function init() {
     renderAuth();
     await loadStocks({ announce: false });
     setMessage(currentUser
-      ? "Connecté au stock Supabase. Tu peux modifier les quantités."
+      ? "Connecté au stock Supabase. Tu peux modifier les quantités de la sélection et du catalogue de base."
       : "Stocks chargés en lecture seule. Connecte-toi pour les modifier.");
   } catch (error) {
     console.error(error);
