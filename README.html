@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>AlaricCode V2 ��� Manuel</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">AlaricCode V2 ��� Manuel</h1>
+</header>
+<h1 id="alariccode-v2-manuel-dinstallation-et-dexploitation">AlaricCode
+V2 — manuel d’installation et d’exploitation</h1>
+<p>AlaricCode est la boutique web complémentaire de <strong>COAlaric
+V2</strong>. Elle affiche la sélection d’Alaric et le catalogue
+permanent, applique le même modèle de prix que CoFItem, gère un stock
+partagé via Supabase et exporte le panier sous forme de commande
+Roll20.</p>
+<h2 id="architecture">1. Architecture</h2>
+<pre class="text"><code>index.html              boutique joueur
+stock.html              administration MJ
+styles.css              présentation commune
+data/
+  catalogue.json        sélection/stock spécial Alaric
+  catalogue-item-de-base.json  catalogue permanent
+  pricing-model.json    référentiel de prix partagé avec Roll20
+js/
+  core.js               utilitaires, chargement JSON et Supabase
+  pricing.js            moteur Q/P, rareté et arrondi commercial
+  app.js                boutique, filtres, panier et export Roll20
+  stock.js              console d’administration du stock
+  supabase-config.js    URL + publishable key Supabase
+assets/                  visuels réellement utilisés
+sources/                 source catalogue auditable
+tools/validate-v2.mjs   validation statique de la distribution
+supabase-setup.sql      table et politiques RLS</code></pre>
+<p>La V2 isole les données du code, encapsule les pages dans leur propre
+scope, centralise les utilitaires partagés et retire les sources
+d’assets/génération inutiles à l’exécution.</p>
+<h2 id="installation-github-pages">2. Installation GitHub Pages</h2>
+<ol type="1">
+<li>Déposer <strong>le contenu</strong> du dossier à la racine du dépôt
+publié par GitHub Pages.</li>
+<li>Dans Supabase, exécuter une fois
+<code>supabase-setup.sql</code>.</li>
+<li>Dans <strong>Authentication &gt; Users</strong>, créer le ou les
+comptes MJ autorisés à administrer le stock. Garder les inscriptions
+publiques désactivées si elles ne sont pas nécessaires.</li>
+<li>Renseigner dans <code>js/supabase-config.js</code> l’URL Supabase et
+la <strong>publishable key</strong> uniquement.</li>
+<li>Publier ; <code>index.html</code> est la boutique et
+<code>stock.html</code> l’interface MJ.</li>
+</ol>
+<p>La publishable key est conçue pour être exposée côté navigateur.
+<strong>Ne jamais</strong> placer une <code>service_role</code>, une
+secret key ou un mot de passe dans le dépôt.</p>
+<h2 id="stock-supabase">3. Stock Supabase</h2>
+<p>La table <code>stocks</code> ne contient que les exceptions au stock
+illimité :</p>
+<ul>
+<li>ligne absente → stock illimité ;</li>
+<li><code>stock = 0</code> → rupture ;</li>
+<li><code>stock &gt; 0</code> → quantité disponible.</li>
+</ul>
+<p>La boutique lit publiquement cette table ; les écritures sont
+réservées aux utilisateurs Supabase authentifiés par les politiques RLS.
+L’administration permet recherche, filtre par source, saisie directe,
+<code>0</code>, illimité et actions globales sur la sélection
+courante.</p>
+<p>Le navigateur rafraîchit périodiquement les stocks. Si une quantité
+baisse pendant qu’un joueur prépare son panier, le panier est ramené à
+la quantité réellement disponible.</p>
+<h2 id="catalogue-et-contrat-de-données">4. Catalogue et contrat de
+données</h2>
+<p>Chaque entrée JSON doit avoir un <code>id</code> unique. Les champs
+d’affichage usuels sont <code>category</code>, <code>subcategory</code>,
+<code>iconKey</code>, <code>name</code>, <code>rarity</code>,
+<code>description</code> et <code>price</code>.</p>
+<p>Pour les équipements gérés par CoFItem, <code>cofSpec</code> est le
+contrat machine :</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;base&quot;</span><span class="fu">:</span> <span class="st">&quot;B001&quot;</span><span class="fu">,</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;quality&quot;</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;mode&quot;</span><span class="fu">:</span> <span class="st">&quot;magique&quot;</span><span class="fu">,</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;affixes&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="st">&quot;A023&quot;</span><span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Nom joueur&quot;</span><span class="fu">,</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;price&quot;</span><span class="fu">:</span> <span class="dv">123</span><span class="fu">,</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;rarity&quot;</span><span class="fu">:</span> <span class="st">&quot;Rare&quot;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<p><code>quality</code>, <code>mode</code> et <code>affixes</code> sont
+omis lorsqu’ils ne s’appliquent pas. Les consommables peuvent conserver
+leur prix dédié et ne sont pas forcés dans le moteur de prix des
+équipements.</p>
+<p>Les sources de vérité de la V2 sont :</p>
+<ul>
+<li><code>sources/Catalogue_Objets_Magiques_V2.xlsx</code> pour l’audit
+humain ;</li>
+<li><code>data/pricing-model.json</code> pour le calcul navigateur
+;</li>
+<li>les deux JSON catalogue pour ce qui est effectivement proposé par le
+site.</li>
+</ul>
+<h2 id="économie-v2">5. Économie V2</h2>
+<p>Paliers de qualité : <strong>Q1/Q2/Q3/Q4/Q5 = 3 / 10 / 30 / 90 / 300
+PO</strong>.</p>
+<p>Paliers magiques : <strong>P1/P2/P3/P4/P5 = 4 / 15 / 50 / 180 / 600
+PO</strong>.</p>
+<p>Pour un équipement magique :</p>
+<pre class="text"><code>coût magique = base du palier P
+             × difficulté d’enchantement du support
+             × coefficient de valeur de l’affixe
+             × aléa du référentiel</code></pre>
+<p>La qualité utilise sa propre courbe et une influence matérielle
+amortie du support. Si plusieurs affixes sont présents, le moteur
+additionne leurs coûts magiques avant la finalisation commerciale. Le
+modèle contient les <strong>569 affixes validés</strong> ; notamment
+<strong>A112 Héliolite (+1d4 Lumière) est P2</strong>.</p>
+<p>Le fichier <code>data/pricing-model.json</code> est byte-identique à
+<code>Catalogue_pricing_model.json</code> du projet Roll20 V2 afin
+d’éviter deux économies concurrentes.</p>
+<h2 id="boutique-joueur">6. Boutique joueur</h2>
+<p><code>index.html</code> permet :</p>
+<ul>
+<li>navigation entre sélection d’Alaric et catalogue permanent ;</li>
+<li>recherche texte et filtres ;</li>
+<li>affichage des raretés et icônes ;</li>
+<li>respect du stock distant ;</li>
+<li>constitution du panier ;</li>
+<li>copie du panier au format COAlaric.</li>
+</ul>
+<p>Le bouton <strong>Copier pour Roll20</strong> produit une commande
+<code>!co-alaric panier ...</code>. Le MJ colle cette commande dans
+Roll20 ; COAlaric prend ensuite en charge choix du PJ, achat direct,
+marchandage, vol, paiement et attribution par CoFItem.</p>
+<p>Le site ne débite pas lui-même les stocks lors de la copie :
+l’autorité de la transaction de jeu reste le flux Roll20/MJ.</p>
+<h2 id="administration-mj">7. Administration MJ</h2>
+<p><code>stock.html</code> nécessite une session Supabase authentifiée
+pour modifier les quantités. En lecture seule, le catalogue et les
+stocks restent visibles.</p>
+<p>Bonnes pratiques :</p>
+<ul>
+<li>ne créer une ligne Supabase que pour un article limité ;</li>
+<li>supprimer/repasser à illimité lorsque la limitation n’est plus utile
+;</li>
+<li>utiliser <code>0</code> pour afficher explicitement une rupture
+;</li>
+<li>vérifier les deux sources (<code>alaric</code> et <code>base</code>)
+avant une opération globale.</li>
+</ul>
+<h2 id="mise-à-jour-du-catalogue">8. Mise à jour du catalogue</h2>
+<p>Pour publier une nouvelle version :</p>
+<ol type="1">
+<li>modifier la source catalogue et le référentiel de prix ;</li>
+<li>régénérer <code>catalogue.json</code>,
+<code>catalogue-item-de-base.json</code> et
+<code>pricing-model.json</code> ;</li>
+<li>synchroniser le même modèle dans Roll20/CoFItem ;</li>
+<li>conserver les IDs déjà publiés autant que possible, car ils servent
+au stock et aux paniers ;</li>
+<li>exécuter le validateur V2 avant publication.</li>
+</ol>
+<p>Un changement de nom est sans risque tant que l’<code>id</code> reste
+stable. Un changement d’<code>id</code> crée, du point de vue du stock
+Supabase, un nouvel article.</p>
+<h2 id="validation-et-diagnostic">9. Validation et diagnostic</h2>
+<p>Depuis la racine du projet :</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">node</span> tools/validate-v2.mjs</span></code></pre></div>
+<p>Le contrôle vérifie :</p>
+<ul>
+<li>présence des fichiers requis ;</li>
+<li>syntaxe JavaScript ;</li>
+<li>validité des JSON ;</li>
+<li>unicité des IDs ;</li>
+<li>cohérence <code>cofSpec.base/affixes</code> pour les équipements
+tarifés ;</li>
+<li>chemins locaux des pages HTML ;</li>
+<li>présence des variantes d’icônes référencées ;</li>
+<li>correction du référentiel A112/P2.</li>
+</ul>
+<p>Si le catalogue ne charge pas, ouvrir la console navigateur et
+vérifier d’abord les fichiers du dossier <code>data/</code>. Si le stock
+distant ne charge pas, vérifier <code>js/supabase-config.js</code>,
+l’état du projet Supabase et les politiques RLS.</p>
+<h2 id="compatibilité-v2">10. Compatibilité V2</h2>
+<p>Le format des deux catalogues, les IDs d’objets,
+<code>cofSpec</code>, les clés <code>localStorage</code> du
+panier/favoris et la commande COAlaric sont conservés. La refonte change
+l’organisation interne du projet sans imposer de migration
+utilisateur.</p>
+<p>Voir <code>AUDIT_V2.md</code> pour les changements techniques et les
+contrôles effectués.</p>
+</body>
+</html>
