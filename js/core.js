@@ -1,4 +1,4 @@
-/* AlaricCode V2 — utilitaires communs et accès données. */
+/* AlaricCode V2 — utilitaires communs et accès données (Firebase). */
 (function (global) {
   'use strict';
   const CATALOGUE_FILES = Object.freeze([
@@ -12,18 +12,20 @@
     return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
   }
   function formatPrice(value) {
-    const n=Number(value); return `${Number.isFinite(n) ? n.toLocaleString('fr-FR') : '0'} PA`;
+    const n = Number(value); return `${Number.isFinite(n) ? n.toLocaleString('fr-FR') : '0'} PA`;
   }
-  function createSupabaseClient() {
-    const config=global.ALARIC_SUPABASE_CONFIG || {};
-    if(!config.url || !config.publishableKey) throw new Error('Configuration Supabase absente.');
-    if(!global.supabase?.createClient) throw new Error('La bibliothèque Supabase n’a pas pu être chargée.');
-    return global.supabase.createClient(config.url,config.publishableKey,{auth:{persistSession:true,autoRefreshToken:true}});
+  function createStockClient() {
+    if (!global.AlaricFirebase?.client) {
+      throw new Error('La connexion Firebase est absente. Vérifie les scripts du fichier HTML.');
+    }
+    return global.AlaricFirebase.client;
   }
   async function fetchJSON(url) {
-    const response=await fetch(url,{cache:'no-store'});
-    if(!response.ok) throw new Error(`Impossible de charger ${url} (HTTP ${response.status}).`);
-    try{return await response.json();}catch{throw new Error(`${url} contient un JSON invalide.`);}
+    const response = await fetch(url, { cache: 'no-store' });
+    if (!response.ok) throw new Error(`Impossible de charger ${url} (HTTP ${response.status}).`);
+    try { return await response.json(); } catch { throw new Error(`${url} contient un JSON invalide.`); }
   }
-  global.AlaricCore=Object.freeze({CATALOGUE_FILES,escapeHTML,normalize,formatPrice,createSupabaseClient,fetchJSON});
+  // Alias temporaire : app.js et stock.js peuvent continuer à fonctionner sans refonte.
+  global.AlaricCore = Object.freeze({ CATALOGUE_FILES, escapeHTML, normalize, formatPrice,
+    createStockClient, createSupabaseClient: createStockClient, fetchJSON });
 }(window));
