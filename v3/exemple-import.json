@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "id": "mj-dague-braise-01",
+      "templateId": "cof-b003",
+      "nom": "Dague de braise",
+      "prix": "2 PO 5 PA 20 PC",
+      "description": "Une dague dont le fil rougeoit. Bonus et limites à confirmer par le MJ.",
+      "affixIds": ["A001"],
+      "stock": 2,
+      "visible": true
+    },
+    {
+      "id": "mj-cape-voyageur-01",
+      "templateId": "cof-b035",
+      "nom": "Cape du voyageur",
+      "prix": "50 PA",
+      "description": "Cape de voyage choisie pour ce groupe.",
+      "affixIds": [],
+      "stock": 1,
+      "visible": true
+    }
+  ]
+}

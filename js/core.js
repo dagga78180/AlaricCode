@@ -12,7 +12,7 @@
     return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
   }
   function formatPrice(value) {
-    const n = Number(value); return window.AlaricApp ? window.AlaricApp.formatPC(Math.round(n * 100)) : 'Prix indisponible';
+    const n = Number(value); return `${Number.isFinite(n) ? n.toLocaleString('fr-FR') : '0'} PA`;
   }
   function createStockClient() {
     if (!global.AlaricFirebase?.client) {
