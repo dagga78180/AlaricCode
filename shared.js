@@ -94,11 +94,14 @@
     return {q,p,rank:Math.min(10,q+p)};
   }
   function tieredIcon(icon,rank) {
-    const raw=String(icon||'');
-    // Seuls les SVG du jeu V3 possèdent les 11 variantes R00–R10 générées.
-    if(!/^assets\/icons\/alaric-nouvelles\/[a-z0-9-]+(?:_R(?:0[0-9]|10))?\.svg$/i.test(raw))return raw;
+    const raw=String(icon||'').trim();
+    // Les 52 nouvelles familles sont monochromes, comme les PNG V2.
+    // Le suffixe _Rxx n'est jamais conservé s'il ne correspond plus à Q + Pmax.
+    // Le paramètre de version force le navigateur à recharger les SVG corrigés.
+    const match=/^(assets\/icons\/alaric-nouvelles\/[a-z0-9-]+?)(?:_R(?:0[0-9]|10))?\.svg(?:[?#].*)?$/i.exec(raw);
+    if(!match)return raw;
     const r=Math.max(0,Math.min(10,Math.trunc(Number(rank)||0)));
-    return raw.replace(/(?:_R(?:0[0-9]|10))?\.svg$/i,`_R${String(r).padStart(2,'0')}.svg`);
+    return `${match[1]}_R${String(r).padStart(2,'0')}.svg?v=43`;
   }
   function normalizedItem(o, origin, maps={}) {
     if(!o || typeof o!=='object')return null;

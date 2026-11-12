@@ -17,7 +17,7 @@
 ## Icônes : P et Q
 - Les **1 530 images PNG V2** et le `manifest.json` sont conservés dans `assets/icons/`.
 - Niveau d’icône **R = min(10, Q + Pmax)**, avec qualité Q0–Q5 et Pmax (palier maximum des affixes) de P0–P5. R00…R10 utilisent la variante correspondante dans le manifeste historique. Cette règle est identique pour les icônes PNG V2 et SVG V3. Le niveau Pmax est le plus haut palier parmi les affixes sélectionnés ; ce n’est jamais leur somme.
-- Les 52 nouvelles icônes SVG se trouvent dans `assets/icons/alaric-nouvelles/`. Chaque dessin existe en **11 versions R00 à R10**, dont les couleurs reprennent la palette V2 (`assets/icons/palette.json`). La couleur principale de l’élément reste reconnaissable. Le site choisit automatiquement `<identifiant>_Rxx.svg` en fonction de Q et Pmax, même pour les créations et imports MJ. Les autres images personnalisées restent inchangées.
+- Les 52 nouvelles icônes SVG se trouvent dans `assets/icons/alaric-nouvelles/`. Chaque dessin existe en **11 versions R00 à R10**, dont les couleurs reprennent la palette V2 (`assets/icons/palette.json`). Chaque silhouette et chaque bordure utilisent **exactement la même teinte que les PNG historiques V2** : R00 blanc sur noir, R01 vert, R02 cyan, R03 bleu, etc. Les couleurs élémentaires originales ne remplacent plus le code couleur R. Le site choisit automatiquement `<identifiant>_Rxx.svg` en fonction de Q et Pmax, même pour les créations et imports MJ. Les autres images personnalisées restent inchangées.
 
 ## Monnaie
 - 1 PO = 100 PA ; 1 PA = 100 PC. Tous les prix Firebase sont en PC entiers.
@@ -38,3 +38,10 @@ Vitrine HTML/CSS d’origine : filtres, favoris, panier, macro Roll20 pour les o
 Le catalogue de base est **toujours visible** dans les deux groupes : l’espace MJ ne propose pas de le masquer. La Sélection d’Alaric est modifiable et ses stocks restent séparés.
 
 Parchemin de stabilisation : prix V2 conservé à 150 PA et spécification Roll20 historique B066, avec référence de vitrine B062 conforme au nouveau catalogue.
+
+## Correctif icônes V4.3
+- Les 52 familles V3 sont maintenant **blanches à R00**, dessin et bordure de la même couleur sur fond noir.
+- Chaque famille possède 11 couleurs, R00–R10, prélevées dans la palette des PNG V2.
+- Le fichier SVG sans suffixe R est également blanc (R00).
+- La sélection lit `Q` et `Pmax` sur les affixes, puis ajoute `_Rxx.svg?v=43` ; l'argument de version évite les anciennes images en cache.
+- Le catalogue et les stocks Firebase ne sont **pas modifiés** par ce correctif.

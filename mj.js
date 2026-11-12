@@ -27,7 +27,7 @@ function renderTable(){const needle=$('stock-search').value.trim().toLocaleLower
   const rows=all.filter(i=>(!category||i.category===category)&&(!needle||`${i.name} ${i.id} ${i.category}`.toLocaleLowerCase('fr').includes(needle)));
   $('stock-count').textContent=rows.length+' objets affichés';const root=$('stock-rows');root.replaceChildren();
   for(const it of rows){const tr=A.elem('tr');const itemCell=A.elem('td');const text=A.elem('div');text.append(A.elem('strong',{text:it.name}),A.elem('div',{className:'code',text:it.id}),A.elem('span',{className:'pill',text:it.origin||'Base'}));
-    itemCell.append(A.elem('div',{className:'row'},it.icon?[A.elem('img',{src:A.tieredIcon(it.icon,A.computeIconRank(it,catalog?.affixes).rank),alt:''}),text]:[text]));
+    itemCell.append(A.elem('div',{className:'row'},(it.icon||catalog?.icons?.[it.templateId]||catalog?.icons?.[it.id])?[A.elem('img',{src:A.tieredIcon(it.icon||catalog?.icons?.[it.templateId]||catalog?.icons?.[it.id],A.computeIconRank(it,catalog?.affixes).rank),alt:''}),text]:[text]));
     const priceCell=A.elem('td');priceCell.append(A.elem('div',{className:'nowrap',text:priceLabel(it.pricePC)}));
     if(it.origin!=='Création MJ')priceCell.append(A.elem('button',{className:'small ghost',text:'Changer',onClick:async()=>{
       const raw=prompt('Prix de '+it.name+' pour '+groupName()+' (ex: 2 PO 20 PA 50 PC)',it.pricePC===null?'':A.formatPC(it.pricePC));

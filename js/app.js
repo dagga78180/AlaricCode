@@ -297,7 +297,8 @@ async function loadCatalogue() {
   const list = API.overlay(catalog.base, custom, overrides, stocks).filter(it => it.visible !== false);
   ITEMS = list.map((it,i) => {
     const {rank}=API.computeIconRank(it,catalog.affixes);
-    return normalizeItem({ ...it, price: it.pricePC===null ? NaN : it.pricePC / 100,
+    return normalizeItem({ ...it, icon: it.icon || catalog.icons[it.templateId] || catalog.icons[it.id] || '',
+      price: it.pricePC===null ? NaN : it.pricePC / 100,
       source:it.origin==='Base'?'base':'alaric',iconRank:rank,
       stock:it.stock, cofSpec:it.cofSpec,
       cofCompatible:it.cofCompatible!==false && it.pricePC!==null },
@@ -443,7 +444,7 @@ function safeClass(value) {
 }
 
 function isImageIcon(iconText) {
-  return /^https?:\/\//i.test(iconText) || /\.(png|jpe?g|webp|gif|svg)$/i.test(iconText);
+  return /^https?:\/\//i.test(iconText) || /\.(png|jpe?g|webp|gif|svg)(?:[?#].*)?$/i.test(iconText);
 }
 
 function normalizeIconKey(value) {
