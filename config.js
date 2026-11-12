@@ -9,5 +9,5 @@ window.ALARIC_CONFIG = Object.freeze({
     appId: '1:393320398937:web:5d8cd61d4637c7cedc7148'
   },
   groups: Object.freeze({groupe1:'Groupe 1', groupe2:'Groupe 2'}),
-  baseFiles: ['data/base-items.json']
+  baseFiles: ['data/catalogue.json', 'data/catalogue-item-de-base.json']
 });

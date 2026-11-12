@@ -24,7 +24,8 @@
       "Bonus attaque": "0",
       "Bonus DM": "0",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Baton"
   },
   {
     "id": "cof-b002",
@@ -51,7 +52,8 @@
       "Bonus attaque": "0",
       "Bonus DM": "0",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Baton_ferre"
   },
   {
     "id": "cof-b003",
@@ -78,7 +80,8 @@
       "Bonus attaque": "0",
       "Bonus DM": "0",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Dague"
   },
   {
     "id": "cof-b004",
@@ -105,7 +108,8 @@
       "Bonus attaque": "0",
       "Bonus DM": "0",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Hache"
   },
   {
     "id": "cof-b005",
@@ -132,7 +136,8 @@
       "Bonus attaque": "0",
       "Bonus DM": "0",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Hache_a_deux_mains"
   },
   {
     "id": "cof-b006",
@@ -160,7 +165,8 @@
       "Bonus attaque": "0",
       "Bonus DM": "0",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Lance"
   },
   {
     "id": "cof-b007",
@@ -187,7 +193,8 @@
       "Bonus attaque": "0",
       "Bonus DM": "0",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Marteau"
   },
   {
     "id": "cof-b008",
@@ -214,7 +221,8 @@
       "Bonus attaque": "0",
       "Bonus DM": "0",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Masse"
   },
   {
     "id": "cof-b009",
@@ -241,7 +249,8 @@
       "Bonus attaque": "0",
       "Bonus DM": "0",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Rapiere"
   },
   {
     "id": "cof-b010",
@@ -268,7 +277,8 @@
       "Bonus attaque": "0",
       "Bonus DM": "0",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Ep_batarde"
   },
   {
     "id": "cof-b011",
@@ -295,7 +305,8 @@
       "Bonus attaque": "0",
       "Bonus DM": "0",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Ep_courte"
   },
   {
     "id": "cof-b012",
@@ -322,7 +333,8 @@
       "Bonus attaque": "0",
       "Bonus DM": "0",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Epee_longue"
   },
   {
     "id": "cof-b013",
@@ -349,7 +361,8 @@
       "Bonus attaque": "0",
       "Bonus DM": "0",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Ep_a_2_main"
   },
   {
     "id": "cof-b014",
@@ -377,7 +390,8 @@
       "Bonus attaque": "0",
       "Bonus DM": "0",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Arbalete"
   },
   {
     "id": "cof-b015",
@@ -405,7 +419,8 @@
       "Bonus attaque": "0",
       "Bonus DM": "0",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Arbalete"
   },
   {
     "id": "cof-b016",
@@ -433,7 +448,8 @@
       "Bonus attaque": "0",
       "Bonus DM": "0",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Arbalete"
   },
   {
     "id": "cof-b017",
@@ -461,7 +477,8 @@
       "Bonus attaque": "0",
       "Bonus DM": "0",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Arc_court"
   },
   {
     "id": "cof-b018",
@@ -489,7 +506,8 @@
       "Bonus attaque": "0",
       "Bonus DM": "0",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Arc_long"
   },
   {
     "id": "cof-b019",
@@ -517,7 +535,8 @@
       "Bonus attaque": "0",
       "Bonus DM": "0",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Couteaux_de_lancer"
   },
   {
     "id": "cof-b020",
@@ -545,7 +564,8 @@
       "Bonus attaque": "0",
       "Bonus DM": "0",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Javelot"
   },
   {
     "id": "cof-b021",
@@ -574,7 +594,8 @@
       "Bonus DM": "0",
       "Options arme": "poudre",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": ""
   },
   {
     "id": "cof-b022",
@@ -603,7 +624,8 @@
       "Bonus DM": "0",
       "Options arme": "poudre",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": ""
   },
   {
     "id": "cof-b023",
@@ -623,7 +645,8 @@
       "Bonus armure": "6",
       "Malus armure": "6",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Armure_de_plaque"
   },
   {
     "id": "cof-b024",
@@ -643,7 +666,8 @@
       "Bonus armure": "4",
       "Malus armure": "4",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Chemis_de_maille"
   },
   {
     "id": "cof-b025",
@@ -663,7 +687,8 @@
       "Bonus armure": "5",
       "Malus armure": "5",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Cotte_de_maille"
   },
   {
     "id": "cof-b026",
@@ -683,7 +708,8 @@
       "Bonus armure": "3",
       "Malus armure": "3",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Cuir_renforce"
   },
   {
     "id": "cof-b027",
@@ -703,7 +729,8 @@
       "Bonus armure": "2",
       "Malus armure": "2",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Cuir_simple"
   },
   {
     "id": "cof-b028",
@@ -723,7 +750,8 @@
       "Bonus armure": "2",
       "Malus armure": "0",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Grand_bouclier"
   },
   {
     "id": "cof-b029",
@@ -743,7 +771,8 @@
       "Bonus armure": "1",
       "Malus armure": "0",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Petit_bouclier"
   },
   {
     "id": "cof-b030",
@@ -763,7 +792,8 @@
       "Bonus armure": "7",
       "Malus armure": "7",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": ""
   },
   {
     "id": "cof-b031",
@@ -783,7 +813,8 @@
       "Bonus armure": "1",
       "Malus armure": "1",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Tissus_matelasses"
   },
   {
     "id": "cof-b032",
@@ -803,7 +834,8 @@
       "Bonus armure": "0",
       "Malus armure": "0",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": ""
   },
   {
     "id": "cof-b033",
@@ -823,7 +855,8 @@
       "Bonus armure": "0",
       "Malus armure": "0",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": ""
   },
   {
     "id": "cof-b034",
@@ -843,7 +876,8 @@
       "Bonus armure": "0",
       "Malus armure": "0",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": ""
   },
   {
     "id": "cof-b035",
@@ -863,7 +897,8 @@
       "Bonus armure": "0",
       "Malus armure": "0",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": ""
   },
   {
     "id": "cof-b036",
@@ -883,7 +918,8 @@
       "Bonus armure": "0",
       "Malus armure": "0",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": ""
   },
   {
     "id": "cof-b037",
@@ -903,7 +939,8 @@
       "Bonus armure": "0",
       "Malus armure": "0",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": ""
   },
   {
     "id": "cof-b038",
@@ -923,7 +960,8 @@
       "Bonus armure": "0",
       "Malus armure": "0",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": ""
   },
   {
     "id": "cof-b039",
@@ -942,7 +980,8 @@
       "Effet consommable": "Inflige 1d4 DM variables. DD fixés selon virulence : 15 / 10 / 5.",
       "Contexte consommable": "Poison de contact ou appliqué sur une arme. DD CON : mineur 15 ; virulent 10 ; mortel 5.",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Poison"
   },
   {
     "id": "cof-b040",
@@ -960,7 +999,8 @@
     "technical": {
       "Effet consommable": "Bonus temporaire de +1 à une caractéristique. La caractéristique et la durée dépendent de la variante choisie.",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Potion_de_caracteristique_temporaire"
   },
   {
     "id": "cof-b041",
@@ -979,7 +1019,9 @@
       "Commande consommable": "!cof-effet-temp hate 2",
       "Effet consommable": "'+1 action par tour pendant 2 tours.",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/cof-b041.svg"
   },
   {
     "id": "cof-b042",
@@ -998,7 +1040,8 @@
       "Commande consommable": "!cof-recupere-mana 1d4+@{selected|niveau}",
       "Effet consommable": "Rend 1d4 + niveau points de mana.",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Potion_de_mana"
   },
   {
     "id": "cof-b043",
@@ -1016,7 +1059,8 @@
     "technical": {
       "Effet consommable": "Confère une résistance magique : bonus de RD magique +4 (effet à gérer selon la variante/règle retenue).",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": ""
   },
   {
     "id": "cof-b044",
@@ -1034,7 +1078,8 @@
     "technical": {
       "Effet consommable": "Confère une résistance physique : bonus de RD physique +4 (effet à gérer selon la variante/règle retenue).",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": ""
   },
   {
     "id": "cof-b045",
@@ -1054,7 +1099,8 @@
       "Effet consommable": "Rend 1d4 + niveau PV.",
       "Contexte consommable": "Une seule potion par récupération rapide.",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Potion_de_soins"
   },
   {
     "id": "cof-b046",
@@ -1073,7 +1119,8 @@
       "Effet consommable": "Inflige 2d4 DM variables dans une zone de 4 m de diamètre.",
       "Contexte consommable": "Portée 10 m, diamètre 4 m, rayon technique 2 m.",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": ""
   },
   {
     "id": "cof-b047",
@@ -1092,7 +1139,8 @@
       "Effet consommable": "Permet d’utiliser une capacité ou un sort selon le rang du parchemin.",
       "Contexte consommable": "Le parchemin est consommé après usage.",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": ""
   },
   {
     "id": "cof-b048",
@@ -1109,7 +1157,8 @@
     "source": "classeur-objets",
     "technical": {
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Briquet_a_silex"
   },
   {
     "id": "cof-b049",
@@ -1126,7 +1175,8 @@
     "source": "classeur-objets",
     "technical": {
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": ""
   },
   {
     "id": "cof-b050",
@@ -1143,7 +1193,8 @@
     "source": "classeur-objets",
     "technical": {
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Corde_15_m"
   },
   {
     "id": "cof-b051",
@@ -1160,7 +1211,8 @@
     "source": "classeur-objets",
     "technical": {
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Couverture"
   },
   {
     "id": "cof-b052",
@@ -1177,7 +1229,8 @@
     "source": "classeur-objets",
     "technical": {
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Grappin"
   },
   {
     "id": "cof-b053",
@@ -1194,7 +1247,8 @@
     "source": "classeur-objets",
     "technical": {
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Huile_pour_lanterne"
   },
   {
     "id": "cof-b054",
@@ -1211,7 +1265,8 @@
     "source": "classeur-objets",
     "technical": {
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Lanterne_a_huile"
   },
   {
     "id": "cof-b055",
@@ -1228,7 +1283,8 @@
     "source": "classeur-objets",
     "technical": {
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Materiel_d_riture"
   },
   {
     "id": "cof-b056",
@@ -1245,7 +1301,8 @@
     "source": "classeur-objets",
     "technical": {
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Outils_de_crochetage"
   },
   {
     "id": "cof-b057",
@@ -1264,7 +1321,8 @@
       "Effet consommable": "Provision pour un repos nourri.",
       "Contexte consommable": "Consommée automatiquement par le système de repos.",
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Ration"
   },
   {
     "id": "cof-b058",
@@ -1281,7 +1339,8 @@
     "source": "classeur-objets",
     "technical": {
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Sac_a_dos"
   },
   {
     "id": "cof-b059",
@@ -1298,7 +1357,8 @@
     "source": "classeur-objets",
     "technical": {
       "Source déclarée": "Catalogue_objet_Magique.xlsx"
-    }
+    },
+    "iconKey": "Torches_x3"
   },
   {
     "id": "cof-b060",
@@ -1325,7 +1385,9 @@
       "Bonus attaque": "0",
       "Bonus DM": "0",
       "Source déclarée": "Catalogue_objet_Magique_AUDITE_v8_COMPATIBILITE.xlsx"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/cof-b060.svg"
   },
   {
     "id": "cof-b061",
@@ -1345,7 +1407,9 @@
       "Bonus armure": "0",
       "Malus armure": "0",
       "Source déclarée": "Catalogue_objet_Magique_AUDITE_v8_COMPATIBILITE.xlsx"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/cof-b061.svg"
   },
   {
     "id": "cof-b062",
@@ -1365,7 +1429,9 @@
       "Effet consommable": "Stabilise immédiatement un PJ en blessure maligne. Le personnage reste au sol jusqu’à la fin du combat.",
       "Contexte consommable": "À partir de la 2e chute. Usage unique.",
       "Source déclarée": "Règle Blessures PJ V17"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/cof-b062.svg"
   },
   {
     "id": "coam-q20",
@@ -1383,7 +1449,9 @@
     "technical": {
       "Emplacement": "Dos",
       "Prédicats": "Carquois:20"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-q20.svg"
   },
   {
     "id": "coam-s30",
@@ -1401,7 +1469,9 @@
     "technical": {
       "Emplacement": "Dos",
       "Prédicats": "Carquois:30"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-s30.svg"
   },
   {
     "id": "coam-f-0",
@@ -1422,7 +1492,9 @@
       "DM munition": "0"
     },
     "priceOverride": "Flèche ordinaire à 20 PC (demande MJ ; source du classeur : 0,1 PA)",
-    "priceOverrideReason": "Tarif demandé par le MJ : 20 PC."
+    "priceOverrideReason": "Tarif demandé par le MJ : 20 PC.",
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-f-0.svg"
   },
   {
     "id": "coam-f-1",
@@ -1442,7 +1514,9 @@
       "Type munition": "Flèche",
       "DM munition": "1d4",
       "Domaine munition": "force"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-f-1.svg"
   },
   {
     "id": "coam-f-2",
@@ -1462,7 +1536,9 @@
       "Type munition": "Flèche",
       "DM munition": "1d4",
       "Domaine munition": "air"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-f-2.svg"
   },
   {
     "id": "coam-f-3",
@@ -1482,7 +1558,9 @@
       "Type munition": "Flèche",
       "DM munition": "1d4",
       "Domaine munition": "eau"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-f-3.svg"
   },
   {
     "id": "coam-f-4",
@@ -1502,7 +1580,9 @@
       "Type munition": "Flèche",
       "DM munition": "1d4",
       "Domaine munition": "feu"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-f-4.svg"
   },
   {
     "id": "coam-f-5",
@@ -1522,7 +1602,9 @@
       "Type munition": "Flèche",
       "DM munition": "1d4",
       "Domaine munition": "terre"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-f-5.svg"
   },
   {
     "id": "coam-f-6",
@@ -1542,7 +1624,9 @@
       "Type munition": "Flèche",
       "DM munition": "1d4",
       "Domaine munition": "ombre"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-f-6.svg"
   },
   {
     "id": "coam-f-7",
@@ -1562,7 +1646,9 @@
       "Type munition": "Flèche",
       "DM munition": "1d4",
       "Domaine munition": "lumiere"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-f-7.svg"
   },
   {
     "id": "coam-f-9",
@@ -1582,7 +1668,9 @@
       "Type munition": "Flèche",
       "DM munition": "1d6",
       "Domaine munition": "force"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-f-9.svg"
   },
   {
     "id": "coam-f-10",
@@ -1602,7 +1690,9 @@
       "Type munition": "Flèche",
       "DM munition": "1d6",
       "Domaine munition": "air"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-f-10.svg"
   },
   {
     "id": "coam-f-11",
@@ -1622,7 +1712,9 @@
       "Type munition": "Flèche",
       "DM munition": "1d6",
       "Domaine munition": "eau"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-f-11.svg"
   },
   {
     "id": "coam-f-12",
@@ -1642,7 +1734,9 @@
       "Type munition": "Flèche",
       "DM munition": "1d6",
       "Domaine munition": "feu"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-f-12.svg"
   },
   {
     "id": "coam-f-13",
@@ -1662,7 +1756,9 @@
       "Type munition": "Flèche",
       "DM munition": "1d6",
       "Domaine munition": "terre"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-f-13.svg"
   },
   {
     "id": "coam-f-14",
@@ -1682,7 +1778,9 @@
       "Type munition": "Flèche",
       "DM munition": "1d6",
       "Domaine munition": "ombre"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-f-14.svg"
   },
   {
     "id": "coam-f-15",
@@ -1702,7 +1800,9 @@
       "Type munition": "Flèche",
       "DM munition": "1d6",
       "Domaine munition": "lumiere"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-f-15.svg"
   },
   {
     "id": "coam-f-exp-0",
@@ -1723,7 +1823,9 @@
       "DM munition": "2d4",
       "Domaine munition": "feu",
       "Options munition": "explosion"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-f-exp-0.svg"
   },
   {
     "id": "coam-f-exp-1",
@@ -1744,7 +1846,9 @@
       "DM munition": "2d4",
       "Domaine munition": "air",
       "Options munition": "explosion"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-f-exp-1.svg"
   },
   {
     "id": "coam-f-exp-2",
@@ -1765,7 +1869,9 @@
       "DM munition": "2d4",
       "Domaine munition": "eau",
       "Options munition": "explosion"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-f-exp-2.svg"
   },
   {
     "id": "coam-f-exp-3",
@@ -1786,7 +1892,9 @@
       "DM munition": "2d4",
       "Domaine munition": "terre",
       "Options munition": "explosion"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-f-exp-3.svg"
   },
   {
     "id": "coam-f-exp-4",
@@ -1807,7 +1915,9 @@
       "DM munition": "2d4",
       "Domaine munition": "ombre",
       "Options munition": "explosion"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-f-exp-4.svg"
   },
   {
     "id": "coam-f-exp-5",
@@ -1828,7 +1938,9 @@
       "DM munition": "2d4",
       "Domaine munition": "lumiere",
       "Options munition": "explosion"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-f-exp-5.svg"
   },
   {
     "id": "coam-f-exp-6",
@@ -1849,7 +1961,9 @@
       "DM munition": "2d4",
       "Domaine munition": "force",
       "Options munition": "explosion"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-f-exp-6.svg"
   },
   {
     "id": "coam-f-sif",
@@ -1869,7 +1983,9 @@
       "Type munition": "Flèche",
       "DM munition": "2d4",
       "Options munition": "Ligne"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-f-sif.svg"
   },
   {
     "id": "coam-p-0",
@@ -1888,7 +2004,9 @@
       "Emplacement": "Autre",
       "Type munition": "Plomb",
       "DM munition": "0"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-p-0.svg"
   },
   {
     "id": "coam-p-1",
@@ -1908,7 +2026,9 @@
       "Type munition": "Plomb",
       "DM munition": "1d4",
       "Domaine munition": "force"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-p-1.svg"
   },
   {
     "id": "coam-p-2",
@@ -1928,7 +2048,9 @@
       "Type munition": "Plomb",
       "DM munition": "1d4",
       "Domaine munition": "air"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-p-2.svg"
   },
   {
     "id": "coam-p-3",
@@ -1948,7 +2070,9 @@
       "Type munition": "Plomb",
       "DM munition": "1d4",
       "Domaine munition": "eau"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-p-3.svg"
   },
   {
     "id": "coam-p-4",
@@ -1968,7 +2092,9 @@
       "Type munition": "Plomb",
       "DM munition": "1d4",
       "Domaine munition": "feu"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-p-4.svg"
   },
   {
     "id": "coam-p-5",
@@ -1988,7 +2114,9 @@
       "Type munition": "Plomb",
       "DM munition": "1d4",
       "Domaine munition": "terre"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-p-5.svg"
   },
   {
     "id": "coam-p-6",
@@ -2008,7 +2136,9 @@
       "Type munition": "Plomb",
       "DM munition": "1d4",
       "Domaine munition": "ombre"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-p-6.svg"
   },
   {
     "id": "coam-p-7",
@@ -2028,7 +2158,9 @@
       "Type munition": "Plomb",
       "DM munition": "1d4",
       "Domaine munition": "lumiere"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-p-7.svg"
   },
   {
     "id": "coam-p-9",
@@ -2048,7 +2180,9 @@
       "Type munition": "Plomb",
       "DM munition": "1d6",
       "Domaine munition": "force"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-p-9.svg"
   },
   {
     "id": "coam-p-10",
@@ -2068,7 +2202,9 @@
       "Type munition": "Plomb",
       "DM munition": "1d6",
       "Domaine munition": "air"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-p-10.svg"
   },
   {
     "id": "coam-p-11",
@@ -2088,7 +2224,9 @@
       "Type munition": "Plomb",
       "DM munition": "1d6",
       "Domaine munition": "eau"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-p-11.svg"
   },
   {
     "id": "coam-p-12",
@@ -2108,7 +2246,9 @@
       "Type munition": "Plomb",
       "DM munition": "1d6",
       "Domaine munition": "feu"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-p-12.svg"
   },
   {
     "id": "coam-p-13",
@@ -2128,7 +2268,9 @@
       "Type munition": "Plomb",
       "DM munition": "1d6",
       "Domaine munition": "terre"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-p-13.svg"
   },
   {
     "id": "coam-p-14",
@@ -2148,7 +2290,9 @@
       "Type munition": "Plomb",
       "DM munition": "1d6",
       "Domaine munition": "ombre"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-p-14.svg"
   },
   {
     "id": "coam-p-15",
@@ -2168,7 +2312,9 @@
       "Type munition": "Plomb",
       "DM munition": "1d6",
       "Domaine munition": "lumiere"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-p-15.svg"
   },
   {
     "id": "coam-p-exp-0",
@@ -2189,7 +2335,9 @@
       "DM munition": "2d4",
       "Domaine munition": "feu",
       "Options munition": "explosion"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-p-exp-0.svg"
   },
   {
     "id": "coam-p-exp-1",
@@ -2210,7 +2358,9 @@
       "DM munition": "2d4",
       "Domaine munition": "air",
       "Options munition": "explosion"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-p-exp-1.svg"
   },
   {
     "id": "coam-p-exp-2",
@@ -2231,7 +2381,9 @@
       "DM munition": "2d4",
       "Domaine munition": "eau",
       "Options munition": "explosion"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-p-exp-2.svg"
   },
   {
     "id": "coam-p-exp-3",
@@ -2252,7 +2404,9 @@
       "DM munition": "2d4",
       "Domaine munition": "terre",
       "Options munition": "explosion"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-p-exp-3.svg"
   },
   {
     "id": "coam-p-exp-4",
@@ -2273,7 +2427,9 @@
       "DM munition": "2d4",
       "Domaine munition": "ombre",
       "Options munition": "explosion"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-p-exp-4.svg"
   },
   {
     "id": "coam-p-exp-5",
@@ -2294,7 +2450,9 @@
       "DM munition": "2d4",
       "Domaine munition": "lumiere",
       "Options munition": "explosion"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-p-exp-5.svg"
   },
   {
     "id": "coam-p-exp-6",
@@ -2315,7 +2473,9 @@
       "DM munition": "2d4",
       "Domaine munition": "force",
       "Options munition": "explosion"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-p-exp-6.svg"
   },
   {
     "id": "coam-p-sif",
@@ -2335,6 +2495,8 @@
       "Type munition": "Plomb",
       "DM munition": "2d4",
       "Options munition": "ligne"
-    }
+    },
+    "iconKey": "",
+    "icon": "assets/icons/alaric-nouvelles/coam-p-sif.svg"
   }
 ]

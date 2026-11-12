@@ -1,0 +1,1041 @@
+[
+  {
+    "id": "cof-b001",
+    "category": "Armes",
+    "subcategory": "Armes d’attaque au contact",
+    "name": "Bâton",
+    "rarity": "Commun",
+    "description": "Arme à deux mains. DM temporaires possibles. Bâton simple. Données catalogue : 1d4 — FOR aux DM ; type : Contondants.",
+    "price": 0.4,
+    "iconKey": "Baton",
+    "cofSpec": {
+      "base": "B001",
+      "price": "0.4 pa",
+      "rarity": "Commun"
+    },
+    "damage": "1d4",
+    "pricePC": 40,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b002",
+    "category": "Armes",
+    "subcategory": "Armes d’attaque au contact",
+    "name": "Bâton ferré",
+    "rarity": "Commun",
+    "description": "Arme à deux mains. Bâton adapté au combat. Données catalogue : 1d6 — FOR aux DM ; type : Contondants.",
+    "price": 2.0,
+    "iconKey": "Baton_ferre",
+    "cofSpec": {
+      "base": "B002",
+      "price": "1 pa",
+      "rarity": "Commun"
+    },
+    "damage": "1d6",
+    "pricePC": 200,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b003",
+    "category": "Armes",
+    "subcategory": "Armes d’attaque au contact",
+    "name": "Dague",
+    "rarity": "Commun",
+    "description": "Arme légère. Données catalogue : 1d4 — FOR aux DM ; type : Perforants.",
+    "price": 3.0,
+    "iconKey": "Dague",
+    "cofSpec": {
+      "base": "B003",
+      "price": "1.5 pa",
+      "rarity": "Commun"
+    },
+    "damage": "1d4",
+    "pricePC": 300,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b004",
+    "category": "Armes",
+    "subcategory": "Armes d’attaque au contact",
+    "name": "Hache",
+    "rarity": "Commun",
+    "description": "Arme de contact. Données catalogue : 1d8 — FOR aux DM ; type : Tranchants.",
+    "price": 6.0,
+    "iconKey": "Hache",
+    "cofSpec": {
+      "base": "B004",
+      "price": "2.5 pa",
+      "rarity": "Commun"
+    },
+    "damage": "1d8",
+    "pricePC": 600,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b005",
+    "category": "Armes",
+    "subcategory": "Armes d’attaque au contact",
+    "name": "Hache à deux mains",
+    "rarity": "Commun",
+    "description": "Arme à deux mains. Données catalogue : 2d6 — FOR aux DM ; type : Tranchants.",
+    "price": 10.0,
+    "iconKey": "Hache_a_deux_mains",
+    "cofSpec": {
+      "base": "B005",
+      "price": "8 pa",
+      "rarity": "Commun"
+    },
+    "damage": "2d6",
+    "pricePC": 1000,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b006",
+    "category": "Armes",
+    "subcategory": "Armes d’attaque au contact",
+    "name": "Lance",
+    "rarity": "Commun",
+    "description": "Arme à une ou deux mains ; peut être lancée (1d6 DM à 10 m). Portée 2M Données catalogue : 1d6/1d10 — FOR aux DM ; type : Perforants.",
+    "price": 4.0,
+    "iconKey": "Lance",
+    "cofSpec": {
+      "base": "B006",
+      "price": "1.5 pa",
+      "rarity": "Commun"
+    },
+    "damage": "1d6",
+    "pricePC": 400,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b007",
+    "category": "Armes",
+    "subcategory": "Armes d’attaque au contact",
+    "name": "Marteau",
+    "rarity": "Commun",
+    "description": "Arme de contact. Données catalogue : 1d6 — FOR aux DM ; type : Contondants.",
+    "price": 4.0,
+    "iconKey": "Marteau",
+    "cofSpec": {
+      "base": "B007",
+      "price": "1.2 pa",
+      "rarity": "Commun"
+    },
+    "damage": "1d6",
+    "pricePC": 400,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b064",
+    "category": "Armes",
+    "subcategory": "Armes d’attaque au contact",
+    "name": "Marteau à deux mains",
+    "rarity": "Commun",
+    "description": "Arme lourde à deux mains. Profil ajouté au catalogue : 2d6 — FOR aux DM ; type : Contondants.",
+    "price": 8.0,
+    "iconKey": "Marteau_a_2_main",
+    "cofSpec": {
+      "base": "B064",
+      "price": "8 pa",
+      "rarity": "Commun"
+    },
+    "damage": "2d6",
+    "pricePC": 800,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b008",
+    "category": "Armes",
+    "subcategory": "Armes d’attaque au contact",
+    "name": "Masse",
+    "rarity": "Commun",
+    "description": "Arme de contact. Données catalogue : 1d6 — FOR aux DM ; type : Contondants.",
+    "price": 4.0,
+    "iconKey": "Masse",
+    "cofSpec": {
+      "base": "B008",
+      "price": "2 pa",
+      "rarity": "Commun"
+    },
+    "damage": "1d6",
+    "pricePC": 400,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b065",
+    "category": "Armes",
+    "subcategory": "Armes d’attaque au contact",
+    "name": "Pioche",
+    "rarity": "Commun",
+    "description": "Outil lourd utilisable comme arme à deux mains. Profil ajouté au catalogue : 1d8 — FOR aux DM ; type : Perforants.",
+    "price": 2.5,
+    "iconKey": "Pioche",
+    "cofSpec": {
+      "base": "B065",
+      "price": "2.5 pa",
+      "rarity": "Commun"
+    },
+    "damage": "1d8",
+    "pricePC": 250,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b009",
+    "category": "Armes",
+    "subcategory": "Armes d’attaque au contact",
+    "name": "Rapière",
+    "rarity": "Commun",
+    "description": "Arme légère ; critique sur 19-20. Données catalogue : 1d6 — FOR aux DM ; type : Perforants.",
+    "price": 6.0,
+    "iconKey": "Rapiere",
+    "cofSpec": {
+      "base": "B009",
+      "price": "5 pa",
+      "rarity": "Commun"
+    },
+    "damage": "1d6",
+    "pricePC": 600,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b010",
+    "category": "Armes",
+    "subcategory": "Armes d’attaque au contact",
+    "name": "Épée bâtarde",
+    "rarity": "Commun",
+    "description": "Arme à une ou deux mains. Données catalogue : 1d8/1d12 — FOR aux DM ; type : Tranchants.",
+    "price": 9.0,
+    "iconKey": "Ep_batarde",
+    "cofSpec": {
+      "base": "B010",
+      "price": "8 pa",
+      "rarity": "Commun"
+    },
+    "damage": "1d8",
+    "pricePC": 900,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b011",
+    "category": "Armes",
+    "subcategory": "Armes d’attaque au contact",
+    "name": "Épée courte",
+    "rarity": "Commun",
+    "description": "Arme légère. Données catalogue : 1d6 — FOR aux DM ; type : Perforants.",
+    "price": 5.0,
+    "iconKey": "Ep_courte",
+    "cofSpec": {
+      "base": "B011",
+      "price": "3 pa",
+      "rarity": "Commun"
+    },
+    "damage": "1d6",
+    "pricePC": 500,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b012",
+    "category": "Armes",
+    "subcategory": "Armes d’attaque au contact",
+    "name": "Épée longue",
+    "rarity": "Commun",
+    "description": "Arme de contact classique. Données catalogue : 1d8 — FOR aux DM ; type : Tranchants.",
+    "price": 6.0,
+    "iconKey": "Epee_longue",
+    "cofSpec": {
+      "base": "B012",
+      "price": "5 pa",
+      "rarity": "Commun"
+    },
+    "damage": "1d8",
+    "pricePC": 600,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b013",
+    "category": "Armes",
+    "subcategory": "Armes d’attaque au contact",
+    "name": "Épée à deux mains",
+    "rarity": "Commun",
+    "description": "Arme à deux mains. Données catalogue : 2d6 — FOR aux DM ; type : Tranchants.",
+    "price": 10.0,
+    "iconKey": "Ep_a_2_main",
+    "cofSpec": {
+      "base": "B013",
+      "price": "10 pa",
+      "rarity": "Commun"
+    },
+    "damage": "2d6",
+    "pricePC": 1000,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b014",
+    "category": "Armes",
+    "subcategory": "Armes d’attaque à distance",
+    "name": "Arbalète de poing",
+    "rarity": "Commun",
+    "description": "Portée 10 m. Action de mouvement pour être rechargée. Données catalogue : 1d6 — Aucune carac. aux DM ; type : Perforants.",
+    "price": 8.0,
+    "iconKey": "Arbalete",
+    "cofSpec": {
+      "base": "B014",
+      "price": "6 pa",
+      "rarity": "Commun"
+    },
+    "damage": "1d6",
+    "pricePC": 800,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b015",
+    "category": "Armes",
+    "subcategory": "Armes d’attaque à distance",
+    "name": "Arbalète lourde",
+    "rarity": "Commun",
+    "description": "Portée 30 m. Nécessite une action limitée pour être rechargée ; arme tenue à deux mains. Données catalogue : 2d6 — Aucune carac. aux DM ; type : Perforants.",
+    "price": 15.0,
+    "iconKey": "Arbalete",
+    "cofSpec": {
+      "base": "B015",
+      "price": "15 pa",
+      "rarity": "Commun"
+    },
+    "damage": "2d6",
+    "pricePC": 1500,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b016",
+    "category": "Armes",
+    "subcategory": "Armes d’attaque à distance",
+    "name": "Arbalète légère",
+    "rarity": "Commun",
+    "description": "Portée 15 m. Nécessite une action de mouvement pour être rechargée ; arme tenue à deux mains. Données catalogue : 2d4 — Aucune carac. aux DM ; type : Perforants.",
+    "price": 10.0,
+    "iconKey": "Arbalete",
+    "cofSpec": {
+      "base": "B016",
+      "price": "10 pa",
+      "rarity": "Commun"
+    },
+    "damage": "2d4",
+    "pricePC": 1000,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b017",
+    "category": "Armes",
+    "subcategory": "Armes d’attaque à distance",
+    "name": "Arc court",
+    "rarity": "Commun",
+    "description": "Portée 15 m. Arme tenue à deux mains. Données catalogue : 1d6 — Aucune carac. aux DM ; type : Perforants.",
+    "price": 4.0,
+    "iconKey": "Arc_court",
+    "cofSpec": {
+      "base": "B017",
+      "price": "4 pa",
+      "rarity": "Commun"
+    },
+    "damage": "1d6",
+    "pricePC": 400,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b018",
+    "category": "Armes",
+    "subcategory": "Armes d’attaque à distance",
+    "name": "Arc long",
+    "rarity": "Commun",
+    "description": "Portée 30 m. Arme tenue à deux mains ; FOR minimale +1. Données catalogue : 1d8 — Aucune carac. aux DM ; type : Perforants.",
+    "price": 8.0,
+    "iconKey": "Arc_long",
+    "cofSpec": {
+      "base": "B018",
+      "price": "6 pa",
+      "rarity": "Commun"
+    },
+    "damage": "1d8",
+    "pricePC": 800,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b019",
+    "category": "Armes",
+    "subcategory": "Armes d’attaque à distance",
+    "name": "Couteaux de lancer",
+    "rarity": "Commun",
+    "description": "Portée 10 m. Données catalogue : 1d4 — Aucune carac. aux DM ; type : Perforants.",
+    "price": 3.0,
+    "iconKey": "Couteaux_de_lancer",
+    "cofSpec": {
+      "base": "B019",
+      "price": "3 pa",
+      "rarity": "Commun"
+    },
+    "damage": "1d4",
+    "pricePC": 300,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b020",
+    "category": "Armes",
+    "subcategory": "Armes d’attaque à distance",
+    "name": "Javelot",
+    "rarity": "Commun",
+    "description": "Portée 20 m. Données catalogue : 1d6 — Aucune carac. aux DM ; type : Perforants.",
+    "price": 1.0,
+    "iconKey": "Javelot",
+    "cofSpec": {
+      "base": "B020",
+      "price": "1.5 pa",
+      "rarity": "Commun"
+    },
+    "damage": "1d6",
+    "pricePC": 100,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b023",
+    "category": "Armures",
+    "subcategory": "Armures",
+    "name": "Armure de plaques",
+    "rarity": "Commun",
+    "description": "Armure. Données catalogue : +6 — Malus d’armure : +6 à la difficulté des tests d’DEX ; DEX max +2.",
+    "price": 60.0,
+    "iconKey": "Armure_de_plaque",
+    "cofSpec": {
+      "base": "B023",
+      "price": "60 pa",
+      "rarity": "Commun"
+    },
+    "armorMod": "DEF +6",
+    "pricePC": 6000,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b024",
+    "category": "Armures",
+    "subcategory": "Armures",
+    "name": "Chemise de mailles",
+    "rarity": "Commun",
+    "description": "Armure. Données catalogue : +4 — Malus d’armure : +4 à la difficulté des tests d’DEX ; DEX max +4.",
+    "price": 15.0,
+    "iconKey": "Chemis_de_maille",
+    "cofSpec": {
+      "base": "B024",
+      "price": "15 pa",
+      "rarity": "Commun"
+    },
+    "armorMod": "DEF +4",
+    "pricePC": 1500,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b025",
+    "category": "Armures",
+    "subcategory": "Armures",
+    "name": "Cotte de mailles",
+    "rarity": "Commun",
+    "description": "Armure. Données catalogue : +5 — Malus d’armure : +5 à la difficulté des tests d’DEX ; DEX max +3.",
+    "price": 25.0,
+    "iconKey": "Cotte_de_maille",
+    "cofSpec": {
+      "base": "B025",
+      "price": "25 pa",
+      "rarity": "Commun"
+    },
+    "armorMod": "DEF +5",
+    "pricePC": 2500,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b026",
+    "category": "Armures",
+    "subcategory": "Armures",
+    "name": "Cuir renforcé, broigne",
+    "rarity": "Commun",
+    "description": "Armure. Données catalogue : +3 — Malus d’armure : +3 à la difficulté des tests d’DEX ; DEX max +5.",
+    "price": 8.0,
+    "iconKey": "Cuir_renforce",
+    "cofSpec": {
+      "base": "B026",
+      "price": "8 pa",
+      "rarity": "Commun"
+    },
+    "armorMod": "DEF +3",
+    "pricePC": 800,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b027",
+    "category": "Armures",
+    "subcategory": "Armures",
+    "name": "Cuir simple",
+    "rarity": "Commun",
+    "description": "Armure. Données catalogue : +2 — Malus d’armure : +2 à la difficulté des tests d’DEX ; DEX max +6.",
+    "price": 4.0,
+    "iconKey": "Cuir_simple",
+    "cofSpec": {
+      "base": "B027",
+      "price": "4 pa",
+      "rarity": "Commun"
+    },
+    "armorMod": "DEF +2",
+    "pricePC": 400,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b031",
+    "category": "Armures",
+    "subcategory": "Armures",
+    "name": "Tissus matelassés, fourrures",
+    "rarity": "Commun",
+    "description": "Armure légère. Données catalogue : +1 — Malus d’armure : +1 à la difficulté des tests d’DEX ; DEX max +7.",
+    "price": 2.0,
+    "iconKey": "Tissus_matelasses",
+    "cofSpec": {
+      "base": "B031",
+      "price": "2 pa",
+      "rarity": "Commun"
+    },
+    "armorMod": "DEF +1",
+    "pricePC": 200,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b028",
+    "category": "Armures",
+    "subcategory": "Boucliers",
+    "name": "Grand bouclier",
+    "rarity": "Commun",
+    "description": "Bouclier. Bonus de DEF. Données catalogue : +2 — Aucun malus d’armure indiqué ; DEX max —.",
+    "price": 4.0,
+    "iconKey": "Grand_bouclier",
+    "cofSpec": {
+      "base": "B028",
+      "price": "4 pa",
+      "rarity": "Commun"
+    },
+    "armorMod": "DEF +2",
+    "pricePC": 400,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b029",
+    "category": "Armures",
+    "subcategory": "Boucliers",
+    "name": "Petit bouclier",
+    "rarity": "Commun",
+    "description": "Bouclier. Bonus de DEF. Données catalogue : +1 — Aucun malus d’armure indiqué ; DEX max —.",
+    "price": 2.0,
+    "iconKey": "Petit_bouclier",
+    "cofSpec": {
+      "base": "B029",
+      "price": "2 pa",
+      "rarity": "Commun"
+    },
+    "armorMod": "DEF +1",
+    "pricePC": 200,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b039-a390",
+    "category": "Objet consommable",
+    "subcategory": "Fiole / potion",
+    "name": "Poison mineur",
+    "rarity": "Commun",
+    "description": "+1d4 DM de toxique. Une dose s’applique sur une arme ou un projectile. DD CON 15.",
+    "price": 15.0,
+    "iconKey": "Poison",
+    "cofSpec": {
+      "base": "B039",
+      "affixes": [
+        "A390"
+      ],
+      "price": "5 pa",
+      "rarity": "Commun",
+      "name": "Poison mineur"
+    },
+    "pricePC": 1500,
+    "quality": 0,
+    "power": 1,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b042-a396",
+    "category": "Objet consommable",
+    "subcategory": "Fiole / potion",
+    "name": "Potion de mana mineur",
+    "rarity": "Commun",
+    "description": "Rend 1d4 + NivPJ points de mana au personnage qui la boit.",
+    "price": 12.0,
+    "iconKey": "Potion_de_mana",
+    "cofSpec": {
+      "base": "B042",
+      "affixes": [
+        "A396"
+      ],
+      "price": "6 pa",
+      "rarity": "Commun",
+      "name": "Potion de mana mineur"
+    },
+    "pricePC": 1200,
+    "quality": 1,
+    "power": 1,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b045-a397",
+    "category": "Objet consommable",
+    "subcategory": "Fiole / potion",
+    "name": "Potion de soins mineur",
+    "rarity": "Commun",
+    "description": "Rend 1d4 + NivPJ PV au personnage qui la boit.",
+    "price": 10.0,
+    "iconKey": "Potion_de_soins",
+    "cofSpec": {
+      "base": "B045",
+      "affixes": [
+        "A397"
+      ],
+      "price": "5 pa",
+      "rarity": "Commun",
+      "name": "Potion de soins mineur"
+    },
+    "pricePC": 1000,
+    "quality": 1,
+    "power": 1,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b057",
+    "category": "Objet consommable",
+    "subcategory": "Provision",
+    "name": "Ration",
+    "rarity": "Commun",
+    "description": "Ration de voyage pour une personne. Utilisée automatiquement lors d’un repos avec nourriture.",
+    "price": 4.0,
+    "iconKey": "Ration",
+    "cofSpec": {
+      "base": "B057",
+      "price": "0.04 pa",
+      "rarity": "Commun"
+    },
+    "pricePC": 400,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b048",
+    "category": "Objets",
+    "subcategory": "Matériel",
+    "name": "Briquet à silex",
+    "rarity": "Commun",
+    "description": "Objet de base issu de la liste d’équipement.",
+    "price": 1.0,
+    "iconKey": "Briquet_a_silex",
+    "cofSpec": {
+      "base": "B048",
+      "price": "0.05 pa",
+      "rarity": "Commun"
+    },
+    "pricePC": 100,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b050",
+    "category": "Objets",
+    "subcategory": "Matériel",
+    "name": "Corde 15 m",
+    "rarity": "Commun",
+    "description": "Objet de base issu de la liste d’équipement.",
+    "price": 2.0,
+    "iconKey": "Corde_15_m",
+    "cofSpec": {
+      "base": "B050",
+      "price": "0.1 pa",
+      "rarity": "Commun"
+    },
+    "pricePC": 200,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b051",
+    "category": "Objets",
+    "subcategory": "Matériel",
+    "name": "Couverture",
+    "rarity": "Commun",
+    "description": "Objet de base issu de la liste d’équipement.",
+    "price": 1.0,
+    "iconKey": "Couverture",
+    "cofSpec": {
+      "base": "B051",
+      "price": "0.08 pa",
+      "rarity": "Commun"
+    },
+    "pricePC": 100,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b052",
+    "category": "Objets",
+    "subcategory": "Matériel",
+    "name": "Grappin",
+    "rarity": "Commun",
+    "description": "Objet de base issu de la liste d’équipement.",
+    "price": 2.0,
+    "iconKey": "Grappin",
+    "cofSpec": {
+      "base": "B052",
+      "price": "0.15 pa",
+      "rarity": "Commun"
+    },
+    "pricePC": 200,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b053",
+    "category": "Objets",
+    "subcategory": "Matériel",
+    "name": "Huile pour lanterne",
+    "rarity": "Commun",
+    "description": "Une dose permet à une lanterne d’éclairer 6 h dans un rayon de 10 m.",
+    "price": 1.0,
+    "iconKey": "Huile_pour_lanterne",
+    "cofSpec": {
+      "base": "B053",
+      "price": "0.02 pa",
+      "rarity": "Commun"
+    },
+    "pricePC": 100,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b054",
+    "category": "Objets",
+    "subcategory": "Matériel",
+    "name": "Lanterne à huile",
+    "rarity": "Commun",
+    "description": "Éclaire dans un rayon de 10 m ; 1 h pour une torche, 6 h pour une lanterne avec 1 dose d’huile.",
+    "price": 3.0,
+    "iconKey": "Lanterne_a_huile",
+    "cofSpec": {
+      "base": "B054",
+      "price": "0.15 pa",
+      "rarity": "Commun"
+    },
+    "pricePC": 300,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b055",
+    "category": "Objets",
+    "subcategory": "Matériel",
+    "name": "Matériel d’écriture",
+    "rarity": "Commun",
+    "description": "Objet de base issu de la liste d’équipement.",
+    "price": 5.0,
+    "iconKey": "Materiel_d_riture",
+    "cofSpec": {
+      "base": "B055",
+      "price": "0.15 pa",
+      "rarity": "Commun"
+    },
+    "pricePC": 500,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b056",
+    "category": "Objets",
+    "subcategory": "Matériel",
+    "name": "Outils de crochetage",
+    "rarity": "Commun",
+    "description": "Sans ces outils, pénalité de -10 aux tests d’AGI (Crocheter).",
+    "price": 5.0,
+    "iconKey": "Outils_de_crochetage",
+    "cofSpec": {
+      "base": "B056",
+      "price": "0.5 pa",
+      "rarity": "Commun"
+    },
+    "pricePC": 500,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b058",
+    "category": "Objets",
+    "subcategory": "Matériel",
+    "name": "Sac à dos",
+    "rarity": "Commun",
+    "description": "Objet de base issu de la liste d’équipement.",
+    "price": 1.0,
+    "iconKey": "Sac_a_dos",
+    "cofSpec": {
+      "base": "B058",
+      "price": "0.1 pa",
+      "rarity": "Commun"
+    },
+    "pricePC": 100,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b059",
+    "category": "Objets",
+    "subcategory": "Matériel",
+    "name": "Torches (x3)",
+    "rarity": "Commun",
+    "description": "Éclaire dans un rayon de 10 m ; 1 h pour une torche, 6 h pour une lanterne avec 1 dose d’huile.",
+    "price": 1.0,
+    "iconKey": "Torches_x3",
+    "cofSpec": {
+      "base": "B059",
+      "price": "0.02 pa",
+      "rarity": "Commun"
+    },
+    "pricePC": 100,
+    "origin": "Base"
+  },
+  {
+    "id": "cof-b021",
+    "sourceId": "B021",
+    "category": "Armes",
+    "subcategory": "Armes d’attaque à distance",
+    "name": "Mousquet",
+    "description": "Portée 50 m. Nécessite une action limitée pour être rechargée ; arme tenue à deux mains. Données catalogue : 2d6 — Aucune carac. aux DM ; type : Perforants.",
+    "pricePC": 10000,
+    "price": 100.0,
+    "rarity": "Commun",
+    "quality": 0,
+    "power": 0,
+    "origin": "Base",
+    "cofSpec": {
+      "base": "B021",
+      "affixes": [],
+      "quality": 0,
+      "name": "Mousquet"
+    },
+    "cofCompatible": true,
+    "iconKey": "Mousquet"
+  },
+  {
+    "id": "cof-b022",
+    "sourceId": "B022",
+    "category": "Armes",
+    "subcategory": "Armes d’attaque à distance",
+    "name": "Pétoire",
+    "description": "Portée 20 m. Nécessite une action limitée pour être rechargée. Données catalogue : 1d10 — Aucune carac. aux DM ; type : Perforants.",
+    "pricePC": 5000,
+    "price": 50.0,
+    "rarity": "Commun",
+    "quality": 0,
+    "power": 0,
+    "origin": "Base",
+    "cofSpec": {
+      "base": "B022",
+      "affixes": [],
+      "quality": 0,
+      "name": "Pétoire"
+    },
+    "cofCompatible": true,
+    "iconKey": "Petoire"
+  },
+  {
+    "id": "cof-b030",
+    "sourceId": "B030",
+    "category": "Armures",
+    "subcategory": "Armures et boucliers",
+    "name": "Plaque complète",
+    "description": "Armure fabriquée sur mesure ; seul le chevalier peut la porter grâce à la capacité de rang 2 de la voie de la noblesse. Données catalogue : +7 — Malus d’armure : +7 à la difficulté des tests d’DEX ; DEX max +1.",
+    "pricePC": 20000,
+    "price": 200.0,
+    "rarity": "Commun",
+    "quality": 0,
+    "power": 0,
+    "origin": "Base",
+    "cofSpec": {
+      "base": "B030",
+      "affixes": [],
+      "quality": 0,
+      "name": "Plaque complète"
+    },
+    "cofCompatible": true,
+    "iconKey": "Armure_de_plaque"
+  },
+  {
+    "id": "cof-b060",
+    "sourceId": "B060",
+    "category": "Armes",
+    "subcategory": "Armes magiques",
+    "name": "Sceptre",
+    "description": "Focus magique à une main. Hypothèse de base : 1d4 contondant ; ces statistiques peuvent être ajustées sur la fiche OBJET si nécessaire.",
+    "pricePC": null,
+    "price": 0,
+    "rarity": "Commun",
+    "quality": 0,
+    "power": 0,
+    "origin": "Base",
+    "cofSpec": {
+      "base": "B060",
+      "affixes": [],
+      "quality": 0,
+      "name": "Sceptre"
+    },
+    "cofCompatible": true,
+    "icon": "assets/icons/alaric-nouvelles/cof-b060.svg"
+  },
+  {
+    "id": "cof-b061",
+    "sourceId": "B061",
+    "category": "Accessoire",
+    "subcategory": "Main gauche",
+    "name": "Focus / objet de main gauche",
+    "description": "Objet tenu en main gauche servant de focus magique. Aucun bonus intrinsèque.",
+    "pricePC": null,
+    "price": 0,
+    "rarity": "Commun",
+    "quality": 0,
+    "power": 0,
+    "origin": "Base",
+    "cofSpec": {
+      "base": "B061",
+      "affixes": [],
+      "quality": 0,
+      "name": "Focus / objet de main gauche"
+    },
+    "cofCompatible": true,
+    "icon": "assets/icons/alaric-nouvelles/cof-b061.svg"
+  },
+  {
+    "id": "cof-b062",
+    "sourceId": "B062",
+    "category": "Consommable",
+    "subcategory": "Parchemin",
+    "name": "Parchemin de stabilisation",
+    "description": "Stabilise un PJ inconscient à partir de sa 2e chute. Le personnage reste au sol jusqu’à la fin du combat.",
+    "pricePC": 15000,
+    "price": 150.0,
+    "rarity": "Commun",
+    "quality": 0,
+    "power": 0,
+    "origin": "Base",
+    "cofSpec": {
+      "base": "B066",
+      "price": "150 pa",
+      "rarity": "Commun",
+      "name": "Parchemin de stabilisation"
+    },
+    "cofCompatible": true,
+    "icon": "assets/icons/alaric-nouvelles/cof-b062.svg",
+    "iconKey": "tied-scroll"
+  },
+  {
+    "id": "coam-f-0",
+    "sourceId": "COAM-F-0",
+    "category": "Objet consommable",
+    "subcategory": "Flèche",
+    "name": "Flèche normale",
+    "description": "Munition standard : aucun bonus",
+    "pricePC": 20,
+    "price": 0.2,
+    "rarity": "Commun",
+    "quality": 0,
+    "power": 0,
+    "origin": "Base",
+    "cofSpec": {
+      "base": "COAM-F-0",
+      "affixes": [],
+      "quality": 0,
+      "name": "Flèche normale"
+    },
+    "cofCompatible": true,
+    "icon": "assets/icons/alaric-nouvelles/coam-f-0.svg"
+  },
+  {
+    "id": "coam-p-0",
+    "sourceId": "COAM-P-0",
+    "category": "Objet consommable",
+    "subcategory": "Plomb",
+    "name": "Plomb normale",
+    "description": "Munition standard : aucun bonus",
+    "pricePC": 10,
+    "price": 0.1,
+    "rarity": "Commun",
+    "quality": 0,
+    "power": 0,
+    "origin": "Base",
+    "cofSpec": {
+      "base": "COAM-P-0",
+      "affixes": [],
+      "quality": 0,
+      "name": "Plomb normale"
+    },
+    "cofCompatible": true,
+    "icon": "assets/icons/alaric-nouvelles/coam-p-0.svg"
+  },
+  {
+    "id": "coam-q20",
+    "sourceId": "COAM-Q20",
+    "category": "Accessoire",
+    "subcategory": "Contenants",
+    "name": "Carquois",
+    "description": "Contient 20 projectiles, prédicat Carquois:20",
+    "pricePC": 200,
+    "price": 2.0,
+    "rarity": "Commun",
+    "quality": 0,
+    "power": 0,
+    "origin": "Base",
+    "cofSpec": {
+      "base": "COAM-Q20",
+      "affixes": [],
+      "quality": 0,
+      "name": "Carquois"
+    },
+    "cofCompatible": true,
+    "icon": "assets/icons/alaric-nouvelles/coam-q20.svg"
+  },
+  {
+    "id": "coam-s30",
+    "sourceId": "COAM-S30",
+    "category": "Accessoire",
+    "subcategory": "Contenants",
+    "name": "Sac à munitions",
+    "description": "Contient 30 projectiles, prédicat Carquois:30",
+    "pricePC": 200,
+    "price": 2.0,
+    "rarity": "Commun",
+    "quality": 0,
+    "power": 0,
+    "origin": "Base",
+    "cofSpec": {
+      "base": "COAM-S30",
+      "affixes": [],
+      "quality": 0,
+      "name": "Sac à munitions"
+    },
+    "cofCompatible": true,
+    "icon": "assets/icons/alaric-nouvelles/coam-s30.svg"
+  },
+  {
+    "id": "cof-b040-p1",
+    "sourceId": "B040",
+    "category": "Potions",
+    "subcategory": "Fiole / potion",
+    "name": "Potion de caractéristique P1",
+    "description": "Bonus temporaire de +1 à une caractéristique. La caractéristique et la durée dépendent de la variante choisie. · Palier de puissance P1.",
+    "pricePC": 5000,
+    "price": 50.0,
+    "rarity": "Peu Commun",
+    "quality": 0,
+    "power": 1,
+    "iconKey": "Potion_de_caracteristique_temporaire",
+    "origin": "Base",
+    "cofSpec": {
+      "base": "B040",
+      "affixes": [],
+      "name": "Potion de caractéristique P1",
+      "power": 1
+    },
+    "cofCompatible": true
+  }
+]

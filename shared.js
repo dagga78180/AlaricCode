@@ -5,6 +5,7 @@
   const app = global.firebase.apps.length ? global.firebase.app() : global.firebase.initializeApp(cfg.firebase);
   const db = global.firebase.firestore(app), auth = global.firebase.auth(app);
   const validGroups = Object.keys(cfg.groups);
+  const RARITY_LABELS=['Commun','Peu Commun','Inhabituel','Rare','Exceptionnel','Précieux','Épique','Légendaire','Mythique','Artefact','Objet Divin'];
   function groupId(raw) { return validGroups.includes(raw) ? raw : 'groupe1'; }
   function parsePricePC(value, defaultUnit='pa') {
     if (value === null || value === undefined || value === '') return null;
@@ -68,6 +69,37 @@
     if(/hache|[eé]p[eé]e|dague|marteau|masse|lance|rapi[eè]re|arme|b[aâ]ton/.test(name+' '+sub)||category==='arme'||category==='armes')return 'icons/fallback/arme.svg';
     return 'icons/fallback/materiel.svg';
   }
+  // Même rang pour les PNG historiques et les SVG V3 : R = Q + Pmax, borné à 10.
+  // Pmax est le palier le plus élevé de tous les affixes (jamais leur somme).
+  function computeIconRank(item, affixCatalog=[]) {
+    const clamp5=value=>Math.min(5,Math.max(0,Math.trunc(Number(value)||0)));
+    const q=clamp5(item?.quality ?? item?.cofSpec?.quality ?? 0);
+    const powerById=new Map((Array.isArray(affixCatalog)?affixCatalog:[]).map(a=>[String(a.id),clamp5(a.tier ?? a.p)]));
+    const raw=[...(Array.isArray(item?.cofSpec?.affixes)?item.cofSpec.affixes:[]),
+      ...(Array.isArray(item?.affixes)?item.affixes:[])];
+    let found=false,p=0;
+    for(const spec of raw) {
+      const id=String(typeof spec==='object'?(spec?.id??''):spec);
+      if(typeof spec==='object' && (spec?.tier !== undefined || spec?.p !== undefined)) {
+        p=Math.max(p,clamp5(spec.tier ?? spec.p)); found=true;
+      }
+      if(powerById.has(id)) {p=Math.max(p,powerById.get(id));found=true;}
+      // Affixes anciens issus de la V2 si absents du nouveau catalogue.
+      else if(!found && global.AlaricPricing?.powerForAffix) {
+        const legacy=clamp5(global.AlaricPricing.powerForAffix(id));
+        if(legacy) {p=Math.max(p,legacy);found=true;}
+      }
+    }
+    if(!found) p=clamp5(item?.power);
+    return {q,p,rank:Math.min(10,q+p)};
+  }
+  function tieredIcon(icon,rank) {
+    const raw=String(icon||'');
+    // Seuls les SVG du jeu V3 possèdent les 11 variantes R00–R10 générées.
+    if(!/^assets\/icons\/alaric-nouvelles\/[a-z0-9-]+(?:_R(?:0[0-9]|10))?\.svg$/i.test(raw))return raw;
+    const r=Math.max(0,Math.min(10,Math.trunc(Number(rank)||0)));
+    return raw.replace(/(?:_R(?:0[0-9]|10))?\.svg$/i,`_R${String(r).padStart(2,'0')}.svg`);
+  }
   function normalizedItem(o, origin, maps={}) {
     if(!o || typeof o!=='object')return null;
     const id=normalizeId(first(o,['id','item_id','itemId','ID','sourceId']));
@@ -75,11 +107,11 @@
     if(!id || !name)return null;
     let pricePC = o.pricePC !== undefined ? parsePricePC(o.pricePC,'pc') : parsePricePC(first(o,['price','prix','pricePA','prix_pa','pricePa']),'pa');
     if (id === 'coam-f-0') pricePC=20; // Prix souhaité par le MJ ; source XLSX : 0,1 PA.
-    const icon=iconUrl(maps[id] || first(o,['icon','icone','image','imageUrl','iconUrl','icon_url','illustration','image_url'])) || fallbackIcon(o);
+    const icon=iconUrl(maps[id] || first(o,['icon','icone','image','imageUrl','iconUrl','icon_url','illustration','image_url']));
     const sub=String(first(o,['subcategory','subCategory','sousCategorie','sous-catégorie','Sous-catégorie'])??'');
     const item = {id,name,category:String(first(o,['category','categorie','catégorie','Catégorie'])??'Divers'),subcategory:sub,
       description:String(first(o,['description','desc','Description / règles','rules','regles'])??''),
-      pricePC,icon,origin,rarity:String(first(o,['rarity','rarete','rareté','Rareté'])??'Commun'),affixes:Array.isArray(o.affixes)?o.affixes:[],visible:o.visible !== false,
+      pricePC,icon,origin,iconKey:String(o.iconKey||''),rarity:String(first(o,['rarity','rarete','rareté','Rareté'])??'Commun'),quality:Number(o.quality||o.cofSpec?.quality||0),power:Number(o.power||0),cofSpec:o.cofSpec||null,cofCompatible:o.cofCompatible!==false,affixes:Array.isArray(o.affixes)?o.affixes:[],visible:o.visible !== false,
       sourceId:String(o.sourceId||o.ID||id),templateId:String(o.templateId||'')};
     return item;
   }
@@ -127,7 +159,7 @@
     if(pricePC !== null && (!Number.isSafeInteger(pricePC)||pricePC<0))throw Error('Prix en PC entiers obligatoire');
     const safeAffixes=(Array.isArray(item.affixes)?item.affixes:[]).slice(0,10).map(a=>({id:String(a.id||''),name:String(a.name||''),effect:String(a.effect||'')}));
     const doc={name,category:String(item.category||'Divers'),subcategory:String(item.subcategory||''),
-      description:String(item.description||'').slice(0,4000),pricePC,icon:iconUrl(item.icon),
+      description:String(item.description||'').slice(0,4000),pricePC,quality:Math.max(0,Math.min(5,Number(item.quality)||0)),power:Math.max(0,Math.min(5,Number(item.power)||0)),rarity:String(item.rarity||'Commun'),iconKey:String(item.iconKey||''),cofSpec:item.cofSpec||null,cofCompatible:item.cofCompatible!==false,icon:iconUrl(item.icon),
       templateId:String(item.templateId||''),affixes:safeAffixes,visible:item.visible!==false,
       updatedAt:global.firebase.firestore.FieldValue.serverTimestamp()};
     await groupItems(group).doc(id).set(doc,{merge:true}); return id;
@@ -207,10 +239,10 @@
     for(const item of custom)all.set(item.id,{...item});
     return [...all.values()].map(it=>{
       const adjust=overrides.get(it.id)||{};
-      return {...it,visible:adjust.visible!==undefined?adjust.visible:it.visible,
+      return {...it,visible:it.origin==='Base'?true:(adjust.visible!==undefined?adjust.visible:it.visible),
         pricePC:adjust.pricePC!==undefined?adjust.pricePC:it.pricePC,
         stock:stocks.has(it.id)?stocks.get(it.id):null};
     });
   }
-  global.AlaricApp={cfg,db,auth,groupId,parsePricePC,formatPC,normalizeId,normalizedItem,fallbackIcon,loadCatalog,groupStocks,groupItems,getStock,getCustom,setStock,saveCustom,deleteCustom,migrationLegacy,compatibleAffixes,iconUrl,elem,getOverrides,setBaseOverride,overlay};
+  global.AlaricApp={cfg,db,auth,RARITY_LABELS,groupId,parsePricePC,formatPC,normalizeId,computeIconRank,tieredIcon,normalizedItem,fallbackIcon,loadCatalog,groupStocks,groupItems,getStock,getCustom,setStock,saveCustom,deleteCustom,migrationLegacy,compatibleAffixes,iconUrl,elem,getOverrides,setBaseOverride,overlay};
 }(window));

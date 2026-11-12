@@ -33,7 +33,7 @@ service cloud.firestore {
       match /customItems/{itemId} {
         allow read: if isGroup(groupId);
         allow create, update: if isGroup(groupId) && isMJ()
-          && request.resource.data.keys().hasOnly(['name','category','subcategory','description','pricePC','icon','templateId','affixes','visible','updatedAt'])
+          && request.resource.data.keys().hasOnly(['name','category','subcategory','description','pricePC','icon','iconKey','quality','power','rarity','cofSpec','cofCompatible','templateId','affixes','visible','updatedAt'])
           && request.resource.data.name is string
           && request.resource.data.name.size() > 0
           && request.resource.data.name.size() <= 140
@@ -42,6 +42,8 @@ service cloud.firestore {
           && request.resource.data.icon is string
           && request.resource.data.visible is bool
           && request.resource.data.affixes is list
+          && request.resource.data.quality is int && request.resource.data.quality >= 0 && request.resource.data.quality <= 5
+          && request.resource.data.power is int && request.resource.data.power >= 0 && request.resource.data.power <= 5
           && (request.resource.data.pricePC == null ||
               (request.resource.data.pricePC is int && request.resource.data.pricePC >= 0));
         allow delete: if isGroup(groupId) && isMJ();

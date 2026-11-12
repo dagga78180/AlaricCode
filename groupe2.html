@@ -1,1 +1,150 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>Alaric · Groupe 2</title><meta http-equiv="refresh" content="0;url=index.html?groupe=groupe2"></head><body><a href="index.html?groupe=groupe2">Entrer dans la boutique du groupe 2</a></body></html>
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>L’échoppe d’Alaric · Catalogue COF</title>
+  <meta name="description" content="Catalogue interactif pour l’inventaire du marchand Alaric, compatible Chroniques Oubliées Fantasy." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero" aria-label="L’échoppe Fantastique d’Alaric">
+    <div class="hero__content">
+      <div class="hero__panel">
+        <div class="hero__intro">
+          <p class="eyebrow">Chroniques Oubliées Fantasy · prix en PO / PA / PC</p>
+          <h1>L’échoppe d’Alaric</h1>
+          <p class="hero__text">Armes, protections, potions, parchemins et trouvailles exotiques pour aventuriers prudents.</p>
+        </div>
+        <div class="hero__actions">
+          <a class="button button--primary" href="#catalogue">Voir le catalogue</a>
+          <button class="button button--ghost" id="open-cart-mobile" type="button">Voir le panier</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="alaric-group-switch" aria-label="Boutiques et administration">
+    <a href="groupe1.html" id="link-g1">Groupe 1</a><a href="groupe2.html" id="link-g2">Groupe 2</a><a href="mj.html" title="Réservé au MJ">⚙ Gestion MJ</a>
+  </nav>
+  <main class="layout" id="catalogue">
+    <section class="catalogue" aria-labelledby="catalogue-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow" id="active-group-label">Catalogue marchand · Groupe 1</p>
+          <h2 id="catalogue-title">Les étagères d’Alaric</h2>
+        </div>
+        <p id="result-count" class="result-count">Chargement du catalogue…</p>
+      </div>
+
+      <div id="catalogue-alerts" class="catalogue-alerts" role="status" hidden></div>
+
+      <div class="toolbar" aria-label="Filtres du catalogue">
+        <label class="field field--search">
+          <span>Rechercher</span>
+          <input id="search" type="search" placeholder="Nom, effet, catégorie…" autocomplete="off" />
+        </label>
+
+        <label class="field">
+          <span>Catalogue</span>
+          <select id="source-filter">
+            <option value="all">Tout</option>
+            <option value="alaric">Sélection d’Alaric</option>
+            <option value="base">Catalogue de base</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Sous-catégorie</span>
+          <select id="subcategory-filter">
+            <option value="all">Toutes</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Rareté</span>
+          <select id="rarity-filter">
+            <option value="all">Toutes</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Prix minimum</span>
+          <input id="price-min" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0 PA" />
+        </label>
+
+        <label class="field">
+          <span>Prix maximum</span>
+          <input id="price-max" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Sans limite" />
+        </label>
+
+        <label class="field">
+          <span>Tri</span>
+          <select id="sort-filter">
+            <option value="alaric-first">Sélection d’Alaric en premier</option>
+            <option value="category-asc">Catégorie</option>
+            <option value="name-asc">Nom A → Z</option>
+            <option value="price-asc">Prix croissant</option>
+            <option value="price-desc">Prix décroissant</option>
+            <option value="rarity-asc">Rareté faible → élevée</option>
+            <option value="rarity-desc">Rareté élevée → faible</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="filter-actions">
+        <button class="chip" id="favorites-only" type="button" aria-pressed="false">☆ Favoris uniquement</button>
+        <button class="button button--ghost button--small" id="reset-filters" type="button">Réinitialiser les filtres</button>
+      </div>
+
+      <nav class="category-filters" id="category-filters" aria-label="Catégories"></nav>
+
+      <div class="items-list" id="items-grid" aria-live="polite"></div>
+    </section>
+
+    <aside class="cart-panel" id="cart-panel" aria-label="Panier">
+      <div class="cart-panel__inner">
+        <div class="cart-panel__header">
+          <div>
+            <p class="eyebrow">Commande</p>
+            <h2>Panier</h2>
+          </div>
+          <button class="icon-button" id="close-cart-mobile" type="button" aria-label="Fermer le panier">×</button>
+        </div>
+
+        <p class="cart-empty" id="cart-empty">Le panier est vide.</p>
+        <div class="cart-items" id="cart-items"></div>
+
+        <div class="cart-total">
+          <span>Total</span>
+          <strong id="cart-total">0 PC</strong>
+        </div>
+
+        <div class="cart-actions">
+          <button class="button button--primary" id="copy-order" type="button">Copier pour Roll20</button>
+          <button class="button button--ghost" id="clear-cart" type="button">Vider</button>
+        </div>
+        <p class="cart-help">Colle la commande dans le chat Roll20 en tant que MJ, puis cible le PJ destinataire.</p>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__content">
+      <p>Boutique d’Alaric · compatible COAlaric V2 + CoFItem V2 · panier et favoris stockés dans le navigateur.</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="https://www.gstatic.com/firebasejs/13.2.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/13.2.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/13.2.0/firebase-firestore-compat.js"></script>
+  <script>window.ALARIC_GROUP="groupe2";</script>
+  <script src="config.js"></script>
+  <script src="shared.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/pricing.js"></script>
+  <script src="js/app.js"></script>
+  <script>document.getElementById('active-group-label').textContent='Catalogue marchand · '+window.AlaricApp.cfg.groups[window.AlaricApp.groupId(window.ALARIC_GROUP||new URLSearchParams(location.search).get('groupe'))];document.getElementById('link-g'+(window.ALARIC_GROUP==='groupe2'?'2':'1')).classList.add('active');</script>
+</body>
+</html>

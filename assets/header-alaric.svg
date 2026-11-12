@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 270" role="img" aria-labelledby="ttl desc">
-<title id="ttl">L'échoppe Fantastique d'Alaric</title><desc id="desc">Bannière de l'échoppe, violette, ornementation dorée</desc>
-<defs><radialGradient id="g"><stop stop-color="#512c68"/><stop offset=".65" stop-color="#2f1746"/><stop offset="1" stop-color="#140923"/></radialGradient><linearGradient id="gold"><stop stop-color="#f7e4ad"/><stop offset=".5" stop-color="#bf8c4e"/><stop offset="1" stop-color="#fbdf9c"/></linearGradient></defs>
-<rect width="1200" height="270" rx="20" fill="url(#g)"/><rect x="10" y="10" width="1180" height="250" rx="15" fill="none" stroke="url(#gold)" stroke-width="3"/><rect x="25" y="24" width="1150" height="220" rx="8" fill="none" stroke="#b784c8" stroke-opacity=".5"/>
-<g fill="none" stroke="#d7aa72" stroke-width="3" opacity=".8"><path d="M45 136q35-62 76 0q-40 60-76 0zm1110 0q-35-62-76 0q40 60 76 0z"/><path d="M140 135q50 0 85-28M140 135q50 0 85 28m835-28q-50 0-85-28m85 28q-50 0-85 28"/><path d="M210 70l-22-22-22 22 22 22zm802 0l-22-22-22 22 22 22z"/></g>
-<g fill="#d6af77"><path d="M188 122l6-18 6 18 18 6-18 6-6 18-6-18-18-6zM1012 122l6-18 6 18 18 6-18 6-6 18-6-18-18-6z"/></g>
-<text x="600" y="107" font-family="Georgia,serif" font-size="31" letter-spacing="7" fill="#dbc29d" text-anchor="middle">L'ÉCHOPPE FANTASTIQUE</text>
-<text x="600" y="191" font-family="Georgia,serif" font-size="85" font-weight="bold" fill="url(#gold)" text-anchor="middle">d'Alaric</text><path d="M350 215h500" stroke="#e7b883" stroke-width="2"/><circle cx="600" cy="215" r="6" fill="#d5a55d"/>
-</svg>

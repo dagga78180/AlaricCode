@@ -1,0 +1,83 @@
+:root {
+  --rarity-commun: #000000;
+  --rarity-peu-commun: #9dffb0;
+  --rarity-inhabituel: #7ee1ff;
+  --rarity-rare: #6aa8ff;
+  --rarity-exceptionnel: #b48cff;
+  --rarity-precieux: #ffd36a;
+  --rarity-epique: #ff7ee7;
+  --rarity-legendaire: #ff9f43;
+  --rarity-mythique: #ff5f6d;
+  --rarity-artefact: #ff009d;
+  --rarity-objet-divin: #ffd900;
+}
+
+.rarity-badge--commun {
+  color: #000000;
+  border-color: rgba(216, 216, 216, 0.38);
+  background: rgba(216, 216, 216, 0.10);
+}
+
+.rarity-badge--peu-commun {
+  color: #9dffb0;
+  border-color: rgba(157, 255, 176, 0.42);
+  background: rgba(157, 255, 176, 0.12);
+}
+
+.rarity-badge--inhabituel {
+  color: #7ee1ff;
+  border-color: rgba(126, 231, 255, 0.42);
+  background: rgba(126, 231, 255, 0.12);
+}
+
+.rarity-badge--rare {
+  color: #6aa8ff;
+  border-color: rgba(106, 168, 255, 0.48);
+  background: rgba(106, 168, 255, 0.13);
+}
+
+.rarity-badge--exceptionnel {
+  color: #b48cff;
+  border-color: rgba(180, 140, 255, 0.50);
+  background: rgba(180, 140, 255, 0.14);
+}
+
+.rarity-badge--precieux {
+  color: #ffd36a;
+  border-color: rgba(255, 211, 106, 0.52);
+  background: rgba(255, 211, 106, 0.15);
+}
+
+.rarity-badge--epique {
+  color: #ff7ee7;
+  border-color: rgba(255, 126, 231, 0.52);
+  background: rgba(255, 126, 231, 0.15);
+}
+
+.rarity-badge--legendaire {
+  color: #ff9f43;
+  border-color: rgba(255, 159, 67, 0.56);
+  background: rgba(255, 159, 67, 0.16);
+}
+
+.rarity-badge--mythique {
+  color: #ff5f6d;
+  border-color: rgba(255, 95, 109, 0.58);
+  background: rgba(255, 95, 109, 0.16);
+}
+
+.rarity-badge--artefact {
+  color: #ff009d;
+  border-color: rgba(255, 255, 255, 0.62);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(241, 197, 106, 0.12));
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.12);
+}
+
+.rarity-badge--objet-divin {
+  color: #ffd900;
+  border-color: rgba(255, 243, 176, 0.75);
+  background: linear-gradient(135deg, rgba(255, 243, 176, 0.25), rgba(255, 126, 231, 0.14));
+  box-shadow:
+    0 0 18px rgba(255, 243, 176, 0.22),
+    0 0 36px rgba(255, 126, 231, 0.10);
+}

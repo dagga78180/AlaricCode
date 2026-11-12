@@ -1,53 +1,40 @@
-# AlaricCode — remplacement intégral à la racine
+# AlaricCode — V4, interface V2 conservée
 
-Cette archive remplace l'ancienne application : **aucun dossier `v3/`**, aucun ancien fichier JavaScript ni CSS n'est nécessaire au fonctionnement.
+**INSTALLATION** : sauvegarde d’abord le dépôt. Place le contenu de cette archive directement à la racine de GitHub Pages, sans dossier `v3/`. Conserve la configuration GitHub Pages.
 
-## Structure
+## Adresses
+- `index.html` et `groupe1.html` : boutique groupe 1 ; `groupe2.html` : boutique groupe 2
+- `mj.html` : espace MJ (authentification Firebase, pas de mot de passe dans le code)
 
-- `index.html` : vitrine par défaut du groupe 1 (`?groupe=groupe1` ou `?groupe=groupe2`).
-- `groupe1.html` : lien dédié aux joueurs du groupe 1.
-- `groupe2.html` : lien dédié aux joueurs du groupe 2.
-- `mj.html` : gestion sécurisée des stocks, objets, affixes, imports/exports.
-- `config.js` : connexion Firebase publique, déjà configurée pour `alaricstock-c51d1`.
-- `shared.js`, `vitrine.js`, `mj.js`, `style.css`, `vitrine-classique.css` : application entière.
-- `data/base-items.json` : **catalogue de base autonome** préparé depuis le classeur (objets standards, 7 ajouts demandés, ancien carquois de 20 flèches retiré).
-- `data/templates.json`, `data/affixes.json` : modèles et affixes du catalogue fourni.
-- `icons/` : SVG transmis et variantes colorées, avec icônes génériques de secours.
-- `assets/` : nouvelle bannière SVG et ornement du thème violet/or pour ne pas dépendre d'anciens assets.
-- `firestore.rules` : règles Firestore à adapter avec l'UID du MJ.
+## Collections Firestore
+- `groups/groupe1/stocks` et `groups/groupe2/stocks` : quantités (absence de document = illimité)
+- `groups/{groupe}/customItems` : objets de la sélection MJ par groupe
+- `groups/{groupe}/baseOverrides` : visibilité et prix personnalisés d’un objet de base ou sélection d’origine.
+- Les 12 anciens objets de la Sélection d’Alaric sont conservés dans `data/catalogue.json`; les modifier ou les retirer dans l’espace MJ pour le groupe choisi (leur version historique reste archivée dans le JSON).
 
-## Installer en remplacement total
+**IMPORTANT** : remplace `REMPLACE_PAR_TON_UID_MJ` dans `firestore.rules` par le UID de ton compte Firebase, puis publie les règles Firestore AVANT de tester les créations et modifications. Les anciennes données ne sont pas supprimées. Pour recopier tes stocks historiques, utilise le bouton dédié une seule fois sur le groupe choisi.
 
-1. **Sauvegarder** le dépôt actuel via GitHub → Code → Download ZIP, et conserver le CSV Supabase. Faire une sauvegarde/export Firestore si possible. Les données Firestore ne seront pas supprimées lors de la mise à jour de GitHub Pages.
-2. Depuis GitHub Desktop (conseillé), cloner le dépôt `dagga78180/AlaricCode` ou ouvrir le clone existant.
-3. À la racine locale, **supprimer les fichiers de l'ancienne boutique et le répertoire `v3/`**. Ne supprimer **ni le dossier `.git`**, ni les configurations GitHub Pages nécessaires en dehors de l'app. Ne pas supprimer le dépôt entier.
-4. Décompresser **le contenu** de ce ZIP directement à la racine du dépôt (PAS un dossier parent, PAS `v3/`).
-5. Vérifier que `index.html`, `groupe1.html`, `groupe2.html`, `mj.html` sont directement à la racine, puis Commit et Push vers `main`.
-6. Dans Firebase Console → Firestore Database → Règles, reprendre `firestore.rules` et remplacer `REMPLACE_PAR_TON_UID_MJ` par l'UID exact du MJ, puis Publier. **Ne pas publier la valeur placeholder.**
-7. Ouvrir `https://dagga78180.github.io/AlaricCode/groupe1.html`, puis `/groupe2.html`, puis `/mj.html` ; tester la connexion MJ, la séparation des quantités et le panier.
+## Icônes : P et Q
+- Les **1 530 images PNG V2** et le `manifest.json` sont conservés dans `assets/icons/`.
+- Niveau d’icône **R = min(10, Q + Pmax)**, avec qualité Q0–Q5 et Pmax (palier maximum des affixes) de P0–P5. R00…R10 utilisent la variante correspondante dans le manifeste historique. Cette règle est identique pour les icônes PNG V2 et SVG V3. Le niveau Pmax est le plus haut palier parmi les affixes sélectionnés ; ce n’est jamais leur somme.
+- Les 52 nouvelles icônes SVG se trouvent dans `assets/icons/alaric-nouvelles/`. Chaque dessin existe en **11 versions R00 à R10**, dont les couleurs reprennent la palette V2 (`assets/icons/palette.json`). La couleur principale de l’élément reste reconnaissable. Le site choisit automatiquement `<identifiant>_Rxx.svg` en fonction de Q et Pmax, même pour les créations et imports MJ. Les autres images personnalisées restent inchangées.
 
-## Important : groupes et reprise des stocks
+## Monnaie
+- 1 PO = 100 PA ; 1 PA = 100 PC. Tous les prix Firebase sont en PC entiers.
+- Les valeurs chiffrées des objets de base proviennent du classeur `Catalogue_objet_Magique.xlsx` quand une valeur est renseignée ; la flèche standard est définie à **20 PC** selon ta consigne. Les prix manquants restent à définir.
+- Le bouton de calcul de l’éditeur est basé sur le **moteur V2 `data/pricing-model.json`** ; le calculateur figé dans la feuille source ne définit pas une formule exploitable complète pour toutes les combinaisons. Le prix reste modifiable par le MJ et l’estimation n’est pas présentée comme certifiée par le nouveau classeur.
 
-L'ancienne collection `stocks` de Firestore n'est pas modifiée. Les deux nouvelles collections sont `groups/groupe1/stocks` et `groups/groupe2/stocks`. Dans `mj.html` → Import / export, tu peux copier l'ancien stock **dans un groupe choisi**, sans l'écraser s'il existe déjà. Répéter uniquement si tu souhaites les mêmes données de départ dans l'autre groupe.
+## Fonctionnalités V2
+Vitrine HTML/CSS d’origine : filtres, favoris, panier, macro Roll20 pour les objets compatibles. Si une commande contient un objet personnalisé sans spécification Roll20 exploitable, le bouton copie une liste de commande lisible à transmettre au MJ. Les paniers sont séparés par groupe dans le navigateur.
 
-Le catalogue de base est **reconstitué depuis le classeur fourni**, pas une copie exacte du dernier `catalogue.json` de ton ancien dépôt, auquel nous n'avons pas accès sous sa version récente. Il contient les équipements usuels et les 7 ajouts demandés. Les créations MJ déjà présentes dans les collections `groups/.../customItems` restent gérées par Firebase. Si tu utilisais d'autres objets personnalisés **uniquement dans un ancien fichier JSON GitHub**, il faudra les réimporter depuis ta sauvegarde ; ils n'apparaissent pas automatiquement dans ce ZIP.
+## Tester sans casser les données
+1. Déploie la page ; vérifie les images d’une arme commune et d’un objet P/Q non nul.
+2. Connecte-toi dans `mj.html`, sélectionne groupe 1, règle le stock d’un seul objet.
+3. Vérifie la quantité dans `groupe1.html` et l’absence de changement dans `groupe2.html`.
+4. Essaie la création puis la suppression d’un objet de sélection, et un import JSON de test.
 
-Les illustrations anciennes qui ne figuraient pas parmi les 12 SVG fournis sont remplacées par des pictogrammes de catégorie. La bannière violette et or a été refaite en SVG ; ce n'est pas une copie pixel pour pixel de l'ancienne image non disponible localement.
+**Aucune écriture dans la base n'est effectuée par le ZIP : les changements Firebase ne commencent que lors de tes actions dans l’interface.**
 
-## Monnaies
+Le catalogue de base est **toujours visible** dans les deux groupes : l’espace MJ ne propose pas de le masquer. La Sélection d’Alaric est modifiable et ses stocks restent séparés.
 
-1 PO = 100 PA = 10 000 PC, 1 PA = 100 PC. Tous les prix sont stockés en PC entiers ; flèche normale = 20 PC. Le bâton courant est repris à 1 PA depuis l'ancien catalogue public. Les prix non renseignés dans le classeur restent `Prix à définir` et ne sont pas commandables avant modification dans la page MJ.
-
-## Sécurité
-
-Le lien `mj.html` est visible mais seuls les comptes Firebase autorisés par les règles Firestore peuvent enregistrer des stocks et des objets. Une copie du fichier `firestore.rules` seule ne publie pas les règles ; elles doivent être configurées dans la console Firebase.
-
-## Tests recommandés
-
-- Vérifier que les deux vitrines affichent des stocks différents et que les paniers sont indépendants.
-- Modifier une quantité dans `mj.html` et contrôler uniquement le groupe ciblé.
-- Copier une commande ; vérifier le calcul des PO/PA/PC.
-- Créer un objet test avec un affixe et le supprimer ensuite.
-- Importer un JSON test dans un seul groupe.
-
-**Ne pas supprimer l'ancienne base Firebase avant d'avoir vérifié les deux vitrines.**
+Parchemin de stabilisation : prix V2 conservé à 150 PA et spécification Roll20 historique B066, avec référence de vitrine B062 conforme au nouveau catalogue.

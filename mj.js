@@ -27,7 +27,7 @@ function renderTable(){const needle=$('stock-search').value.trim().toLocaleLower
   const rows=all.filter(i=>(!category||i.category===category)&&(!needle||`${i.name} ${i.id} ${i.category}`.toLocaleLowerCase('fr').includes(needle)));
   $('stock-count').textContent=rows.length+' objets affichés';const root=$('stock-rows');root.replaceChildren();
   for(const it of rows){const tr=A.elem('tr');const itemCell=A.elem('td');const text=A.elem('div');text.append(A.elem('strong',{text:it.name}),A.elem('div',{className:'code',text:it.id}),A.elem('span',{className:'pill',text:it.origin||'Base'}));
-    itemCell.append(A.elem('div',{className:'row'},it.icon?[A.elem('img',{src:it.icon,alt:''}),text]:[text]));
+    itemCell.append(A.elem('div',{className:'row'},it.icon?[A.elem('img',{src:A.tieredIcon(it.icon,A.computeIconRank(it,catalog?.affixes).rank),alt:''}),text]:[text]));
     const priceCell=A.elem('td');priceCell.append(A.elem('div',{className:'nowrap',text:priceLabel(it.pricePC)}));
     if(it.origin!=='Création MJ')priceCell.append(A.elem('button',{className:'small ghost',text:'Changer',onClick:async()=>{
       const raw=prompt('Prix de '+it.name+' pour '+groupName()+' (ex: 2 PO 20 PA 50 PC)',it.pricePC===null?'':A.formatPC(it.pricePC));
@@ -36,15 +36,24 @@ function renderTable(){const needle=$('stock-search').value.trim().toLocaleLower
     }}));
     const quantityInput=A.elem('input',{type:'number',min:'0',max:'1000000',placeholder:'∞',value:it.stock===null?'':String(it.stock)});quantityInput.setAttribute('aria-label','Stock de '+it.name);
     const quantityCell=A.elem('td');quantityCell.append(quantityInput);
-    const shown=A.elem('input',{type:'checkbox',checked:it.visible});shown.setAttribute('aria-label','Visible : '+it.name);
+    const shown=A.elem('input',{type:'checkbox',checked:it.visible,disabled:it.origin==='Base'});shown.setAttribute('aria-label','Visible : '+it.name);
     const visibleCell=A.elem('td');visibleCell.append(shown);
     shown.addEventListener('change',async()=>{shown.disabled=true;try{await A.setBaseOverride(group,it.id,{visible:shown.checked});it.visible=shown.checked;notice(it.name+(shown.checked?' affiché':' masqué')+' dans '+groupName()+'.','success');}catch(e){shown.checked=!shown.checked;notice('Visibilité : '+e.message,'error');}finally{shown.disabled=false;}});
     const actions=A.elem('td');const buttons=A.elem('div',{className:'cell-actions'});buttons.append(A.elem('button',{className:'small primary',text:'Stock OK',onClick:async()=>{
       const val=quantityInput.value.trim();try{await A.setStock(group,it.id,val===''?null:Number(val));it.stock=val===''?null:Number(val);notice(`Stock de ${it.name} modifié dans ${groupName()} : ${val||'illimité'}.`,'success');}catch(e){notice('Stock : '+e.message,'error');}
     }}));
-    if(it.origin==='Création MJ')buttons.append(A.elem('button',{className:'small',text:'Modifier',onClick:()=>editObject(it)}),A.elem('button',{className:'small warn',text:'Suppr.',onClick:async()=>{
-      if(!confirm(`Supprimer ${it.name} dans ${groupName()} ?`))return;try{await A.deleteCustom(group,it.id);await fetchState();}catch(e){notice('Suppression : '+e.message,'error');}
-    }}));actions.append(buttons);tr.append(itemCell,priceCell,quantityCell,visibleCell,actions);root.append(tr);
+    if(it.origin==='Création MJ'||it.origin==='Alaric')buttons.append(
+      A.elem('button',{className:'small',text:'Modifier',onClick:()=>editObject(it)}),
+      A.elem('button',{className:'small warn',text:'Retirer',onClick:async()=>{
+        if(!confirm(`Retirer ${it.name} de la sélection de ${groupName()} ?`))return;
+        try{
+          if(it.origin==='Création MJ')await A.deleteCustom(group,it.id);
+          // Les anciens objets JSON de la V2 sont conservés en archive, mais masqués pour ce groupe.
+          await A.setBaseOverride(group,it.id,{visible:false});
+          await fetchState();
+        }catch(e){notice('Retrait impossible : '+e.message,'error');}
+      }})
+    );actions.append(buttons);tr.append(itemCell,priceCell,quantityCell,visibleCell,actions);root.append(tr);
   }
 }
 function buildTemplates(){const s=$('template'),current=s.value;s.replaceChildren(A.elem('option',{value:'',text:'Objet entièrement personnalisé'}));
@@ -64,41 +73,48 @@ function displayAffixes(){const search=$('affix-search').value.trim().toLocaleLo
   }
 }
 function renderSelected(){const root=$('selected-affixes');root.replaceChildren();
-  if(!selected.size){root.append(A.elem('p',{className:'muted',text:'Aucun affixe.'}));return;}
+  refreshPq();if(!selected.size){root.append(A.elem('p',{className:'muted',text:'Aucun affixe.'}));return;}
   for(const id of selected){const a=catalog.affixes.find(x=>x.id===id);if(!a)continue;
     const line=A.elem('div',{className:'row'});line.append(A.elem('span',{className:'pill',text:a.id}),A.elem('strong',{text:a.name}),A.elem('span',{className:'muted tiny',text:a.effect}),A.elem('button',{className:'small warn',text:'×',onClick:()=>{selected.delete(id);renderSelected();displayAffixes();}}));root.append(line);
   }
 }
 function setTemplate(t){selected.clear();if(!t){$('object-category').value='Divers';$('object-subcategory').value='';$('object-description').value='';$('object-price').value='';$('object-icon').value='';displayAffixes();renderSelected();return;}
-  $('object-name').value=t.name;$('object-category').value=t.category;$('object-subcategory').value=t.subcategory||'';$('object-description').value=t.description||'';
+  $('object-quality').value=String(t.quality||0);$('object-name').value=t.name;$('object-category').value=t.category;$('object-subcategory').value=t.subcategory||'';$('object-description').value=t.description||'';
   $('object-price').value=t.pricePC===null?'':priceLabel(t.pricePC);$('object-icon').value=catalog.icons[t.id]||'';
   displayAffixes();renderSelected();
 }
-function resetEditor(){selected.clear();$('editor-form').reset();$('edit-id').value='';$('object-id').disabled=false;$('object-id').value='';$('object-category').value='Divers';$('object-visible').checked=true;displayAffixes();renderSelected();}
+function resetEditor(){selected.clear();$('editor-form').reset();$('object-quality').value='0';$('edit-id').value='';$('object-id').disabled=false;$('object-id').value='';$('object-category').value='Divers';$('object-visible').checked=true;displayAffixes();renderSelected();}
 function editObject(it){switchTab('editor');resetEditor();$('edit-id').value=it.id;$('object-id').value=it.id;$('object-id').disabled=true;
-  $('template').value=it.templateId||'';$('object-name').value=it.name;$('object-category').value=it.category;$('object-subcategory').value=it.subcategory;$('object-description').value=it.description;$('object-price').value=it.pricePC===null?'':priceLabel(it.pricePC);$('object-icon').value=it.icon;$('object-visible').checked=it.visible;
-  selected=new Set((it.affixes||[]).map(a=>a.id));displayAffixes();renderSelected();window.scrollTo({top:0,behavior:'smooth'});
+  $('template').value=it.templateId||(it.cofSpec?.base?'cof-'+String(it.cofSpec.base).toLowerCase():'');$('object-quality').value=String(it.quality||it.cofSpec?.quality||0);$('object-name').value=it.name;$('object-category').value=it.category;$('object-subcategory').value=it.subcategory;$('object-description').value=it.description;$('object-price').value=it.pricePC===null?'':priceLabel(it.pricePC);$('object-icon').value=it.icon;$('object-visible').checked=it.visible;
+  selected=new Set((it.affixes||[]).length?(it.affixes||[]).map(a=>a.id):(it.cofSpec?.affixes||[]));displayAffixes();renderSelected();window.scrollTo({top:0,behavior:'smooth'});
 }
 function slug(value){return String(value).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,56);}
+function quality(){return Number($('object-quality')?.value||0);}
+function power(){return A.computeIconRank({cofSpec:{affixes:[...selected]}},catalog?.affixes).p;}
+function refreshPq(){if(!$('object-rank'))return;const p=power(),q=quality();$('object-power').textContent='P'+p;$('object-rank').textContent='R'+String(Math.min(10,p+q)).padStart(2,'0');}
+function estimatePrice(){const t=currentTemplate();if(!t)return notice('Choisis un modèle avec prix de base.','error');const spec={base:t.sourceId,quality:quality(),affixes:[...selected]};
+const result=window.AlaricPricing?.calculate({cofSpec:spec});if(result){$('object-price').value=A.formatPC(Math.round(result.price*100));$('calculated-price').textContent='Estimation moteur V2 : '+A.formatPC(Math.round(result.price*100))+' (à vérifier selon le classeur actuel)';}
+else $('calculated-price').textContent='Aucune formule disponible pour ce modèle ; prix manuel requis.';refreshPq();}
 function normalizedAffixes(ids,t){return ids.map(id=>catalog.affixes.find(a=>a.id===id)).filter(Boolean).map(a=>({id:a.id,name:a.name,effect:a.effect}));}
 async function saveEditor(e){e.preventDefault();const priceText=$('object-price').value.trim();const pc=priceText?A.parsePricePC(priceText,'pa'):null;
   if(priceText && pc===null){notice('Prix invalide : écris par ex. 1 PO 25 PA 20 PC','error');return;}
   const name=$('object-name').value.trim();if(!name)return;
   const id=$('edit-id').value||safe($('object-id').value||`mj-${slug(name)}-${Date.now().toString(36)}`);
+  if(catalog.base.some(b=>b.id===id && b.origin==='Base')){notice('Cet identifiant est réservé au catalogue de base permanent.','error');return;}
   const t=currentTemplate(),affixes=normalizedAffixes([...selected],t);
-  const obj={id,name,pricePC:pc,category:$('object-category').value.trim(),subcategory:$('object-subcategory').value.trim(),description:$('object-description').value.trim(),icon:$('object-icon').value.trim(),visible:$('object-visible').checked,templateId:t?.id||'',affixes};
+  const obj={id,name,pricePC:pc,category:$('object-category').value.trim(),subcategory:$('object-subcategory').value.trim(),description:$('object-description').value.trim(),icon:$('object-icon').value.trim(),iconKey:t?.iconKey||'',quality:quality(),power:power(),rarity:(A.RARITY_LABELS||[])[Math.min(10,quality()+power())]||'Commun',cofSpec:{base:t?.sourceId||'',quality:quality(),affixes:[...selected],name},visible:$('object-visible').checked,templateId:t?.id||'',affixes};
   try{await A.saveCustom(group,obj);await A.setBaseOverride(group,id,{visible:obj.visible});await fetchState();resetEditor();switchTab('stock');notice(`Objet « ${name} » enregistré dans ${groupName()}.`,'success');}catch(err){notice('Enregistrement impossible : '+err.message,'error');}
 }
 function parseList(){const raw=$('import-json').value;let data;try{data=JSON.parse(raw);}catch(e){throw Error('JSON invalide : '+e.message);}
   const list=Array.isArray(data)?data:data?.items;if(!Array.isArray(list)||!list.length)throw Error('La liste doit être un tableau ou un objet {"items": [...]} non vide.');
   if(list.length>100)throw Error('Limite : 100 objets par import.');
-  const knownIds=new Set(all.map(it=>it.id)),local=new Set();const items=[],warnings=[];
+  const knownIds=new Set(all.map(it=>it.id)),permanentIds=new Set(catalog.base.filter(x=>x.origin==='Base').map(x=>x.id)),local=new Set();const items=[],warnings=[];
   for(const [i,row] of list.entries()){
     if(!row||typeof row!=='object'||Array.isArray(row))throw Error(`Objet ${i+1} invalide`);
     const template=catalog.templates.find(t=>t.id===safe(row.templateId||row.modele||''));
     const name=String(row.name||row.nom||template?.name||'').trim();if(!name)throw Error(`Objet ${i+1} : nom manquant`);
     let id=safe(row.id||`mj-${slug(name)}`);if(!id)throw Error(`Objet ${i+1} : identifiant invalide`);
-    if(local.has(id))throw Error(`Identifiant doublon dans le fichier : ${id}`);local.add(id);
+    if(permanentIds.has(id))throw Error(`Identifiant réservé au catalogue de base : ${id}`);if(local.has(id))throw Error(`Identifiant doublon dans le fichier : ${id}`);local.add(id);
     if(knownIds.has(id))warnings.push(`Identifiant déjà présent : ${id} (sera remplacé après confirmation).`);
     const priceValue=row.pricePC!==undefined?row.pricePC:(row.prix??row.price);
     const price=priceValue===undefined||priceValue===null||priceValue===''?template?.pricePC??null : row.pricePC!==undefined?A.parsePricePC(priceValue,'pc'):A.parsePricePC(priceValue,'pa');
@@ -110,7 +126,7 @@ function parseList(){const raw=$('import-json').value;let data;try{data=JSON.par
     const quantity=row.stock===undefined||row.stock===null||row.stock===''?null:Number(row.stock);
     if(quantity!==null&&(!Number.isSafeInteger(quantity)||quantity<0||quantity>1000000))throw Error(`Stock invalide : ${name}`);
     items.push({id,name,category:String(row.category||row.categorie||template?.category||'Divers'),subcategory:String(row.subcategory||template?.subcategory||''),
-      description:String(row.description??template?.description??''),pricePC:price,icon:String(row.icon||catalog.icons[template?.id]||''),
+      description:String(row.description??template?.description??''),pricePC:price,icon:String(row.icon||catalog.icons[template?.id]||''),quality:Number(row.quality||0),power:Math.max(0,...affixIds.map(id=>Number(catalog.affixes.find(a=>a.id===id)?.tier)||0)),cofSpec:{base:template?.sourceId||'',quality:Number(row.quality||0),affixes:affixIds,name},
       visible:row.visible!==false,templateId:template?.id||'',affixes:normalizedAffixes(affixIds,template),stock:quantity});
   }
   return {items,warnings};
@@ -130,7 +146,7 @@ function exportItems(){const records=custom.map(c=>({id:c.id,nom:c.name,category
 for(const b of document.querySelectorAll('[data-tab]'))b.addEventListener('click',()=>switchTab(b.dataset.tab));
 $('active-group').addEventListener('change',()=>{group=A.groupId($('active-group').value);resetEditor();fetchState();});
 $('reload').addEventListener('click',fetchState);$('stock-search').addEventListener('input',renderTable);$('stock-category').addEventListener('change',renderTable);
-$('template').addEventListener('change',()=>setTemplate(currentTemplate()));$('affix-search').addEventListener('input',displayAffixes);
+$('template').addEventListener('change',()=>setTemplate(currentTemplate()));$('object-quality').addEventListener('change',refreshPq);$('calculate-price').addEventListener('click',estimatePrice);$('affix-search').addEventListener('input',displayAffixes);
 $('editor-form').addEventListener('submit',saveEditor);$('reset-editor').addEventListener('click',resetEditor);
 $('suggest-name').addEventListener('click',()=>{const t=currentTemplate();if(!t)return;const picked=[...selected].map(id=>catalog.affixes.find(a=>a.id===id)?.name).filter(Boolean);$('object-name').value=t.name+(picked.length?' · '+picked.join(' / '):'');});
 $('import-file').addEventListener('change',async e=>{const file=e.target.files?.[0];if(!file)return;try{$('import-json').value=await file.text();previewImport();}catch(x){importNotice(x.message,'error');}});

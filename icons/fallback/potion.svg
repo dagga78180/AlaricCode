@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-label="Icône de remplacement : potion">
- <defs><radialGradient id="bg"><stop stop-color="#51325e"/><stop offset="1" stop-color="#1b1230"/></radialGradient></defs>
- <rect x="1" y="1" width="94" height="94" rx="17" fill="url(#bg)" stroke="#8e6c98" stroke-width="2"/>
- <circle cx="48" cy="48" r="37" fill="none" stroke="#e68fc8" stroke-opacity=".17" stroke-width="1.2"/>
- <g fill="none" stroke="#e68fc8" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"><path d="M40 14h16v17l16 22-6 23H30l-6-23 16-22Z"/><path d="M39 15h18M30 59q17-12 36 0M37 59q11 7 22 0"/></g>
- </svg>
