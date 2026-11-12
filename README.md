@@ -1,159 +1,53 @@
-# AlaricCode V2 — manuel d’installation et d’exploitation
+# AlaricCode — remplacement intégral à la racine
 
-AlaricCode est la boutique web complémentaire de **COAlaric V2**. Elle affiche la sélection d’Alaric et le catalogue permanent, applique le même modèle de prix que CoFItem, gère un stock partagé via Supabase et exporte le panier sous forme de commande Roll20.
+Cette archive remplace l'ancienne application : **aucun dossier `v3/`**, aucun ancien fichier JavaScript ni CSS n'est nécessaire au fonctionnement.
 
-## 1. Architecture
+## Structure
 
-```text
-index.html              boutique joueur
-stock.html              administration MJ
-styles.css              présentation commune
-data/
-  catalogue.json        sélection/stock spécial Alaric
-  catalogue-item-de-base.json  catalogue permanent
-  pricing-model.json    référentiel de prix partagé avec Roll20
-js/
-  core.js               utilitaires, chargement JSON et Supabase
-  pricing.js            moteur Q/P, rareté et arrondi commercial
-  app.js                boutique, filtres, panier et export Roll20
-  stock.js              console d’administration du stock
-  supabase-config.js    URL + publishable key Supabase
-assets/                  visuels réellement utilisés
-sources/                 source catalogue auditable
-tools/validate-v2.mjs   validation statique de la distribution
-supabase-setup.sql      table et politiques RLS
-```
+- `index.html` : vitrine par défaut du groupe 1 (`?groupe=groupe1` ou `?groupe=groupe2`).
+- `groupe1.html` : lien dédié aux joueurs du groupe 1.
+- `groupe2.html` : lien dédié aux joueurs du groupe 2.
+- `mj.html` : gestion sécurisée des stocks, objets, affixes, imports/exports.
+- `config.js` : connexion Firebase publique, déjà configurée pour `alaricstock-c51d1`.
+- `shared.js`, `vitrine.js`, `mj.js`, `style.css`, `vitrine-classique.css` : application entière.
+- `data/base-items.json` : **catalogue de base autonome** préparé depuis le classeur (objets standards, 7 ajouts demandés, ancien carquois de 20 flèches retiré).
+- `data/templates.json`, `data/affixes.json` : modèles et affixes du catalogue fourni.
+- `icons/` : SVG transmis et variantes colorées, avec icônes génériques de secours.
+- `assets/` : nouvelle bannière SVG et ornement du thème violet/or pour ne pas dépendre d'anciens assets.
+- `firestore.rules` : règles Firestore à adapter avec l'UID du MJ.
 
-La V2 isole les données du code, encapsule les pages dans leur propre scope, centralise les utilitaires partagés et retire les sources d’assets/génération inutiles à l’exécution.
+## Installer en remplacement total
 
-## 2. Installation GitHub Pages
+1. **Sauvegarder** le dépôt actuel via GitHub → Code → Download ZIP, et conserver le CSV Supabase. Faire une sauvegarde/export Firestore si possible. Les données Firestore ne seront pas supprimées lors de la mise à jour de GitHub Pages.
+2. Depuis GitHub Desktop (conseillé), cloner le dépôt `dagga78180/AlaricCode` ou ouvrir le clone existant.
+3. À la racine locale, **supprimer les fichiers de l'ancienne boutique et le répertoire `v3/`**. Ne supprimer **ni le dossier `.git`**, ni les configurations GitHub Pages nécessaires en dehors de l'app. Ne pas supprimer le dépôt entier.
+4. Décompresser **le contenu** de ce ZIP directement à la racine du dépôt (PAS un dossier parent, PAS `v3/`).
+5. Vérifier que `index.html`, `groupe1.html`, `groupe2.html`, `mj.html` sont directement à la racine, puis Commit et Push vers `main`.
+6. Dans Firebase Console → Firestore Database → Règles, reprendre `firestore.rules` et remplacer `REMPLACE_PAR_TON_UID_MJ` par l'UID exact du MJ, puis Publier. **Ne pas publier la valeur placeholder.**
+7. Ouvrir `https://dagga78180.github.io/AlaricCode/groupe1.html`, puis `/groupe2.html`, puis `/mj.html` ; tester la connexion MJ, la séparation des quantités et le panier.
 
-1. Déposer **le contenu** du dossier à la racine du dépôt publié par GitHub Pages.
-2. Dans Supabase, exécuter une fois `supabase-setup.sql`.
-3. Dans **Authentication > Users**, créer le ou les comptes MJ autorisés à administrer le stock. Garder les inscriptions publiques désactivées si elles ne sont pas nécessaires.
-4. Renseigner dans `js/supabase-config.js` l’URL Supabase et la **publishable key** uniquement.
-5. Publier ; `index.html` est la boutique et `stock.html` l’interface MJ.
+## Important : groupes et reprise des stocks
 
-La publishable key est conçue pour être exposée côté navigateur. **Ne jamais** placer une `service_role`, une secret key ou un mot de passe dans le dépôt.
+L'ancienne collection `stocks` de Firestore n'est pas modifiée. Les deux nouvelles collections sont `groups/groupe1/stocks` et `groups/groupe2/stocks`. Dans `mj.html` → Import / export, tu peux copier l'ancien stock **dans un groupe choisi**, sans l'écraser s'il existe déjà. Répéter uniquement si tu souhaites les mêmes données de départ dans l'autre groupe.
 
-## 3. Stock Supabase
+Le catalogue de base est **reconstitué depuis le classeur fourni**, pas une copie exacte du dernier `catalogue.json` de ton ancien dépôt, auquel nous n'avons pas accès sous sa version récente. Il contient les équipements usuels et les 7 ajouts demandés. Les créations MJ déjà présentes dans les collections `groups/.../customItems` restent gérées par Firebase. Si tu utilisais d'autres objets personnalisés **uniquement dans un ancien fichier JSON GitHub**, il faudra les réimporter depuis ta sauvegarde ; ils n'apparaissent pas automatiquement dans ce ZIP.
 
-La table `stocks` ne contient que les exceptions au stock illimité :
+Les illustrations anciennes qui ne figuraient pas parmi les 12 SVG fournis sont remplacées par des pictogrammes de catégorie. La bannière violette et or a été refaite en SVG ; ce n'est pas une copie pixel pour pixel de l'ancienne image non disponible localement.
 
-- ligne absente → stock illimité ;
-- `stock = 0` → rupture ;
-- `stock > 0` → quantité disponible.
+## Monnaies
 
-La boutique lit publiquement cette table ; les écritures sont réservées aux utilisateurs Supabase authentifiés par les politiques RLS. L’administration permet recherche, filtre par source, saisie directe, `0`, illimité et actions globales sur la sélection courante.
+1 PO = 100 PA = 10 000 PC, 1 PA = 100 PC. Tous les prix sont stockés en PC entiers ; flèche normale = 20 PC. Le bâton courant est repris à 1 PA depuis l'ancien catalogue public. Les prix non renseignés dans le classeur restent `Prix à définir` et ne sont pas commandables avant modification dans la page MJ.
 
-Le navigateur rafraîchit périodiquement les stocks. Si une quantité baisse pendant qu’un joueur prépare son panier, le panier est ramené à la quantité réellement disponible.
+## Sécurité
 
-## 4. Catalogue et contrat de données
+Le lien `mj.html` est visible mais seuls les comptes Firebase autorisés par les règles Firestore peuvent enregistrer des stocks et des objets. Une copie du fichier `firestore.rules` seule ne publie pas les règles ; elles doivent être configurées dans la console Firebase.
 
-Chaque entrée JSON doit avoir un `id` unique. Les champs d’affichage usuels sont `category`, `subcategory`, `iconKey`, `name`, `rarity`, `description` et `price`.
+## Tests recommandés
 
-Pour les équipements gérés par CoFItem, `cofSpec` est le contrat machine :
+- Vérifier que les deux vitrines affichent des stocks différents et que les paniers sont indépendants.
+- Modifier une quantité dans `mj.html` et contrôler uniquement le groupe ciblé.
+- Copier une commande ; vérifier le calcul des PO/PA/PC.
+- Créer un objet test avec un affixe et le supprimer ensuite.
+- Importer un JSON test dans un seul groupe.
 
-```json
-{
-  "base": "B001",
-  "quality": 1,
-  "mode": "magique",
-  "affixes": ["A023"],
-  "name": "Nom joueur",
-  "price": 123,
-  "rarity": "Rare"
-}
-```
-
-`quality`, `mode` et `affixes` sont omis lorsqu’ils ne s’appliquent pas. Les consommables peuvent conserver leur prix dédié et ne sont pas forcés dans le moteur de prix des équipements.
-
-Les sources de vérité de la V2 sont :
-
-- `sources/Catalogue_Objets_Magiques_V2.xlsx` pour l’audit humain ;
-- `data/pricing-model.json` pour le calcul navigateur ;
-- les deux JSON catalogue pour ce qui est effectivement proposé par le site.
-
-## 5. Économie V2
-
-Paliers de qualité : **Q1/Q2/Q3/Q4/Q5 = 3 / 10 / 30 / 90 / 300 PO**.
-
-Paliers magiques : **P1/P2/P3/P4/P5 = 4 / 15 / 50 / 180 / 600 PO**.
-
-Pour un équipement magique :
-
-```text
-coût magique = base du palier P
-             × difficulté d’enchantement du support
-             × coefficient de valeur de l’affixe
-             × aléa du référentiel
-```
-
-La qualité utilise sa propre courbe et une influence matérielle amortie du support. Si plusieurs affixes sont présents, le moteur additionne leurs coûts magiques avant la finalisation commerciale. Le modèle contient les **569 affixes validés** ; notamment **A112 Héliolite (+1d4 Lumière) est P2**.
-
-Le fichier `data/pricing-model.json` est byte-identique à `Catalogue_pricing_model.json` du projet Roll20 V2 afin d’éviter deux économies concurrentes.
-
-## 6. Boutique joueur
-
-`index.html` permet :
-
-- navigation entre sélection d’Alaric et catalogue permanent ;
-- recherche texte et filtres ;
-- affichage des raretés et icônes ;
-- respect du stock distant ;
-- constitution du panier ;
-- copie du panier au format COAlaric.
-
-Le bouton **Copier pour Roll20** produit une commande `!co-alaric panier ...`. Le MJ colle cette commande dans Roll20 ; COAlaric prend ensuite en charge choix du PJ, achat direct, marchandage, vol, paiement et attribution par CoFItem.
-
-Le site ne débite pas lui-même les stocks lors de la copie : l’autorité de la transaction de jeu reste le flux Roll20/MJ.
-
-## 7. Administration MJ
-
-`stock.html` nécessite une session Supabase authentifiée pour modifier les quantités. En lecture seule, le catalogue et les stocks restent visibles.
-
-Bonnes pratiques :
-
-- ne créer une ligne Supabase que pour un article limité ;
-- supprimer/repasser à illimité lorsque la limitation n’est plus utile ;
-- utiliser `0` pour afficher explicitement une rupture ;
-- vérifier les deux sources (`alaric` et `base`) avant une opération globale.
-
-## 8. Mise à jour du catalogue
-
-Pour publier une nouvelle version :
-
-1. modifier la source catalogue et le référentiel de prix ;
-2. régénérer `catalogue.json`, `catalogue-item-de-base.json` et `pricing-model.json` ;
-3. synchroniser le même modèle dans Roll20/CoFItem ;
-4. conserver les IDs déjà publiés autant que possible, car ils servent au stock et aux paniers ;
-5. exécuter le validateur V2 avant publication.
-
-Un changement de nom est sans risque tant que l’`id` reste stable. Un changement d’`id` crée, du point de vue du stock Supabase, un nouvel article.
-
-## 9. Validation et diagnostic
-
-Depuis la racine du projet :
-
-```bash
-node tools/validate-v2.mjs
-```
-
-Le contrôle vérifie :
-
-- présence des fichiers requis ;
-- syntaxe JavaScript ;
-- validité des JSON ;
-- unicité des IDs ;
-- cohérence `cofSpec.base/affixes` pour les équipements tarifés ;
-- chemins locaux des pages HTML ;
-- présence des variantes d’icônes référencées ;
-- correction du référentiel A112/P2.
-
-Si le catalogue ne charge pas, ouvrir la console navigateur et vérifier d’abord les fichiers du dossier `data/`. Si le stock distant ne charge pas, vérifier `js/supabase-config.js`, l’état du projet Supabase et les politiques RLS.
-
-## 10. Compatibilité V2
-
-Le format des deux catalogues, les IDs d’objets, `cofSpec`, les clés `localStorage` du panier/favoris et la commande COAlaric sont conservés. La refonte change l’organisation interne du projet sans imposer de migration utilisateur.
-
-Voir `AUDIT_V2.md` pour les changements techniques et les contrôles effectués.
+**Ne pas supprimer l'ancienne base Firebase avant d'avoir vérifié les deux vitrines.**
