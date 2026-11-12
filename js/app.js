@@ -7,7 +7,7 @@ let ICON_MANIFEST = [];
 let STOCK_CLIENT = null;
 let stockRefreshTimer = null;
 
-const STOCK_REFRESH_MS = 30000;
+const STOCK_REFRESH_MS = 180000;
 
 const ICONS_BASE_PATH = "assets/icons/";
 
