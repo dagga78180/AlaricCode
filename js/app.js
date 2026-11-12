@@ -8,6 +8,8 @@ let STOCK_CLIENT = null;
 let stockRefreshTimer = null;
 
 const STOCK_REFRESH_MS = 180000;
+const GROUP = window.AlaricApp.groupId(window.ALARIC_GROUP || new URLSearchParams(location.search).get('groupe'));
+const API = window.AlaricApp;
 
 const ICONS_BASE_PATH = "assets/icons/";
 
