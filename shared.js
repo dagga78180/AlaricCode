@@ -150,6 +150,19 @@
     if(!response.ok)throw Error(`${path} : HTTP ${response.status}`);
     return response.json();
   }
+  // En boutique, un consommable décrit uniquement son effet de jeu :
+  // les textes d'ambiance du référentiel RP restent dans les catalogues sources.
+  function consumableEffectDescription(affix) {
+    if(!affix)return '';
+    const id=String(affix.id||'');
+    const elixir=/^CO_ELIXIR_(CHA|CON|DEX|FOR|INT|SAG)_([12])$/.exec(id);
+    if(elixir)return `Effet ${elixir[1]} +${elixir[2]} pendant 1 combat`;
+    const def=/^CO_DEF_(\d+)$/.exec(id);
+    if(def)return `Effet DEF +${def[1]} pendant 2 tours`;
+    const raw=String(affix.effect||'').trim();
+    // Le texte du classeur reste l'autorité pour les consommables non elixirs.
+    return raw ? `Effet : ${raw}` : 'Effet non renseigné';
+  }
   // Le stock de la boutique est une sélection de références V2, distincte des
   // 75 modèles disponibles dans l'éditeur MJ. Les variantes de consommables
   // sont définies PAR ID D'AFFIXE, jamais par le nom de l'objet.
@@ -180,7 +193,7 @@
       if(used.has(id))throw Error('Stock Alaric : doublon '+id);
       used.add(id);
       const name=link?.name||model.name;
-      const item={...model,id,name,description:link?.description||model.description,
+      const item={...model,id,name,description:baseId.startsWith('CON-')?consumableEffectDescription(affix):(link?.description||model.description),
         pricePC:Number(pricePC),quality:0,power:affix?Number(affix.tier||affix.p||0):0,
         rarity:RARITY_LABELS[Math.min(10,Math.max(0,affix?Number(affix.tier||affix.p||0)-1:0))]||'Commun',
         cofSpec:{base:baseId,quality:0,affixes:affixId?[affixId]:[],name,price:String(pricePC)+' pc'},

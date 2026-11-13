@@ -447,7 +447,7 @@ function safeClass(value) {
 }
 
 function isImageIcon(iconText) {
-  return /^https?:\/\//i.test(iconText) || /\.(png|jpe?g|webp|gif|svg)(?:[?#].*)?$/i.test(iconText);
+  return /^https?:\/\//i.test(iconText) || /^data:image\/svg\+xml(?:;charset=[\w-]+)?,/i.test(iconText) || /\.(png|jpe?g|webp|gif|svg)(?:[?#].*)?$/i.test(iconText);
 }
 
 function normalizeIconKey(value) {
