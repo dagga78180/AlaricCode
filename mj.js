@@ -36,7 +36,7 @@ function renderTable(){const needle=$('stock-search').value.trim().toLocaleLower
     }}));
     const quantityInput=A.elem('input',{type:'number',min:'0',max:'1000000',placeholder:'∞',value:it.stock===null?'':String(it.stock)});quantityInput.setAttribute('aria-label','Stock de '+it.name);
     const quantityCell=A.elem('td');quantityCell.append(quantityInput);
-    const shown=A.elem('input',{type:'checkbox',checked:it.visible,disabled:it.origin==='Base'});shown.setAttribute('aria-label','Visible : '+it.name);
+    const shown=A.elem('input',{type:'checkbox',checked:it.visible,disabled:it.origin==='Catalogue V2'});shown.setAttribute('aria-label','Visible : '+it.name);
     const visibleCell=A.elem('td');visibleCell.append(shown);
     shown.addEventListener('change',async()=>{shown.disabled=true;try{await A.setBaseOverride(group,it.id,{visible:shown.checked});it.visible=shown.checked;notice(it.name+(shown.checked?' affiché':' masqué')+' dans '+groupName()+'.','success');}catch(e){shown.checked=!shown.checked;notice('Visibilité : '+e.message,'error');}finally{shown.disabled=false;}});
     const actions=A.elem('td');const buttons=A.elem('div',{className:'cell-actions'});buttons.append(A.elem('button',{className:'small primary',text:'Stock OK',onClick:async()=>{
@@ -85,24 +85,44 @@ function setTemplate(t){selected.clear();if(!t){$('object-category').value='Dive
 }
 function resetEditor(){selected.clear();$('editor-form').reset();$('object-quality').value='0';$('edit-id').value='';$('object-id').disabled=false;$('object-id').value='';$('object-category').value='Divers';$('object-visible').checked=true;displayAffixes();renderSelected();}
 function editObject(it){switchTab('editor');resetEditor();$('edit-id').value=it.id;$('object-id').value=it.id;$('object-id').disabled=true;
-  $('template').value=it.templateId||(it.cofSpec?.base?'cof-'+String(it.cofSpec.base).toLowerCase():'');$('object-quality').value=String(it.quality||it.cofSpec?.quality||0);$('object-name').value=it.name;$('object-category').value=it.category;$('object-subcategory').value=it.subcategory;$('object-description').value=it.description;$('object-price').value=it.pricePC===null?'':priceLabel(it.pricePC);$('object-icon').value=it.icon;$('object-visible').checked=it.visible;
+  $('template').value=it.templateId||(it.cofSpec?.base?A.normalizeId(it.cofSpec.base):'');$('object-quality').value=String(it.quality||it.cofSpec?.quality||0);$('object-name').value=it.name;$('object-category').value=it.category;$('object-subcategory').value=it.subcategory;$('object-description').value=it.description;$('object-price').value=it.pricePC===null?'':priceLabel(it.pricePC);$('object-icon').value=it.icon;$('object-visible').checked=it.visible;
   selected=new Set((it.affixes||[]).length?(it.affixes||[]).map(a=>a.id):(it.cofSpec?.affixes||[]));displayAffixes();renderSelected();window.scrollTo({top:0,behavior:'smooth'});
 }
 function slug(value){return String(value).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,56);}
 function quality(){return Number($('object-quality')?.value||0);}
 function power(){return A.computeIconRank({cofSpec:{affixes:[...selected]}},catalog?.affixes).p;}
 function refreshPq(){if(!$('object-rank'))return;const p=power(),q=quality();$('object-power').textContent='P'+p;$('object-rank').textContent='R'+String(Math.min(10,p+q)).padStart(2,'0');}
-function estimatePrice(){const t=currentTemplate();if(!t)return notice('Choisis un modèle avec prix de base.','error');const spec={base:t.sourceId,quality:quality(),affixes:[...selected]};
-const result=window.AlaricPricing?.calculate({cofSpec:spec});if(result){$('object-price').value=A.formatPC(Math.round(result.price*100));$('calculated-price').textContent='Estimation moteur V2 : '+A.formatPC(Math.round(result.price*100))+' (à vérifier selon le classeur actuel)';}
-else $('calculated-price').textContent='Aucune formule disponible pour ce modèle ; prix manuel requis.';refreshPq();}
+function estimatePrice(){
+  const t=currentTemplate();
+  if(!t)return notice('Choisis un modèle avec prix de base.','error');
+  const chosen=[...selected];
+  if(quality()!==0 || chosen.length>1){
+    $('calculated-price').textContent='Qualité Q>0 ou combinaison de plusieurs affixes : prix non validé par la matrice 1+1. Indique un prix manuel.';
+    refreshPq();return;
+  }
+  let price=null;
+  if(chosen.length===0)price=t.pricePC;
+  else {
+    const match=catalog.liaisons.find(x=>x.itemId===t.sourceId&&x.affixId===chosen[0]);
+    if(match)price=match.priceMagiePC!==null?Math.round(match.priceMagiePC):
+      match.priceConsoPA!==null?Math.round(match.priceConsoPA*100):null;
+  }
+  if(price!==null&&Number.isFinite(Number(price))){
+    $('object-price').value=A.formatPC(Math.round(price));
+    $('calculated-price').textContent='Prix exact de la liaison V2 : '+A.formatPC(Math.round(price));
+  }else $('calculated-price').textContent='Prix non renseigné dans le classeur : saisie manuelle nécessaire.';
+  refreshPq();
+}
 function normalizedAffixes(ids,t){return ids.map(id=>catalog.affixes.find(a=>a.id===id)).filter(Boolean).map(a=>({id:a.id,name:a.name,effect:a.effect}));}
 async function saveEditor(e){e.preventDefault();const priceText=$('object-price').value.trim();const pc=priceText?A.parsePricePC(priceText,'pa'):null;
   if(priceText && pc===null){notice('Prix invalide : écris par ex. 1 PO 25 PA 20 PC','error');return;}
   const name=$('object-name').value.trim();if(!name)return;
   const id=$('edit-id').value||safe($('object-id').value||`mj-${slug(name)}-${Date.now().toString(36)}`);
-  if(catalog.base.some(b=>b.id===id && b.origin==='Base')){notice('Cet identifiant est réservé au catalogue de base permanent.','error');return;}
+  if(catalog.base.some(b=>b.id===id && b.origin==='Catalogue V2')){notice('Cet identifiant est réservé au catalogue de base permanent.','error');return;}
   const t=currentTemplate(),affixes=normalizedAffixes([...selected],t);
-  const obj={id,name,pricePC:pc,category:$('object-category').value.trim(),subcategory:$('object-subcategory').value.trim(),description:$('object-description').value.trim(),icon:$('object-icon').value.trim(),iconKey:t?.iconKey||'',quality:quality(),power:power(),rarity:(A.RARITY_LABELS||[])[Math.min(10,quality()+power())]||'Commun',cofSpec:{base:t?.sourceId||'',quality:quality(),affixes:[...selected],name},visible:$('object-visible').checked,templateId:t?.id||'',affixes};
+  const obj={id,name,pricePC:pc,category:$('object-category').value.trim(),subcategory:$('object-subcategory').value.trim(),description:$('object-description').value.trim(),icon:$('object-icon').value.trim(),iconKey:t?.iconKey||'',quality:quality(),power:power(),rarity:(A.RARITY_LABELS||[])[Math.min(10,quality()+power())]||'Commun',cofSpec:{base:t?.sourceId||'',quality:quality(),affixes:[...selected],name,price:pc===null?'':String(pc)+' pc'},visible:$('object-visible').checked,templateId:t?.id||'',affixes};
+  const check=A.prepareRoll20Spec(obj,catalog);
+  if(!check.ok && t){notice('Création refusée : export Roll20 non valide : '+check.errors.join(' / '),'error');return;}
   try{await A.saveCustom(group,obj);await A.setBaseOverride(group,id,{visible:obj.visible});await fetchState();resetEditor();switchTab('stock');notice(`Objet « ${name} » enregistré dans ${groupName()}.`,'success');}catch(err){notice('Enregistrement impossible : '+err.message,'error');}
 }
 function parseList(){const raw=$('import-json').value;let data;try{data=JSON.parse(raw);}catch(e){throw Error('JSON invalide : '+e.message);}
@@ -126,8 +146,9 @@ function parseList(){const raw=$('import-json').value;let data;try{data=JSON.par
     const quantity=row.stock===undefined||row.stock===null||row.stock===''?null:Number(row.stock);
     if(quantity!==null&&(!Number.isSafeInteger(quantity)||quantity<0||quantity>1000000))throw Error(`Stock invalide : ${name}`);
     items.push({id,name,category:String(row.category||row.categorie||template?.category||'Divers'),subcategory:String(row.subcategory||template?.subcategory||''),
-      description:String(row.description??template?.description??''),pricePC:price,icon:String(row.icon||catalog.icons[template?.id]||''),quality:Number(row.quality||0),power:Math.max(0,...affixIds.map(id=>Number(catalog.affixes.find(a=>a.id===id)?.tier)||0)),cofSpec:{base:template?.sourceId||'',quality:Number(row.quality||0),affixes:affixIds,name},
+      description:String(row.description??template?.description??''),pricePC:price,icon:String(row.icon||catalog.icons[template?.id]||''),quality:Number(row.quality||0),power:Math.max(0,...affixIds.map(id=>Number(catalog.affixes.find(a=>a.id===id)?.tier)||0)),cofSpec:{base:template?.sourceId||'',quality:Number(row.quality||0),affixes:affixIds,name,price:price===null?'':String(price)+' pc',config:row.config||{}},
       visible:row.visible!==false,templateId:template?.id||'',affixes:normalizedAffixes(affixIds,template),stock:quantity});
+    if(template){const check=A.prepareRoll20Spec(items[items.length-1],catalog);if(!check.ok)throw Error(`${name} : export Roll20 invalide : ${check.errors.join(' / ')}`);}
   }
   return {items,warnings};
 }
@@ -140,7 +161,7 @@ async function performImport(){if(!pending)return;const payload=pending;const co
     await fetchState();importNotice(`✓ ${saved} objets importés dans ${groupName()}.`,'success');}
   catch(e){importNotice(`Import partiel : ${saved}/${payload.items.length} enregistrés. ${e.message}. Vérifie les objets avant de relancer.`,'error');}
 }
-function exportItems(){const records=custom.map(c=>({id:c.id,nom:c.name,category:c.category,subcategory:c.subcategory,pricePC:c.pricePC,description:c.description,icon:c.icon,visible:c.visible,templateId:c.templateId,affixIds:(c.affixes||[]).map(a=>a.id),stock:stocks.has(c.id)?stocks.get(c.id):null}));
+function exportItems(){const records=custom.map(c=>({id:c.id,nom:c.name,category:c.category,subcategory:c.subcategory,pricePC:c.pricePC,description:c.description,icon:c.icon,visible:c.visible,templateId:c.templateId,quality:c.cofSpec?.quality??c.quality??0,config:c.cofSpec?.config||{},affixIds:(c.cofSpec?.affixes||c.affixes?.map(a=>a.id)||[]),stock:stocks.has(c.id)?stocks.get(c.id):null}));
   const blob=new Blob([JSON.stringify({items:records},null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`alaric-${group}-objets.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),2000);
 }
 for(const b of document.querySelectorAll('[data-tab]'))b.addEventListener('click',()=>switchTab(b.dataset.tab));
@@ -152,9 +173,7 @@ $('suggest-name').addEventListener('click',()=>{const t=currentTemplate();if(!t)
 $('import-file').addEventListener('change',async e=>{const file=e.target.files?.[0];if(!file)return;try{$('import-json').value=await file.text();previewImport();}catch(x){importNotice(x.message,'error');}});
 $('import-json').addEventListener('input',()=>{pending=null;$('run-import').disabled=true;});
 $('preview-import').addEventListener('click',previewImport);$('run-import').addEventListener('click',performImport);$('export-items').addEventListener('click',exportItems);
-$('migrate-legacy').addEventListener('click',async()=>{if(!confirm(`Copier uniquement les stocks absents de l'ancien magasin dans ${groupName()} ? Les stocks des autres groupes ne changent pas.`))return;
-  try{const report=await A.migrationLegacy(group);await fetchState();notice(`Copie : ${report.added} stocks ajoutés depuis ${report.source} anciens documents, ${report.existing} stocks déjà présents.`,'success');}catch(e){notice('Copie des stocks impossible : '+e.message,'error');}
-});
+if($('migrate-legacy'))$('migrate-legacy').hidden=true; // Aucun accès à la migration historique.
 $('login-form').addEventListener('submit',async e=>{e.preventDefault();$('login-message').textContent='Connexion…';try{await A.auth.signInWithEmailAndPassword($('email').value.trim(),$('password').value);$('password').value='';}catch(err){$('login-message').textContent='Erreur de connexion : '+err.message;}});
 $('logout').addEventListener('click',()=>A.auth.signOut());
 A.auth.onAuthStateChanged(user=>{const yes=!!user;$('auth-box').classList.toggle('hidden',yes);$('dashboard').classList.toggle('hidden',!yes);

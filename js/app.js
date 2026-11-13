@@ -290,19 +290,21 @@ async function loadCatalogueFile(config) {
 }
 
 async function loadCatalogue() {
-  if (window.AlaricPricing) { try { await window.AlaricPricing.load(); } catch(e) { console.warn('Calcul de prix V2 indisponible',e); } }
   const [catalog, stocks, custom, overrides] = await Promise.all([
     API.loadCatalog(), API.getStock(GROUP), API.getCustom(GROUP), API.getOverrides(GROUP)
   ]);
   const list = API.overlay(catalog.base, custom, overrides, stocks).filter(it => it.visible !== false);
   ITEMS = list.map((it,i) => {
     const {rank}=API.computeIconRank(it,catalog.affixes);
+    const check=API.prepareRoll20Spec(it,catalog);
+    const isBase=it.origin==='Catalogue V2';
     return normalizeItem({ ...it, icon: it.icon || catalog.icons[it.templateId] || catalog.icons[it.id] || '',
       price: it.pricePC===null ? NaN : it.pricePC / 100,
-      source:it.origin==='Base'?'base':'alaric',iconRank:rank,
-      stock:it.stock, cofSpec:it.cofSpec,
-      cofCompatible:it.cofCompatible!==false && it.pricePC!==null },
-      it.origin==='Base'?'base':'alaric', i);
+      source:isBase?'base':'alaric',iconRank:rank,
+      stock:it.stock, cofSpec:check.ok?check.spec:null,
+      cofCompatible:it.cofCompatible!==false && check.ok,
+      cofError:check.errors.join(' / '),cofWarnings:check.warnings },
+      isBase?'base':'alaric', i);
   });
   state.catalogueWarnings=catalog.warnings?[catalog.warnings]:[];
   state.stockWarning='';state.stockOnline=true;
@@ -345,7 +347,8 @@ function normalizeItem(item, source = "base", index = 0) {
     armorMod: item.armorMod ? String(item.armorMod) : "",
     cofSpec: item.cofSpec && typeof item.cofSpec === "object" ? JSON.parse(JSON.stringify(item.cofSpec)) : null,
     cofCompatible: item.cofCompatible !== false,
-    cofError: String(item.cofError || "")
+    cofError: String(item.cofError || ""),
+    cofWarnings: Array.isArray(item.cofWarnings)?item.cofWarnings.map(String):[]
   };
 }
 
@@ -758,6 +761,8 @@ function renderItems() {
                 <dl class="item-row__stats">
                   ${details.map(([label, value]) => `<div><dt>${escapeHTML(label)}</dt><dd>${escapeHTML(value)}</dd></div>`).join("")}
                 </dl>` : ""}
+              ${!item.cofCompatible ? `<p class="stock-note">⚠ Export Roll20 indisponible : ${escapeHTML(item.cofError||'fiche non compatible')}</p>` : ''}
+              ${(item.cofWarnings||[]).length ? `<p class="stock-note">⚠ Effets à gérer manuellement : ${escapeHTML(item.cofWarnings.join(' · '))}</p>` : ''}
               <p class="stock-note">Stock en ligne : <strong>${finiteStock ? item.stock : "∞"}</strong>.</p>
             </div>
           </details>
@@ -835,31 +840,27 @@ function renderCart() {
 }
 
 function orderPayload() {
-  const entries = cartEntries();
-  if (!entries.length) return null;
-
-  return {
-    version: 2,
-    source: "AlaricCode-COAlaric",
-    items: entries.map(({ item, qty }) => ({
-      ...JSON.parse(JSON.stringify(item.cofSpec)),
-      qty
-    }))
-  };
+  const entries=cartEntries();
+  if(!entries.length)return null;
+  if(entries.length>50)throw Error('Un panier Roll20 ne peut pas dépasser 50 lignes.');
+  let total=0;
+  for(const {item,qty} of entries){
+    if(!item.cofCompatible||!item.cofSpec?.base)throw Error(item.name+' : '+(item.cofError||'objet incompatible avec Roll20'));
+    if(!Number.isInteger(qty)||qty<1||qty>100)throw Error(item.name+' : quantité par ligne limitée à 100.');
+    total+=qty;
+  }
+  if(total>200)throw Error('Un panier Roll20 ne peut pas dépasser 200 exemplaires au total.');
+  return {version:2,source:'AlaricCode-COAlaric',items:entries.map(({item,qty})=>({...JSON.parse(JSON.stringify(item.cofSpec)),qty}))};
 }
 
 function orderCommand() {
-  const entries=cartEntries(); if(!entries.length)return '';
-  if(entries.every(({item})=>item.cofSpec?.base && item.cofCompatible)) {
-    const payload=orderPayload();
-    if(payload) return `!co-alaric panier --target @{target|PJ|character_id} --data ${encodeURIComponent(JSON.stringify(payload))}`;
-  }
-  const rows=entries.map(({item,qty})=>`- ${item.name} ×${qty} : ${formatPrice(item.price*qty)}`);
-  return ['Commande chez Alaric — '+API.cfg.groups[GROUP],...rows,'Total : '+formatPrice(cartTotal()),'À valider par le MJ'].join('\n');
+  const payload=orderPayload();if(!payload)return '';
+  return `!co-alaric panier --target @{target|PJ|character_id} --data ${encodeURIComponent(JSON.stringify(payload))}`;
 }
 
 async function copyOrder() {
-  const text = orderCommand();
+  let text;
+  try{text=orderCommand();}catch(error){showToast(error.message);return;}
   if (!text) {
     showToast("Le panier est vide.");
     return;
