@@ -297,7 +297,10 @@
     if(!Number.isSafeInteger(n) || n<0 || n>1000000)throw Error('Stock : entier entre 0 et 1 000 000, ou vide pour illimité.');
     return doc.set({stock:n,updatedAt:global.firebase.firestore.FieldValue.serverTimestamp()});
   }
-  async function saveCustom(group,item) {
+  // Par défaut, la saisie classique MJ conserve les autres champs du document.
+  // Un import JSON validé utilise {replace:true} : il constitue une fiche complète
+  // et doit éliminer les anciens champs Firestore non autorisés par hasOnly().
+  async function saveCustom(group,item,options={}) {
     const id=normalizeId(item.id || `mj-${Date.now()}-${Math.random().toString(36).slice(2,8)}`);
     if(!id)throw Error('Identifiant d’objet invalide');
     if(/^((cac|dst|mag|arm|bcl|acc|mun|con|div)-\d+)$/i.test(id))throw Error('Identifiant de catalogue V2 réservé : '+id);
@@ -310,7 +313,17 @@
       description:String(item.description||'').slice(0,4000),pricePC,quality:Math.max(0,Math.min(5,Number(item.quality)||0)),power:Math.max(0,Math.min(5,Number(item.power)||0)),rarity:String(item.rarity||'Commun'),iconKey:String(item.iconKey||''),cofSpec:item.cofSpec||null,cofCompatible:item.cofCompatible!==false,icon:iconUrl(item.icon),
       templateId:String(item.templateId||''),affixes:safeAffixes,visible:item.visible!==false,
       updatedAt:global.firebase.firestore.FieldValue.serverTimestamp()};
-    await groupItems(group).doc(id).set(doc,{merge:true}); return id;
+    const ref=groupItems(group).doc(id);
+    if(options.replace===true)await ref.set(doc);
+    else await ref.set(doc,{merge:true});
+    return id;
+  }
+  async function inspectCustomFields(group,id){
+    const snap=await groupItems(group).doc(normalizeId(id)).get();
+    if(!snap.exists)return {exists:false,extraFields:[]};
+    const allowed=new Set(['name','category','subcategory','description','pricePC','icon','iconKey','quality','power','rarity','cofSpec','cofCompatible','templateId','affixes','visible','updatedAt']);
+    const existing=snap.data()||{};
+    return {exists:true,extraFields:Object.keys(existing).filter(key=>!allowed.has(key))};
   }
   async function deleteCustom(group,id){return groupItems(group).doc(normalizeId(id)).delete();}
   async function migrationLegacy(){
@@ -361,7 +374,7 @@
   }
   function groupOverrides(group) {return db.collection('groups').doc(groupId(group)).collection('baseOverrides');}
   async function getOverrides(group){const ss=await groupOverrides(group).get();return new Map(ss.docs.map(d=>[d.id,d.data()]));}
-  async function setBaseOverride(group,id,overrides){
+  async function setBaseOverride(group,id,overrides,options={}){
     const doc=groupOverrides(group).doc(normalizeId(id));
     const data={visible:overrides.visible!==false,updatedAt:global.firebase.firestore.FieldValue.serverTimestamp()};
     if (overrides.pricePC !== undefined && overrides.pricePC!==null && overrides.pricePC!=='') {
@@ -369,7 +382,7 @@
       if(!Number.isSafeInteger(n)||n<0)throw Error('Prix invalide');
       data.pricePC=n;
     }
-    return doc.set(data,{merge:true});
+    return options.replace===true?doc.set(data):doc.set(data,{merge:true});
   }
   function overlay(base,custom,overrides,stocks,validCatalogBases=base){
     const all=new Map(base.map(it=>[it.id,{...it}]));
@@ -386,5 +399,5 @@
         stock:stocks.has(it.id)?stocks.get(it.id):null};
     });
   }
-  global.AlaricApp={cfg,db,auth,RARITY_LABELS,groupId,parsePricePC,formatPC,normalizeId,prepareRoll20Spec,computeIconRank,tieredIcon,catalogueIconForItem,normalizedItem,fallbackIcon,loadCatalog,groupStocks,groupItems,getStock,getCustom,setStock,saveCustom,deleteCustom,migrationLegacy,compatibleAffixes,iconUrl,elem,getOverrides,setBaseOverride,overlay};
+  global.AlaricApp={cfg,db,auth,RARITY_LABELS,groupId,parsePricePC,formatPC,normalizeId,prepareRoll20Spec,computeIconRank,tieredIcon,catalogueIconForItem,normalizedItem,fallbackIcon,loadCatalog,groupStocks,groupItems,getStock,getCustom,setStock,saveCustom,inspectCustomFields,deleteCustom,migrationLegacy,compatibleAffixes,iconUrl,elem,getOverrides,setBaseOverride,overlay};
 }(window));

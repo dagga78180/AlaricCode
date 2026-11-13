@@ -191,22 +191,33 @@ function previewImport(){try{pending=parseList();$('run-import').disabled=false;
   catch(e){pending=null;$('run-import').disabled=true;importNotice(e.message,'error');}}
 async function performImport(){if(!pending)return;
   const payload=pending;const conflicts=payload.warnings.filter(w=>w.startsWith('Déjà présent :')).length;
-  if(!confirm(`Importer ${payload.items.length} objets dans ${groupName()} ? ${conflicts?'ATTENTION : '+conflicts+' identifiant(s) déjà présent(s), mise à jour à confirmer.':''}\nLa base de l'autre groupe ne sera pas modifiée.`))return;
+  if(!confirm(`Importer ${payload.items.length} objets dans ${groupName()} ? ${conflicts?'ATTENTION : '+conflicts+' identifiant(s) déjà présent(s), ils seront remplacés.':''}\nLes fiches de cette sélection seront enregistrées intégralement (les anciens champs obsolètes des mêmes IDs ne seront pas conservés).\nLes autres objets et l'autre groupe ne seront pas modifiés.`))return;
   $('run-import').disabled=true;let saved=0,phase='';
   try{
     for(const it of payload.items){
       phase='création de la fiche';importNotice(`Import ${saved+1}/${payload.items.length} — ${it.name} (${phase})…`);
-      await A.saveCustom(group,it);
-      phase='visibilité';await A.setBaseOverride(group,it.id,{visible:it.visible});
+      await A.saveCustom(group,it,{replace:true});
+      phase='visibilité';await A.setBaseOverride(group,it.id,{visible:it.visible},{replace:true});
       if(it.stock!==null){phase='quantité de stock';await A.setStock(group,it.id,it.stock);}
       saved++;
     }
     await fetchState();importNotice(`✓ ${saved} objets importés dans ${groupName()}.`,'success');
   }catch(e){
     const item=payload.items[saved];const code=e?.code||'';
-    const hint=/permission-denied/i.test(code+' '+e.message)?' Vérifie que ton compte MJ possède les droits Firestore et que les règles publiées utilisent le bon UID.':
-      /unavailable|network/i.test(code+' '+e.message)?' Vérifie ta connexion Firebase.':'';
-    importNotice(`Import interrompu à la ligne ${saved+1}/${payload.items.length} (${item?.id||'?'}), étape « ${phase} » : ${e.message}.${hint} Les ${saved} lignes précédentes peuvent déjà être enregistrées ; relancer avec les mêmes IDs les mettra à jour.`, 'error');
+    let hint='';
+    if(/permission-denied|missing or insufficient permissions/i.test(code+' '+e.message)){
+      hint=' Refus Firestore : vérifie les règles actuellement publiées et l’autorisation du compte MJ.';
+      if(phase==='création de la fiche' && item && typeof A.inspectCustomFields==='function'){
+        try{
+          const diag=await A.inspectCustomFields(group,item.id);
+          if(diag.exists){
+            hint+=' Ce document existait déjà dans le groupe.';
+            if(diag.extraFields.length)hint+=' Champs hérités hors schéma : '+diag.extraFields.join(', ')+'.';
+          }else hint+=' Ce document est nouveau ; contrôler en priorité les règles et les types de données.';
+        }catch(readErr){hint+=' Lecture de diagnostic refusée ('+(readErr.code||readErr.message)+').';}
+      }
+    }else if(/unavailable|network/i.test(code+' '+e.message))hint=' Vérifie ta connexion Firebase.';
+    importNotice(`Import interrompu à la ligne ${saved+1}/${payload.items.length} (${item?.id||'?'}), étape « ${phase} » : ${e.message}.${hint} Les ${saved} lignes précédentes peuvent déjà être enregistrées ; une relance avec les mêmes IDs les remplace sans doublons.`, 'error');
     $('run-import').disabled=false;
   }
 }

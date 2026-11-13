@@ -3,7 +3,7 @@ service cloud.firestore {
   match /databases/{database}/documents {
     // Remplacer cette valeur par le même UID MJ que celui de tes règles actuelles.
     function isMJ() {
-      return request.auth != null && request.auth.uid == 'ehAqBLjTDhQVeXfITlc0hTX37Ax1';
+      return request.auth != null && request.auth.uid == 'REMPLACE_PAR_TON_UID_MJ';
     }
     function isGroup(groupId) {
       return groupId in ['groupe1', 'groupe2'];
