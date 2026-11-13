@@ -167,8 +167,8 @@
   // 75 modèles disponibles dans l'éditeur MJ. Les variantes de consommables
   // sont définies PAR ID D'AFFIXE, jamais par le nom de l'objet.
   function buildBaseStock(selection,base,affixes,liaisons) {
-    if(!Array.isArray(selection)||selection.length!==68)
-      throw Error('Stock Alaric V2 incomplet : 68 références attendues.');
+    if(!Array.isArray(selection)||selection.length!==63)
+      throw Error('Stock Alaric V2 incomplet : 63 références attendues.');
     const baseById=new Map(base.map(o=>[String(o.sourceId),o]));
     const affixById=new Map(affixes.map(a=>[a.id,a]));
     const linkById=new Map(liaisons.map(l=>[l.itemId+'|'+l.affixId,l]));

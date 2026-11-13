@@ -166,15 +166,7 @@
   },
   {
     "base": "CON-03",
-    "affix": "CO_ELIXIR_CHA_2"
-  },
-  {
-    "base": "CON-03",
     "affix": "CO_ELIXIR_CON_1"
-  },
-  {
-    "base": "CON-03",
-    "affix": "CO_ELIXIR_CON_2"
   },
   {
     "base": "CON-03",
@@ -182,23 +174,11 @@
   },
   {
     "base": "CON-03",
-    "affix": "CO_ELIXIR_DEX_2"
-  },
-  {
-    "base": "CON-03",
     "affix": "CO_ELIXIR_FOR_1"
   },
   {
     "base": "CON-03",
-    "affix": "CO_ELIXIR_FOR_2"
-  },
-  {
-    "base": "CON-03",
     "affix": "CO_ELIXIR_INT_1"
-  },
-  {
-    "base": "CON-03",
-    "affix": "CO_ELIXIR_INT_2"
   },
   {
     "base": "CON-03",

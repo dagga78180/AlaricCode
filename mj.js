@@ -125,41 +125,90 @@ async function saveEditor(e){e.preventDefault();const priceText=$('object-price'
   if(!check.ok && t){notice('Création refusée : export Roll20 non valide : '+check.errors.join(' / '),'error');return;}
   try{await A.saveCustom(group,obj);await A.setBaseOverride(group,id,{visible:obj.visible});await fetchState();resetEditor();switchTab('stock');notice(`Objet « ${name} » enregistré dans ${groupName()}.`,'success');}catch(err){notice('Enregistrement impossible : '+err.message,'error');}
 }
-function parseList(){const raw=$('import-json').value;let data;try{data=JSON.parse(raw);}catch(e){throw Error('JSON invalide : '+e.message);}
-  const list=Array.isArray(data)?data:data?.items;if(!Array.isArray(list)||!list.length)throw Error('La liste doit être un tableau ou un objet {"items": [...]} non vide.');
-  if(list.length>100)throw Error('Limite : 100 objets par import.');
-  const knownIds=new Set(all.map(it=>it.id)),permanentIds=new Set([...catalog.base,...catalog.stockBase].map(x=>x.id)),local=new Set();const items=[],warnings=[];
-  for(const [i,row] of list.entries()){
-    if(!row||typeof row!=='object'||Array.isArray(row))throw Error(`Objet ${i+1} invalide`);
-    const template=catalog.templates.find(t=>t.id===safe(row.templateId||row.modele||''));
-    const name=String(row.name||row.nom||template?.name||'').trim();if(!name)throw Error(`Objet ${i+1} : nom manquant`);
-    let id=safe(row.id||`mj-${slug(name)}`);if(!id)throw Error(`Objet ${i+1} : identifiant invalide`);
-    if(permanentIds.has(id))throw Error(`Identifiant réservé au catalogue de base : ${id}`);if(local.has(id))throw Error(`Identifiant doublon dans le fichier : ${id}`);local.add(id);
-    if(knownIds.has(id))warnings.push(`Identifiant déjà présent : ${id} (sera remplacé après confirmation).`);
-    const priceValue=row.pricePC!==undefined?row.pricePC:(row.prix??row.price);
-    const price=priceValue===undefined||priceValue===null||priceValue===''?template?.pricePC??null : row.pricePC!==undefined?A.parsePricePC(priceValue,'pc'):A.parsePricePC(priceValue,'pa');
-    if(priceValue!==undefined && priceValue!==null && priceValue!=='' && price===null)throw Error(`Prix invalide : ${name}`);
-    const affixIds=Array.isArray(row.affixIds)?row.affixIds:[];
-    const compatible=template?new Set(A.compatibleAffixes(template,catalog.affixes).map(a=>a.id)):new Set();
-    const invalid=affixIds.filter(id=>!compatible.has(id));if(invalid.length)throw Error(`${name}: affixes incompatibles ou inconnus : ${invalid.join(', ')}`);
-    if(affixIds.length>10)throw Error(`${name}: 10 affixes maximum`);
-    const quantity=row.stock===undefined||row.stock===null||row.stock===''?null:Number(row.stock);
-    if(quantity!==null&&(!Number.isSafeInteger(quantity)||quantity<0||quantity>1000000))throw Error(`Stock invalide : ${name}`);
-    items.push({id,name,category:String(row.category||row.categorie||template?.category||'Divers'),subcategory:String(row.subcategory||template?.subcategory||''),
-      description:String(row.description??template?.description??''),pricePC:price,icon:String(row.icon||catalog.icons[template?.id]||''),quality:Number(row.quality||0),power:Math.max(0,...affixIds.map(id=>Number(catalog.affixes.find(a=>a.id===id)?.tier)||0)),cofSpec:{base:template?.sourceId||'',quality:Number(row.quality||0),affixes:affixIds,name,price:price===null?'':String(price)+' pc',config:row.config||{}},
-      visible:row.visible!==false,templateId:template?.id||'',affixes:normalizedAffixes(affixIds,template),stock:quantity});
-    if(template){const check=A.prepareRoll20Spec(items[items.length-1],catalog);if(!check.ok)throw Error(`${name} : export Roll20 invalide : ${check.errors.join(' / ')}`);}
+function parseList(){
+  const raw=$('import-json').value;
+  let data;
+  try{data=JSON.parse(raw);}catch(err){throw Error('JSON invalide : '+err.message);}
+  const rows=Array.isArray(data)?data:data?.items;
+  if(!Array.isArray(rows)||!rows.length)throw Error('Attendu : {"items":[...]} non vide.');
+  if(rows.length>100)throw Error('Maximum 100 équipements par fichier.');
+  if(!catalog||!Array.isArray(catalog.templates)||!Array.isArray(catalog.affixes))throw Error('Catalogue V2 non chargé. Recharge la page MJ.');
+  const knownIds=new Set(all.map(i=>i.id)),local=new Set(),items=[],warnings=[];
+  const reserved=new Set((catalog.base||[]).map(b=>String(b.id).toLowerCase()));
+  const sourceMap=new Map(catalog.templates.map(t=>[String(t.sourceId||'').toUpperCase(),t]));
+  const byId=new Map(catalog.affixes.map(a=>[String(a.id),a]));
+  for(const [index,row] of rows.entries()){
+    const line=index+1;
+    if(!row||typeof row!=='object'||Array.isArray(row))throw Error('Ligne '+line+' : objet JSON invalide.');
+    const requested=String(row.templateId||row.modele||row.cofSpec?.base||'').trim();
+    const cleaned=requested.replace(/^cof-/i,'');
+    const t=catalog.templates.find(t=>String(t.id).toLowerCase()===cleaned.toLowerCase()||String(t.id).toLowerCase()===requested.toLowerCase()) || sourceMap.get(cleaned.toUpperCase()) || null;
+    const ids=(Array.isArray(row.affixIds)?row.affixIds:Array.isArray(row.cofSpec?.affixes)?row.cofSpec.affixes:[]).map(id=>String(id).trim());
+    const qualityValue=row.quality??row.cofSpec?.quality??0;
+    const q=Number(qualityValue);
+    const name=String(row.nom||row.name||t?.name||'').trim();
+    if(!name)throw Error('Ligne '+line+' : nom manquant.');
+    if(!t&&(requested||ids.length||q!==0))throw Error('Ligne '+line+' ('+name+') : modèle V2 introuvable '+requested+'. Vérifie shared.js et le catalogue V2.');
+    if(!Number.isInteger(q)||q<0||q>5)throw Error('Ligne '+line+' ('+name+') : qualité Q incorrecte : '+qualityValue);
+    if(q>0&&t&&!['arme','armure'].includes(String(t.category||'').toLowerCase()))throw Error('Ligne '+line+' ('+name+') : qualité Q interdite pour '+t.category);
+    if(ids.length>10||new Set(ids).size!==ids.length||ids.some(id=>!id))throw Error('Ligne '+line+' ('+name+') : affixes manquants, répétés ou plus de 10.');
+    const compatible=t?new Set((typeof A.compatibleAffixes==='function'?A.compatibleAffixes(t,catalog.affixes):catalog.affixes.filter(a=>a.allowedBaseIds?.includes(t.sourceId))).map(a=>a.id)):new Set();
+    for(const aid of ids){if(!byId.has(aid)||!compatible.has(aid))throw Error('Ligne '+line+' ('+name+') : affixe '+aid+' incompatible avec '+(t?.sourceId||'?'));}
+    if(t?.category==='consommable'&&ids.length>1)throw Error('Ligne '+line+' ('+name+') : un seul affixe pour consommable.');
+    const id=A.normalizeId(row.id||'mj-'+name);
+    if(!id||reserved.has(id)||local.has(id))throw Error('Ligne '+line+' ('+name+') : identifiant absent, réservé ou en double : '+id);
+    local.add(id);
+    if(knownIds.has(id))warnings.push('Déjà présent : '+id+' (sera mis à jour)');
+    const rawPrice=row.pricePC??row.prix??row.price;
+    const price=rawPrice===null||rawPrice===undefined||rawPrice===''?(t?.pricePC??null):
+      row.pricePC!==undefined?A.parsePricePC(rawPrice,'pc'):A.parsePricePC(rawPrice,'pa');
+    if(price===null||!Number.isSafeInteger(price)||price<0)throw Error('Ligne '+line+' ('+name+') : prix PC invalide ou manquant.');
+    const stockRaw=row.stock;
+    const stock=stockRaw===null||stockRaw===undefined||stockRaw===''?null:Number(stockRaw);
+    if(stock!==null&&(!Number.isSafeInteger(stock)||stock<0||stock>1000000))throw Error('Ligne '+line+' ('+name+') : stock invalide.');
+    const effects=ids.map(aid=>byId.get(aid));
+    const palier=Math.max(0,...effects.map(a=>Number(a.tier??a.p??0)));
+    const category=String(t?.category||row.category||row.categorie||'divers');
+    const config=row.config||row.cofSpec?.config||{};
+    const spec={base:t?.sourceId||'',quality:q,affixes:ids,name,price:String(price)+' pc'};
+    if(Object.keys(config).length)spec.config=config;
+    if(row.cofSpec?.mode)spec.mode=row.cofSpec.mode;
+    const item={id,name,category,subcategory:String(t?.subcategory||row.subcategory||''),description:String(row.description??t?.description??''),
+      pricePC:price,quality:q,power:palier,visible:row.visible!==false,stock,templateId:t?.id||'',
+      icon:String(row.icon||catalog.icons?.[t?.id]||catalog.icons?.[t?.sourceId]||t?.icon||''),
+      rarity:(A.RARITY_LABELS||[])[Math.min(10,q+palier)]||'Commun',
+      cofSpec:spec,affixes:effects.map(a=>({id:a.id,name:a.rpName||a.displayName||a.name,effect:a.effect,tier:Number(a.tier??a.p??0)}))};
+    if(t&&typeof A.prepareRoll20Spec==='function'){
+      const test=A.prepareRoll20Spec(item,catalog);
+      if(!test.ok)throw Error('Ligne '+line+' ('+name+') : export Roll20 invalide : '+test.errors.join('; '));
+      if(test.warnings?.length)warnings.push('Ligne '+line+' : '+test.warnings.join('; '));
+    }
+    items.push(item);
   }
   return {items,warnings};
 }
 function previewImport(){try{pending=parseList();$('run-import').disabled=false;importNotice(`${pending.items.length} objets valides pour ${groupName()}.\n`+(pending.warnings.length?pending.warnings.join('\n'):'Aucun identifiant déjà présent.'),'success');}
   catch(e){pending=null;$('run-import').disabled=true;importNotice(e.message,'error');}}
-async function performImport(){if(!pending)return;const payload=pending;const conflicts=payload.warnings.length;
-  if(!confirm(`Importer ${payload.items.length} objets dans ${groupName()} ? ${conflicts?'ATTENTION : '+conflicts+' objets ont des identifiants déjà existants.':''}\nLa base de l'autre groupe ne sera pas modifiée.`))return;
-  $('run-import').disabled=true;let saved=0;
-  try{for(const it of payload.items){await A.saveCustom(group,it);await A.setBaseOverride(group,it.id,{visible:it.visible});if(it.stock!==null)await A.setStock(group,it.id,it.stock);saved++;}
-    await fetchState();importNotice(`✓ ${saved} objets importés dans ${groupName()}.`,'success');}
-  catch(e){importNotice(`Import partiel : ${saved}/${payload.items.length} enregistrés. ${e.message}. Vérifie les objets avant de relancer.`,'error');}
+async function performImport(){if(!pending)return;
+  const payload=pending;const conflicts=payload.warnings.filter(w=>w.startsWith('Déjà présent :')).length;
+  if(!confirm(`Importer ${payload.items.length} objets dans ${groupName()} ? ${conflicts?'ATTENTION : '+conflicts+' identifiant(s) déjà présent(s), mise à jour à confirmer.':''}\nLa base de l'autre groupe ne sera pas modifiée.`))return;
+  $('run-import').disabled=true;let saved=0,phase='';
+  try{
+    for(const it of payload.items){
+      phase='création de la fiche';importNotice(`Import ${saved+1}/${payload.items.length} — ${it.name} (${phase})…`);
+      await A.saveCustom(group,it);
+      phase='visibilité';await A.setBaseOverride(group,it.id,{visible:it.visible});
+      if(it.stock!==null){phase='quantité de stock';await A.setStock(group,it.id,it.stock);}
+      saved++;
+    }
+    await fetchState();importNotice(`✓ ${saved} objets importés dans ${groupName()}.`,'success');
+  }catch(e){
+    const item=payload.items[saved];const code=e?.code||'';
+    const hint=/permission-denied/i.test(code+' '+e.message)?' Vérifie que ton compte MJ possède les droits Firestore et que les règles publiées utilisent le bon UID.':
+      /unavailable|network/i.test(code+' '+e.message)?' Vérifie ta connexion Firebase.':'';
+    importNotice(`Import interrompu à la ligne ${saved+1}/${payload.items.length} (${item?.id||'?'}), étape « ${phase} » : ${e.message}.${hint} Les ${saved} lignes précédentes peuvent déjà être enregistrées ; relancer avec les mêmes IDs les mettra à jour.`, 'error');
+    $('run-import').disabled=false;
+  }
 }
 function exportItems(){const records=custom.map(c=>({id:c.id,nom:c.name,category:c.category,subcategory:c.subcategory,pricePC:c.pricePC,description:c.description,icon:c.icon,visible:c.visible,templateId:c.templateId,quality:c.cofSpec?.quality??c.quality??0,config:c.cofSpec?.config||{},affixIds:(c.cofSpec?.affixes||c.affixes?.map(a=>a.id)||[]),stock:stocks.has(c.id)?stocks.get(c.id):null}));
   const blob=new Blob([JSON.stringify({items:records},null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`alaric-${group}-objets.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),2000);

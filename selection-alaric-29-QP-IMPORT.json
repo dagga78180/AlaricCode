@@ -1,0 +1,635 @@
+{
+  "items": [
+    {
+      "id": "mj-alaric-r1-01-cac-02",
+      "templateId": "cac-02",
+      "nom": "Dague (qualité Q1)",
+      "prix": "1 PO 21 PA 50 PC",
+      "pricePC": 12150,
+      "description": "Une lame courte et effilée prolonge une poignée étroite, conçue pour les mouvements vifs et précis.\nQualité Q1 : +1 attaque et +1 DM par Q.",
+      "affixIds": [],
+      "quality": 1,
+      "stock": 1,
+      "visible": true,
+      "cofSpec": {
+        "base": "CAC-02",
+        "quality": 1,
+        "affixes": [],
+        "name": "Dague (qualité Q1)",
+        "price": "12150 pc"
+      }
+    },
+    {
+      "id": "mj-alaric-r1-02-acc-04",
+      "templateId": "acc-04",
+      "nom": "Cape du pas du rôdeur",
+      "prix": "48 PA 67 PC",
+      "pricePC": 4867,
+      "description": "Une broderie presque invisible court le long de la doublure. Un petit symbole évoquant de petits motifs d’ombre est gravé ou brodé dans l’accessoire. Le tracé paraît plus net lorsque le porteur mobilise cette aptitude.\nEffet : +2 aux tests de discretion.",
+      "affixIds": [
+        "ACC_SK_DISCRETION_2"
+      ],
+      "quality": 0,
+      "stock": 1,
+      "visible": true,
+      "cofSpec": {
+        "base": "ACC-04",
+        "quality": 0,
+        "affixes": [
+          "ACC_SK_DISCRETION_2"
+        ],
+        "name": "Cape du pas du rôdeur",
+        "price": "4867 pc"
+      }
+    },
+    {
+      "id": "mj-alaric-r1-03-acc-05",
+      "templateId": "acc-05",
+      "nom": "Gants du virtuose",
+      "prix": "29 PA 9 PC",
+      "pricePC": 2909,
+      "description": "Les coutures suivent précisément les articulations des doigts. Un petit symbole évoquant des entrelacs aussi fins qu’une écriture est gravé ou brodé dans l’accessoire. Le tracé paraît plus net lorsque le porteur mobilise cette aptitude.\nEffet : +2 aux tests de adresse.",
+      "affixIds": [
+        "ACC_SK_ADRESSE_2"
+      ],
+      "quality": 0,
+      "stock": 1,
+      "visible": true,
+      "cofSpec": {
+        "base": "ACC-05",
+        "quality": 0,
+        "affixes": [
+          "ACC_SK_ADRESSE_2"
+        ],
+        "name": "Gants du virtuose",
+        "price": "2909 pc"
+      }
+    },
+    {
+      "id": "mj-alaric-r1-04-cac-01",
+      "templateId": "cac-01",
+      "nom": "Bâton de combat (qualité Q1)",
+      "prix": "81 PA",
+      "pricePC": 8100,
+      "description": "Un solide bâton de bois dense, poli aux zones de prise et façonné pour résister aux coups répétés.\nQualité Q1 : +1 attaque et +1 DM par Q.",
+      "affixIds": [],
+      "quality": 1,
+      "stock": 1,
+      "visible": true,
+      "cofSpec": {
+        "base": "CAC-01",
+        "quality": 1,
+        "affixes": [],
+        "name": "Bâton de combat (qualité Q1)",
+        "price": "8100 pc"
+      }
+    },
+    {
+      "id": "mj-alaric-r1-05-acc-04",
+      "templateId": "acc-04",
+      "nom": "Cape du naturaliste",
+      "prix": "47 PA 27 PC",
+      "pricePC": 4727,
+      "description": "Une broderie presque invisible court le long de la doublure. Un petit symbole évoquant un réseau de feuilles est gravé ou brodé dans l’accessoire. Le tracé paraît plus net lorsque le porteur mobilise cette aptitude.\nEffet : +2 aux tests de nature.",
+      "affixIds": [
+        "ACC_SK_NATURE_2"
+      ],
+      "quality": 0,
+      "stock": 1,
+      "visible": true,
+      "cofSpec": {
+        "base": "ACC-04",
+        "quality": 0,
+        "affixes": [
+          "ACC_SK_NATURE_2"
+        ],
+        "name": "Cape du naturaliste",
+        "price": "4727 pc"
+      }
+    },
+    {
+      "id": "mj-alaric-r1-06-acc-03",
+      "templateId": "acc-03",
+      "nom": "Ceinture du pisteur",
+      "prix": "34 PA 94 PC",
+      "pricePC": 3494,
+      "description": "La boucle et les passants sont ornés de petites marques de fabrication. Un petit symbole évoquant une empreinte stylisée est gravé ou brodé dans l’accessoire. Le tracé paraît plus net lorsque le porteur mobilise cette aptitude.\nEffet : +2 aux tests de survie.",
+      "affixIds": [
+        "ACC_SK_SURVIE_2"
+      ],
+      "quality": 0,
+      "stock": 1,
+      "visible": true,
+      "cofSpec": {
+        "base": "ACC-03",
+        "quality": 0,
+        "affixes": [
+          "ACC_SK_SURVIE_2"
+        ],
+        "name": "Ceinture du pisteur",
+        "price": "3494 pc"
+      }
+    },
+    {
+      "id": "mj-alaric-r1-07-cac-04",
+      "templateId": "cac-04",
+      "nom": "Épée longue (qualité Q1)",
+      "prix": "6 PO 48 PA",
+      "pricePC": 64800,
+      "description": "Une lame droite à double tranchant, terminée par une garde en croix et un pommeau qui équilibre l'ensemble.\nQualité Q1 : +1 attaque et +1 DM par Q.",
+      "affixIds": [],
+      "quality": 1,
+      "stock": 1,
+      "visible": true,
+      "cofSpec": {
+        "base": "CAC-04",
+        "quality": 1,
+        "affixes": [],
+        "name": "Épée longue (qualité Q1)",
+        "price": "64800 pc"
+      }
+    },
+    {
+      "id": "mj-alaric-r1-08-acc-02",
+      "templateId": "acc-02",
+      "nom": "Amulette du pèlerin",
+      "prix": "23 PO 52 PA",
+      "pricePC": 235200,
+      "description": "Le pendentif présente un sertissage très fin et une chaîne discrète. Un petit symbole évoquant une couronne rayonnante est gravé ou brodé dans l’accessoire. Le tracé paraît plus net lorsque le porteur mobilise cette aptitude.\nEffet : +2 aux tests de religion.",
+      "affixIds": [
+        "ACC_SK_RELIGION_2"
+      ],
+      "quality": 0,
+      "stock": 1,
+      "visible": true,
+      "cofSpec": {
+        "base": "ACC-02",
+        "quality": 0,
+        "affixes": [
+          "ACC_SK_RELIGION_2"
+        ],
+        "name": "Amulette du pèlerin",
+        "price": "235200 pc"
+      }
+    },
+    {
+      "id": "mj-alaric-r1-09-acc-03",
+      "templateId": "acc-03",
+      "nom": "Ceinture du rempart",
+      "prix": "33 PA 94 PC",
+      "pricePC": 3394,
+      "description": "La boucle et les passants sont ornés de petites marques de fabrication. Un petit symbole évoquant un rempart miniature est gravé ou brodé dans l’accessoire. Le tracé paraît plus net lorsque le porteur mobilise cette aptitude.\nEffet : +2 aux tests de protection.",
+      "affixIds": [
+        "ACC_SK_PROTECTION_2"
+      ],
+      "quality": 0,
+      "stock": 1,
+      "visible": true,
+      "cofSpec": {
+        "base": "ACC-03",
+        "quality": 0,
+        "affixes": [
+          "ACC_SK_PROTECTION_2"
+        ],
+        "name": "Ceinture du rempart",
+        "price": "3394 pc"
+      }
+    },
+    {
+      "id": "mj-alaric-r1-10-mag-01",
+      "templateId": "mag-01",
+      "nom": "Baguette de combat (qualité Q1)",
+      "prix": "24 PO 30 PA",
+      "pricePC": 243000,
+      "description": "Une baguette fine de bois ou de cristal, gravée de petits glyphes qui s'illuminent lors d'une attaque.\nQualité Q1 : +1 attaque et +1 DM par Q.",
+      "affixIds": [],
+      "quality": 1,
+      "stock": 1,
+      "visible": true,
+      "cofSpec": {
+        "base": "MAG-01",
+        "quality": 1,
+        "affixes": [],
+        "name": "Baguette de combat (qualité Q1)",
+        "price": "243000 pc"
+      }
+    },
+    {
+      "id": "mj-alaric-r1-11-acc-02",
+      "templateId": "acc-02",
+      "nom": "Amulette de l’arcaniste",
+      "prix": "24 PO 52 PA 80 PC",
+      "pricePC": 245280,
+      "description": "Le pendentif présente un sertissage très fin et une chaîne discrète. Un petit symbole évoquant des signes ésotériques enroulés est gravé ou brodé dans l’accessoire. Le tracé paraît plus net lorsque le porteur mobilise cette aptitude.\nEffet : +2 aux tests de arcanes.",
+      "affixIds": [
+        "ACC_SK_ARCANES_2"
+      ],
+      "quality": 0,
+      "stock": 1,
+      "visible": true,
+      "cofSpec": {
+        "base": "ACC-02",
+        "quality": 0,
+        "affixes": [
+          "ACC_SK_ARCANES_2"
+        ],
+        "name": "Amulette de l’arcaniste",
+        "price": "245280 pc"
+      }
+    },
+    {
+      "id": "mj-alaric-r1-12-acc-08",
+      "templateId": "acc-08",
+      "nom": "Casque de mémoire des anciens",
+      "prix": "2 PO 58 PA 72 PC",
+      "pricePC": 25872,
+      "description": "Une petite gravure est dissimulée près du bord du casque ou du diadème. Un petit symbole évoquant des signes d’une écriture oubliée est gravé ou brodé dans l’accessoire. Le tracé paraît plus net lorsque le porteur mobilise cette aptitude.\nEffet : +2 aux tests de histoire.",
+      "affixIds": [
+        "ACC_SK_HISTOIRE_2"
+      ],
+      "quality": 0,
+      "stock": 1,
+      "visible": true,
+      "cofSpec": {
+        "base": "ACC-08",
+        "quality": 0,
+        "affixes": [
+          "ACC_SK_HISTOIRE_2"
+        ],
+        "name": "Casque de mémoire des anciens",
+        "price": "25872 pc"
+      }
+    },
+    {
+      "id": "mj-alaric-r1-13-dst-02",
+      "templateId": "dst-02",
+      "nom": "Arc long (qualité Q1)",
+      "prix": "4 PO 86 PA",
+      "pricePC": 48600,
+      "description": "Un grand arc aux branches souples et puissantes, conçu pour lancer une flèche à longue distance.\nQualité Q1 : +1 attaque et +1 DM par Q.",
+      "affixIds": [],
+      "quality": 1,
+      "stock": 1,
+      "visible": true,
+      "cofSpec": {
+        "base": "DST-02",
+        "quality": 1,
+        "affixes": [],
+        "name": "Arc long (qualité Q1)",
+        "price": "48600 pc"
+      }
+    },
+    {
+      "id": "mj-alaric-r1-14-acc-06",
+      "templateId": "acc-06",
+      "nom": "Bottes du pisteur",
+      "prix": "59 PA 90 PC",
+      "pricePC": 5990,
+      "description": "Les talons et les coutures portent de fines marques coordonnées. Un petit symbole évoquant une empreinte stylisée est gravé ou brodé dans l’accessoire. Le tracé paraît plus net lorsque le porteur mobilise cette aptitude.\nEffet : +2 aux tests de survie.",
+      "affixIds": [
+        "ACC_SK_SURVIE_2"
+      ],
+      "quality": 0,
+      "stock": 1,
+      "visible": true,
+      "cofSpec": {
+        "base": "ACC-06",
+        "quality": 0,
+        "affixes": [
+          "ACC_SK_SURVIE_2"
+        ],
+        "name": "Bottes du pisteur",
+        "price": "5990 pc"
+      }
+    },
+    {
+      "id": "mj-alaric-r1-15-acc-08",
+      "templateId": "acc-08",
+      "nom": "Casque du guetteur",
+      "prix": "2 PO 82 PA 48 PC",
+      "pricePC": 28248,
+      "description": "Une petite gravure est dissimulée près du bord du casque ou du diadème. Un petit symbole évoquant un œil gravé est gravé ou brodé dans l’accessoire. Le tracé paraît plus net lorsque le porteur mobilise cette aptitude.\nEffet : +2 aux tests de perception.",
+      "affixIds": [
+        "ACC_SK_PERCEPTION_2"
+      ],
+      "quality": 0,
+      "stock": 1,
+      "visible": true,
+      "cofSpec": {
+        "base": "ACC-08",
+        "quality": 0,
+        "affixes": [
+          "ACC_SK_PERCEPTION_2"
+        ],
+        "name": "Casque du guetteur",
+        "price": "28248 pc"
+      }
+    },
+    {
+      "id": "mj-alaric-r1-16-cac-06",
+      "templateId": "cac-06",
+      "nom": "Hache à une main (qualité Q1)",
+      "prix": "2 PO 2 PA 50 PC",
+      "pricePC": 20250,
+      "description": "Une tête de fer au tranchant large est solidement fixée à un manche court recouvert de cuir.\nQualité Q1 : +1 attaque et +1 DM par Q.",
+      "affixIds": [],
+      "quality": 1,
+      "stock": 1,
+      "visible": true,
+      "cofSpec": {
+        "base": "CAC-06",
+        "quality": 1,
+        "affixes": [],
+        "name": "Hache à une main (qualité Q1)",
+        "price": "20250 pc"
+      }
+    },
+    {
+      "id": "mj-alaric-r1-17-acc-03",
+      "templateId": "acc-03",
+      "nom": "Ceinture d’élan de l’athlète",
+      "prix": "34 PA 54 PC",
+      "pricePC": 3454,
+      "description": "La boucle et les passants sont ornés de petites marques de fabrication. Un petit symbole évoquant une silhouette en plein effort est gravé ou brodé dans l’accessoire. Le tracé paraît plus net lorsque le porteur mobilise cette aptitude.\nEffet : +2 aux tests de athletisme.",
+      "affixIds": [
+        "ACC_SK_ATHLETISME_2"
+      ],
+      "quality": 0,
+      "stock": 1,
+      "visible": true,
+      "cofSpec": {
+        "base": "ACC-03",
+        "quality": 0,
+        "affixes": [
+          "ACC_SK_ATHLETISME_2"
+        ],
+        "name": "Ceinture d’élan de l’athlète",
+        "price": "3454 pc"
+      }
+    },
+    {
+      "id": "mj-alaric-r1-18-acc-05",
+      "templateId": "acc-05",
+      "nom": "Gants du colosse",
+      "prix": "29 PA 9 PC",
+      "pricePC": 2909,
+      "description": "Les coutures suivent précisément les articulations des doigts. Un petit symbole évoquant un poing de pierre est gravé ou brodé dans l’accessoire. Le tracé paraît plus net lorsque le porteur mobilise cette aptitude.\nEffet : +2 aux tests de puissance.",
+      "affixIds": [
+        "ACC_SK_PUISSANCE_2"
+      ],
+      "quality": 0,
+      "stock": 1,
+      "visible": true,
+      "cofSpec": {
+        "base": "ACC-05",
+        "quality": 0,
+        "affixes": [
+          "ACC_SK_PUISSANCE_2"
+        ],
+        "name": "Gants du colosse",
+        "price": "2909 pc"
+      }
+    },
+    {
+      "id": "mj-alaric-r1-19-acc-05",
+      "templateId": "acc-05",
+      "nom": "Gants du guérisseur",
+      "prix": "29 PA 9 PC",
+      "pricePC": 2909,
+      "description": "Les coutures suivent précisément les articulations des doigts. Un petit symbole évoquant une branche de saule est gravé ou brodé dans l’accessoire. Le tracé paraît plus net lorsque le porteur mobilise cette aptitude.\nEffet : +2 aux tests de medecine.",
+      "affixIds": [
+        "ACC_SK_MEDECINE_2"
+      ],
+      "quality": 0,
+      "stock": 1,
+      "visible": true,
+      "cofSpec": {
+        "base": "ACC-05",
+        "quality": 0,
+        "affixes": [
+          "ACC_SK_MEDECINE_2"
+        ],
+        "name": "Gants du guérisseur",
+        "price": "2909 pc"
+      }
+    },
+    {
+      "id": "mj-alaric-r1-20-acc-08",
+      "templateId": "acc-08",
+      "nom": "Casque du pèlerin",
+      "prix": "2 PO 58 PA 72 PC",
+      "pricePC": 25872,
+      "description": "Une petite gravure est dissimulée près du bord du casque ou du diadème. Un petit symbole évoquant une couronne rayonnante est gravé ou brodé dans l’accessoire. Le tracé paraît plus net lorsque le porteur mobilise cette aptitude.\nEffet : +2 aux tests de religion.",
+      "affixIds": [
+        "ACC_SK_RELIGION_2"
+      ],
+      "quality": 0,
+      "stock": 1,
+      "visible": true,
+      "cofSpec": {
+        "base": "ACC-08",
+        "quality": 0,
+        "affixes": [
+          "ACC_SK_RELIGION_2"
+        ],
+        "name": "Casque du pèlerin",
+        "price": "25872 pc"
+      }
+    },
+    {
+      "id": "mj-alaric-r2-21-cac-11",
+      "templateId": "cac-11",
+      "nom": "Rapière à pointe durcie (qualité Q1)",
+      "prix": "9 PO 76 PA",
+      "pricePC": 97600,
+      "description": "Des marques de forge soulignent la partie active de l’arme. La pointe a reçu un traitement de forge particulièrement soigné. Son métal révèle des lignes de trempe et des renforts visibles.\nEffet de l’affixe : +1 DM physiques avec cette arme.\nQualité Q1 : +1 attaque et +1 DM par Q.",
+      "affixIds": [
+        "N06_1_PERF"
+      ],
+      "quality": 1,
+      "stock": 1,
+      "visible": true,
+      "cofSpec": {
+        "base": "CAC-11",
+        "quality": 1,
+        "affixes": [
+          "N06_1_PERF"
+        ],
+        "name": "Rapière à pointe durcie (qualité Q1)",
+        "price": "97600 pc"
+      }
+    },
+    {
+      "id": "mj-alaric-r2-22-arm-02",
+      "templateId": "arm-02",
+      "nom": "Armure de cuir (qualité Q2)",
+      "prix": "7 PO 24 PA",
+      "pricePC": 72400,
+      "description": "De solides panneaux de cuir tanné sont assemblés par des sangles souples qui accompagnent les mouvements.\nQualité Q2 : +1 DEF par Q.",
+      "affixIds": [],
+      "quality": 2,
+      "stock": 1,
+      "visible": true,
+      "cofSpec": {
+        "base": "ARM-02",
+        "quality": 2,
+        "affixes": [],
+        "name": "Armure de cuir (qualité Q2)",
+        "price": "72400 pc"
+      }
+    },
+    {
+      "id": "mj-alaric-r2-23-bcl-01",
+      "templateId": "bcl-01",
+      "nom": "Petit bouclier (qualité Q2)",
+      "prix": "3 PO 62 PA",
+      "pricePC": 36200,
+      "description": "Un bouclier rond et léger, renforcé sur son bord, se manie près du bras grâce à une poignée centrale.\nQualité Q2 : +1 DEF par Q.",
+      "affixIds": [],
+      "quality": 2,
+      "stock": 1,
+      "visible": true,
+      "cofSpec": {
+        "base": "BCL-01",
+        "quality": 2,
+        "affixes": [],
+        "name": "Petit bouclier (qualité Q2)",
+        "price": "36200 pc"
+      }
+    },
+    {
+      "id": "mj-alaric-r2-24-acc-02",
+      "templateId": "acc-02",
+      "nom": "Amulette de l’arcaniste supérieur",
+      "prix": "62 PO 82 PA",
+      "pricePC": 628200,
+      "description": "Le pendentif présente un sertissage très fin et une chaîne discrète. Un petit symbole évoquant des signes ésotériques enroulés est gravé ou brodé dans l’accessoire. Le tracé paraît plus net lorsque le porteur mobilise cette aptitude.\nEffet : +4 aux tests de arcanes.",
+      "affixIds": [
+        "ACC_SK_ARCANES_4"
+      ],
+      "quality": 0,
+      "stock": 1,
+      "visible": true,
+      "cofSpec": {
+        "base": "ACC-02",
+        "quality": 0,
+        "affixes": [
+          "ACC_SK_ARCANES_4"
+        ],
+        "name": "Amulette de l’arcaniste supérieur",
+        "price": "628200 pc"
+      }
+    },
+    {
+      "id": "mj-alaric-r2-25-dst-02",
+      "templateId": "dst-02",
+      "nom": "Arc long à branches longues (qualité Q1)",
+      "prix": "11 PO 71 PA 20 PC",
+      "pricePC": 117120,
+      "description": "La construction de l’arme est allongée sans perdre sa stabilité. Des repères discrets guident le regard dans l’axe du tir.\nEffet de l’affixe : Augmente la portée de cette arme de 5 m.\nQualité Q1 : +1 attaque et +1 DM par Q.",
+      "affixIds": [
+        "N22"
+      ],
+      "quality": 1,
+      "stock": 1,
+      "visible": true,
+      "cofSpec": {
+        "base": "DST-02",
+        "quality": 1,
+        "affixes": [
+          "N22"
+        ],
+        "name": "Arc long à branches longues (qualité Q1)",
+        "price": "117120 pc"
+      }
+    },
+    {
+      "id": "mj-alaric-r2-26-arm-04",
+      "templateId": "arm-04",
+      "nom": "Chemise de mailles de protection renforcée",
+      "prix": "73 PO 37 PA 25 PC",
+      "pricePC": 733725,
+      "description": "De petites marques sont gravées sur les pièces de métal les plus exposées. La construction présente des pièces supplémentaires aux endroits exposés. Des lignes de fixation précises relient les renforts à la structure.\nEffet : +1 DEF tant que l’équipement est porté ou tenu.",
+      "affixIds": [
+        "AR_DEF_1"
+      ],
+      "quality": 0,
+      "stock": 1,
+      "visible": true,
+      "cofSpec": {
+        "base": "ARM-04",
+        "quality": 0,
+        "affixes": [
+          "AR_DEF_1"
+        ],
+        "name": "Chemise de mailles de protection renforcée",
+        "price": "733725 pc"
+      }
+    },
+    {
+      "id": "mj-alaric-r2-27-acc-05",
+      "templateId": "acc-05",
+      "nom": "Gants du guérisseur supérieur",
+      "prix": "74 PA 52 PC",
+      "pricePC": 7452,
+      "description": "Les coutures suivent précisément les articulations des doigts. Un petit symbole évoquant une branche de saule est gravé ou brodé dans l’accessoire. Le tracé paraît plus net lorsque le porteur mobilise cette aptitude.\nEffet : +4 aux tests de medecine.",
+      "affixIds": [
+        "ACC_SK_MEDECINE_4"
+      ],
+      "quality": 0,
+      "stock": 1,
+      "visible": true,
+      "cofSpec": {
+        "base": "ACC-05",
+        "quality": 0,
+        "affixes": [
+          "ACC_SK_MEDECINE_4"
+        ],
+        "name": "Gants du guérisseur supérieur",
+        "price": "7452 pc"
+      }
+    },
+    {
+      "id": "mj-alaric-r3-28-acc-02",
+      "templateId": "acc-02",
+      "nom": "Amulette de veille éternelle",
+      "prix": "156 PO 75 PA",
+      "pricePC": 1567500,
+      "description": "Le pendentif présente un sertissage très fin et une chaîne discrète. Un symbole figurant un œil sous une étoile est gravé dans la monture. La marque reste claire lorsque le danger qu’elle repousse approche.\nEffet : Immunité à l’état sommeil.",
+      "affixIds": [
+        "ACC_IMM_SOMMEIL"
+      ],
+      "quality": 0,
+      "stock": 1,
+      "visible": true,
+      "cofSpec": {
+        "base": "ACC-02",
+        "quality": 0,
+        "affixes": [
+          "ACC_IMM_SOMMEIL"
+        ],
+        "name": "Amulette de veille éternelle",
+        "price": "1567500 pc"
+      }
+    },
+    {
+      "id": "mj-alaric-r3-29-bcl-02",
+      "templateId": "bcl-02",
+      "nom": "Grand bouclier (qualité Q3)",
+      "prix": "16 PO 4 PA",
+      "pricePC": 160400,
+      "description": "Un large bouclier de bois cerclé de métal couvre le flanc et une partie du torse du porteur.\nQualité Q3 : +1 DEF par Q.",
+      "affixIds": [],
+      "quality": 3,
+      "stock": 1,
+      "visible": true,
+      "cofSpec": {
+        "base": "BCL-02",
+        "quality": 3,
+        "affixes": [],
+        "name": "Grand bouclier (qualité Q3)",
+        "price": "160400 pc"
+      }
+    }
+  ]
+}
