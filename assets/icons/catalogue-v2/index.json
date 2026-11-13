@@ -1,0 +1,1167 @@
+{
+  "CAC-01": {
+    "name": "Bâton de combat",
+    "category": "arme",
+    "sourceIcon": "Bâton de combat.svg",
+    "base": "assets/icons/catalogue-v2/CAC-01_R00.svg",
+    "files": [
+      "CAC-01_R00.svg",
+      "CAC-01_R01.svg",
+      "CAC-01_R02.svg",
+      "CAC-01_R03.svg",
+      "CAC-01_R04.svg",
+      "CAC-01_R05.svg",
+      "CAC-01_R06.svg",
+      "CAC-01_R07.svg",
+      "CAC-01_R08.svg",
+      "CAC-01_R09.svg",
+      "CAC-01_R10.svg"
+    ],
+    "ranks": "R00..R10"
+  },
+  "CAC-02": {
+    "name": "Dague",
+    "category": "arme",
+    "sourceIcon": "Dague.svg",
+    "base": "assets/icons/catalogue-v2/CAC-02_R00.svg",
+    "files": [
+      "CAC-02_R00.svg",
+      "CAC-02_R01.svg",
+      "CAC-02_R02.svg",
+      "CAC-02_R03.svg",
+      "CAC-02_R04.svg",
+      "CAC-02_R05.svg",
+      "CAC-02_R06.svg",
+      "CAC-02_R07.svg",
+      "CAC-02_R08.svg",
+      "CAC-02_R09.svg",
+      "CAC-02_R10.svg"
+    ],
+    "ranks": "R00..R10"
+  },
+  "CAC-03": {
+    "name": "Épée courte",
+    "category": "arme",
+    "sourceIcon": "Épée courte.svg",
+    "base": "assets/icons/catalogue-v2/CAC-03_R00.svg",
+    "files": [
+      "CAC-03_R00.svg",
+      "CAC-03_R01.svg",
+      "CAC-03_R02.svg",
+      "CAC-03_R03.svg",
+      "CAC-03_R04.svg",
+      "CAC-03_R05.svg",
+      "CAC-03_R06.svg",
+      "CAC-03_R07.svg",
+      "CAC-03_R08.svg",
+      "CAC-03_R09.svg",
+      "CAC-03_R10.svg"
+    ],
+    "ranks": "R00..R10"
+  },
+  "CAC-04": {
+    "name": "Épée longue",
+    "category": "arme",
+    "sourceIcon": "Épée longue.svg",
+    "base": "assets/icons/catalogue-v2/CAC-04_R00.svg",
+    "files": [
+      "CAC-04_R00.svg",
+      "CAC-04_R01.svg",
+      "CAC-04_R02.svg",
+      "CAC-04_R03.svg",
+      "CAC-04_R04.svg",
+      "CAC-04_R05.svg",
+      "CAC-04_R06.svg",
+      "CAC-04_R07.svg",
+      "CAC-04_R08.svg",
+      "CAC-04_R09.svg",
+      "CAC-04_R10.svg"
+    ],
+    "ranks": "R00..R10"
+  },
+  "CAC-05": {
+    "name": "Épée à deux mains",
+    "category": "arme",
+    "sourceIcon": "Épée à deux mains.svg",
+    "base": "assets/icons/catalogue-v2/CAC-05_R00.svg",
+    "files": [
+      "CAC-05_R00.svg",
+      "CAC-05_R01.svg",
+      "CAC-05_R02.svg",
+      "CAC-05_R03.svg",
+      "CAC-05_R04.svg",
+      "CAC-05_R05.svg",
+      "CAC-05_R06.svg",
+      "CAC-05_R07.svg",
+      "CAC-05_R08.svg",
+      "CAC-05_R09.svg",
+      "CAC-05_R10.svg"
+    ],
+    "ranks": "R00..R10"
+  },
+  "CAC-06": {
+    "name": "Hache à une main",
+    "category": "arme",
+    "sourceIcon": "Hache à une main.svg",
+    "base": "assets/icons/catalogue-v2/CAC-06_R00.svg",
+    "files": [
+      "CAC-06_R00.svg",
+      "CAC-06_R01.svg",
+      "CAC-06_R02.svg",
+      "CAC-06_R03.svg",
+      "CAC-06_R04.svg",
+      "CAC-06_R05.svg",
+      "CAC-06_R06.svg",
+      "CAC-06_R07.svg",
+      "CAC-06_R08.svg",
+      "CAC-06_R09.svg",
+      "CAC-06_R10.svg"
+    ],
+    "ranks": "R00..R10"
+  },
+  "CAC-07": {
+    "name": "Hache à deux mains",
+    "category": "arme",
+    "sourceIcon": "Hache à deux mains.svg",
+    "base": "assets/icons/catalogue-v2/CAC-07_R00.svg",
+    "files": [
+      "CAC-07_R00.svg",
+      "CAC-07_R01.svg",
+      "CAC-07_R02.svg",
+      "CAC-07_R03.svg",
+      "CAC-07_R04.svg",
+      "CAC-07_R05.svg",
+      "CAC-07_R06.svg",
+      "CAC-07_R07.svg",
+      "CAC-07_R08.svg",
+      "CAC-07_R09.svg",
+      "CAC-07_R10.svg"
+    ],
+    "ranks": "R00..R10"
+  },
+  "CAC-08": {
+    "name": "Masse d'armes",
+    "category": "arme",
+    "sourceIcon": "Masse d'armes.svg",
+    "base": "assets/icons/catalogue-v2/CAC-08_R00.svg",
+    "files": [
+      "CAC-08_R00.svg",
+      "CAC-08_R01.svg",
+      "CAC-08_R02.svg",
+      "CAC-08_R03.svg",
+      "CAC-08_R04.svg",
+      "CAC-08_R05.svg",
+      "CAC-08_R06.svg",
+      "CAC-08_R07.svg",
+      "CAC-08_R08.svg",
+      "CAC-08_R09.svg",
+      "CAC-08_R10.svg"
+    ],
+    "ranks": "R00..R10"
+  },
+  "CAC-09": {
+    "name": "Marteau de guerre",
+    "category": "arme",
+    "sourceIcon": "Marteau de guerre.svg",
+    "base": "assets/icons/catalogue-v2/CAC-09_R00.svg",
+    "files": [
+      "CAC-09_R00.svg",
+      "CAC-09_R01.svg",
+      "CAC-09_R02.svg",
+      "CAC-09_R03.svg",
+      "CAC-09_R04.svg",
+      "CAC-09_R05.svg",
+      "CAC-09_R06.svg",
+      "CAC-09_R07.svg",
+      "CAC-09_R08.svg",
+      "CAC-09_R09.svg",
+      "CAC-09_R10.svg"
+    ],
+    "ranks": "R00..R10"
+  },
+  "CAC-10": {
+    "name": "Marteau de guerre à deux mains",
+    "category": "arme",
+    "sourceIcon": "Marteau de guerre à deux mains.svg",
+    "base": "assets/icons/catalogue-v2/CAC-10_R00.svg",
+    "files": [
+      "CAC-10_R00.svg",
+      "CAC-10_R01.svg",
+      "CAC-10_R02.svg",
+      "CAC-10_R03.svg",
+      "CAC-10_R04.svg",
+      "CAC-10_R05.svg",
+      "CAC-10_R06.svg",
+      "CAC-10_R07.svg",
+      "CAC-10_R08.svg",
+      "CAC-10_R09.svg",
+      "CAC-10_R10.svg"
+    ],
+    "ranks": "R00..R10"
+  },
+  "CAC-11": {
+    "name": "Rapière",
+    "category": "arme",
+    "sourceIcon": "Rapière.svg",
+    "base": "assets/icons/catalogue-v2/CAC-11_R00.svg",
+    "files": [
+      "CAC-11_R00.svg",
+      "CAC-11_R01.svg",
+      "CAC-11_R02.svg",
+      "CAC-11_R03.svg",
+      "CAC-11_R04.svg",
+      "CAC-11_R05.svg",
+      "CAC-11_R06.svg",
+      "CAC-11_R07.svg",
+      "CAC-11_R08.svg",
+      "CAC-11_R09.svg",
+      "CAC-11_R10.svg"
+    ],
+    "ranks": "R00..R10"
+  },
+  "CAC-12": {
+    "name": "Vivelame",
+    "category": "arme",
+    "sourceIcon": "Vivelame.svg",
+    "base": "assets/icons/catalogue-v2/CAC-12_R00.svg",
+    "files": [
+      "CAC-12_R00.svg",
+      "CAC-12_R01.svg",
+      "CAC-12_R02.svg",
+      "CAC-12_R03.svg",
+      "CAC-12_R04.svg",
+      "CAC-12_R05.svg",
+      "CAC-12_R06.svg",
+      "CAC-12_R07.svg",
+      "CAC-12_R08.svg",
+      "CAC-12_R09.svg",
+      "CAC-12_R10.svg"
+    ],
+    "ranks": "R00..R10"
+  },
+  "CAC-13": {
+    "name": "Lance",
+    "category": "arme",
+    "sourceIcon": "Lance.svg",
+    "base": "assets/icons/catalogue-v2/CAC-13_R00.svg",
+    "files": [
+      "CAC-13_R00.svg",
+      "CAC-13_R01.svg",
+      "CAC-13_R02.svg",
+      "CAC-13_R03.svg",
+      "CAC-13_R04.svg",
+      "CAC-13_R05.svg",
+      "CAC-13_R06.svg",
+      "CAC-13_R07.svg",
+      "CAC-13_R08.svg",
+      "CAC-13_R09.svg",
+      "CAC-13_R10.svg"
+    ],
+    "ranks": "R00..R10"
+  },
+  "CAC-14": {
+    "name": "Hallebarde",
+    "category": "arme",
+    "sourceIcon": "Hallebarde.svg",
+    "base": "assets/icons/catalogue-v2/CAC-14_R00.svg",
+    "files": [
+      "CAC-14_R00.svg",
+      "CAC-14_R01.svg",
+      "CAC-14_R02.svg",
+      "CAC-14_R03.svg",
+      "CAC-14_R04.svg",
+      "CAC-14_R05.svg",
+      "CAC-14_R06.svg",
+      "CAC-14_R07.svg",
+      "CAC-14_R08.svg",
+      "CAC-14_R09.svg",
+      "CAC-14_R10.svg"
+    ],
+    "ranks": "R00..R10"
+  },
+  "DST-01": {
+    "name": "Arc court",
+    "category": "arme",
+    "sourceIcon": "Arc court.svg",
+    "base": "assets/icons/catalogue-v2/DST-01_R00.svg",
+    "files": [
+      "DST-01_R00.svg",
+      "DST-01_R01.svg",
+      "DST-01_R02.svg",
+      "DST-01_R03.svg",
+      "DST-01_R04.svg",
+      "DST-01_R05.svg",
+      "DST-01_R06.svg",
+      "DST-01_R07.svg",
+      "DST-01_R08.svg",
+      "DST-01_R09.svg",
+      "DST-01_R10.svg"
+    ],
+    "ranks": "R00..R10"
+  },
+  "DST-02": {
+    "name": "Arc long",
+    "category": "arme",
+    "sourceIcon": "Arc long.svg",
+    "base": "assets/icons/catalogue-v2/DST-02_R00.svg",
+    "files": [
+      "DST-02_R00.svg",
+      "DST-02_R01.svg",
+      "DST-02_R02.svg",
+      "DST-02_R03.svg",
+      "DST-02_R04.svg",
+      "DST-02_R05.svg",
+      "DST-02_R06.svg",
+      "DST-02_R07.svg",
+      "DST-02_R08.svg",
+      "DST-02_R09.svg",
+      "DST-02_R10.svg"
+    ],
+    "ranks": "R00..R10"
+  },
+  "DST-03": {
+    "name": "Arbalète de poing",
+    "category": "arme",
+    "sourceIcon": "Arbalète de poing.svg",
+    "base": "assets/icons/catalogue-v2/DST-03_R00.svg",
+    "files": [
+      "DST-03_R00.svg",
+      "DST-03_R01.svg",
+      "DST-03_R02.svg",
+      "DST-03_R03.svg",
+      "DST-03_R04.svg",
+      "DST-03_R05.svg",
+      "DST-03_R06.svg",
+      "DST-03_R07.svg",
+      "DST-03_R08.svg",
+      "DST-03_R09.svg",
+      "DST-03_R10.svg"
+    ],
+    "ranks": "R00..R10"
+  },
+  "DST-04": {
+    "name": "Arbalète légère",
+    "category": "arme",
+    "sourceIcon": "Arbalète légère.svg",
+    "base": "assets/icons/catalogue-v2/DST-04_R00.svg",
+    "files": [
+      "DST-04_R00.svg",
+      "DST-04_R01.svg",
+      "DST-04_R02.svg",
+      "DST-04_R03.svg",
+      "DST-04_R04.svg",
+      "DST-04_R05.svg",
+      "DST-04_R06.svg",
+      "DST-04_R07.svg",
+      "DST-04_R08.svg",
+      "DST-04_R09.svg",
+      "DST-04_R10.svg"
+    ],
+    "ranks": "R00..R10"
+  },
+  "DST-05": {
+    "name": "Arbalète lourde",
+    "category": "arme",
+    "sourceIcon": "Arbalète lourde.svg",
+    "base": "assets/icons/catalogue-v2/DST-05_R00.svg",
+    "files": [
+      "DST-05_R00.svg",
+      "DST-05_R01.svg",
+      "DST-05_R02.svg",
+      "DST-05_R03.svg",
+      "DST-05_R04.svg",
+      "DST-05_R05.svg",
+      "DST-05_R06.svg",
+      "DST-05_R07.svg",
+      "DST-05_R08.svg",
+      "DST-05_R09.svg",
+      "DST-05_R10.svg"
+    ],
+    "ranks": "R00..R10"
+  },
+  "DST-07": {
+    "name": "Hachette de lancer",
+    "category": "arme",
+    "sourceIcon": "Hachette de lancer.svg",
+    "base": "assets/icons/catalogue-v2/DST-07_R00.svg",
+    "files": [
+      "DST-07_R00.svg",
+      "DST-07_R01.svg",
+      "DST-07_R02.svg",
+      "DST-07_R03.svg",
+      "DST-07_R04.svg",
+      "DST-07_R05.svg",
+      "DST-07_R06.svg",
+      "DST-07_R07.svg",
+      "DST-07_R08.svg",
+      "DST-07_R09.svg",
+      "DST-07_R10.svg"
+    ],
+    "ranks": "R00..R10"
+  },
+  "DST-08": {
+    "name": "Javelot",
+    "category": "arme",
+    "sourceIcon": "Javelot.svg",
+    "base": "assets/icons/catalogue-v2/DST-08_R00.svg",
+    "files": [
+      "DST-08_R00.svg",
+      "DST-08_R01.svg",
+      "DST-08_R02.svg",
+      "DST-08_R03.svg",
+      "DST-08_R04.svg",
+      "DST-08_R05.svg",
+      "DST-08_R06.svg",
+      "DST-08_R07.svg",
+      "DST-08_R08.svg",
+      "DST-08_R09.svg",
+      "DST-08_R10.svg"
+    ],
+    "ranks": "R00..R10"
+  },
+  "DST-09": {
+    "name": "Mousquet",
+    "category": "arme",
+    "sourceIcon": "Mousquet.svg",
+    "base": "assets/icons/catalogue-v2/DST-09_R00.svg",
+    "files": [
+      "DST-09_R00.svg",
+      "DST-09_R01.svg",
+      "DST-09_R02.svg",
+      "DST-09_R03.svg",
+      "DST-09_R04.svg",
+      "DST-09_R05.svg",
+      "DST-09_R06.svg",
+      "DST-09_R07.svg",
+      "DST-09_R08.svg",
+      "DST-09_R09.svg",
+      "DST-09_R10.svg"
+    ],
+    "ranks": "R00..R10"
+  },
+  "DST-10": {
+    "name": "Pétoire",
+    "category": "arme",
+    "sourceIcon": "Pétoire.svg",
+    "base": "assets/icons/catalogue-v2/DST-10_R00.svg",
+    "files": [
+      "DST-10_R00.svg",
+      "DST-10_R01.svg",
+      "DST-10_R02.svg",
+      "DST-10_R03.svg",
+      "DST-10_R04.svg",
+      "DST-10_R05.svg",
+      "DST-10_R06.svg",
+      "DST-10_R07.svg",
+      "DST-10_R08.svg",
+      "DST-10_R09.svg",
+      "DST-10_R10.svg"
+    ],
+    "ranks": "R00..R10"
+  },
+  "MAG-01": {
+    "name": "Baguette de combat",
+    "category": "arme",
+    "sourceIcon": "Baguette de combat.svg",
+    "base": "assets/icons/catalogue-v2/MAG-01_R00.svg",
+    "files": [
+      "MAG-01_R00.svg",
+      "MAG-01_R01.svg",
+      "MAG-01_R02.svg",
+      "MAG-01_R03.svg",
+      "MAG-01_R04.svg",
+      "MAG-01_R05.svg",
+      "MAG-01_R06.svg",
+      "MAG-01_R07.svg",
+      "MAG-01_R08.svg",
+      "MAG-01_R09.svg",
+      "MAG-01_R10.svg"
+    ],
+    "ranks": "R00..R10"
+  },
+  "MAG-02": {
+    "name": "Sceptre de projection",
+    "category": "arme",
+    "sourceIcon": "Sceptre de projection.svg",
+    "base": "assets/icons/catalogue-v2/MAG-02_R00.svg",
+    "files": [
+      "MAG-02_R00.svg",
+      "MAG-02_R01.svg",
+      "MAG-02_R02.svg",
+      "MAG-02_R03.svg",
+      "MAG-02_R04.svg",
+      "MAG-02_R05.svg",
+      "MAG-02_R06.svg",
+      "MAG-02_R07.svg",
+      "MAG-02_R08.svg",
+      "MAG-02_R09.svg",
+      "MAG-02_R10.svg"
+    ],
+    "ranks": "R00..R10"
+  },
+  "MAG-03": {
+    "name": "Bâton arcanique",
+    "category": "arme",
+    "sourceIcon": "Bâton arcanique.svg",
+    "base": "assets/icons/catalogue-v2/MAG-03_R00.svg",
+    "files": [
+      "MAG-03_R00.svg",
+      "MAG-03_R01.svg",
+      "MAG-03_R02.svg",
+      "MAG-03_R03.svg",
+      "MAG-03_R04.svg",
+      "MAG-03_R05.svg",
+      "MAG-03_R06.svg",
+      "MAG-03_R07.svg",
+      "MAG-03_R08.svg",
+      "MAG-03_R09.svg",
+      "MAG-03_R10.svg"
+    ],
+    "ranks": "R00..R10"
+  },
+  "MAG-04": {
+    "name": "Orbe de guerre",
+    "category": "arme",
+    "sourceIcon": "Orbe de guerre.svg",
+    "base": "assets/icons/catalogue-v2/MAG-04_R00.svg",
+    "files": [
+      "MAG-04_R00.svg",
+      "MAG-04_R01.svg",
+      "MAG-04_R02.svg",
+      "MAG-04_R03.svg",
+      "MAG-04_R04.svg",
+      "MAG-04_R05.svg",
+      "MAG-04_R06.svg",
+      "MAG-04_R07.svg",
+      "MAG-04_R08.svg",
+      "MAG-04_R09.svg",
+      "MAG-04_R10.svg"
+    ],
+    "ranks": "R00..R10"
+  },
+  "ARM-01": {
+    "name": "Tissu matelassé",
+    "category": "armure",
+    "sourceIcon": "Tissu matelassé.svg",
+    "base": "assets/icons/catalogue-v2/ARM-01_R00.svg",
+    "files": [
+      "ARM-01_R00.svg",
+      "ARM-01_R01.svg",
+      "ARM-01_R02.svg",
+      "ARM-01_R03.svg",
+      "ARM-01_R04.svg",
+      "ARM-01_R05.svg",
+      "ARM-01_R06.svg",
+      "ARM-01_R07.svg",
+      "ARM-01_R08.svg",
+      "ARM-01_R09.svg",
+      "ARM-01_R10.svg"
+    ],
+    "ranks": "R00..R10"
+  },
+  "ARM-02": {
+    "name": "Armure de cuir",
+    "category": "armure",
+    "sourceIcon": "Armure de cuir.svg",
+    "base": "assets/icons/catalogue-v2/ARM-02_R00.svg",
+    "files": [
+      "ARM-02_R00.svg",
+      "ARM-02_R01.svg",
+      "ARM-02_R02.svg",
+      "ARM-02_R03.svg",
+      "ARM-02_R04.svg",
+      "ARM-02_R05.svg",
+      "ARM-02_R06.svg",
+      "ARM-02_R07.svg",
+      "ARM-02_R08.svg",
+      "ARM-02_R09.svg",
+      "ARM-02_R10.svg"
+    ],
+    "ranks": "R00..R10"
+  },
+  "ARM-03": {
+    "name": "Cuir renforcé",
+    "category": "armure",
+    "sourceIcon": "Cuir renforcé.svg",
+    "base": "assets/icons/catalogue-v2/ARM-03_R00.svg",
+    "files": [
+      "ARM-03_R00.svg",
+      "ARM-03_R01.svg",
+      "ARM-03_R02.svg",
+      "ARM-03_R03.svg",
+      "ARM-03_R04.svg",
+      "ARM-03_R05.svg",
+      "ARM-03_R06.svg",
+      "ARM-03_R07.svg",
+      "ARM-03_R08.svg",
+      "ARM-03_R09.svg",
+      "ARM-03_R10.svg"
+    ],
+    "ranks": "R00..R10"
+  },
+  "ARM-04": {
+    "name": "Chemise de mailles",
+    "category": "armure",
+    "sourceIcon": "Chemise de mailles.svg",
+    "base": "assets/icons/catalogue-v2/ARM-04_R00.svg",
+    "files": [
+      "ARM-04_R00.svg",
+      "ARM-04_R01.svg",
+      "ARM-04_R02.svg",
+      "ARM-04_R03.svg",
+      "ARM-04_R04.svg",
+      "ARM-04_R05.svg",
+      "ARM-04_R06.svg",
+      "ARM-04_R07.svg",
+      "ARM-04_R08.svg",
+      "ARM-04_R09.svg",
+      "ARM-04_R10.svg"
+    ],
+    "ranks": "R00..R10"
+  },
+  "ARM-05": {
+    "name": "Cotte de mailles",
+    "category": "armure",
+    "sourceIcon": "Cotte de mailles.svg",
+    "base": "assets/icons/catalogue-v2/ARM-05_R00.svg",
+    "files": [
+      "ARM-05_R00.svg",
+      "ARM-05_R01.svg",
+      "ARM-05_R02.svg",
+      "ARM-05_R03.svg",
+      "ARM-05_R04.svg",
+      "ARM-05_R05.svg",
+      "ARM-05_R06.svg",
+      "ARM-05_R07.svg",
+      "ARM-05_R08.svg",
+      "ARM-05_R09.svg",
+      "ARM-05_R10.svg"
+    ],
+    "ranks": "R00..R10"
+  },
+  "ARM-06": {
+    "name": "Demi-plaque",
+    "category": "armure",
+    "sourceIcon": "Demi-plaque.svg",
+    "base": "assets/icons/catalogue-v2/ARM-06_R00.svg",
+    "files": [
+      "ARM-06_R00.svg",
+      "ARM-06_R01.svg",
+      "ARM-06_R02.svg",
+      "ARM-06_R03.svg",
+      "ARM-06_R04.svg",
+      "ARM-06_R05.svg",
+      "ARM-06_R06.svg",
+      "ARM-06_R07.svg",
+      "ARM-06_R08.svg",
+      "ARM-06_R09.svg",
+      "ARM-06_R10.svg"
+    ],
+    "ranks": "R00..R10"
+  },
+  "ARM-07": {
+    "name": "Armure de plaques complète",
+    "category": "armure",
+    "sourceIcon": "Armure de plaques complète.svg",
+    "base": "assets/icons/catalogue-v2/ARM-07_R00.svg",
+    "files": [
+      "ARM-07_R00.svg",
+      "ARM-07_R01.svg",
+      "ARM-07_R02.svg",
+      "ARM-07_R03.svg",
+      "ARM-07_R04.svg",
+      "ARM-07_R05.svg",
+      "ARM-07_R06.svg",
+      "ARM-07_R07.svg",
+      "ARM-07_R08.svg",
+      "ARM-07_R09.svg",
+      "ARM-07_R10.svg"
+    ],
+    "ranks": "R00..R10"
+  },
+  "BCL-01": {
+    "name": "Petit bouclier",
+    "category": "armure",
+    "sourceIcon": "Petit bouclier.svg",
+    "base": "assets/icons/catalogue-v2/BCL-01_R00.svg",
+    "files": [
+      "BCL-01_R00.svg",
+      "BCL-01_R01.svg",
+      "BCL-01_R02.svg",
+      "BCL-01_R03.svg",
+      "BCL-01_R04.svg",
+      "BCL-01_R05.svg",
+      "BCL-01_R06.svg",
+      "BCL-01_R07.svg",
+      "BCL-01_R08.svg",
+      "BCL-01_R09.svg",
+      "BCL-01_R10.svg"
+    ],
+    "ranks": "R00..R10"
+  },
+  "BCL-02": {
+    "name": "Grand bouclier",
+    "category": "armure",
+    "sourceIcon": "Grand bouclier.svg",
+    "base": "assets/icons/catalogue-v2/BCL-02_R00.svg",
+    "files": [
+      "BCL-02_R00.svg",
+      "BCL-02_R01.svg",
+      "BCL-02_R02.svg",
+      "BCL-02_R03.svg",
+      "BCL-02_R04.svg",
+      "BCL-02_R05.svg",
+      "BCL-02_R06.svg",
+      "BCL-02_R07.svg",
+      "BCL-02_R08.svg",
+      "BCL-02_R09.svg",
+      "BCL-02_R10.svg"
+    ],
+    "ranks": "R00..R10"
+  },
+  "ACC-01": {
+    "name": "Anneau",
+    "category": "accessoire",
+    "sourceIcon": "Anneau.svg",
+    "base": "assets/icons/catalogue-v2/ACC-01_R00.svg",
+    "files": [
+      "ACC-01_R00.svg",
+      "ACC-01_R01.svg",
+      "ACC-01_R02.svg",
+      "ACC-01_R03.svg",
+      "ACC-01_R04.svg",
+      "ACC-01_R05.svg"
+    ],
+    "ranks": "R00..R05"
+  },
+  "ACC-02": {
+    "name": "Amulette / Collier",
+    "category": "accessoire",
+    "sourceIcon": "Amulette  Collier.svg",
+    "base": "assets/icons/catalogue-v2/ACC-02_R00.svg",
+    "files": [
+      "ACC-02_R00.svg",
+      "ACC-02_R01.svg",
+      "ACC-02_R02.svg",
+      "ACC-02_R03.svg",
+      "ACC-02_R04.svg",
+      "ACC-02_R05.svg"
+    ],
+    "ranks": "R00..R05"
+  },
+  "ACC-03": {
+    "name": "Ceinture / Baudrier",
+    "category": "accessoire",
+    "sourceIcon": "Ceinture  Baudrier.svg",
+    "base": "assets/icons/catalogue-v2/ACC-03_R00.svg",
+    "files": [
+      "ACC-03_R00.svg",
+      "ACC-03_R01.svg",
+      "ACC-03_R02.svg",
+      "ACC-03_R03.svg",
+      "ACC-03_R04.svg",
+      "ACC-03_R05.svg"
+    ],
+    "ranks": "R00..R05"
+  },
+  "ACC-04": {
+    "name": "Cape / Manteau",
+    "category": "accessoire",
+    "sourceIcon": "Cape  Manteau.svg",
+    "base": "assets/icons/catalogue-v2/ACC-04_R00.svg",
+    "files": [
+      "ACC-04_R00.svg",
+      "ACC-04_R01.svg",
+      "ACC-04_R02.svg",
+      "ACC-04_R03.svg",
+      "ACC-04_R04.svg",
+      "ACC-04_R05.svg"
+    ],
+    "ranks": "R00..R05"
+  },
+  "ACC-05": {
+    "name": "Gants / Gantelets",
+    "category": "accessoire",
+    "sourceIcon": "Gants  Gantelets.svg",
+    "base": "assets/icons/catalogue-v2/ACC-05_R00.svg",
+    "files": [
+      "ACC-05_R00.svg",
+      "ACC-05_R01.svg",
+      "ACC-05_R02.svg",
+      "ACC-05_R03.svg",
+      "ACC-05_R04.svg",
+      "ACC-05_R05.svg"
+    ],
+    "ranks": "R00..R05"
+  },
+  "ACC-06": {
+    "name": "Bottes / Chaussures",
+    "category": "accessoire",
+    "sourceIcon": "Bottes  Chaussures.svg",
+    "base": "assets/icons/catalogue-v2/ACC-06_R00.svg",
+    "files": [
+      "ACC-06_R00.svg",
+      "ACC-06_R01.svg",
+      "ACC-06_R02.svg",
+      "ACC-06_R03.svg",
+      "ACC-06_R04.svg",
+      "ACC-06_R05.svg"
+    ],
+    "ranks": "R00..R05"
+  },
+  "ACC-08": {
+    "name": "Casque / Diadème",
+    "category": "accessoire",
+    "sourceIcon": "Casque  Diadème.svg",
+    "base": "assets/icons/catalogue-v2/ACC-08_R00.svg",
+    "files": [
+      "ACC-08_R00.svg",
+      "ACC-08_R01.svg",
+      "ACC-08_R02.svg",
+      "ACC-08_R03.svg",
+      "ACC-08_R04.svg",
+      "ACC-08_R05.svg"
+    ],
+    "ranks": "R00..R05"
+  },
+  "CON-01": {
+    "name": "Potion de soins",
+    "category": "consommable",
+    "sourceIcon": "Potion de soins.svg",
+    "base": "assets/icons/catalogue-v2/CON-01.svg",
+    "files": [
+      "CON-01.svg"
+    ],
+    "ranks": "P1..P5 colorisation mémoire, 1 fichier"
+  },
+  "CON-02": {
+    "name": "Potion de mana",
+    "category": "consommable",
+    "sourceIcon": "Potion de mana.svg",
+    "base": "assets/icons/catalogue-v2/CON-02.svg",
+    "files": [
+      "CON-02.svg"
+    ],
+    "ranks": "P1..P5 colorisation mémoire, 1 fichier"
+  },
+  "CON-03": {
+    "name": "Potion de caractéristique",
+    "category": "consommable",
+    "sourceIcon": "Potion de caractéristique.svg",
+    "base": "assets/icons/catalogue-v2/CON-03.svg",
+    "files": [
+      "CON-03.svg"
+    ],
+    "ranks": "P1..P5 colorisation mémoire, 1 fichier"
+  },
+  "CON-04": {
+    "name": "Potion de célérité",
+    "category": "consommable",
+    "sourceIcon": "Potion de célérité.svg",
+    "base": "assets/icons/catalogue-v2/CON-04.svg",
+    "files": [
+      "CON-04.svg"
+    ],
+    "ranks": "P1..P5 colorisation mémoire, 1 fichier"
+  },
+  "CON-05": {
+    "name": "Potion de résistance",
+    "category": "consommable",
+    "sourceIcon": "Potion de résistance.svg",
+    "base": "assets/icons/catalogue-v2/CON-05.svg",
+    "files": [
+      "CON-05.svg"
+    ],
+    "ranks": "P1..P5 colorisation mémoire, 1 fichier"
+  },
+  "CON-07": {
+    "name": "Poison",
+    "category": "consommable",
+    "sourceIcon": "Poison.svg",
+    "base": "assets/icons/catalogue-v2/CON-07.svg",
+    "files": [
+      "CON-07.svg"
+    ],
+    "ranks": "P1..P5 colorisation mémoire, 1 fichier"
+  },
+  "CON-08": {
+    "name": "Grenade alchimique",
+    "category": "consommable",
+    "sourceIcon": "Grenade alchimique.svg",
+    "base": "assets/icons/catalogue-v2/CON-08.svg",
+    "files": [
+      "CON-08.svg"
+    ],
+    "ranks": "P1..P5 colorisation mémoire, 1 fichier"
+  },
+  "CON-09": {
+    "name": "Parchemin de sort",
+    "category": "consommable",
+    "sourceIcon": "Parchemin de sort.svg",
+    "base": "assets/icons/catalogue-v2/CON-09.svg",
+    "files": [
+      "CON-09.svg"
+    ],
+    "ranks": "P1..P5 colorisation mémoire, 1 fichier"
+  },
+  "CON-10": {
+    "name": "Potion de DEF",
+    "category": "consommable",
+    "sourceIcon": "Potion de DEF.svg",
+    "base": "assets/icons/catalogue-v2/CON-10.svg",
+    "files": [
+      "CON-10.svg"
+    ],
+    "ranks": "P1..P5 colorisation mémoire, 1 fichier"
+  },
+  "CON-11": {
+    "name": "Potion de mouvement",
+    "category": "consommable",
+    "sourceIcon": "Potion de mouvement.svg",
+    "base": "assets/icons/catalogue-v2/CON-11.svg",
+    "files": [
+      "CON-11.svg"
+    ],
+    "ranks": "P1..P5 colorisation mémoire, 1 fichier"
+  },
+  "CON-12": {
+    "name": "Potion d'invisibilité",
+    "category": "consommable",
+    "sourceIcon": "Potion d'invisibilité.svg",
+    "base": "assets/icons/catalogue-v2/CON-12.svg",
+    "files": [
+      "CON-12.svg"
+    ],
+    "ranks": "P1..P5 colorisation mémoire, 1 fichier"
+  },
+  "CON-13": {
+    "name": "Enduit",
+    "category": "consommable",
+    "sourceIcon": "Enduit.svg",
+    "base": "assets/icons/catalogue-v2/CON-13.svg",
+    "files": [
+      "CON-13.svg"
+    ],
+    "ranks": "P1..P5 colorisation mémoire, 1 fichier"
+  },
+  "CON-14": {
+    "name": "Fumigène",
+    "category": "consommable",
+    "sourceIcon": "Fumigène.svg",
+    "base": "assets/icons/catalogue-v2/CON-14.svg",
+    "files": [
+      "CON-14.svg"
+    ],
+    "ranks": "P1..P5 colorisation mémoire, 1 fichier"
+  },
+  "CON-15": {
+    "name": "Parchemin de stabilisation",
+    "category": "consommable",
+    "sourceIcon": "Parchemin de stabilisation.svg",
+    "base": "assets/icons/catalogue-v2/CON-15.svg",
+    "files": [
+      "CON-15.svg"
+    ],
+    "ranks": "P1..P5 colorisation mémoire, 1 fichier"
+  },
+  "MUN-01": {
+    "name": "Flèche",
+    "category": "munition",
+    "sourceIcon": "Flèche.svg",
+    "base": "assets/icons/catalogue-v2/MUN-01_R00.svg",
+    "files": [
+      "MUN-01_R00.svg",
+      "MUN-01_R01.svg",
+      "MUN-01_R02.svg",
+      "MUN-01_R03.svg",
+      "MUN-01_R04.svg",
+      "MUN-01_R05.svg"
+    ],
+    "ranks": "R00..R05"
+  },
+  "MUN-02": {
+    "name": "Plomb de fronde",
+    "category": "munition",
+    "sourceIcon": "Sacoche à plombs.svg",
+    "base": "assets/icons/catalogue-v2/MUN-02_R00.svg",
+    "files": [
+      "MUN-02_R00.svg",
+      "MUN-02_R01.svg",
+      "MUN-02_R02.svg",
+      "MUN-02_R03.svg",
+      "MUN-02_R04.svg",
+      "MUN-02_R05.svg"
+    ],
+    "ranks": "R00..R05"
+  },
+  "MUN-03": {
+    "name": "Carreau d'arbalète",
+    "category": "munition",
+    "sourceIcon": "Carreau d'arbalète.svg",
+    "base": "assets/icons/catalogue-v2/MUN-03_R00.svg",
+    "files": [
+      "MUN-03_R00.svg",
+      "MUN-03_R01.svg",
+      "MUN-03_R02.svg",
+      "MUN-03_R03.svg",
+      "MUN-03_R04.svg",
+      "MUN-03_R05.svg"
+    ],
+    "ranks": "R00..R05"
+  },
+  "MUN-04": {
+    "name": "Balle d'arme à poudre",
+    "category": "munition",
+    "sourceIcon": "Balle d'arme à poudre.svg",
+    "base": "assets/icons/catalogue-v2/MUN-04_R00.svg",
+    "files": [
+      "MUN-04_R00.svg",
+      "MUN-04_R01.svg",
+      "MUN-04_R02.svg",
+      "MUN-04_R03.svg",
+      "MUN-04_R04.svg",
+      "MUN-04_R05.svg"
+    ],
+    "ranks": "R00..R05"
+  },
+  "DIV-01": {
+    "name": "Briquet à silex",
+    "category": "divers",
+    "sourceIcon": "Briquet à silex.svg",
+    "base": "assets/icons/catalogue-v2/DIV-01.svg",
+    "files": [
+      "DIV-01.svg"
+    ],
+    "ranks": "aucune déclinaison"
+  },
+  "DIV-02": {
+    "name": "Carquois",
+    "category": "divers",
+    "sourceIcon": "Carquois.svg",
+    "base": "assets/icons/catalogue-v2/DIV-02.svg",
+    "files": [
+      "DIV-02.svg"
+    ],
+    "ranks": "aucune déclinaison"
+  },
+  "DIV-03": {
+    "name": "Corde (15 m)",
+    "category": "divers",
+    "sourceIcon": "Corde (15 m).svg",
+    "base": "assets/icons/catalogue-v2/DIV-03.svg",
+    "files": [
+      "DIV-03.svg"
+    ],
+    "ranks": "aucune déclinaison"
+  },
+  "DIV-04": {
+    "name": "Couverture",
+    "category": "divers",
+    "sourceIcon": "Couverture.svg",
+    "base": "assets/icons/catalogue-v2/DIV-04.svg",
+    "files": [
+      "DIV-04.svg"
+    ],
+    "ranks": "aucune déclinaison"
+  },
+  "DIV-05": {
+    "name": "Grappin",
+    "category": "divers",
+    "sourceIcon": "Grappin.svg",
+    "base": "assets/icons/catalogue-v2/DIV-05.svg",
+    "files": [
+      "DIV-05.svg"
+    ],
+    "ranks": "aucune déclinaison"
+  },
+  "DIV-06": {
+    "name": "Huile de lanterne",
+    "category": "divers",
+    "sourceIcon": "Huile de lanterne.svg",
+    "base": "assets/icons/catalogue-v2/DIV-06.svg",
+    "files": [
+      "DIV-06.svg"
+    ],
+    "ranks": "aucune déclinaison"
+  },
+  "DIV-07": {
+    "name": "Lanterne à huile",
+    "category": "divers",
+    "sourceIcon": "Lanterne à huile.svg",
+    "base": "assets/icons/catalogue-v2/DIV-07.svg",
+    "files": [
+      "DIV-07.svg"
+    ],
+    "ranks": "aucune déclinaison"
+  },
+  "DIV-08": {
+    "name": "Matériel d'écriture",
+    "category": "divers",
+    "sourceIcon": "Matériel d'écriture.svg",
+    "base": "assets/icons/catalogue-v2/DIV-08.svg",
+    "files": [
+      "DIV-08.svg"
+    ],
+    "ranks": "aucune déclinaison"
+  },
+  "DIV-09": {
+    "name": "Outils de crochetage",
+    "category": "divers",
+    "sourceIcon": "Outils de crochetage.svg",
+    "base": "assets/icons/catalogue-v2/DIV-09.svg",
+    "files": [
+      "DIV-09.svg"
+    ],
+    "ranks": "aucune déclinaison"
+  },
+  "DIV-10": {
+    "name": "Sac à dos",
+    "category": "divers",
+    "sourceIcon": "Sac à dos.svg",
+    "base": "assets/icons/catalogue-v2/DIV-10.svg",
+    "files": [
+      "DIV-10.svg"
+    ],
+    "ranks": "aucune déclinaison"
+  },
+  "DIV-11": {
+    "name": "Torche",
+    "category": "divers",
+    "sourceIcon": "Torche.svg",
+    "base": "assets/icons/catalogue-v2/DIV-11.svg",
+    "files": [
+      "DIV-11.svg"
+    ],
+    "ranks": "aucune déclinaison"
+  },
+  "DIV-12": {
+    "name": "Outre",
+    "category": "divers",
+    "sourceIcon": "Outre.svg",
+    "base": "assets/icons/catalogue-v2/DIV-12.svg",
+    "files": [
+      "DIV-12.svg"
+    ],
+    "ranks": "aucune déclinaison"
+  },
+  "DIV-13": {
+    "name": "Sacoche à plombs",
+    "category": "divers",
+    "sourceIcon": "Sacoche à plombs.svg",
+    "base": "assets/icons/catalogue-v2/DIV-13.svg",
+    "files": [
+      "DIV-13.svg"
+    ],
+    "ranks": "aucune déclinaison"
+  },
+  "DIV-14": {
+    "name": "Rations",
+    "category": "divers",
+    "sourceIcon": "Rations.svg",
+    "base": "assets/icons/catalogue-v2/DIV-14.svg",
+    "files": [
+      "DIV-14.svg"
+    ],
+    "ranks": "aucune déclinaison"
+  }
+}

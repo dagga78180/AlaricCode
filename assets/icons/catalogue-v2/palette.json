@@ -1,0 +1,56 @@
+{
+  "source": "Exemple.zip — Baton R00..R10",
+  "R": {
+    "R00": {
+      "hex": "#ffffff",
+      "exemple": "R00_commun"
+    },
+    "R01": {
+      "hex": "#9dffb0",
+      "exemple": "R01_peu-commun"
+    },
+    "R02": {
+      "hex": "#7ee1ff",
+      "exemple": "R02_inhabituel"
+    },
+    "R03": {
+      "hex": "#6aa8ff",
+      "exemple": "R03_rare"
+    },
+    "R04": {
+      "hex": "#b48cff",
+      "exemple": "R04_exceptionnel"
+    },
+    "R05": {
+      "hex": "#ffd36a",
+      "exemple": "R05_precieux"
+    },
+    "R06": {
+      "hex": "#ff7ee7",
+      "exemple": "R06_epique"
+    },
+    "R07": {
+      "hex": "#ff9f43",
+      "exemple": "R07_legendaire"
+    },
+    "R08": {
+      "hex": "#ff5f6d",
+      "exemple": "R08_mythique"
+    },
+    "R09": {
+      "hex": "#ff009d",
+      "exemple": "R09_artefact"
+    },
+    "R10": {
+      "hex": "#ffd900",
+      "exemple": "R10_objet-divin"
+    }
+  },
+  "consommables": {
+    "P1": "R00",
+    "P2": "R01",
+    "P3": "R02",
+    "P4": "R03",
+    "P5": "R04"
+  }
+}

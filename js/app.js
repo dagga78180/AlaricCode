@@ -298,7 +298,7 @@ async function loadCatalogue() {
     const {rank}=API.computeIconRank(it,catalog.affixes);
     const check=API.prepareRoll20Spec(it,catalog);
     const isBase=it.origin==='Catalogue V2';
-    return normalizeItem({ ...it, icon: it.icon || catalog.icons[it.templateId] || catalog.icons[it.id] || '',
+    return normalizeItem({ ...it, icon: API.catalogueIconForItem(it,catalog.icons),
       price: it.pricePC===null ? NaN : it.pricePC / 100,
       source:isBase?'base':'alaric',iconRank:rank,
       stock:it.stock, cofSpec:check.ok?check.spec:null,

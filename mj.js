@@ -27,7 +27,7 @@ function renderTable(){const needle=$('stock-search').value.trim().toLocaleLower
   const rows=all.filter(i=>(!category||i.category===category)&&(!needle||`${i.name} ${i.id} ${i.category}`.toLocaleLowerCase('fr').includes(needle)));
   $('stock-count').textContent=rows.length+' objets affichés';const root=$('stock-rows');root.replaceChildren();
   for(const it of rows){const tr=A.elem('tr');const itemCell=A.elem('td');const text=A.elem('div');text.append(A.elem('strong',{text:it.name}),A.elem('div',{className:'code',text:it.id}),A.elem('span',{className:'pill',text:it.origin||'Base'}));
-    itemCell.append(A.elem('div',{className:'row'},(it.icon||catalog?.icons?.[it.templateId]||catalog?.icons?.[it.id])?[A.elem('img',{src:A.tieredIcon(it.icon||catalog?.icons?.[it.templateId]||catalog?.icons?.[it.id],A.computeIconRank(it,catalog?.affixes).rank),alt:''}),text]:[text]));
+    itemCell.append(A.elem('div',{className:'row'},(A.catalogueIconForItem(it,catalog?.icons))?[A.elem('img',{src:A.tieredIcon(A.catalogueIconForItem(it,catalog?.icons),A.computeIconRank(it,catalog?.affixes).rank),alt:''}),text]:[text]));
     const priceCell=A.elem('td');priceCell.append(A.elem('div',{className:'nowrap',text:priceLabel(it.pricePC)}));
     if(it.origin!=='Création MJ')priceCell.append(A.elem('button',{className:'small ghost',text:'Changer',onClick:async()=>{
       const raw=prompt('Prix de '+it.name+' pour '+groupName()+' (ex: 2 PO 20 PA 50 PC)',it.pricePC===null?'':A.formatPC(it.pricePC));
@@ -85,13 +85,13 @@ function setTemplate(t){selected.clear();if(!t){$('object-category').value='Dive
 }
 function resetEditor(){selected.clear();$('editor-form').reset();$('object-quality').value='0';$('edit-id').value='';$('object-id').disabled=false;$('object-id').value='';$('object-category').value='Divers';$('object-visible').checked=true;displayAffixes();renderSelected();}
 function editObject(it){switchTab('editor');resetEditor();$('edit-id').value=it.id;$('object-id').value=it.id;$('object-id').disabled=true;
-  $('template').value=it.templateId||(it.cofSpec?.base?A.normalizeId(it.cofSpec.base):'');$('object-quality').value=String(it.quality||it.cofSpec?.quality||0);$('object-name').value=it.name;$('object-category').value=it.category;$('object-subcategory').value=it.subcategory;$('object-description').value=it.description;$('object-price').value=it.pricePC===null?'':priceLabel(it.pricePC);$('object-icon').value=it.icon;$('object-visible').checked=it.visible;
+  $('template').value=it.templateId||(it.cofSpec?.base?A.normalizeId(it.cofSpec.base):'');$('object-quality').value=String(it.quality||it.cofSpec?.quality||0);$('object-name').value=it.name;$('object-category').value=it.category;$('object-subcategory').value=it.subcategory;$('object-description').value=it.description;$('object-price').value=it.pricePC===null?'':priceLabel(it.pricePC);$('object-icon').value=A.catalogueIconForItem(it,catalog?.icons);$('object-visible').checked=it.visible;
   selected=new Set((it.affixes||[]).length?(it.affixes||[]).map(a=>a.id):(it.cofSpec?.affixes||[]));displayAffixes();renderSelected();window.scrollTo({top:0,behavior:'smooth'});
 }
 function slug(value){return String(value).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,56);}
 function quality(){return Number($('object-quality')?.value||0);}
 function power(){return A.computeIconRank({cofSpec:{affixes:[...selected]}},catalog?.affixes).p;}
-function refreshPq(){if(!$('object-rank'))return;const p=power(),q=quality();$('object-power').textContent='P'+p;$('object-rank').textContent='R'+String(Math.min(10,p+q)).padStart(2,'0');}
+function refreshPq(){if(!$('object-rank'))return;const p=power(),q=quality(),t=currentTemplate();const r=A.computeIconRank({category:t?.category||$('object-category').value,quality:q,cofSpec:{affixes:[...selected]}},catalog?.affixes).rank;$('object-power').textContent='P'+p;$('object-rank').textContent='R'+String(r).padStart(2,'0');}
 function estimatePrice(){
   const t=currentTemplate();
   if(!t)return notice('Choisis un modèle avec prix de base.','error');
@@ -120,7 +120,7 @@ async function saveEditor(e){e.preventDefault();const priceText=$('object-price'
   const id=$('edit-id').value||safe($('object-id').value||`mj-${slug(name)}-${Date.now().toString(36)}`);
   if(catalog.base.some(b=>b.id===id && b.origin==='Catalogue V2')){notice('Cet identifiant est réservé au catalogue de base permanent.','error');return;}
   const t=currentTemplate(),affixes=normalizedAffixes([...selected],t);
-  const obj={id,name,pricePC:pc,category:$('object-category').value.trim(),subcategory:$('object-subcategory').value.trim(),description:$('object-description').value.trim(),icon:$('object-icon').value.trim(),iconKey:t?.iconKey||'',quality:quality(),power:power(),rarity:(A.RARITY_LABELS||[])[Math.min(10,quality()+power())]||'Commun',cofSpec:{base:t?.sourceId||'',quality:quality(),affixes:[...selected],name,price:pc===null?'':String(pc)+' pc'},visible:$('object-visible').checked,templateId:t?.id||'',affixes};
+  const obj={id,name,pricePC:pc,category:$('object-category').value.trim(),subcategory:$('object-subcategory').value.trim(),description:$('object-description').value.trim(),icon:$('object-icon').value.trim(),iconKey:t?.iconKey||'',quality:quality(),power:power(),rarity:(A.RARITY_LABELS||[])[A.computeIconRank({category:t?.category||$('object-category').value,quality:quality(),cofSpec:{affixes:[...selected]}},catalog?.affixes).rank]||'Commun',cofSpec:{base:t?.sourceId||'',quality:quality(),affixes:[...selected],name,price:pc===null?'':String(pc)+' pc'},visible:$('object-visible').checked,templateId:t?.id||'',affixes};
   const check=A.prepareRoll20Spec(obj,catalog);
   if(!check.ok && t){notice('Création refusée : export Roll20 non valide : '+check.errors.join(' / '),'error');return;}
   try{await A.saveCustom(group,obj);await A.setBaseOverride(group,id,{visible:obj.visible});await fetchState();resetEditor();switchTab('stock');notice(`Objet « ${name} » enregistré dans ${groupName()}.`,'success');}catch(err){notice('Enregistrement impossible : '+err.message,'error');}

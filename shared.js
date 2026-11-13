@@ -5,6 +5,10 @@
   const app = global.firebase.apps.length ? global.firebase.app() : global.firebase.initializeApp(cfg.firebase);
   const db = global.firebase.firestore(app), auth = global.firebase.auth(app);
   const validGroups = Object.keys(cfg.groups);
+  const ICONS_CATALOGUE_V2={"CAC-01":"assets/icons/catalogue-v2/CAC-01_R00.svg","CAC-02":"assets/icons/catalogue-v2/CAC-02_R00.svg","CAC-03":"assets/icons/catalogue-v2/CAC-03_R00.svg","CAC-04":"assets/icons/catalogue-v2/CAC-04_R00.svg","CAC-05":"assets/icons/catalogue-v2/CAC-05_R00.svg","CAC-06":"assets/icons/catalogue-v2/CAC-06_R00.svg","CAC-07":"assets/icons/catalogue-v2/CAC-07_R00.svg","CAC-08":"assets/icons/catalogue-v2/CAC-08_R00.svg","CAC-09":"assets/icons/catalogue-v2/CAC-09_R00.svg","CAC-10":"assets/icons/catalogue-v2/CAC-10_R00.svg","CAC-11":"assets/icons/catalogue-v2/CAC-11_R00.svg","CAC-12":"assets/icons/catalogue-v2/CAC-12_R00.svg","CAC-13":"assets/icons/catalogue-v2/CAC-13_R00.svg","CAC-14":"assets/icons/catalogue-v2/CAC-14_R00.svg","DST-01":"assets/icons/catalogue-v2/DST-01_R00.svg","DST-02":"assets/icons/catalogue-v2/DST-02_R00.svg","DST-03":"assets/icons/catalogue-v2/DST-03_R00.svg","DST-04":"assets/icons/catalogue-v2/DST-04_R00.svg","DST-05":"assets/icons/catalogue-v2/DST-05_R00.svg","DST-07":"assets/icons/catalogue-v2/DST-07_R00.svg","DST-08":"assets/icons/catalogue-v2/DST-08_R00.svg","DST-09":"assets/icons/catalogue-v2/DST-09_R00.svg","DST-10":"assets/icons/catalogue-v2/DST-10_R00.svg","MAG-01":"assets/icons/catalogue-v2/MAG-01_R00.svg","MAG-02":"assets/icons/catalogue-v2/MAG-02_R00.svg","MAG-03":"assets/icons/catalogue-v2/MAG-03_R00.svg","MAG-04":"assets/icons/catalogue-v2/MAG-04_R00.svg","ARM-01":"assets/icons/catalogue-v2/ARM-01_R00.svg","ARM-02":"assets/icons/catalogue-v2/ARM-02_R00.svg","ARM-03":"assets/icons/catalogue-v2/ARM-03_R00.svg","ARM-04":"assets/icons/catalogue-v2/ARM-04_R00.svg","ARM-05":"assets/icons/catalogue-v2/ARM-05_R00.svg","ARM-06":"assets/icons/catalogue-v2/ARM-06_R00.svg","ARM-07":"assets/icons/catalogue-v2/ARM-07_R00.svg","BCL-01":"assets/icons/catalogue-v2/BCL-01_R00.svg","BCL-02":"assets/icons/catalogue-v2/BCL-02_R00.svg","ACC-01":"assets/icons/catalogue-v2/ACC-01_R00.svg","ACC-02":"assets/icons/catalogue-v2/ACC-02_R00.svg","ACC-03":"assets/icons/catalogue-v2/ACC-03_R00.svg","ACC-04":"assets/icons/catalogue-v2/ACC-04_R00.svg","ACC-05":"assets/icons/catalogue-v2/ACC-05_R00.svg","ACC-06":"assets/icons/catalogue-v2/ACC-06_R00.svg","ACC-08":"assets/icons/catalogue-v2/ACC-08_R00.svg","CON-01":"assets/icons/catalogue-v2/CON-01.svg","CON-02":"assets/icons/catalogue-v2/CON-02.svg","CON-03":"assets/icons/catalogue-v2/CON-03.svg","CON-04":"assets/icons/catalogue-v2/CON-04.svg","CON-05":"assets/icons/catalogue-v2/CON-05.svg","CON-07":"assets/icons/catalogue-v2/CON-07.svg","CON-08":"assets/icons/catalogue-v2/CON-08.svg","CON-09":"assets/icons/catalogue-v2/CON-09.svg","CON-10":"assets/icons/catalogue-v2/CON-10.svg","CON-11":"assets/icons/catalogue-v2/CON-11.svg","CON-12":"assets/icons/catalogue-v2/CON-12.svg","CON-13":"assets/icons/catalogue-v2/CON-13.svg","CON-14":"assets/icons/catalogue-v2/CON-14.svg","CON-15":"assets/icons/catalogue-v2/CON-15.svg","MUN-01":"assets/icons/catalogue-v2/MUN-01_R00.svg","MUN-02":"assets/icons/catalogue-v2/MUN-02_R00.svg","MUN-03":"assets/icons/catalogue-v2/MUN-03_R00.svg","MUN-04":"assets/icons/catalogue-v2/MUN-04_R00.svg","DIV-01":"assets/icons/catalogue-v2/DIV-01.svg","DIV-02":"assets/icons/catalogue-v2/DIV-02.svg","DIV-03":"assets/icons/catalogue-v2/DIV-03.svg","DIV-04":"assets/icons/catalogue-v2/DIV-04.svg","DIV-05":"assets/icons/catalogue-v2/DIV-05.svg","DIV-06":"assets/icons/catalogue-v2/DIV-06.svg","DIV-07":"assets/icons/catalogue-v2/DIV-07.svg","DIV-08":"assets/icons/catalogue-v2/DIV-08.svg","DIV-09":"assets/icons/catalogue-v2/DIV-09.svg","DIV-10":"assets/icons/catalogue-v2/DIV-10.svg","DIV-11":"assets/icons/catalogue-v2/DIV-11.svg","DIV-12":"assets/icons/catalogue-v2/DIV-12.svg","DIV-13":"assets/icons/catalogue-v2/DIV-13.svg","DIV-14":"assets/icons/catalogue-v2/DIV-14.svg"};
+  let CONSUMABLE_ICON_SVGS = {};
+  const PALETTE_CATALOGUE_V2=['#ffffff','#9dffb0','#7ee1ff','#6aa8ff','#b48cff','#ffd36a','#ff7ee7','#ff9f43','#ff5f6d','#ff009d','#ffd900'];
+  const ICON_CACHE = new Map();
   const RARITY_LABELS=['Commun','Peu Commun','Inhabituel','Rare','Exceptionnel','Précieux','Épique','Légendaire','Mythique','Artefact','Objet Divin'];
   function groupId(raw) { return validGroups.includes(raw) ? raw : 'groupe1'; }
   function parsePricePC(value, defaultUnit='pa') {
@@ -72,7 +76,8 @@
   // Pmax est le palier le plus élevé de tous les affixes (jamais leur somme).
   function computeIconRank(item, affixCatalog=[]) {
     const clamp5=value=>Math.min(5,Math.max(0,Math.trunc(Number(value)||0)));
-    const q=clamp5(item?.quality ?? item?.cofSpec?.quality ?? 0);
+    const kind=String(item?.category||item?.categorie||'').toLowerCase();
+    const q=['arme','armure'].includes(kind)||!kind ? clamp5(item?.quality ?? item?.cofSpec?.quality ?? 0) : 0;
     const powerById=new Map((Array.isArray(affixCatalog)?affixCatalog:[]).map(a=>[String(a.id),clamp5(a.tier ?? a.p)]));
     const raw=[...(Array.isArray(item?.cofSpec?.affixes)?item.cofSpec.affixes:[]),
       ...(Array.isArray(item?.affixes)?item.affixes:[])];
@@ -86,17 +91,45 @@
 
     }
     if(!found) p=clamp5(item?.power);
-    return {q,p,rank:Math.min(10,q+p)};
+    // Consommables P1=blanc (R00), puis P2=vert etc.; pas de qualité.
+    const rank=(kind==='consommable'||kind==='munition')?Math.max(0,p-1):Math.min(10,q+p);
+    return {q,p,rank};
+  }
+  // Toutes les 75 bases V2 sont reliées aux dessins reçus dans Icone.zip.
+  // Les créations MJ attachées à une base V2 reçoivent également ce dessin,
+  // sauf si une illustration externe spécifique a été définie.
+  function catalogueIconForItem(item,icons=ICONS_CATALOGUE_V2){
+    const baseId=String(item?.cofSpec?.base||item?.sourceId||item?.id||'').toUpperCase();
+    const mapped=icons[baseId]||icons[normalizeId(baseId)]||ICONS_CATALOGUE_V2[baseId]||'';
+    const explicit=String(item?.icon||'');
+    if(item?.origin==='Création MJ' && /^(?:https:\/\/|assets\/icons\/custom\/)/i.test(explicit))return explicit;
+    return mapped||explicit||fallbackIcon(item);
   }
   function tieredIcon(icon,rank) {
     const raw=String(icon||'').trim();
-    // Les 52 nouvelles familles sont monochromes, comme les PNG V2.
-    // Le suffixe _Rxx n'est jamais conservé s'il ne correspond plus à Q + Pmax.
-    // Le paramètre de version force le navigateur à recharger les SVG corrigés.
-    const match=/^(assets\/icons\/alaric-nouvelles\/[a-z0-9-]+?)(?:_R(?:0[0-9]|10))?\.svg(?:[?#].*)?$/i.exec(raw);
-    if(!match)return raw;
     const r=Math.max(0,Math.min(10,Math.trunc(Number(rank)||0)));
-    return `${match[1]}_R${String(r).padStart(2,'0')}.svg?v=43`;
+    const idMatch=/^assets\/icons\/catalogue-v2\/([A-Z]{3}-\d{2})(?:_R(?:0\d|10))?\.svg(?:[?#].*)?$/i.exec(raw);
+    if(idMatch){
+      const id=idMatch[1].toUpperCase();
+      // Un SEUL fichier SVG par consommable, colorisé en mémoire (jamais de
+      // CON-xx_R00, CON-xx_R01...): P1 -> R00, P5 -> R04.
+      if(id.startsWith('CON-')){
+        const svg=CONSUMABLE_ICON_SVGS[id];
+        if(!svg)return `assets/icons/catalogue-v2/${id}.svg?v=2`;
+        const k=`${id}:R${r}`;
+        if(!ICON_CACHE.has(k)){
+          const colored=svg.replace(/#ffffff/gi,PALETTE_CATALOGUE_V2[Math.min(4,r)]);
+          ICON_CACHE.set(k,'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(colored));
+        }
+        return ICON_CACHE.get(k);
+      }
+      if(id.startsWith('DIV-'))return `assets/icons/catalogue-v2/${id}.svg?v=2`;
+      const cap=/^(?:ACC-|MUN-)/.test(id)?5:10;
+      return `assets/icons/catalogue-v2/${id}_R${String(Math.min(cap,r)).padStart(2,'0')}.svg?v=2`;
+    }
+    // Compatibilité des chemins d'icônes (ne rétablit aucun ancien catalogue d'objets).
+    const old=/^(assets\/icons\/alaric-nouvelles\/[a-z0-9-]+?)(?:_R(?:0[0-9]|10))?\.svg(?:[?#].*)?$/i.exec(raw);
+    return old?`${old[1]}_R${String(r).padStart(2,'0')}.svg?v=43`:raw;
   }
   function normalizedItem(o, origin, maps={}) {
     if(!o || typeof o!=='object')return null;
@@ -119,24 +152,27 @@
   }
   async function loadCatalog() {
     // Catalogue V2 EXCLUSIF : ni templates.json, ni affixes.json, ni anciennes bases.
-    const [objets,affixes,liaisons]=await Promise.all([
+    const [objets,affixes,liaisons,svgs]=await Promise.all([
       fetchJSON('data/catalogue-objets-v2.json'),
       fetchJSON('data/catalogue-affixes-v2.json'),
-      fetchJSON('data/catalogue-liaisons-v2.json')
+      fetchJSON('data/catalogue-liaisons-v2.json'),
+      fetchJSON('data/icones-consommables-v2.json').catch(e=>{console.warn('Icônes consommables non chargées :',e);return {};})
     ]);
     if(!Array.isArray(objets)||objets.length!==75||!Array.isArray(affixes)||affixes.length!==536||!Array.isArray(liaisons)||liaisons.length!==2278)
       throw Error('Catalogue V2 incomplet ou incohérent (75/536/2278 attendus).');
+    CONSUMABLE_ICON_SVGS=svgs&&typeof svgs==='object'&&!Array.isArray(svgs)?svgs:{};ICON_CACHE.clear();
+    const icons=Object.fromEntries(Object.entries(ICONS_CATALOGUE_V2).flatMap(([id,path])=>[[id,path],[normalizeId(id),path]]));
     const templates=objets.map(b=>({
       id:normalizeId(b.id),sourceId:b.id,name:b.name,category:b.category,
       subcategory:b.subcategory,description:b.description,pricePC:b.pricePC,
-      tags:(b.baseTags||[]).join(','),iconKey:b.iconKey||'',icon:b.icon||fallbackIcon(b),
+      tags:(b.baseTags||[]).join(','),iconKey:b.iconKey||'',icon:icons[b.id]||fallbackIcon(b),
       affixMode:b.affixModeDefault||''
     }));
     const base=objets.map(b=>normalizedItem({
-      ...b,id:b.id,sourceId:b.id,icon:b.icon||fallbackIcon(b),
+      ...b,id:b.id,sourceId:b.id,icon:icons[b.id]||fallbackIcon(b),
       cofSpec:{base:b.id,quality:0,affixes:[]},templateId:normalizeId(b.id)
     },'Catalogue V2'));
-    return {base,templates,affixes,liaisons,icons:{},warnings:''};
+    return {base,templates,affixes,liaisons,icons,warnings:Object.keys(CONSUMABLE_ICON_SVGS).length===14?'':'Icônes des consommables non chargées : vérifier data/icones-consommables-v2.json.'};
   }
 
   // Pont strict Alaric -> COFantasy Items / COAlaric.
@@ -293,5 +329,5 @@
         stock:stocks.has(it.id)?stocks.get(it.id):null};
     });
   }
-  global.AlaricApp={cfg,db,auth,RARITY_LABELS,groupId,parsePricePC,formatPC,normalizeId,prepareRoll20Spec,computeIconRank,tieredIcon,normalizedItem,fallbackIcon,loadCatalog,groupStocks,groupItems,getStock,getCustom,setStock,saveCustom,deleteCustom,migrationLegacy,compatibleAffixes,iconUrl,elem,getOverrides,setBaseOverride,overlay};
+  global.AlaricApp={cfg,db,auth,RARITY_LABELS,groupId,parsePricePC,formatPC,normalizeId,prepareRoll20Spec,computeIconRank,tieredIcon,catalogueIconForItem,normalizedItem,fallbackIcon,loadCatalog,groupStocks,groupItems,getStock,getCustom,setStock,saveCustom,deleteCustom,migrationLegacy,compatibleAffixes,iconUrl,elem,getOverrides,setBaseOverride,overlay};
 }(window));
