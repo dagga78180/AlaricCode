@@ -123,7 +123,7 @@
         }
         return ICON_CACHE.get(k);
       }
-      if(id.startsWith('DIV-'))return `assets/icons/catalogue-v2/${id}.svg?v=2`;
+      if(id.startsWith('DIV-'))return `assets/icons/catalogue-v2/${id}.svg?v=3`;
       const cap=/^(?:ACC-|MUN-)/.test(id)?5:10;
       return `assets/icons/catalogue-v2/${id}_R${String(Math.min(cap,r)).padStart(2,'0')}.svg?v=2`;
     }
@@ -150,13 +150,55 @@
     if(!response.ok)throw Error(`${path} : HTTP ${response.status}`);
     return response.json();
   }
+  // Le stock de la boutique est une sélection de références V2, distincte des
+  // 75 modèles disponibles dans l'éditeur MJ. Les variantes de consommables
+  // sont définies PAR ID D'AFFIXE, jamais par le nom de l'objet.
+  function buildBaseStock(selection,base,affixes,liaisons) {
+    if(!Array.isArray(selection)||selection.length!==68)
+      throw Error('Stock Alaric V2 incomplet : 68 références attendues.');
+    const baseById=new Map(base.map(o=>[String(o.sourceId),o]));
+    const affixById=new Map(affixes.map(a=>[a.id,a]));
+    const linkById=new Map(liaisons.map(l=>[l.itemId+'|'+l.affixId,l]));
+    const result=[],used=new Set();
+    for(const row of selection){
+      const baseId=String(row?.base||'').trim(),affixId=String(row?.affix||'').trim();
+      const model=baseById.get(baseId);
+      if(!model)throw Error('Stock Alaric : base inconnue '+baseId);
+      const affix=affixId?affixById.get(affixId):null;
+      if(affixId && (!affix || !affix.allowedBaseIds?.includes(baseId)))
+        throw Error('Stock Alaric : affixe incompatible '+baseId+' / '+affixId);
+      const link=affixId?linkById.get(baseId+'|'+affixId):null;
+      if(affixId&&!link)throw Error('Stock Alaric : prix 1+1 absent '+baseId+' / '+affixId);
+      let pricePC=model.pricePC;
+      if(link){
+        pricePC=link.priceMagiePC!==null && link.priceMagiePC!==undefined ? Math.round(Number(link.priceMagiePC)) :
+          link.priceConsoPA!==null && link.priceConsoPA!==undefined ? Math.round(Number(link.priceConsoPA)*100) : null;
+      }
+      if(pricePC===null || !Number.isSafeInteger(Number(pricePC)) || Number(pricePC)<0)
+        throw Error('Stock Alaric : prix invalide pour '+baseId+' / '+affixId);
+      const id=affixId?normalizeId('stock-'+baseId+'-'+affixId):model.id;
+      if(used.has(id))throw Error('Stock Alaric : doublon '+id);
+      used.add(id);
+      const name=link?.name||model.name;
+      const item={...model,id,name,description:link?.description||model.description,
+        pricePC:Number(pricePC),quality:0,power:affix?Number(affix.tier||affix.p||0):0,
+        rarity:RARITY_LABELS[Math.min(10,Math.max(0,affix?Number(affix.tier||affix.p||0)-1:0))]||'Commun',
+        cofSpec:{base:baseId,quality:0,affixes:affixId?[affixId]:[],name,price:String(pricePC)+' pc'},
+        affixes:affix?[{id:affix.id,name:affix.rpName||affix.displayName||affix.name,effect:affix.effect,tier:affix.tier}]:[],
+        // De futures créations MJ restent indépendantes de cette référence de stock.
+        origin:'Catalogue V2'};
+      result.push(item);
+    }
+    return result;
+  }
   async function loadCatalog() {
     // Catalogue V2 EXCLUSIF : ni templates.json, ni affixes.json, ni anciennes bases.
-    const [objets,affixes,liaisons,svgs]=await Promise.all([
+    const [objets,affixes,liaisons,svgs,stockSelection]=await Promise.all([
       fetchJSON('data/catalogue-objets-v2.json'),
       fetchJSON('data/catalogue-affixes-v2.json'),
       fetchJSON('data/catalogue-liaisons-v2.json'),
-      fetchJSON('data/icones-consommables-v2.json').catch(e=>{console.warn('Icônes consommables non chargées :',e);return {};})
+      fetchJSON('data/icones-consommables-v2.json').catch(e=>{console.warn('Icônes consommables non chargées :',e);return {};}),
+      fetchJSON('data/stock-base-alaric-v2.json')
     ]);
     if(!Array.isArray(objets)||objets.length!==75||!Array.isArray(affixes)||affixes.length!==536||!Array.isArray(liaisons)||liaisons.length!==2278)
       throw Error('Catalogue V2 incomplet ou incohérent (75/536/2278 attendus).');
@@ -172,7 +214,8 @@
       ...b,id:b.id,sourceId:b.id,icon:icons[b.id]||fallbackIcon(b),
       cofSpec:{base:b.id,quality:0,affixes:[]},templateId:normalizeId(b.id)
     },'Catalogue V2'));
-    return {base,templates,affixes,liaisons,icons,warnings:Object.keys(CONSUMABLE_ICON_SVGS).length===14?'':'Icônes des consommables non chargées : vérifier data/icones-consommables-v2.json.'};
+    const stockBase=buildBaseStock(stockSelection,base,affixes,liaisons);
+    return {base,stockBase,templates,affixes,liaisons,icons,warnings:Object.keys(CONSUMABLE_ICON_SVGS).length===14?'':'Icônes des consommables non chargées : vérifier data/icones-consommables-v2.json.'};
   }
 
   // Pont strict Alaric -> COFantasy Items / COAlaric.
@@ -315,11 +358,12 @@
     }
     return doc.set(data,{merge:true});
   }
-  function overlay(base,custom,overrides,stocks){
+  function overlay(base,custom,overrides,stocks,validCatalogBases=base){
     const all=new Map(base.map(it=>[it.id,{...it}]));
+    const allowedBaseIds=new Set(validCatalogBases.map(it=>String(it.sourceId||it.cofSpec?.base||'').toLowerCase()));
     for(const item of custom){
       const baseId=String(item?.cofSpec?.base||'').toLowerCase();
-      if(baseId&&!all.has(normalizeId(baseId)))continue; // Seules les bases V2 exactes sont acceptées.
+      if(baseId&&!allowedBaseIds.has(baseId))continue; // Valide les 75 modèles V2 même si non vendus par défaut.
       all.set(item.id,{...item});
     }
     return [...all.values()].map(it=>{

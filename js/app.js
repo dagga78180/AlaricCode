@@ -293,7 +293,7 @@ async function loadCatalogue() {
   const [catalog, stocks, custom, overrides] = await Promise.all([
     API.loadCatalog(), API.getStock(GROUP), API.getCustom(GROUP), API.getOverrides(GROUP)
   ]);
-  const list = API.overlay(catalog.base, custom, overrides, stocks).filter(it => it.visible !== false);
+  const list = API.overlay(catalog.stockBase, custom, overrides, stocks, catalog.base).filter(it => it.visible !== false);
   ITEMS = list.map((it,i) => {
     const {rank}=API.computeIconRank(it,catalog.affixes);
     const check=API.prepareRoll20Spec(it,catalog);

@@ -1047,22 +1047,24 @@
   "DIV-03": {
     "name": "Corde (15 m)",
     "category": "divers",
-    "sourceIcon": "Corde (15 m).svg",
+    "sourceIcon": "Couverture.svg",
     "base": "assets/icons/catalogue-v2/DIV-03.svg",
     "files": [
       "DIV-03.svg"
     ],
-    "ranks": "aucune déclinaison"
+    "ranks": "aucune déclinaison",
+    "correction": "Dessin de corde : les fichiers sources avaient les silhouettes inversées"
   },
   "DIV-04": {
     "name": "Couverture",
     "category": "divers",
-    "sourceIcon": "Couverture.svg",
+    "sourceIcon": "Corde (15 m).svg",
     "base": "assets/icons/catalogue-v2/DIV-04.svg",
     "files": [
       "DIV-04.svg"
     ],
-    "ranks": "aucune déclinaison"
+    "ranks": "aucune déclinaison",
+    "correction": "Dessin de couverture : les fichiers sources avaient les silhouettes inversées"
   },
   "DIV-05": {
     "name": "Grappin",

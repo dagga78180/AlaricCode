@@ -1,0 +1,223 @@
+[
+  {
+    "base": "CAC-01"
+  },
+  {
+    "base": "CAC-02"
+  },
+  {
+    "base": "CAC-03"
+  },
+  {
+    "base": "CAC-04"
+  },
+  {
+    "base": "CAC-05"
+  },
+  {
+    "base": "CAC-06"
+  },
+  {
+    "base": "CAC-07"
+  },
+  {
+    "base": "CAC-08"
+  },
+  {
+    "base": "CAC-09"
+  },
+  {
+    "base": "CAC-10"
+  },
+  {
+    "base": "CAC-11"
+  },
+  {
+    "base": "CAC-12"
+  },
+  {
+    "base": "CAC-13"
+  },
+  {
+    "base": "CAC-14"
+  },
+  {
+    "base": "DST-01"
+  },
+  {
+    "base": "DST-02"
+  },
+  {
+    "base": "DST-03"
+  },
+  {
+    "base": "DST-04"
+  },
+  {
+    "base": "DST-05"
+  },
+  {
+    "base": "DST-07"
+  },
+  {
+    "base": "DST-08"
+  },
+  {
+    "base": "MAG-01"
+  },
+  {
+    "base": "MAG-02"
+  },
+  {
+    "base": "MAG-03"
+  },
+  {
+    "base": "MAG-04"
+  },
+  {
+    "base": "ARM-01"
+  },
+  {
+    "base": "ARM-02"
+  },
+  {
+    "base": "ARM-03"
+  },
+  {
+    "base": "ARM-04"
+  },
+  {
+    "base": "ARM-05"
+  },
+  {
+    "base": "ARM-06"
+  },
+  {
+    "base": "BCL-01"
+  },
+  {
+    "base": "BCL-02"
+  },
+  {
+    "base": "MUN-01"
+  },
+  {
+    "base": "MUN-02"
+  },
+  {
+    "base": "MUN-03"
+  },
+  {
+    "base": "MUN-04"
+  },
+  {
+    "base": "DIV-01"
+  },
+  {
+    "base": "DIV-02"
+  },
+  {
+    "base": "DIV-03"
+  },
+  {
+    "base": "DIV-04"
+  },
+  {
+    "base": "DIV-05"
+  },
+  {
+    "base": "DIV-06"
+  },
+  {
+    "base": "DIV-07"
+  },
+  {
+    "base": "DIV-08"
+  },
+  {
+    "base": "DIV-09"
+  },
+  {
+    "base": "DIV-10"
+  },
+  {
+    "base": "DIV-11"
+  },
+  {
+    "base": "DIV-12"
+  },
+  {
+    "base": "DIV-13"
+  },
+  {
+    "base": "DIV-14"
+  },
+  {
+    "base": "CON-01",
+    "affix": "CO_SOINS_1"
+  },
+  {
+    "base": "CON-02",
+    "affix": "CO_MANA_1"
+  },
+  {
+    "base": "CON-03",
+    "affix": "CO_ELIXIR_CHA_1"
+  },
+  {
+    "base": "CON-03",
+    "affix": "CO_ELIXIR_CHA_2"
+  },
+  {
+    "base": "CON-03",
+    "affix": "CO_ELIXIR_CON_1"
+  },
+  {
+    "base": "CON-03",
+    "affix": "CO_ELIXIR_CON_2"
+  },
+  {
+    "base": "CON-03",
+    "affix": "CO_ELIXIR_DEX_1"
+  },
+  {
+    "base": "CON-03",
+    "affix": "CO_ELIXIR_DEX_2"
+  },
+  {
+    "base": "CON-03",
+    "affix": "CO_ELIXIR_FOR_1"
+  },
+  {
+    "base": "CON-03",
+    "affix": "CO_ELIXIR_FOR_2"
+  },
+  {
+    "base": "CON-03",
+    "affix": "CO_ELIXIR_INT_1"
+  },
+  {
+    "base": "CON-03",
+    "affix": "CO_ELIXIR_INT_2"
+  },
+  {
+    "base": "CON-03",
+    "affix": "CO_ELIXIR_SAG_1"
+  },
+  {
+    "base": "CON-08",
+    "affix": "CO_GRE_FEU_1"
+  },
+  {
+    "base": "CON-07",
+    "affix": "CO_POISON_1"
+  },
+  {
+    "base": "CON-15",
+    "affix": "CO_STABILISATION"
+  },
+  {
+    "base": "CON-10",
+    "affix": "CO_DEF_3"
+  }
+]

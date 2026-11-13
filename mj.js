@@ -12,7 +12,7 @@ const fetchState=async()=>{
   try{
     if(!catalog)catalog=await A.loadCatalog();
     [stocks,custom,overrides]=await Promise.all([A.getStock(group),A.getCustom(group),A.getOverrides(group)]);
-    all=A.overlay(catalog.base,custom,overrides,stocks);
+    all=A.overlay(catalog.stockBase,custom,overrides,stocks,catalog.base);
     $('stat-visible').textContent=all.filter(o=>o.visible).length;
     $('stat-custom').textContent=custom.length;
     $('stat-limited').textContent=[...stocks.values()].filter(x=>Number.isInteger(x)).length;
@@ -62,20 +62,20 @@ function buildTemplates(){const s=$('template'),current=s.value;s.replaceChildre
 function switchTab(name){for(const tab of ['stock','editor','import','info']){$('tab-'+tab).classList.toggle('hidden',tab!==name);document.querySelector(`[data-tab="${tab}"]`).classList.toggle('active',tab===name);}}
 function currentTemplate(){return catalog?.templates.find(t=>t.id===$('template').value)||null;}
 function getCompatible(){const t=currentTemplate();return t?A.compatibleAffixes(t,catalog.affixes):[];}
-function displayAffixes(){const search=$('affix-search').value.trim().toLocaleLowerCase('fr'),matches=getCompatible().filter(a=>!search||`${a.id} ${a.name} ${a.effect} ${a.category}`.toLocaleLowerCase('fr').includes(search));
+function displayAffixes(){const search=$('affix-search').value.trim().toLocaleLowerCase('fr'),matches=getCompatible().filter(a=>!search||`${a.id} ${a.name} ${a.rpName||''} ${a.rpDescription||''} ${a.effect} ${a.category}`.toLocaleLowerCase('fr').includes(search));
   const root=$('affix-list');root.replaceChildren();
   if(!$('template').value){root.append(A.elem('p',{className:'muted',text:'Choisis un modèle pour voir les affixes compatibles.'}));return;}
   root.append(A.elem('p',{className:'muted tiny',text:`${matches.length} affixes compatibles trouvés (50 affichés).`}));
   for(const aff of matches.slice(0,50)){
     const line=A.elem('label',{className:'affix-option'}),cb=A.elem('input',{type:'checkbox',checked:selected.has(aff.id)});
     cb.addEventListener('change',()=>{if(cb.checked){if(selected.size>=10){cb.checked=false;alert('Maximum 10 affixes par objet');return;}selected.add(aff.id);}else selected.delete(aff.id);renderSelected();});
-    line.append(cb,A.elem('span',{text:`${aff.id} · ${aff.name} — ${aff.effect}`}));root.append(line);
+    line.append(cb,A.elem('span',{text:`${aff.id} · ${aff.rpName||aff.name} — ${aff.effect}`}));root.append(line);
   }
 }
 function renderSelected(){const root=$('selected-affixes');root.replaceChildren();
   refreshPq();if(!selected.size){root.append(A.elem('p',{className:'muted',text:'Aucun affixe.'}));return;}
   for(const id of selected){const a=catalog.affixes.find(x=>x.id===id);if(!a)continue;
-    const line=A.elem('div',{className:'row'});line.append(A.elem('span',{className:'pill',text:a.id}),A.elem('strong',{text:a.name}),A.elem('span',{className:'muted tiny',text:a.effect}),A.elem('button',{className:'small warn',text:'×',onClick:()=>{selected.delete(id);renderSelected();displayAffixes();}}));root.append(line);
+    const line=A.elem('div',{className:'row'});line.append(A.elem('span',{className:'pill',text:a.id}),A.elem('strong',{text:a.rpName||a.name}),A.elem('span',{className:'muted tiny',text:a.effect}),A.elem('button',{className:'small warn',text:'×',onClick:()=>{selected.delete(id);renderSelected();displayAffixes();}}));root.append(line);
   }
 }
 function setTemplate(t){selected.clear();if(!t){$('object-category').value='Divers';$('object-subcategory').value='';$('object-description').value='';$('object-price').value='';$('object-icon').value='';displayAffixes();renderSelected();return;}
@@ -113,12 +113,12 @@ function estimatePrice(){
   }else $('calculated-price').textContent='Prix non renseigné dans le classeur : saisie manuelle nécessaire.';
   refreshPq();
 }
-function normalizedAffixes(ids,t){return ids.map(id=>catalog.affixes.find(a=>a.id===id)).filter(Boolean).map(a=>({id:a.id,name:a.name,effect:a.effect}));}
+function normalizedAffixes(ids,t){return ids.map(id=>catalog.affixes.find(a=>a.id===id)).filter(Boolean).map(a=>({id:a.id,name:a.rpName||a.name,effect:a.effect}));}
 async function saveEditor(e){e.preventDefault();const priceText=$('object-price').value.trim();const pc=priceText?A.parsePricePC(priceText,'pa'):null;
   if(priceText && pc===null){notice('Prix invalide : écris par ex. 1 PO 25 PA 20 PC','error');return;}
   const name=$('object-name').value.trim();if(!name)return;
   const id=$('edit-id').value||safe($('object-id').value||`mj-${slug(name)}-${Date.now().toString(36)}`);
-  if(catalog.base.some(b=>b.id===id && b.origin==='Catalogue V2')){notice('Cet identifiant est réservé au catalogue de base permanent.','error');return;}
+  if([...catalog.base,...catalog.stockBase].some(b=>b.id===id && b.origin==='Catalogue V2')){notice('Cet identifiant est réservé au catalogue de base permanent.','error');return;}
   const t=currentTemplate(),affixes=normalizedAffixes([...selected],t);
   const obj={id,name,pricePC:pc,category:$('object-category').value.trim(),subcategory:$('object-subcategory').value.trim(),description:$('object-description').value.trim(),icon:$('object-icon').value.trim(),iconKey:t?.iconKey||'',quality:quality(),power:power(),rarity:(A.RARITY_LABELS||[])[A.computeIconRank({category:t?.category||$('object-category').value,quality:quality(),cofSpec:{affixes:[...selected]}},catalog?.affixes).rank]||'Commun',cofSpec:{base:t?.sourceId||'',quality:quality(),affixes:[...selected],name,price:pc===null?'':String(pc)+' pc'},visible:$('object-visible').checked,templateId:t?.id||'',affixes};
   const check=A.prepareRoll20Spec(obj,catalog);
@@ -128,7 +128,7 @@ async function saveEditor(e){e.preventDefault();const priceText=$('object-price'
 function parseList(){const raw=$('import-json').value;let data;try{data=JSON.parse(raw);}catch(e){throw Error('JSON invalide : '+e.message);}
   const list=Array.isArray(data)?data:data?.items;if(!Array.isArray(list)||!list.length)throw Error('La liste doit être un tableau ou un objet {"items": [...]} non vide.');
   if(list.length>100)throw Error('Limite : 100 objets par import.');
-  const knownIds=new Set(all.map(it=>it.id)),permanentIds=new Set(catalog.base.filter(x=>x.origin==='Base').map(x=>x.id)),local=new Set();const items=[],warnings=[];
+  const knownIds=new Set(all.map(it=>it.id)),permanentIds=new Set([...catalog.base,...catalog.stockBase].map(x=>x.id)),local=new Set();const items=[],warnings=[];
   for(const [i,row] of list.entries()){
     if(!row||typeof row!=='object'||Array.isArray(row))throw Error(`Objet ${i+1} invalide`);
     const template=catalog.templates.find(t=>t.id===safe(row.templateId||row.modele||''));
