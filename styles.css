@@ -1353,3 +1353,76 @@ h3 {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* ============================================================
+   Alaric V4 VALIDÉ — cartes, recherche et panier Roll20
+   ============================================================ */
+.search-bar{display:flex;gap:.7rem;align-items:end;margin:0 0 .7rem}
+.search-bar .field--search{flex:1 1 auto;min-width:0;grid-column:auto}
+.search-bar .field--search input{min-height:47px}
+.filters-toggle{min-height:47px;white-space:nowrap}
+.advanced-filters{padding:.75rem .9rem;margin:.35rem 0 .9rem;border-radius:16px;border:1px solid var(--line);background:rgba(10,5,16,.4)}
+.advanced-filters[hidden]{display:none}
+.advanced-filters .toolbar{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;margin:0 0 .8rem}
+.advanced-filters .field{min-width:0}
+.advanced-filters .field input,.advanced-filters .field select{padding:.65rem .8rem;border-radius:10px}
+.advanced-filters .price-range{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem;align-items:end}
+.advanced-filters .filter-actions{margin:0;justify-content:space-between}
+.catalogue-sort-line{display:flex;justify-content:space-between;gap:.7rem;align-items:end;margin:.55rem 0 .9rem}
+.catalogue-sort-line__label{font-size:.78rem;color:var(--muted)}
+.field--sort{min-width:180px;font-size:.74rem;grid-column:auto}
+.field--sort select{padding:.52rem .7rem;border-radius:10px}
+.items-list{grid-template-columns:repeat(4,minmax(0,1fr));gap:.72rem;align-items:stretch}
+.item-row{padding:.7rem;gap:.65rem;border-radius:16px;grid-template-rows:auto 1fr auto}
+.item-row__head{padding-right:1.35rem;gap:.52rem;align-items:center}
+.item-icon{flex:0 0 3.1rem;width:3.1rem;height:3.1rem;min-width:3.1rem;font-size:1.25rem}
+.item-row__heading h3{font-size:.94rem;line-height:1.22}
+.item-row__badges{gap:.2rem}
+.item-row__badges>span{font-size:.6rem;padding:.14rem .32rem}
+.item-row__main{display:grid;gap:.42rem;align-content:start}
+.item-row__stats{display:grid;grid-template-columns:minmax(0,1fr);gap:.4rem;margin:0}
+.item-row__stats--two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.item-row__stats .item-stat{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.16rem;min-width:0;width:100%;padding:.52rem .38rem;min-height:48px;border-radius:10px;border:1px solid rgba(241,197,106,.16);background:rgba(0,0,0,.24);text-align:center}
+.item-row__stats dt{font-size:.61rem;line-height:1.3;letter-spacing:.055em;text-transform:uppercase;color:var(--muted);font-weight:800}
+.item-row__stats dd{margin:0;font-size:.87rem;line-height:1.35;font-weight:750;overflow-wrap:anywhere;white-space:normal}
+.item-row__stats--full dd{font-size:.81rem;font-weight:650}
+.item-details{margin:.05rem 0 0}
+.item-details summary{font-size:.77rem;font-weight:750}
+.item-details__content{padding:.65rem;border-radius:10px}
+.item-row__actions{align-items:end;min-width:0}
+.item-row__buy-meta .price{font-size:.96rem}
+.item-row__actions>.button{padding:.55rem .7rem}
+.cart-line__controls{gap:.35rem;align-items:center}
+.cart-line__controls .icon-button{flex:0 0 1.85rem;min-width:1.85rem;height:1.85rem}
+.cart-line__controls [data-delete]{color:#ffb0a7}
+.cart-actions{flex-wrap:wrap}
+.cart-actions .button--primary{flex:1 1 100%}
+.checkout-active{overflow:hidden}
+.checkout-overlay{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:1rem;background:rgba(7,3,12,.88);backdrop-filter:blur(9px)}
+.checkout-overlay[hidden]{display:none}
+.checkout-dialog{width:min(670px,100%);max-height:calc(100dvh - 2rem);overflow:auto;border:1px solid rgba(241,197,106,.37);border-radius:22px;padding:clamp(1rem,3vw,1.6rem);background:linear-gradient(160deg,#26162e,#140a1c);box-shadow:0 18px 60px rgba(0,0,0,.58)}
+.checkout-head{display:flex;justify-content:space-between;gap:1rem;align-items:start;padding-bottom:.85rem;border-bottom:1px solid var(--line)}
+.checkout-head h2{margin:.15rem 0 0;font-size:1.6rem}
+.checkout-body{display:grid;gap:1rem;padding-top:1rem}
+.checkout-intro{margin:0;line-height:1.5;color:var(--text-soft)}
+.checkout-lines{display:grid;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.checkout-line{display:flex;justify-content:space-between;gap:1rem;align-items:center;padding:.76rem .9rem;background:rgba(255,255,255,.04);font-size:.9rem}
+.checkout-line+.checkout-line{border-top:1px solid var(--line)}
+.checkout-line>div{display:grid;gap:.18rem;min-width:0}
+.checkout-line>div strong{overflow-wrap:anywhere}
+.checkout-line span{font-size:.78rem;color:var(--muted)}
+.checkout-line>strong{white-space:nowrap}
+.checkout-sum{display:flex;justify-content:space-between;margin:0;font-size:1.14rem;font-weight:700}
+.checkout-warning{margin:0;padding:.85rem;border:1px solid rgba(255,198,114,.35);border-radius:12px;background:rgba(233,149,42,.09);line-height:1.5}
+.checkout-buttons{display:flex;gap:.65rem;justify-content:flex-end}
+.checkout-buttons .button{flex:1}
+.checkout-success{padding:.8rem;border-radius:12px;color:#b7ffd2;border:1px solid rgba(183,255,210,.35);background:rgba(83,180,116,.12);font-weight:800}
+.order-number{font-size:.77rem;overflow-wrap:anywhere;margin:0;color:var(--muted)}
+.checkout-instructions{padding:.8rem 1rem;border:1px solid var(--line);border-radius:12px;background:rgba(241,197,106,.07)}
+.checkout-instructions>p{margin:.5rem 0 0;line-height:1.65}
+.order-raw{width:100%;min-height:94px;resize:vertical;padding:.6rem;background:rgba(5,2,10,.65);color:var(--text);font-size:.75rem;border:1px solid var(--line);border-radius:8px;overflow-wrap:anywhere}
+.checkout-cta{width:100%}
+@media (max-width:1200px){.items-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){.items-list{grid-template-columns:1fr}.search-bar{flex-wrap:wrap}.search-bar .field--search{flex-basis:100%}.search-bar .filters-toggle{width:100%}.advanced-filters .toolbar{grid-template-columns:1fr}.advanced-filters .price-range{grid-template-columns:repeat(2,minmax(0,1fr))}.checkout-buttons{flex-direction:column}}
+
+.checkout-error{margin:0;padding:.75rem .9rem;border:1px solid rgba(255,150,150,.55);border-radius:10px;background:rgba(125,25,44,.28);color:#ffd5cf;line-height:1.5}

@@ -385,6 +385,27 @@
     }
     return options.replace===true?doc.set(data):doc.set(data,{merge:true});
   }
+  // Publication de la liste de prix par le MJ : une seule fiche Firestore par groupe.
+  // Le client joueur ne peut ni créer ni changer ce document ; les Rules le lisent
+  // pour vérifier le prix lors de la déduction du stock.
+  async function publishPriceBook(group, items, catalog) {
+    const prices={};
+    for(const item of items){
+      if(item.visible===false || item.cofCompatible===false || !item.cofSpec?.base)continue;
+      if(!prepareRoll20Spec(item,catalog).ok)continue;
+      if(!Number.isSafeInteger(item.pricePC)||item.pricePC<0||item.pricePC>1e11)continue;
+      prices[item.id]=item.pricePC;
+    }
+    const ids=Object.keys(prices);
+    if(ids.length===0 || ids.length>400)throw Error('Catalogue des prix invalide : '+ids.length+' références.');
+    const ref=db.collection('groups').doc(groupId(group)).collection('storefront').doc('priceBook');
+    const current=await ref.get();
+    const previous=current.exists?current.data()?.prices||{}:{};
+    const same=Object.keys(previous).length===ids.length && ids.every(id=>previous[id]===prices[id]);
+    if(!same)await ref.set({prices,updatedAt:global.firebase.firestore.FieldValue.serverTimestamp()});
+    return {count:ids.length,updated:!same};
+  }
+
   function overlay(base,custom,overrides,stocks,validCatalogBases=base){
     const all=new Map(base.map(it=>[it.id,{...it}]));
     const allowedBaseIds=new Set(validCatalogBases.map(it=>String(it.sourceId||it.cofSpec?.base||'').toLowerCase()));
@@ -395,10 +416,10 @@
     }
     return [...all.values()].map(it=>{
       const adjust=overrides.get(it.id)||{};
-      return {...it,visible:it.origin==='Catalogue V2'?true:(adjust.visible!==undefined?adjust.visible:it.visible),
+      return {...it,visible:adjust.visible!==undefined?adjust.visible:it.visible,
         pricePC:adjust.pricePC!==undefined?adjust.pricePC:it.pricePC,
         stock:stocks.has(it.id)?stocks.get(it.id):null};
     });
   }
-  global.AlaricApp={cfg,db,auth,RARITY_LABELS,groupId,parsePricePC,formatPC,normalizeId,prepareRoll20Spec,computeIconRank,tieredIcon,catalogueIconForItem,normalizedItem,fallbackIcon,loadCatalog,groupStocks,groupItems,getStock,getCustom,setStock,saveCustom,inspectCustomFields,deleteCustom,migrationLegacy,compatibleAffixes,iconUrl,elem,getOverrides,setBaseOverride,overlay};
+  global.AlaricApp={cfg,db,auth,RARITY_LABELS,groupId,parsePricePC,formatPC,normalizeId,prepareRoll20Spec,computeIconRank,tieredIcon,catalogueIconForItem,normalizedItem,fallbackIcon,loadCatalog,groupStocks,groupItems,getStock,getCustom,setStock,saveCustom,inspectCustomFields,deleteCustom,migrationLegacy,compatibleAffixes,iconUrl,elem,getOverrides,setBaseOverride,overlay,publishPriceBook};
 }(window));

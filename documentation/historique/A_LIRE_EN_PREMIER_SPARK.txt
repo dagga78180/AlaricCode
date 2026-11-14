@@ -1,0 +1,14 @@
+ALARIC V4 GRATUIT — SANS CLOUD FUNCTIONS
+
+1. Lis LIRE_AVANT_INSTALLATION_V4.md.
+2. Sauvegarde les règles Firebase et les données en production.
+3. Active Firebase Authentication / Anonyme.
+4. Fusionne firestore.rules avec les règles publiées, en conservant l'UID MJ réel.
+5. Publie les règles depuis Firebase Console, sans npm et sans passer à Blaze.
+6. Mets à jour le site et tous les scripts.
+7. Connecte-toi à mj.html et publie les prix pour Groupe 1 puis Groupe 2.
+8. Teste une commande avec une référence à petit stock.
+
+ATTENTION : les commandes Roll20 sont générées côté navigateur ;
+le MJ doit les vérifier avant de les exécuter. Aucune écriture en production
+n'a été réalisée pour créer cette archive.

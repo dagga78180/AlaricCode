@@ -1,0 +1,20 @@
+ALARICCODE V5 — BOUTIQUE JOUEUR + NOUVEL ESPACE MJ
+=================================================
+
+1. Lis INSTALLATION_V5.md AVANT de mettre les fichiers en ligne.
+2. Aucun npm, aucune Cloud Function, aucun forfait Blaze nécessaire.
+3. Firestore Spark reste gratuit tant que tu respectes ses quotas.
+4. Les règles Firestore doivent contenir TON VRAI UID MJ. Ne remplace PAS
+   tes règles actives par le fichier modèle si le vrai UID ne s'y trouve pas.
+5. Les fichiers du site sont préconfigurés pour le projet Firebase déjà utilisé
+   dans Alaric V4. Ne communique jamais tes identifiants MJ.
+6. Teste avec deux groupes et un objet de test AVANT d'ouvrir aux joueurs.
+
+Boutique joueur V4 conservée, avec Roll20 par COPIE vers Discord, aucune
+commande envoyée ou exécutée automatiquement dans Roll20.
+Nouveau : mj.html utilise mj-v5.js et mj-v5.css.
+
+IMPORTANT : Les tests effectués sont des tests avec Firebase simulé.
+Ils ne remplacent pas un essai sur le véritable projet Firestore.
+
+Documentation historique conservée dans documentation/historique/.

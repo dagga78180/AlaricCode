@@ -18,7 +18,14 @@ const fetchState=async()=>{
     $('stat-limited').textContent=[...stocks.values()].filter(x=>Number.isInteger(x)).length;
     $('import-group').textContent=groupName();
     buildCategory();renderTable();buildTemplates();
-    notice(groupName()+' prêt : '+all.length+' objets connus. Les modifications ne touchent pas l’autre groupe.','success');
+    try {
+      const book=await A.publishPriceBook(group,all,catalog);
+      $('pricebook-status').textContent='✓ '+book.count+' prix publiés pour '+groupName()+ (book.updated?' (actualisés)':' (à jour)');
+      notice(groupName()+' prêt : '+all.length+' objets connus. Livre des prix à jour.','success');
+    } catch(error) {
+      $('pricebook-status').textContent='⚠ Publication des prix impossible : '+error.message;
+      notice('Boutique non prête pour les achats : publication des prix refusée. '+error.message,'error');
+    }
     if(catalog.warnings)notice(groupName()+' : '+catalog.warnings+' Vérifie les chemins dans config.js.');
   }catch(e){notice('Erreur de chargement : '+e.message+'. Vérifie les règles Firestore et les noms des fichiers JSON.','error');console.error(e);}
 };
@@ -38,7 +45,7 @@ function renderTable(){const needle=$('stock-search').value.trim().toLocaleLower
     const quantityCell=A.elem('td');quantityCell.append(quantityInput);
     const shown=A.elem('input',{type:'checkbox',checked:it.visible,disabled:it.origin==='Catalogue V2'});shown.setAttribute('aria-label','Visible : '+it.name);
     const visibleCell=A.elem('td');visibleCell.append(shown);
-    shown.addEventListener('change',async()=>{shown.disabled=true;try{await A.setBaseOverride(group,it.id,{visible:shown.checked});it.visible=shown.checked;notice(it.name+(shown.checked?' affiché':' masqué')+' dans '+groupName()+'.','success');}catch(e){shown.checked=!shown.checked;notice('Visibilité : '+e.message,'error');}finally{shown.disabled=false;}});
+    shown.addEventListener('change',async()=>{shown.disabled=true;try{await A.setBaseOverride(group,it.id,{visible:shown.checked});it.visible=shown.checked;await fetchState();notice(it.name+(shown.checked?' affiché':' masqué')+' dans '+groupName()+'. Prix synchronisés.','success');}catch(e){shown.checked=!shown.checked;notice('Visibilité : '+e.message,'error');}finally{shown.disabled=false;}});
     const actions=A.elem('td');const buttons=A.elem('div',{className:'cell-actions'});buttons.append(A.elem('button',{className:'small primary',text:'Stock OK',onClick:async()=>{
       const val=quantityInput.value.trim();try{await A.setStock(group,it.id,val===''?null:Number(val));it.stock=val===''?null:Number(val);notice(`Stock de ${it.name} modifié dans ${groupName()} : ${val||'illimité'}.`,'success');}catch(e){notice('Stock : '+e.message,'error');}
     }}));
@@ -226,6 +233,11 @@ function exportItems(){const records=custom.map(c=>({id:c.id,nom:c.name,category
 }
 for(const b of document.querySelectorAll('[data-tab]'))b.addEventListener('click',()=>switchTab(b.dataset.tab));
 $('active-group').addEventListener('change',()=>{group=A.groupId($('active-group').value);resetEditor();fetchState();});
+$('publish-pricebook').addEventListener('click',async()=>{try{
+  const book=await A.publishPriceBook(group,all,catalog);
+  $('pricebook-status').textContent='✓ '+book.count+' prix publiés pour '+groupName();
+  notice('Prix officiels publiés pour '+groupName()+'.','success');
+}catch(err){$('pricebook-status').textContent='⚠ '+err.message;notice('Publication des prix : '+err.message,'error');}});
 $('reload').addEventListener('click',fetchState);$('stock-search').addEventListener('input',renderTable);$('stock-category').addEventListener('change',renderTable);
 $('template').addEventListener('change',()=>setTemplate(currentTemplate()));$('object-quality').addEventListener('change',refreshPq);$('calculate-price').addEventListener('click',estimatePrice);$('affix-search').addEventListener('input',displayAffixes);
 $('editor-form').addEventListener('submit',saveEditor);$('reset-editor').addEventListener('click',resetEditor);

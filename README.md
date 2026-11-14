@@ -1,21 +1,27 @@
-# Alaric Code — Catalogue RP V1 et export Roll20
+# AlaricCode V5 — Atelier MJ et boutique joueur
 
-Cette mise à jour repose sur le catalogue V2 strict (75 bases, 536 affixes et 2 278 liaisons) **avec les noms et descriptions RP du classeur du 13 novembre 2026**.
+## Fonctionnement
 
-La sélection du stock reste à 68 références (`data/stock-base-alaric-v2.json`), dont 17 consommables exacts ; les créations MJ sont conservées. Pour le stock, les noms et descriptions RP viennent des liaisons, les prix restent calculés à partir des champs techniques inchangés.
+- **groupe1.html** et **groupe2.html** : boutiques joueur V4, cartes compactes, recherche, filtres et panier à double confirmation.
+- **Firebase Firestore** : synchronisation des stocks propres à chaque groupe, déduction après confirmation, livre de prix sécurisé par des règles Firestore.
+- **Roll20** : le site génère une commande `!co-alaric panier ...` que le joueur **copie** puis envoie au MJ sur Discord ; aucune connexion et aucune exécution directe sur Roll20.
+- **mj.html** : interface V5 pour gérer en parallèle les deux groupes, les stocks, les prix, les objets magiques, les imports JSON et les sauvegardes.
 
-Les icônes des 75 bases — dont l'inversion corrigée des icônes Corde/Couverture —, les palettes R00–R10 et les couleurs des consommables ne sont pas modifiées.
+## Fonctionnalités V5 MJ
 
-**Installation :** fusionner ce dossier `Alaric/` avec le site existant. Conserver le HTML, CSS, la configuration Firebase et les données Firestore. Voir `../INSTALLATION_COFANTASY_ALARIC_RP.md`.
+1. Tableau de bord sur **Groupe 1 et Groupe 2**, avec compteurs et suivi des prix.
+2. Catalogue en tableau : stocks, prix (en PA), visibilité éditables **directement dans les cellules** ; enregistrement volontaire, pas à chaque frappe.
+3. Sélection multiple pour appliquer une quantité commune, puis corriger les valeurs de chaque groupe ; afficher, masquer, retirer ou supprimer les créations MJ.
+4. Atelier : sélection d'un modèle du catalogue, qualité Q0 à Q5 selon sa compatibilité, plusieurs affixes compatibles (consommable limité à un), prévisualisation et publication immédiate.
+5. Import JSON du format V4 : sélection des objets, inspection détaillée, doublons traités **individuellement** par groupe (ignorer / remplacer). Pour un remplacement, le stock et le prix personnalisé sont conservés.
+6. Export et restauration JSON intégrale du catalogue personnalisé, des stocks et des réglages des deux groupes. Aucun historique de commandes n'est inclus.
 
+## Attention aux prix de l'atelier
 
-## Correctif stock et import (13/11/2026)
-- Base : 63 références, cinq élixirs supérieurs retirés (conservés dans les 536 affixes de l’éditeur MJ).
-- Éditeur MJ : import des modèles V2, des qualités Q, des affixes et des prix (exemple actualisé).
-- Sélection : `selection-alaric-29-QP-IMPORT.json` ; cliquer Vérifier la liste avant Importer.
-- En cas de refus à l’écriture, le message précise la ligne, l’étape et l’erreur Firestore.
-- Aucune mise à jour automatique ni suppression de documents Firebase.
+Le catalogue V2 donne des **prix précis pour une base + un affixe**. Pour les combinaisons de plusieurs affixes ou une qualité supérieure à zéro, la V5 calcule une **estimation déterministe** à partir des liaisons du catalogue et du modèle P/Q fourni. Elle l'affiche explicitement comme une estimation ; aucune valeur officielle non présente dans les sources n'est inventée. L'édition manuelle des caractéristiques n'est pas proposée. Les créations non compatibles avec l'export Roll20 sont bloquées.
 
-## Mise à jour de novembre 2026 — import 29 et stock 63
+## Installation
 
-Voir `INSTALLATION_CORRECTIF_63_IMPORT_29.md`. La sélection à charger dans l'espace MJ est `selection-alaric-29-QP-IMPORT.json`. Le stock initial contient 63 références et exclut les 5 élixirs supérieurs, sans les supprimer du catalogue MJ.
+Lire **INSTALLATION_V5.md**, puis **A_LIRE_EN_PREMIER.txt**.
+
+Les guides de versions antérieures figurent dans `documentation/historique/` et ne doivent pas remplacer celui de la V5.

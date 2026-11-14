@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>L’échoppe d’Alaric · Catalogue COF</title>
   <meta name="description" content="Catalogue interactif pour l’inventaire du marchand Alaric, compatible Chroniques Oubliées Fantasy." />
-  <link rel="stylesheet" href="styles.css?v=cartes-v1-20261114" />
+  <link rel="stylesheet" href="styles.css?v=panier-v2-20261114" />
 </head>
 <body>
   <header class="hero" aria-label="L’échoppe Fantastique d’Alaric">
@@ -39,65 +39,29 @@
 
       <div id="catalogue-alerts" class="catalogue-alerts" role="status" hidden></div>
 
-      <div class="toolbar" aria-label="Filtres du catalogue">
+<div class="search-bar" aria-label="Recherche du catalogue">
         <label class="field field--search">
-          <span>Rechercher</span>
+          <span>Rechercher un objet</span>
           <input id="search" type="search" placeholder="Nom, effet, catégorie…" autocomplete="off" />
         </label>
-
-        <label class="field">
-          <span>Catalogue</span>
-          <select id="source-filter">
-            <option value="all">Tout</option>
-            <option value="alaric">Sélection d’Alaric</option>
-            <option value="base">Catalogue de base</option>
-          </select>
-        </label>
-
-        <label class="field">
-          <span>Sous-catégorie</span>
-          <select id="subcategory-filter">
-            <option value="all">Toutes</option>
-          </select>
-        </label>
-
-        <label class="field">
-          <span>Rareté</span>
-          <select id="rarity-filter">
-            <option value="all">Toutes</option>
-          </select>
-        </label>
-
-        <label class="field">
-          <span>Prix minimum</span>
-          <input id="price-min" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0 PA" />
-        </label>
-
-        <label class="field">
-          <span>Prix maximum</span>
-          <input id="price-max" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Sans limite" />
-        </label>
-
-        <label class="field">
-          <span>Tri</span>
-          <select id="sort-filter">
-            <option value="alaric-first">Sélection d’Alaric en premier</option>
-            <option value="category-asc">Catégorie</option>
-            <option value="name-asc">Nom A → Z</option>
-            <option value="price-asc">Prix croissant</option>
-            <option value="price-desc">Prix décroissant</option>
-            <option value="rarity-asc">Rareté faible → élevée</option>
-            <option value="rarity-desc">Rareté élevée → faible</option>
-          </select>
-        </label>
+        <button class="button button--ghost filters-toggle" id="toggle-filters" type="button" aria-controls="advanced-filters" aria-expanded="false">⚙ Filtres <span id="active-filter-count"></span></button>
       </div>
-
-      <div class="filter-actions">
-        <button class="chip" id="favorites-only" type="button" aria-pressed="false">☆ Favoris uniquement</button>
-        <button class="button button--ghost button--small" id="reset-filters" type="button">Réinitialiser les filtres</button>
+      <div id="advanced-filters" class="advanced-filters" hidden>
+        <div class="toolbar" aria-label="Filtres avancés">
+          <label class="field"><span>Type d'équipement</span><select id="category-filter"><option value="all">Tous les équipements</option></select></label>
+          <label class="field"><span>Type de dégâts</span><select id="damage-filter"><option value="all">Tous les types</option></select></label>
+          <label class="field"><span>Rareté</span><select id="rarity-filter"><option value="all">Toutes les raretés</option></select></label>
+          <div class="price-range"><label class="field"><span>Prix minimum (PA)</span><input id="price-min" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Min" /></label>
+          <label class="field"><span>Prix maximum (PA)</span><input id="price-max" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Max" /></label></div>
+          <label class="field"><span>Catalogue</span><select id="source-filter"><option value="all">Tout</option><option value="alaric">Sélection d’Alaric</option><option value="base">Catalogue de base</option></select></label>
+          <label class="field"><span>Sous-catégorie</span><select id="subcategory-filter"><option value="all">Toutes</option></select></label>
+        </div>
+        <div class="filter-actions"><button class="chip" id="favorites-only" type="button" aria-pressed="false">☆ Favoris uniquement</button>
+          <button class="button button--ghost button--small" id="reset-filters" type="button">Réinitialiser les filtres</button></div>
       </div>
-
-      <nav class="category-filters" id="category-filters" aria-label="Catégories"></nav>
+      <div class="catalogue-sort-line"><span class="catalogue-sort-line__label">Affiner les résultats ci-dessus</span>
+        <label class="field field--sort"><span>Trier par</span><select id="sort-filter"><option value="alaric-first">Sélection d’Alaric d’abord</option><option value="category-asc">Catégorie</option><option value="name-asc">Nom A → Z</option><option value="price-asc">Prix croissant</option><option value="price-desc">Prix décroissant</option><option value="rarity-asc">Rareté faible → élevée</option><option value="rarity-desc">Rareté élevée → faible</option></select></label>
+      </div>
 
       <div class="items-list" id="items-grid" aria-live="polite"></div>
     </section>
@@ -121,10 +85,10 @@
         </div>
 
         <div class="cart-actions">
-          <button class="button button--primary" id="copy-order" type="button">Copier pour Roll20</button>
+          <button class="button button--primary" id="validate-cart" type="button">Valider mon panier</button>
           <button class="button button--ghost" id="clear-cart" type="button">Vider</button>
         </div>
-        <p class="cart-help">Colle la commande dans le chat Roll20 en tant que MJ, puis cible le PJ destinataire.</p>
+        <p class="cart-help">Après la double confirmation, le stock est déduit. Tu pourras copier la commande Roll20 pour ton MJ sur Discord.</p><button class="button button--ghost button--small" id="last-order" type="button" hidden>↺ Retrouver ma dernière commande</button>
       </div>
     </aside>
   </main>
@@ -135,16 +99,25 @@
     </div>
   </footer>
 
+
+  <section id="checkout-overlay" class="checkout-overlay" role="dialog" aria-modal="true" aria-labelledby="checkout-title" hidden>
+    <div class="checkout-dialog">
+      <div class="checkout-head"><div><p class="eyebrow">L'échoppe d'Alaric · <span id="checkout-group-label">Groupe</span></p><h2 id="checkout-title">Confirmer l'achat</h2></div><button class="icon-button" id="checkout-close" type="button" aria-label="Fermer">×</button></div>
+      <div id="checkout-body" class="checkout-body" aria-live="polite"></div>
+    </div>
+  </section>
+
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="https://www.gstatic.com/firebasejs/13.2.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/13.2.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/13.2.0/firebase-firestore-compat.js"></script>
   <script>window.ALARIC_GROUP="groupe1";</script>
   <script src="config.js"></script>
-  <script src="shared.js?v=cartes-v1-20261114"></script>
+  <script src="shared.js?v=spark-20261114"></script>
   <script src="js/core.js"></script>
   <script src="js/pricing.js"></script>
-  <script src="js/app.js?v=cartes-v1-20261114"></script>
+  <script src="js/checkout-free.js?v=spark-20261114"></script>
+  <script src="js/app.js?v=spark-20261114"></script>
   <script>document.getElementById('active-group-label').textContent='Catalogue marchand · '+window.AlaricApp.cfg.groups[window.AlaricApp.groupId(window.ALARIC_GROUP||new URLSearchParams(location.search).get('groupe'))];document.getElementById('link-g'+(window.ALARIC_GROUP==='groupe2'?'2':'1')).classList.add('active');</script>
 </body>
 </html>

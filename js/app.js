@@ -183,6 +183,7 @@ const ICON_ALIASES = {
 const state = {
   category: "all",
   subcategory: "all",
+  damageType: "all",
   rarity: "all",
   source: "all",
   search: "",
@@ -194,12 +195,20 @@ const state = {
   favorites: loadFavorites(),
   catalogueWarnings: [],
   stockWarning: "",
-  stockOnline: false
+  stockOnline: false,
+  checkoutStep: "cart",
+  order: null,
+  purchasing: false,
+  checkoutError: ''
 };
 
 const elements = {
   grid: document.querySelector("#items-grid"),
-  categoryFilters: document.querySelector("#category-filters"),
+  categoryFilter: document.querySelector("#category-filter"),
+  damageFilter: document.querySelector("#damage-filter"),
+  toggleFilters: document.querySelector("#toggle-filters"),
+  advancedFilters: document.querySelector("#advanced-filters"),
+  activeFilterCount: document.querySelector("#active-filter-count"),
   subcategoryFilter: document.querySelector("#subcategory-filter"),
   rarityFilter: document.querySelector("#rarity-filter"),
   sourceFilter: document.querySelector("#source-filter"),
@@ -214,7 +223,13 @@ const elements = {
   cartItems: document.querySelector("#cart-items"),
   cartEmpty: document.querySelector("#cart-empty"),
   cartTotal: document.querySelector("#cart-total"),
-  copyOrder: document.querySelector("#copy-order"),
+  validateCart: document.querySelector("#validate-cart"),
+  lastOrder: document.querySelector("#last-order"),
+  checkoutOverlay: document.querySelector("#checkout-overlay"),
+  checkoutClose: document.querySelector("#checkout-close"),
+  checkoutTitle: document.querySelector("#checkout-title"),
+  checkoutBody: document.querySelector("#checkout-body"),
+  checkoutGroupLabel: document.querySelector("#checkout-group-label"),
   clearCart: document.querySelector("#clear-cart"),
   toast: document.querySelector("#toast"),
   cartPanel: document.querySelector("#cart-panel"),
@@ -314,11 +329,13 @@ async function loadCatalogue() {
       price: it.pricePC===null ? NaN : it.pricePC / 100,
       source:isBase?'base':'alaric',iconRank:rank,
       stock:it.stock, cofSpec:check.ok?check.spec:null,
+      sourceSpec:it.cofSpec, sourceName:it.name, isCustom:it.origin==='Création MJ',
       cofCompatible:it.cofCompatible!==false && check.ok,
       cofError:check.errors.join(' / '),cofWarnings:check.warnings,
       cardQuality: it.cofSpec?.quality ?? it.quality ?? 0,
       cardWeaponNb: base.weaponDmNb, cardWeaponDie: base.weaponDmDie,
       cardWeaponCar: base.weaponDmCar, cardWeaponAttack: base.weaponAttack,
+      cardWeaponDamageType: base.weaponDamageType,
       cardArmorBonus: base.armorBonus, cardArmorMalus: base.armorMalus,
       cardSlot: base.slot, cardTechnicalNotes: base.technicalNotes,
       cardRpDescription: base.rpDescription,
@@ -370,6 +387,7 @@ function normalizeItem(item, source = "base", index = 0) {
     cardWeaponDie: item.cardWeaponDie,
     cardWeaponCar: String(item.cardWeaponCar || ""),
     cardWeaponAttack: String(item.cardWeaponAttack || ""),
+    cardWeaponDamageType: String(item.cardWeaponDamageType || ""),
     cardArmorBonus: item.cardArmorBonus,
     cardArmorMalus: item.cardArmorMalus,
     cardSlot: String(item.cardSlot || ""),
@@ -378,6 +396,8 @@ function normalizeItem(item, source = "base", index = 0) {
     cardConsumableEffect: String(item.cardConsumableEffect || ""),
     cardAffixEffects: Array.isArray(item.cardAffixEffects) ? item.cardAffixEffects : [],
     cofSpec: item.cofSpec && typeof item.cofSpec === "object" ? JSON.parse(JSON.stringify(item.cofSpec)) : null,
+    sourceSpec: item.sourceSpec && typeof item.sourceSpec === "object" ? JSON.parse(JSON.stringify(item.sourceSpec)) : null,
+    sourceName: String(item.sourceName||""), isCustom:item.isCustom===true,
     cofCompatible: item.cofCompatible !== false,
     cofError: String(item.cofError || ""),
     cofWarnings: Array.isArray(item.cofWarnings)?item.cofWarnings.map(String):[]
@@ -621,49 +641,32 @@ function uniqueSorted(values, ranker) {
   });
 }
 
-function categories() {
-  return ["all", ...uniqueSorted(ITEMS.map(item => item.category), categoryRank)];
-}
-
+const CATEGORY_LABELS = {arme:'Armes',armure:'Armures',accessoire:'Accessoires',munition:'Munitions',consommable:'Consommables',divers:'Matériel'};
+const DAMAGE_LABELS = {percant:'Perçant',perforant:'Perforant',tranchant:'Tranchant',contondant:'Contondant',feu:'Feu',froid:'Froid',air:'Air',eau:'Eau',force:'Force',lumiere:'Lumière',ombre:'Ombre',terre:'Terre',magique:'Magique','magique non elementaire':'Magique non élémentaire'};
+function categories() {return ['all',...new Set(['arme','armure','accessoire','munition','consommable','divers',...uniqueSorted(ITEMS.map(item=>item.category),categoryRank)])];}
 function subcategories() {
-  const source = state.category === "all"
-    ? ITEMS
-    : ITEMS.filter(item => item.category === state.category);
-  return ["all", ...uniqueSorted(source.map(item => item.subcategory), subcategoryRankForFilter)];
+  return ['all', ...uniqueSorted(ITEMS.filter(it=>state.category==='all'||it.category===state.category).map(it=>it.subcategory),subcategoryRankForFilter)];
 }
-
-function rarities() {
-  return ["all", ...uniqueSorted(ITEMS.map(item => item.rarity), rarityRank)];
-}
-
+function rarities() {return ['all',...uniqueSorted(ITEMS.map(item=>item.rarity),rarityRank)];}
+function damageTypes() {return ['all',...uniqueSorted(ITEMS.filter(it=>cardKind(it)==='arme').map(it=>rankKey(it.cardWeaponDamageType)))];}
+function option(value,label,current) {return `<option value="${escapeHTML(value)}" ${value===current?'selected':''}>${escapeHTML(label)}</option>`;}
 function renderFilters() {
-  elements.categoryFilters.innerHTML = categories().map(category => {
-    const label = category === "all" ? "Tous" : rankKey(category) === "divers" ? "Matériel" : category;
-    const active = category === state.category ? "is-active" : "";
-    return `<button class="chip ${active}" type="button" data-category="${escapeHTML(category)}">${escapeHTML(label)}</button>`;
-  }).join("");
-
-  const subcategoryOptions = subcategories();
-  if (!subcategoryOptions.includes(state.subcategory)) state.subcategory = "all";
-  elements.subcategoryFilter.innerHTML = subcategoryOptions.map(subcategory => {
-    const label = subcategory === "all" ? "Toutes" : subcategory;
-    const selected = subcategory === state.subcategory ? "selected" : "";
-    return `<option value="${escapeHTML(subcategory)}" ${selected}>${escapeHTML(label)}</option>`;
-  }).join("");
-
-  elements.rarityFilter.innerHTML = rarities().map(rarity => {
-    const label = rarity === "all" ? "Toutes" : rarity;
-    const selected = rarity === state.rarity ? "selected" : "";
-    return `<option value="${escapeHTML(rarity)}" ${selected}>${escapeHTML(label)}</option>`;
-  }).join("");
-
-  elements.sourceFilter.value = state.source;
-  elements.sortFilter.value = state.sort;
-  elements.search.value = state.search;
-  elements.minPrice.value = state.minPrice ?? "";
-  elements.maxPrice.value = state.maxPrice ?? "";
-  elements.favoritesOnly.classList.toggle("is-active", state.favoritesOnly);
-  elements.favoritesOnly.setAttribute("aria-pressed", String(state.favoritesOnly));
+  elements.categoryFilter.innerHTML = categories().map(c=>option(c,c==='all'?'Tous les équipements':(CATEGORY_LABELS[c]||c),state.category)).join('');
+  const subcategoryOptions=subcategories();
+  if(!subcategoryOptions.includes(state.subcategory))state.subcategory='all';
+  elements.subcategoryFilter.innerHTML=subcategoryOptions.map(c=>option(c,c==='all'?'Toutes':c,state.subcategory)).join('');
+  elements.rarityFilter.innerHTML=rarities().map(r=>option(r,r==='all'?'Toutes les raretés':r,state.rarity)).join('');
+  elements.damageFilter.innerHTML=damageTypes().map(d=>option(d,d==='all'?'Tous les types':(DAMAGE_LABELS[d]||d),state.damageType)).join('');
+  elements.damageFilter.disabled=state.category!=='all' && rankKey(state.category)!=='arme';
+  elements.sourceFilter.value=state.source;
+  elements.sortFilter.value=state.sort;
+  elements.search.value=state.search;
+  elements.minPrice.value=state.minPrice ?? '';
+  elements.maxPrice.value=state.maxPrice ?? '';
+  elements.favoritesOnly.classList.toggle('is-active',state.favoritesOnly);
+  elements.favoritesOnly.setAttribute('aria-pressed',String(state.favoritesOnly));
+  const active=[state.category!=='all',state.subcategory!=='all',state.damageType!=='all',state.rarity!=='all',state.source!=='all',state.minPrice!==null,state.maxPrice!==null,state.favoritesOnly].filter(Boolean).length;
+  elements.activeFilterCount.textContent=active?`(${active})`:'';
 }
 
 function filteredItems() {
@@ -671,6 +674,7 @@ function filteredItems() {
 
   if (state.category !== "all") items = items.filter(item => item.category === state.category);
   if (state.subcategory !== "all") items = items.filter(item => item.subcategory === state.subcategory);
+  if (state.damageType !== "all") items = items.filter(item => cardKind(item)==='arme' && rankKey(item.cardWeaponDamageType) === state.damageType);
   if (state.rarity !== "all") items = items.filter(item => item.rarity === state.rarity);
   if (state.source !== "all") items = items.filter(item => item.source === state.source);
   if (state.favoritesOnly) items = items.filter(item => state.favorites.has(item.id));
@@ -682,6 +686,7 @@ function filteredItems() {
     items = items.filter(item => [
       item.name, item.category, item.subcategory, item.rarity, item.description,
       item.damage, item.damageMod, item.armorMod, item.cardTechnicalNotes,
+      item.cardWeaponDamageType, cardEffect(item),
       item.cardSlot, ...item.cardAffixEffects
     ].some(value => normalize(value).includes(query)));
   }
@@ -777,29 +782,25 @@ function cardDescription(item) {
 function cardStat(label, value) {
   return `<div class="item-stat"><dt>${escapeHTML(label)}</dt><dd>${escapeHTML(value)}</dd></div>`;
 }
-
+function cardEffectStat(item) {
+  return `<dl class="item-row__stats item-row__stats--full">${cardStat('EFFET',cardEffect(item))}</dl>`;
+}
 function cardMainInfo(item) {
-  const kind = cardKind(item);
-  let stats = [];
-  if (kind === 'arme') {
-    stats = [cardStat('Bonus attaque', signedBonus(item.cardQuality)), cardStat('DM', cardWeaponDamage(item))];
-  } else if (kind === 'armure') {
-    const baseArmor = Number(item.cardArmorBonus);
-    const baseMalus = Number(item.cardArmorMalus);
-    stats = [
-      cardStat('Armure', item.cardArmorBonus !== undefined && item.cardArmorBonus !== null
-        ? signedBonus(baseArmor + item.cardQuality) : (item.armorMod || 'Non renseignée')),
-      cardStat('Malus d’armure', item.cardArmorMalus !== undefined && item.cardArmorMalus !== null
-        ? (baseMalus ? `−${Math.abs(baseMalus)}` : '0') : 'Non renseigné')
-    ];
-  } else if (kind === 'accessoire') {
-    stats = [cardStat('Emplacement', item.cardSlot || 'Non renseigné')];
+  const kind=cardKind(item);
+  if(kind==='materiel')return '';
+  if(kind==='arme') {
+    const type=rankKey(item.cardWeaponDamageType);
+    const typeLabel=DAMAGE_LABELS[type]||item.cardWeaponDamageType||'Non renseigné';
+    return `<dl class="item-row__stats item-row__stats--two">${cardStat('ATTAQUE',signedBonus(item.cardQuality))}${cardStat('DM',cardWeaponDamage(item))}</dl>
+      <dl class="item-row__stats item-row__stats--full">${cardStat('TYPE DE DÉGÂTS',typeLabel)}</dl>${cardEffectStat(item)}`;
   }
-
-  if (kind === 'materiel' || kind === 'consommable') return '';
-  return `
-    ${stats.length ? `<dl class="item-row__stats">${stats.join('')}</dl>` : ''}
-    <p class="item-effect"><strong>Effet</strong><span>${escapeHTML(cardEffect(item))}</span></p>`;
+  if(kind==='armure') {
+    const defense = item.cardArmorBonus !== undefined && item.cardArmorBonus !== null ? signedBonus(Number(item.cardArmorBonus)+item.cardQuality) : (item.armorMod||'Non renseignée');
+    const malus = item.cardArmorMalus !== undefined && item.cardArmorMalus !== null ? (Number(item.cardArmorMalus) ? `−${Math.abs(Number(item.cardArmorMalus))}` : '0') : 'Non renseigné';
+    return `<dl class="item-row__stats item-row__stats--two">${cardStat('DEF',defense)}${cardStat('MALUS',malus)}</dl>${cardEffectStat(item)}`;
+  }
+  if(kind==='accessoire') return `<dl class="item-row__stats item-row__stats--full">${cardStat('EMPLACEMENT',item.cardSlot||'Non renseigné')}</dl>${cardEffectStat(item)}`;
+  return cardEffectStat(item); // Munitions et consommables : effet visible.
 }
 
 function renderItems() {
@@ -840,7 +841,7 @@ function renderItems() {
         : "";
     const description = cardDescription(item);
     const effect = cardEffect(item);
-    const descriptionTitle = kind === 'consommable' ? 'Voir effet et description' : 'Voir la description';
+    const descriptionTitle = 'Description complète';
 
     return `
       <article data-item-id="${escapeHTML(item.id)}" class="item-row ${item.source === "alaric" ? "item-row--selection" : ""} ${finiteStock && item.stock === 0 ? "item-row--sold-out" : ""} item-row--${escapeHTML(rarityTheme)} rarity-${safeClass(item.rarity)}">
@@ -862,7 +863,6 @@ function renderItems() {
           <details class="item-details" ${openDetails.has(item.id) ? 'open' : ''}>
             <summary>${descriptionTitle}</summary>
             <div class="item-details__content">
-              ${kind === 'consommable' ? `<p class="item-effect item-effect--expanded"><strong>Effet</strong><span>${escapeHTML(effect)}</span></p>` : ''}
               <p class="item-description">${escapeHTML(description)}</p>
               ${kind !== 'consommable' && item.cardAffixEffects.length ? `<p class="item-details__full-effect"><strong>Effet complet :</strong> ${escapeHTML(effect)}</p>` : ''}
               ${!item.cofCompatible ? `<p class="stock-note">⚠ Export Roll20 indisponible : ${escapeHTML(item.cofError||'fiche non compatible')}</p>` : ''}
@@ -883,6 +883,7 @@ function renderItems() {
 }
 
 function addToCart(id, amount = 1) {
+  if(state.purchasing || !elements.checkoutOverlay.hidden)return false;
   const item = itemById(id);
   if (!item) return false;
 
@@ -904,6 +905,7 @@ function addToCart(id, amount = 1) {
 }
 
 function clearCart() {
+  if(state.purchasing || !elements.checkoutOverlay.hidden)return;
   state.cart = {};
   saveCart();
   renderAll(false);
@@ -922,6 +924,7 @@ function cartTotal() {
 
 function renderCart() {
   const entries = cartEntries();
+  elements.validateCart.disabled = !entries.length || !state.stockOnline || state.purchasing;
   elements.cartEmpty.style.display = entries.length ? "none" : "block";
 
   elements.cartItems.innerHTML = entries.map(({ item, qty }) => {
@@ -930,13 +933,14 @@ function renderCart() {
     return `
       <div class="cart-line">
         <div>
-          <strong>${escapeHTML(item.name)}</strong>
+          <strong>${escapeHTML(cardName(item))}</strong>
           <span>${formatPrice(item.price)} / unité${hasFiniteStock(item) ? ` · stock ${item.stock}` : ""}</span>
         </div>
         <div class="cart-line__controls">
           <button class="icon-button" type="button" data-remove="${escapeHTML(item.id)}" aria-label="Retirer un exemplaire">−</button>
           <span>${qty}</span>
           <button class="icon-button" type="button" data-add="${escapeHTML(item.id)}" aria-label="Ajouter un exemplaire" ${atStockLimit ? "disabled" : ""}>+</button>
+          <button class="icon-button" type="button" data-delete="${escapeHTML(item.id)}" aria-label="Supprimer cet objet du panier" title="Retirer l’objet">×</button>
         </div>
         <strong>${formatPrice(total)}</strong>
       </div>`;
@@ -964,25 +968,147 @@ function orderCommand() {
   return `!co-alaric panier --target @{target|PJ|character_id} --data ${encodeURIComponent(JSON.stringify(payload))}`;
 }
 
-async function copyOrder() {
-  let text;
-  try{text=orderCommand();}catch(error){showToast(error.message);return;}
-  if (!text) {
-    showToast("Le panier est vide.");
+const LAST_ORDER_KEY='alaric-last-order-'+GROUP;
+const PENDING_ORDER_KEY='alaric-pending-order-'+GROUP;
+function newOrderId() {
+  if(window.crypto?.randomUUID)return window.crypto.randomUUID();
+  const values=new Uint8Array(16);window.crypto.getRandomValues(values);
+  values[6]=(values[6]&15)|64;values[8]=(values[8]&63)|128;
+  const h=Array.from(values,x=>x.toString(16).padStart(2,'0')).join('');
+  return `${h.slice(0,8)}-${h.slice(8,12)}-${h.slice(12,16)}-${h.slice(16,20)}-${h.slice(20)}`;
+}
+async function ensurePlayerAuth() {
+  if(API.auth.currentUser)return API.auth.currentUser;
+  const credential=await API.auth.signInAnonymously();
+  return credential.user;
+}
+function orderRef(id) {return API.db.collection('groups').doc(GROUP).collection('orders').doc(id);}
+async function fetchOrder(id) {
+  const user=await ensurePlayerAuth();
+  const snap=await orderRef(id).get();
+  if(!snap.exists)return null;
+  const data=snap.data();
+  return data.uid===user.uid ? {id:snap.id,...data} : null;
+}
+function closeCheckout() {
+  if(state.purchasing)return;
+  elements.checkoutOverlay.hidden=true;
+  document.body.classList.remove('checkout-active');
+  elements.checkoutBody.replaceChildren();
+  elements.validateCart.focus();
+}
+function openCheckout(step='confirm') {
+  state.checkoutStep=step;
+  state.checkoutError='';
+  elements.checkoutOverlay.hidden=false;
+  document.body.classList.add('checkout-active');
+  elements.cartPanel.classList.remove('is-open');
+  renderCheckout();
+  elements.checkoutClose.focus();
+}
+function totalPC(entries=cartEntries()) {
+  return entries.reduce((sum,{item,qty})=>sum+Math.round(item.price*100)*qty,0);
+}
+function formatPCAmount(pc) {return API.formatPC(Number(pc)||0);}
+function renderCheckout() {
+  const receipt=state.checkoutStep==='receipt';
+  elements.checkoutTitle.textContent=receipt?'Achat confirmé':'Dernière vérification';
+  elements.checkoutGroupLabel.textContent=API.cfg.groups[GROUP];
+  elements.checkoutClose.disabled=state.purchasing;
+  if(receipt && state.order) {
+    const o=state.order;
+    elements.checkoutBody.innerHTML=`<div class="checkout-success">✓ Achat confirmé et enregistré</div>
+      <p class="checkout-intro">Les stocks limités ont été déduits. Retrouve ta commande Roll20 ci-dessous et transmets-la à ton MJ sur Discord.</p>
+      <p class="order-number">Commande : <strong>${escapeHTML(o.id)}</strong></p>
+      <div class="checkout-lines">${o.items.map(line=>`<div class="checkout-line"><div><strong>${escapeHTML(line.name)}</strong> × ${line.qty}${line.stockBefore!==null?`<span>Stock : ${line.stockBefore} → ${line.stockAfter}</span>`:'<span>Stock illimité</span>'}</div><strong>${formatPCAmount(line.totalPC)}</strong></div>`).join('')}</div>
+      <p class="checkout-sum">Total : <strong>${formatPCAmount(o.totalPC)}</strong></p>
+      <div class="checkout-instructions"><strong>À faire sur Discord</strong><p>1. Clique sur « Copier la commande Roll20 ».<br>2. Ouvre Discord et envoie-la à ton MJ.<br>3. Ton MJ la colle dans le chat Roll20 pour ajouter les objets à ton personnage.</p></div>
+      <label class="field"><span>Commande Roll20 exacte</span><textarea class="order-raw" id="order-raw" readonly spellcheck="false">${escapeHTML(o.roll20Command)}</textarea></label>
+      <button class="button button--primary checkout-cta" id="copy-receipt" type="button">⧉ Copier la commande Roll20</button>
+      <button class="button button--ghost checkout-cta" id="close-receipt" type="button">Retour au catalogue</button>`;
     return;
   }
-  try {
-    await navigator.clipboard.writeText(text);
-    showToast("Commande COAlaric copiée.");
-  } catch {
-    const textarea = document.createElement("textarea");
-    textarea.value = text;
-    document.body.appendChild(textarea);
-    textarea.select();
-    document.execCommand("copy");
-    textarea.remove();
-    showToast("Commande COAlaric copiée.");
+  const entries=cartEntries();
+  if(!entries.length){closeCheckout();return;}
+  elements.checkoutBody.innerHTML=`${state.checkoutError?`<p class="checkout-error" role="alert">${escapeHTML(state.checkoutError)}</p>`:''}<p class="checkout-intro">Vérifie ton achat avant la confirmation définitive. Aucune quantité n'est retirée avant cette dernière étape.</p>
+    <div class="checkout-lines">${entries.map(({item,qty})=>`<div class="checkout-line"><div><strong>${escapeHTML(cardName(item))}</strong> × ${qty}<span>${hasFiniteStock(item)?`Stock : ${item.stock} → ${item.stock-qty}`:'Stock illimité'}</span></div><strong>${formatPrice(item.price*qty)}</strong></div>`).join('')}</div>
+    <p class="checkout-sum">Total : <strong>${formatPCAmount(totalPC(entries))}</strong></p>
+    <p class="checkout-warning">⚠ En confirmant, tu achètes ces objets. Le stock disponible est vérifié et déduit immédiatement. Tu devras ensuite envoyer la commande Roll20 à ton MJ sur Discord.</p>
+    <div class="checkout-buttons"><button class="button button--ghost" id="checkout-back" type="button" ${state.purchasing?'disabled':''}>Retour au panier</button><button class="button button--primary" id="checkout-confirm" type="button" ${state.purchasing?'disabled':''}>${state.purchasing?'Validation en cours…':'Confirmer définitivement'}</button></div>`;
+}
+function showReceipt(order) {
+  state.order=order;
+  state.purchasing=false;
+  localStorage.setItem(LAST_ORDER_KEY,order.id);
+  localStorage.removeItem(PENDING_ORDER_KEY);
+  state.cart={};saveCart();
+  elements.lastOrder.hidden=false;
+  renderAll();
+  openCheckout('receipt');
+}
+async function finalizeOrder() {
+  if(state.purchasing || !state.stockOnline)return;
+  let payload;
+  try{payload=orderPayload();if(!payload)throw Error('Le panier est vide.');}
+  catch(err){showToast(err.message);return;}
+  const entries=cartEntries();
+  const lines=entries.map(({item,qty})=>({
+    id:item.id,name:cardName(item),qty,pricePC:Math.round(item.price*100),
+    spec:JSON.parse(JSON.stringify(item.cofSpec)),sourceSpec:item.sourceSpec,
+    sourceName:item.sourceName,isCustom:item.isCustom
+  }));
+  let pending;
+  try{pending=JSON.parse(localStorage.getItem(PENDING_ORDER_KEY)||'null');}catch{pending=null;}
+  const fingerprint=JSON.stringify(lines.map(({id,qty,pricePC})=>({id,qty,pricePC})));
+  if(pending && pending.fingerprint!==fingerprint){
+    try {
+      const previous=await fetchOrder(pending.id);
+      if(previous){showReceipt(previous);return;}
+      localStorage.removeItem(PENDING_ORDER_KEY);pending=null;
+    } catch(err){showToast('Impossible de vérifier la commande précédente. Réessaie une fois connecté.');return;}
   }
+  const id=pending?.id||newOrderId();
+  if(!pending)localStorage.setItem(PENDING_ORDER_KEY,JSON.stringify({id,fingerprint}));
+  state.purchasing=true;state.checkoutError='';renderCheckout();
+  try {
+    const user=await ensurePlayerAuth();
+    const order=await window.AlaricCheckout.placeOrder({
+      db:API.db,FieldValue:window.firebase.firestore.FieldValue,
+      group:GROUP,orderId:id,uid:user.uid,lines
+    });
+    if(!order?.roll20Command)throw Error('Le récapitulatif de commande est incomplet.');
+    showReceipt(order);
+    await loadRemoteStocks({silent:false});
+  } catch(error) {
+    try {const recovered=await fetchOrder(id);if(recovered){showReceipt(recovered);return;}}catch(e){console.warn('Récupération de commande impossible',e);}
+    state.purchasing=false;
+    if(String(error.code||'').includes('permission-denied')){
+      state.checkoutError='Les règles Firestore refusent cet achat. Vérifie les règles Spark et la publication des prix côté MJ.';
+    }
+    if(String(error.code||'').includes('permission-denied') || /Stock insuffisant|prix|disponib/i.test(error.message||''))await loadRemoteStocks({silent:false});
+    const code=String(error.code||'');
+    const message=error.message||'Erreur de confirmation.';
+    state.checkoutError=state.checkoutError || (code.includes('unavailable')?'Connexion indisponible : réessaie, sans changer de panier.':message);
+    renderCheckout();
+    showToast(state.checkoutError);
+  }
+}
+async function copyReceipt() {
+  const text=state.order?.roll20Command;
+  if(!text){showToast('Aucune commande à copier.');return;}
+  try{await navigator.clipboard.writeText(text);showToast('Commande Roll20 copiée pour Discord.');}
+  catch {
+    const field=document.getElementById('order-raw');if(field){field.focus();field.select();showToast('Sélectionne puis copie la commande Roll20.');}
+  }
+}
+async function recoverLastOrder() {
+  const id=localStorage.getItem(LAST_ORDER_KEY);
+  if(!id)return;
+  try{
+    const order=await fetchOrder(id);
+    if(!order)throw Error('Commande introuvable avec cette session.');
+    state.order=order;openCheckout('receipt');
+  }catch(err){showToast(err.message);}
 }
 
 function showToast(message) {
@@ -1022,6 +1148,7 @@ function parseOptionalPrice(value) {
 function resetFilters() {
   state.category = "all";
   state.subcategory = "all";
+  state.damageType = "all";
   state.rarity = "all";
   state.source = "all";
   state.search = "";
@@ -1038,29 +1165,42 @@ function bindEvents() {
     renderItems();
   });
 
+  elements.toggleFilters.addEventListener('click',()=>{
+    const open=elements.advancedFilters.hidden;
+    elements.advancedFilters.hidden=!open;
+    elements.toggleFilters.setAttribute('aria-expanded',String(open));
+  });
+  elements.categoryFilter.addEventListener('change',event=>{
+    state.category=event.target.value;state.subcategory='all';
+    if(state.category!=='all'&&state.category!=='arme')state.damageType='all';
+    renderAll(true);
+  });
+  elements.damageFilter.addEventListener('change',event=>{
+    state.damageType=event.target.value;renderAll(true);
+  });
   elements.subcategoryFilter.addEventListener("change", event => {
     state.subcategory = event.target.value;
-    renderItems();
+    renderAll(true);
   });
 
   elements.rarityFilter.addEventListener("change", event => {
     state.rarity = event.target.value;
-    renderItems();
+    renderAll(true);
   });
 
   elements.sourceFilter.addEventListener("change", event => {
     state.source = event.target.value;
-    renderItems();
+    renderAll(true);
   });
 
   elements.minPrice.addEventListener("input", event => {
     state.minPrice = parseOptionalPrice(event.target.value);
-    renderItems();
+    renderAll(true);
   });
 
   elements.maxPrice.addEventListener("input", event => {
     state.maxPrice = parseOptionalPrice(event.target.value);
-    renderItems();
+    renderAll(true);
   });
 
   elements.sortFilter.addEventListener("change", event => {
@@ -1072,20 +1212,12 @@ function bindEvents() {
     state.favoritesOnly = !state.favoritesOnly;
     elements.favoritesOnly.classList.toggle("is-active", state.favoritesOnly);
     elements.favoritesOnly.setAttribute("aria-pressed", String(state.favoritesOnly));
-    renderItems();
+    renderAll(true);
   });
 
   elements.resetFilters.addEventListener("click", resetFilters);
 
   document.addEventListener("click", event => {
-    const categoryButton = event.target.closest("[data-category]");
-    if (categoryButton) {
-      state.category = categoryButton.dataset.category;
-      state.subcategory = "all";
-      renderAll(true);
-      return;
-    }
-
     const favoriteButton = event.target.closest("[data-favorite]");
     if (favoriteButton) {
       toggleFavorite(favoriteButton.dataset.favorite);
@@ -1100,9 +1232,19 @@ function bindEvents() {
 
     const removeButton = event.target.closest("[data-remove]");
     if (removeButton) addToCart(removeButton.dataset.remove, -1);
+    const deleteButton = event.target.closest('[data-delete]');
+    if(deleteButton){const id=deleteButton.dataset.delete;delete state.cart[id];saveCart();renderAll(false);}
+    if(event.target.closest('#checkout-back')||event.target.closest('#close-receipt'))closeCheckout();
+    if(event.target.closest('#checkout-confirm'))finalizeOrder();
+    if(event.target.closest('#copy-receipt'))copyReceipt();
   });
 
-  elements.copyOrder.addEventListener("click", copyOrder);
+  elements.validateCart.addEventListener('click',()=>{
+    try {orderPayload();if(!state.stockOnline)throw Error('Connexion au stock indisponible.');openCheckout('confirm');}
+    catch(err){showToast(err.message);}
+  });
+  elements.checkoutClose.addEventListener('click',closeCheckout);
+  elements.lastOrder.addEventListener('click',recoverLastOrder);
   elements.clearCart.addEventListener("click", clearCart);
   elements.openCartMobile.addEventListener("click", () => elements.cartPanel.classList.add("is-open"));
   elements.closeCartMobile.addEventListener("click", () => elements.cartPanel.classList.remove("is-open"));
@@ -1123,6 +1265,7 @@ async function init() {
     await loadCatalogue();
     
     renderAll(true);
+    elements.lastOrder.hidden=!localStorage.getItem(LAST_ORDER_KEY);
     scheduleStockRefresh();
   } catch (error) {
     console.error(error);
