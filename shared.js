@@ -228,7 +228,8 @@
       cofSpec:{base:b.id,quality:0,affixes:[]},templateId:normalizeId(b.id)
     },'Catalogue V2'));
     const stockBase=buildBaseStock(stockSelection,base,affixes,liaisons);
-    return {base,stockBase,templates,affixes,liaisons,icons,warnings:Object.keys(CONSUMABLE_ICON_SVGS).length===14?'':'Icônes des consommables non chargées : vérifier data/icones-consommables-v2.json.'};
+    // Conserve les caractéristiques V2 à disposition des cartes joueurs, sans modifier les fiches Firestore/Roll20.
+    return {base,stockBase,templates,affixes,liaisons,icons,objectSpecs:objets,warnings:Object.keys(CONSUMABLE_ICON_SVGS).length===14?'':'Icônes des consommables non chargées : vérifier data/icones-consommables-v2.json.'};
   }
 
   // Pont strict Alaric -> COFantasy Items / COAlaric.

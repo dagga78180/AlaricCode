@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>L’échoppe d’Alaric · Catalogue COF</title>
   <meta name="description" content="Catalogue interactif pour l’inventaire du marchand Alaric, compatible Chroniques Oubliées Fantasy." />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=cartes-v1-20261114" />
 </head>
 <body>
   <header class="hero" aria-label="L’échoppe Fantastique d’Alaric">
@@ -140,10 +140,10 @@
   <script src="https://www.gstatic.com/firebasejs/13.2.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/13.2.0/firebase-firestore-compat.js"></script>
   <script src="config.js"></script>
-  <script src="shared.js?v=stock63-import29-20261113"></script>
+  <script src="shared.js?v=cartes-v1-20261114"></script>
   <script src="js/core.js"></script>
   <script src="js/pricing.js"></script>
-  <script src="js/app.js?v=stock63-import29-20261113"></script>
+  <script src="js/app.js?v=cartes-v1-20261114"></script>
   <script>document.getElementById('active-group-label').textContent='Catalogue marchand · '+window.AlaricApp.cfg.groups[window.AlaricApp.groupId(window.ALARIC_GROUP||new URLSearchParams(location.search).get('groupe'))];document.getElementById('link-g'+(window.ALARIC_GROUP==='groupe2'?'2':'1')).classList.add('active');</script>
 </body>
 </html>

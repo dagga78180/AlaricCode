@@ -294,16 +294,36 @@ async function loadCatalogue() {
     API.loadCatalog(), API.getStock(GROUP), API.getCustom(GROUP), API.getOverrides(GROUP)
   ]);
   const list = API.overlay(catalog.stockBase, custom, overrides, stocks, catalog.base).filter(it => it.visible !== false);
+  // La source V2 contient les stats de jeu ; les objets stockés dans Firestore ne les dupliquent pas.
+  // On enrichit uniquement les cartes à l'affichage à partir de l'ID de base et des affixes.
+  const baseById = new Map((catalog.objectSpecs || []).map(base => [base.id, base]));
+  const affixById = new Map((catalog.affixes || []).map(affix => [affix.id, affix]));
   ITEMS = list.map((it,i) => {
     const {rank}=API.computeIconRank(it,catalog.affixes);
     const check=API.prepareRoll20Spec(it,catalog);
     const isBase=it.origin==='Catalogue V2';
+    const baseId = String(it.cofSpec?.base || it.sourceId || '');
+    const base = baseById.get(baseId) || {};
+    const ids = Array.isArray(it.cofSpec?.affixes) ? it.cofSpec.affixes : [];
+    const inlineAffixes = Array.isArray(it.affixes) ? it.affixes : [];
+    const affixEffects = ids.map(id => {
+      const affix = affixById.get(String(id)) || inlineAffixes.find(a => a.id === id);
+      return String(affix?.effect || '').trim();
+    }).filter(Boolean);
     return normalizeItem({ ...it, icon: API.catalogueIconForItem(it,catalog.icons),
       price: it.pricePC===null ? NaN : it.pricePC / 100,
       source:isBase?'base':'alaric',iconRank:rank,
       stock:it.stock, cofSpec:check.ok?check.spec:null,
       cofCompatible:it.cofCompatible!==false && check.ok,
-      cofError:check.errors.join(' / '),cofWarnings:check.warnings },
+      cofError:check.errors.join(' / '),cofWarnings:check.warnings,
+      cardQuality: it.cofSpec?.quality ?? it.quality ?? 0,
+      cardWeaponNb: base.weaponDmNb, cardWeaponDie: base.weaponDmDie,
+      cardWeaponCar: base.weaponDmCar, cardWeaponAttack: base.weaponAttack,
+      cardArmorBonus: base.armorBonus, cardArmorMalus: base.armorMalus,
+      cardSlot: base.slot, cardTechnicalNotes: base.technicalNotes,
+      cardRpDescription: base.rpDescription,
+      cardConsumableEffect: base.consumableEffectText,
+      cardAffixEffects: affixEffects },
       isBase?'base':'alaric', i);
   });
   state.catalogueWarnings=catalog.warnings?[catalog.warnings]:[];
@@ -345,6 +365,18 @@ function normalizeItem(item, source = "base", index = 0) {
     damage: item.damage ? String(item.damage) : "",
     damageMod: item.damageMod ? String(item.damageMod) : "",
     armorMod: item.armorMod ? String(item.armorMod) : "",
+    cardQuality: Math.max(0, Math.min(5, Number(item.cardQuality) || 0)),
+    cardWeaponNb: item.cardWeaponNb,
+    cardWeaponDie: item.cardWeaponDie,
+    cardWeaponCar: String(item.cardWeaponCar || ""),
+    cardWeaponAttack: String(item.cardWeaponAttack || ""),
+    cardArmorBonus: item.cardArmorBonus,
+    cardArmorMalus: item.cardArmorMalus,
+    cardSlot: String(item.cardSlot || ""),
+    cardTechnicalNotes: String(item.cardTechnicalNotes || ""),
+    cardRpDescription: String(item.cardRpDescription || ""),
+    cardConsumableEffect: String(item.cardConsumableEffect || ""),
+    cardAffixEffects: Array.isArray(item.cardAffixEffects) ? item.cardAffixEffects : [],
     cofSpec: item.cofSpec && typeof item.cofSpec === "object" ? JSON.parse(JSON.stringify(item.cofSpec)) : null,
     cofCompatible: item.cofCompatible !== false,
     cofError: String(item.cofError || ""),
@@ -606,7 +638,7 @@ function rarities() {
 
 function renderFilters() {
   elements.categoryFilters.innerHTML = categories().map(category => {
-    const label = category === "all" ? "Tous" : category;
+    const label = category === "all" ? "Tous" : rankKey(category) === "divers" ? "Matériel" : category;
     const active = category === state.category ? "is-active" : "";
     return `<button class="chip ${active}" type="button" data-category="${escapeHTML(category)}">${escapeHTML(label)}</button>`;
   }).join("");
@@ -649,7 +681,8 @@ function filteredItems() {
     const query = normalize(state.search);
     items = items.filter(item => [
       item.name, item.category, item.subcategory, item.rarity, item.description,
-      item.damage, item.damageMod, item.armorMod
+      item.damage, item.damageMod, item.armorMod, item.cardTechnicalNotes,
+      item.cardSlot, ...item.cardAffixEffects
     ].some(value => normalize(value).includes(query)));
   }
 
@@ -695,9 +728,87 @@ function stockBadge(item) {
   return `<span class="stock-badge">Stock : ${item.stock}</span>`;
 }
 
+// Présentation des cartes : les formules proviennent des champs techniques du catalogue V2.
+function cardKind(item) {
+  const kind = rankKey(item.category);
+  return kind === 'divers' ? 'materiel' : kind;
+}
+
+function cardName(item) {
+  const name = item.name.trim();
+  const kind = cardKind(item);
+  const quality = item.cardQuality;
+  if (!['arme', 'armure'].includes(kind) || quality <= 0) return name;
+  // Évite les doublons si le MJ a déjà ajouté une qualité à la fin du nom.
+  return /\s\+[1-5]$/.test(name) ? name.replace(/\s\+[1-5]$/, ` +${quality}`) : `${name} +${quality}`;
+}
+
+function signedBonus(value) {
+  return Number(value) >= 0 ? `+${Number(value)}` : String(Number(value));
+}
+
+function cardWeaponDamage(item) {
+  const nb = Number(item.cardWeaponNb), die = Number(item.cardWeaponDie);
+  if (!(nb > 0 && die > 0)) return item.damage || 'Non renseigné';
+  const quality = item.cardQuality;
+  const car = item.cardWeaponCar.trim().toUpperCase();
+  return `${nb}d${die}${quality ? `+${quality}` : ''}${car && car !== 'AUCUN' ? `+${car}` : ''}`;
+}
+
+function cardEffect(item) {
+  const kind = cardKind(item);
+  const affixEffects = item.cardAffixEffects.filter(Boolean);
+  if (affixEffects.length) return affixEffects.join(' · ');
+  if (kind === 'armure') return 'Aucun effet supplémentaire.';
+  if (kind === 'accessoire') return 'Aucun effet magique de base.';
+  if (kind === 'consommable') return item.cardConsumableEffect || 'Effet selon la préparation.';
+  return item.cardTechnicalNotes || 'Aucun effet particulier.';
+}
+
+function cardDescription(item) {
+  // Pour les consommables sélectionnés, "description" contient déjà l'effet :
+  // la description RP d'origine est récupérée dans le modèle du catalogue V2.
+  if (cardKind(item) === 'consommable' && item.cardRpDescription && item.source === 'base') {
+    return item.cardRpDescription;
+  }
+  return item.description || item.cardRpDescription || item.cardTechnicalNotes || 'Aucune description disponible.';
+}
+
+function cardStat(label, value) {
+  return `<div class="item-stat"><dt>${escapeHTML(label)}</dt><dd>${escapeHTML(value)}</dd></div>`;
+}
+
+function cardMainInfo(item) {
+  const kind = cardKind(item);
+  let stats = [];
+  if (kind === 'arme') {
+    stats = [cardStat('Bonus attaque', signedBonus(item.cardQuality)), cardStat('DM', cardWeaponDamage(item))];
+  } else if (kind === 'armure') {
+    const baseArmor = Number(item.cardArmorBonus);
+    const baseMalus = Number(item.cardArmorMalus);
+    stats = [
+      cardStat('Armure', item.cardArmorBonus !== undefined && item.cardArmorBonus !== null
+        ? signedBonus(baseArmor + item.cardQuality) : (item.armorMod || 'Non renseignée')),
+      cardStat('Malus d’armure', item.cardArmorMalus !== undefined && item.cardArmorMalus !== null
+        ? (baseMalus ? `−${Math.abs(baseMalus)}` : '0') : 'Non renseigné')
+    ];
+  } else if (kind === 'accessoire') {
+    stats = [cardStat('Emplacement', item.cardSlot || 'Non renseigné')];
+  }
+
+  if (kind === 'materiel' || kind === 'consommable') return '';
+  return `
+    ${stats.length ? `<dl class="item-row__stats">${stats.join('')}</dl>` : ''}
+    <p class="item-effect"><strong>Effet</strong><span>${escapeHTML(cardEffect(item))}</span></p>`;
+}
+
 function renderItems() {
   const items = filteredItems();
   elements.resultCount.textContent = `${items.length} marchandise${items.length > 1 ? "s" : ""}`;
+
+  // Conserver la description ouverte lors d'un ajout au panier / favori / rafraîchissement du stock.
+  const openDetails = new Set(Array.from(elements.grid.querySelectorAll('.item-row[data-item-id] .item-details[open]'))
+    .map(detail => detail.closest('.item-row')?.dataset.itemId).filter(Boolean));
 
   if (!items.length) {
     elements.grid.innerHTML = `
@@ -710,11 +821,7 @@ function renderItems() {
 
   elements.grid.innerHTML = items.map(item => {
     const qty = state.cart[item.id] || 0;
-    const details = [
-      item.damage ? ["Dégâts", item.damage] : null,
-      item.damageMod ? ["Mod. DM", item.damageMod] : null,
-      item.armorMod ? ["Armure", item.armorMod] : null
-    ].filter(Boolean);
+    const kind = cardKind(item);
     const rarityTheme = rarityThemeClass(item.rarity);
     const favorite = state.favorites.has(item.id);
     const finiteStock = hasFiniteStock(item);
@@ -731,45 +838,44 @@ function renderItems() {
       : finiteStock && qty >= item.stock
         ? "La quantité maximale disponible est déjà dans le panier."
         : "";
+    const description = cardDescription(item);
+    const effect = cardEffect(item);
+    const descriptionTitle = kind === 'consommable' ? 'Voir effet et description' : 'Voir la description';
 
     return `
-      <article class="item-row ${item.source === "alaric" ? "item-row--selection" : ""} ${finiteStock && item.stock === 0 ? "item-row--sold-out" : ""} item-row--${escapeHTML(rarityTheme)} rarity-${safeClass(item.rarity)}">
-        <button class="favorite-button ${favorite ? "is-favorite" : ""}" type="button" data-favorite="${escapeHTML(item.id)}" aria-label="${favorite ? "Retirer des favoris" : "Ajouter aux favoris"}" aria-pressed="${favorite}">${favorite ? "★" : "☆"}</button>
-        <div class="item-icon">${iconMarkup(item)}</div>
-
-        <div class="item-row__main">
-          <div class="item-row__title-line">
-            <h3>${escapeHTML(item.name)}</h3>
+      <article data-item-id="${escapeHTML(item.id)}" class="item-row ${item.source === "alaric" ? "item-row--selection" : ""} ${finiteStock && item.stock === 0 ? "item-row--sold-out" : ""} item-row--${escapeHTML(rarityTheme)} rarity-${safeClass(item.rarity)}">
+        <div class="item-row__head">
+          <div class="item-icon">${iconMarkup(item)}</div>
+          <div class="item-row__heading">
+            <h3>${escapeHTML(cardName(item))}</h3>
             <div class="item-row__badges">
-              ${item.source === "alaric" ? `<span class="selection-badge">✦ Sélection d’Alaric</span>` : ""}
               <span class="rarity-badge rarity-badge--${escapeHTML(rarityTheme)}">${escapeHTML(item.rarity)}</span>
-              ${stockBadge(item)}
+              ${item.source === "alaric" ? `<span class="selection-badge" title="Sélection d’Alaric">✦ Alaric</span>` : ""}
               ${qty ? `<span class="qty-badge">Panier : ${qty}</span>` : ""}
             </div>
           </div>
+          <button class="favorite-button ${favorite ? "is-favorite" : ""}" type="button" data-favorite="${escapeHTML(item.id)}" aria-label="${favorite ? "Retirer des favoris" : "Ajouter aux favoris"}" aria-pressed="${favorite}">${favorite ? "★" : "☆"}</button>
+        </div>
 
-          <div class="item-row__meta">
-            <span>${escapeHTML(item.category)}</span>
-            <span>${escapeHTML(item.subcategory)}</span>
-          </div>
-
-          <details class="item-details">
-            <summary>Voir les détails</summary>
+        <div class="item-row__main">
+          ${cardMainInfo(item)}
+          <details class="item-details" ${openDetails.has(item.id) ? 'open' : ''}>
+            <summary>${descriptionTitle}</summary>
             <div class="item-details__content">
-              <p class="item-description">${escapeHTML(item.description || "Alaric garde les détails pour les clients sérieux.")}</p>
-              ${details.length ? `
-                <dl class="item-row__stats">
-                  ${details.map(([label, value]) => `<div><dt>${escapeHTML(label)}</dt><dd>${escapeHTML(value)}</dd></div>`).join("")}
-                </dl>` : ""}
+              ${kind === 'consommable' ? `<p class="item-effect item-effect--expanded"><strong>Effet</strong><span>${escapeHTML(effect)}</span></p>` : ''}
+              <p class="item-description">${escapeHTML(description)}</p>
+              ${kind !== 'consommable' && item.cardAffixEffects.length ? `<p class="item-details__full-effect"><strong>Effet complet :</strong> ${escapeHTML(effect)}</p>` : ''}
               ${!item.cofCompatible ? `<p class="stock-note">⚠ Export Roll20 indisponible : ${escapeHTML(item.cofError||'fiche non compatible')}</p>` : ''}
               ${(item.cofWarnings||[]).length ? `<p class="stock-note">⚠ Effets à gérer manuellement : ${escapeHTML(item.cofWarnings.join(' · '))}</p>` : ''}
-              <p class="stock-note">Stock en ligne : <strong>${finiteStock ? item.stock : "∞"}</strong>.</p>
             </div>
           </details>
         </div>
 
         <div class="item-row__actions">
-          <strong class="price">${formatPrice(item.price)}</strong>
+          <div class="item-row__buy-meta">
+            <strong class="price">${formatPrice(item.price)}</strong>
+            ${stockBadge(item)}
+          </div>
           <button class="button button--small" type="button" data-add="${escapeHTML(item.id)}" ${canBuy ? "" : "disabled"} title="${escapeHTML(buttonTitle)}">${buttonLabel}</button>
         </div>
       </article>`;

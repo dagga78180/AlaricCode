@@ -1146,3 +1146,210 @@ h3 {
 .alaric-group-switch{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:center;padding:12px 18px;background:rgba(17,10,25,.93);border-bottom:1px solid #9b7449}
 .alaric-group-switch a{font-size:14px;color:#f3dbad;border:1px solid rgba(210,171,95,.4);border-radius:999px;padding:8px 15px;text-decoration:none}
 .alaric-group-switch a.active,.alaric-group-switch a:hover{background:rgba(205,155,71,.22);border-color:#dbb56e}
+
+/* ============================================================
+   Cartes de la boutique — version compacte, ciblée par catégorie
+   (aucune modification de l'éditeur MJ ou du panier Roll20)
+   ============================================================ */
+.items-list {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 295px), 1fr));
+  gap: 0.7rem;
+  align-items: start;
+}
+
+.item-row {
+  min-height: 0;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto 1fr auto;
+  gap: 0.5rem;
+  padding: 0.72rem;
+  border-radius: 14px;
+}
+
+.item-row__head {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.62rem;
+  min-width: 0;
+  padding-right: 1.65rem;
+}
+
+.item-icon {
+  flex: 0 0 3.6rem;
+  width: 3.6rem;
+  height: 3.6rem;
+  margin: 0;
+  border-radius: 9px;
+  font-size: 1.45rem;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.24);
+}
+
+.item-row__heading {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.item-row__heading h3 {
+  font-size: 0.97rem;
+  line-height: 1.23;
+  overflow-wrap: anywhere;
+}
+
+.item-row__badges {
+  justify-content: flex-start;
+  gap: 0.25rem;
+  margin-top: 0.34rem;
+}
+
+.item-row__badges > span {
+  padding: 0.15rem 0.4rem;
+  font-size: 0.64rem;
+  line-height: 1.25;
+}
+
+.favorite-button {
+  width: 1.9rem;
+  height: 1.9rem;
+  top: 0.42rem;
+  right: 0.44rem;
+  font-size: 1.25rem;
+}
+
+.item-row__main {
+  display: grid;
+  gap: 0.36rem;
+  align-content: start;
+}
+
+.item-row__stats {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0.35rem;
+  margin: 0;
+}
+
+.item-row__stats .item-stat {
+  display: inline-flex;
+  flex: 0 1 auto;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.28rem;
+  padding: 0.29rem 0.5rem;
+  border: 1px solid rgba(241, 197, 106, 0.14);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.item-row__stats dt {
+  font-size: 0.65rem;
+  letter-spacing: 0.015em;
+}
+
+.item-row__stats dd {
+  font-size: 0.86rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.item-effect {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  margin: 0;
+  color: var(--text);
+  font-size: 0.83rem;
+  line-height: 1.38;
+}
+
+.item-effect strong {
+  flex: 0 0 auto;
+  color: var(--gold-soft);
+  font-size: 0.73rem;
+}
+
+.item-effect span {
+  min-width: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.item-effect--expanded span {
+  display: block;
+  overflow: visible;
+}
+
+.item-details {
+  margin: 0;
+}
+
+.item-details summary {
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+.item-details__content {
+  gap: 0.5rem;
+  padding: 0.56rem 0.65rem;
+  margin-top: 0.35rem;
+}
+
+.item-description,
+.item-details__full-effect {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.48;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+.item-details__full-effect strong {
+  color: var(--gold-soft);
+}
+
+.item-row__actions {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-self: stretch;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.5rem;
+  min-width: 0;
+  padding-top: 0.48rem;
+  margin-top: 0.06rem;
+  border-top: 1px solid rgba(241, 197, 106, 0.14);
+}
+
+.item-row__buy-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.24rem;
+  min-width: 0;
+}
+
+.item-row__buy-meta .price {
+  font-size: 0.96rem;
+}
+
+.item-row__buy-meta .stock-badge {
+  padding: 0.13rem 0.38rem;
+  font-size: 0.65rem;
+  line-height: 1.2;
+}
+
+.item-row__actions > .button {
+  flex: 0 0 auto;
+  padding: 0.53rem 0.75rem;
+  font-size: 0.82rem;
+}
+
+@media (max-width: 620px) {
+  .items-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
