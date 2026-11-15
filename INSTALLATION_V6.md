@@ -1,6 +1,8 @@
-# Installation AlaricCode V6 — Catalogue RP et nouveaux prix
+# Installation AlaricCode V6.1 — Catalogue RP et nouveaux prix
 
-La V6 conserve la boutique joueur et l'espace MJ V5, remplace les données de référence par celles de **COFantasy_Catalogue_Sain_RP_Prix_Valides.xlsx** et améliore les cartes. Le site reste statique, utilisable avec **Firebase Spark**, sans Cloud Functions ni installation de Node/npm.
+La V6.1 conserve la boutique joueur et l'espace MJ V5, remplace les données de référence par celles de **COFantasy_Catalogue_Sain_RP_Prix_Valides.xlsx** et améliore les cartes. Le site reste statique, utilisable avec **Firebase Spark**, sans Cloud Functions ni installation de Node/npm.
+
+**Correctifs V6.1 :** les boucliers affichent aussi leur malus (0 dans le catalogue transmis). L’onglet Configuration MJ affiche le projet Firebase et l’UID connecté. Si tu vois « Missing or insufficient permissions » pour le livre des prix, suis **GUIDE_CORRECTION_FIREBASE.md** : le problème concerne l’autorisation Firestore en ligne, pas le classeur.
 
 ## 1. Sauvegarder AVANT la mise à jour
 
@@ -31,7 +33,7 @@ Aucun `npm install`, aucun déploiement de fonctions et aucun passage à Blaze.
 ## 4. Cartes et descriptions joueur
 
 - **Armes** : attaque, DM, type de dégâts, effet court si utile ; description déroulante **uniquement RP**.
-- **Armures** : DEF, malus lorsque applicable, effet court si utile ; description RP.
+- **Armures et boucliers** : DEF, malus (y compris 0 pour les boucliers du fichier source), effet court si utile ; description RP.
 - **Accessoires, munitions et consommables** : effet court si utile ; les accessoires **n'affichent plus l'emplacement**.
 - **Matériel** : description RP déroulante, sans faux encadré d'effet.
 - Aucun encadré Effet si l'effet est vide. Aucune justification de calcul ou note technique ne doit être réintroduite dans la description joueur.

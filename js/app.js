@@ -807,7 +807,7 @@ function cardMainInfo(item) {
   if(kind==='armure') {
     const defense = item.cardArmorBonus !== undefined && item.cardArmorBonus !== null ? signedBonus(Number(item.cardArmorBonus)+item.cardQuality) : (item.armorMod||'Non renseignée');
     const malus = item.cardPlayerMalus || (item.cardArmorMalus !== undefined && item.cardArmorMalus !== null ? (Number(item.cardArmorMalus) ? `−${Math.abs(Number(item.cardArmorMalus))}` : '0') : '');
-    return `<dl class="item-row__stats item-row__stats--two">${cardStat('DEF',defense)}${item.cardShield?'':cardStat('MALUS',malus||'—')}</dl>${cardEffectStat(item)}`;
+    return `<dl class="item-row__stats item-row__stats--two">${cardStat('DEF',defense)}${cardStat('MALUS',malus||'—')}</dl>${cardEffectStat(item)}`;
   }
   if(kind==='accessoire') return cardEffectStat(item);
   return cardEffectStat(item); // Munitions et consommables : effet visible.

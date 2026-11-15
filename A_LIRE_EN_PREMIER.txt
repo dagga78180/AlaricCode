@@ -1,3 +1,11 @@
+ALARICCODE V6.1 — CORRECTIFS BOUCLIERS + DIAGNOSTIC FIREBASE
+===========================================================
+
+Si le livre des prix affiche « Missing or insufficient permissions »,
+lis GUIDE_CORRECTION_FIREBASE.md avant de tenter un achat.
+Les boucliers affichent le MALUS 0 présent dans le catalogue source.
+Aucun déploiement des règles Firestore n’a été effectué automatiquement.
+
 ALARICCODE V6 — NOUVEAU CATALOGUE RP / PRIX VALIDÉS
 ==================================================
 
