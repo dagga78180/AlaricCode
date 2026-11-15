@@ -196,6 +196,11 @@ const state = {
   catalogueWarnings: [],
   stockWarning: "",
   stockOnline: false,
+  activeView: 'boutique',
+  featuredIds: new Set(),
+  lockedIds: new Set(),
+  secretIds: new Set(),
+  secretUnlocked: false,
   priceMode: (function(){ try { const v=localStorage.getItem('alaric-price-mode');return ['normal','pa','pc'].includes(v)?v:'normal'; }catch(e){return 'normal';} })(),
   checkoutStep: "cart",
   order: null,
@@ -310,7 +315,7 @@ async function loadCatalogue() {
   const [catalog, stocks, custom, overrides] = await Promise.all([
     API.loadCatalog(), API.getStock(GROUP), API.getCustom(GROUP), API.getOverrides(GROUP)
   ]);
-  const list = API.overlay(catalog.stockBase, custom, overrides, stocks, catalog.base).filter(it => it.visible !== false);
+  const list = API.overlay(catalog.stockBase, custom, overrides, stocks, catalog.base);
   // La source V2 contient les stats de jeu ; les objets stockés dans Firestore ne les dupliquent pas.
   // On enrichit uniquement les cartes à l'affichage à partir de l'ID de base et des affixes.
   const baseById = new Map((catalog.objectSpecs || []).map(base => [base.id, base]));
@@ -334,7 +339,7 @@ async function loadCatalogue() {
     return normalizeItem({ ...it, icon: API.catalogueIconForItem(it,catalog.icons),
       price: it.pricePC===null ? NaN : it.pricePC / 100,
       source:isBase?'base':'alaric',iconRank:rank,
-      stock:it.stock, cofSpec:check.ok?check.spec:null,
+      stock:it.stock, visible: it.visible!==false, cofSpec:check.ok?check.spec:null,
       sourceSpec:it.cofSpec, sourceName:it.name, isCustom:it.origin==='Création MJ',
       cofCompatible:it.cofCompatible!==false && check.ok,
       cofError:check.errors.join(' / '),cofWarnings:check.warnings,
@@ -387,6 +392,7 @@ function normalizeItem(item, source = "base", index = 0) {
     price: Number.isFinite(Number(item.price)) ? Number(item.price) : 0,
     iconRank: Number.isFinite(Number(item.iconRank)) ? Number(item.iconRank) : null,
     stock: jsonStock,
+    visible: item.visible!==false,
     stockSource: jsonStock === null ? "none" : "json",
     iconKey: item.iconKey ? String(item.iconKey) : "",
     icon: resolveIcon(item, { explicitIcon, category, subcategory, name, rarity: item.iconRank !== null && item.iconRank !== undefined ? `R${String(item.iconRank).padStart(2,"0")}` : rarity }),
@@ -689,6 +695,10 @@ function renderFilters() {
 
 function filteredItems() {
   let items = [...ITEMS];
+  // Rayon normal et promotions : uniquement les objets publiés par le MJ.
+  if (state.activeView==='boutique') items=items.filter(it=>it.visible && !state.lockedIds.has(it.id));
+  else if (state.activeView==='promotions') items=items.filter(it=>it.visible && !state.lockedIds.has(it.id) && state.featuredIds.has(it.id));
+  else if (state.activeView==='secret') items=state.secretUnlocked ? items.filter(it=>state.secretIds.has(it.id)) : [];
 
   if (state.category !== "all") items = items.filter(item => item.category === state.category);
   if (state.subcategory !== "all") items = items.filter(item => item.subcategory === state.subcategory);
@@ -816,6 +826,16 @@ function cardMainInfo(item) {
 function renderItems() {
   const items = filteredItems();
   elements.resultCount.textContent = `${items.length} marchandise${items.length > 1 ? "s" : ""}`;
+  const note=document.getElementById('shop-note');
+  if(note){
+    note.hidden=state.activeView==='boutique';
+    note.textContent=state.activeView==='promotions'?'Articles mis en avant par Alaric. Les prix affichés sont ceux publiés par le MJ.':
+      'Ce rayon est réservé aux détenteurs du mot de passe communiqué par le MJ.';
+  }
+  const gate=document.getElementById('secret-gate');
+  if(gate)gate.hidden=state.activeView!=='secret'||state.secretUnlocked;
+  elements.grid.hidden=state.activeView==='secret'&&!state.secretUnlocked;
+  if(elements.grid.hidden)return;
 
   // Conserver la description ouverte lors d'un ajout au panier / favori / rafraîchissement du stock.
   const openDetails = new Set(Array.from(elements.grid.querySelectorAll('.item-row[data-item-id] .item-details[open]'))
@@ -824,7 +844,7 @@ function renderItems() {
   if (!items.length) {
     elements.grid.innerHTML = `
       <article class="empty-card">
-        <strong>Aucune marchandise trouvée.</strong>
+        <strong>${state.activeView==='promotions' ? 'Aucune promotion en cours.' : state.activeView==='secret' ? 'Aucune marchandise dans le cabinet secret.' : 'Aucune marchandise trouvée.'}</strong>
         <span>Alaric hausse les épaules : “Essaie une autre étagère.”</span>
       </article>`;
     return;
@@ -1147,6 +1167,50 @@ function renderAll(refreshFilters = true) {
   renderCart();
 }
 
+// Sections boutique: les promotions sont publiques; le rayon secret est un
+// document à accès par empreinte SHA-256, jamais un mot de passe en dur.
+async function loadMerchandiseFeatures(){
+  try {
+    const doc=await API.db.collection('groups').doc(GROUP).collection('storefront').doc('featured').get();
+    const data=doc.exists?doc.data():{};
+    state.featuredIds=new Set(Array.isArray(data.itemIds)?data.itemIds.map(String):[]);
+    state.lockedIds=new Set(Array.isArray(data.secretIds)?data.secretIds.map(String):[]);
+  }catch(error){console.warn('Promotions non disponibles',error);state.featuredIds=new Set();}
+}
+async function sha256Text(value){
+  if(!window.crypto?.subtle)throw Error('Ouvre le site en HTTPS pour déverrouiller le rayon secret.');
+  const bytes=new TextEncoder().encode(value);
+  const digest=await crypto.subtle.digest('SHA-256',bytes);
+  return Array.from(new Uint8Array(digest),b=>b.toString(16).padStart(2,'0')).join('');
+}
+function selectShopView(view){
+  if(!['boutique','promotions','secret'].includes(view))return;
+  state.activeView=view;
+  for(const button of document.querySelectorAll('[data-shop-tab]')){
+    const active=button.dataset.shopTab===view;
+    button.classList.toggle('active',active);button.setAttribute('aria-pressed',String(active));
+  }
+  const titles={boutique:'Le catalogue',promotions:'Les promotions',secret:'Le cabinet secret'};
+  const el=document.getElementById('catalogue-title');if(el)el.textContent=titles[view];
+  renderItems();
+}
+async function unlockSecret(event){
+  event.preventDefault();
+  const msg=document.getElementById('secret-message');const input=document.getElementById('secret-password');
+  const phrase=input.value.trim();if(!phrase)return;
+  msg.textContent='Vérification de l’accès…';
+  try{
+    await ensurePlayerAuth();
+    const hash=await sha256Text(phrase);
+    const ref=API.db.collection('groups').doc(GROUP).collection('secretShelves').doc(hash);
+    const snap=await ref.get();
+    if(!snap.exists)throw Error('Mot de passe inconnu ou rayon non configuré.');
+    const itemIds=snap.data()?.itemIds;
+    if(!Array.isArray(itemIds))throw Error('Le rayon secret ne contient pas de catalogue valide.');
+    state.secretIds=new Set(itemIds.map(String));state.secretUnlocked=true;
+    input.value='';msg.textContent='Accès accordé.';renderItems();
+  }catch(err){msg.textContent=err.code==='permission-denied'?'Accès refusé par les règles Firebase.':String(err.message||err);}
+}
 function parseOptionalPrice(value) {
   if (value === "") return null;
   const number = Number(value);
@@ -1168,6 +1232,8 @@ function resetFilters() {
 }
 
 function bindEvents() {
+  document.querySelectorAll('[data-shop-tab]').forEach(button=>button.addEventListener('click',()=>selectShopView(button.dataset.shopTab)));
+  document.getElementById('secret-form')?.addEventListener('submit',unlockSecret);
   elements.priceMode?.addEventListener('change',e=>{
     const mode=e.target.value; if(!['normal','pa','pc'].includes(mode))return;
     state.priceMode=mode;try{localStorage.setItem('alaric-price-mode',mode);}catch(err){}
@@ -1276,7 +1342,7 @@ async function init() {
 
   try {
     await loadCatalogue();
-    
+    await loadMerchandiseFeatures();
     renderAll(true);
     elements.lastOrder.hidden=!localStorage.getItem(LAST_ORDER_KEY);
     scheduleStockRefresh();

@@ -1,8 +1,12 @@
-# AlaricCode V8.1
+# AlaricCode — Écrin des Merveilles (base propre)
 
-Boutique fantasy d'Alaric — nouvelle direction artistique **Grimoire enchanté × Atelier alchimique**.
+Site de JDR, boutique Alaric / Chroniques Oubliées Fantasy.
 
-Voir [INSTALLATION_V8_1.md](INSTALLATION_V8_1.md) pour le déploiement.
+- `index.html` : sélection du groupe.
+- `groupe1.html`, `groupe2.html` : boutique, promotions et vitrine secrète.
+- `mj.html` : administration.
+- `boutique.css` / `mj-clean.css` : deux feuilles de style indépendantes, pas de cascade V8.
+- `data/` : données du catalogue ; `assets/` : icônes, décors.
+- `firestore.rules` : règles Firestore à adapter et publier avec l'UID MJ.
 
-Le catalogue V7, la gestion des deux groupes, l'espace MJ, Firebase Spark et la
-création/copie des commandes Roll20 restent inchangés par cette mise à jour visuelle.
+Détails et limites de sécurité : [INSTALLATION_CLEAN.md](INSTALLATION_CLEAN.md).

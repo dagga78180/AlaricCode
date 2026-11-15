@@ -111,12 +111,36 @@ service cloud.firestore {
       // Prix en PC de la vitrine, publiés par le MJ (ou rafraîchis après un changement).
       // Tous les achats vérifient ce document ; les joueurs ne peuvent pas le modifier.
       match /storefront/{bookId} {
-        allow read: if isGroup(groupId) && bookId == 'priceBook';
+        allow read: if isGroup(groupId) && bookId in ['priceBook','featured'];
         allow create, update: if isGroup(groupId) && bookId == 'priceBook' && isMJ()
           && request.resource.data.keys().hasOnly(['prices','updatedAt'])
           && request.resource.data.prices is map && request.resource.data.prices.size() <= 400
           && request.resource.data.updatedAt == request.time;
-        allow delete: if isGroup(groupId) && bookId == 'priceBook' && isMJ();
+        allow create, update: if isGroup(groupId) && bookId == 'featured' && isMJ()
+          && request.resource.data.keys().hasOnly(['itemIds','secretIds','updatedAt'])
+          && request.resource.data.itemIds is list && request.resource.data.itemIds.size() <= 200
+          && request.resource.data.secretIds is list && request.resource.data.secretIds.size() <= 200
+          && request.resource.data.updatedAt == request.time;
+        allow delete: if isGroup(groupId) && bookId in ['priceBook','featured'] && isMJ();
+      }
+      // Un mot de passe de forte entropie est transformé côté navigateur en
+      // empreinte SHA-256 ; la liste des documents n'est jamais accessible.
+      // Ceci protège l'accès au rayon, pas les fiches du catalogue public.
+      match /secretShelves/{token} {
+        allow get: if isGroup(groupId) && request.auth != null
+          && token.matches('^[0-9a-f]{64}$');
+        allow list: if false;
+        allow create, update: if isGroup(groupId) && isMJ()
+          && token.matches('^[0-9a-f]{64}$')
+          && request.resource.data.keys().hasOnly(['itemIds','updatedAt'])
+          && request.resource.data.itemIds is list && request.resource.data.itemIds.size() <= 200
+          && request.resource.data.updatedAt == request.time;
+        allow delete: if isGroup(groupId) && isMJ();
+      }
+      match /privateSettings/{settingId} {
+        allow get: if isGroup(groupId) && isMJ() && settingId == 'secretShop';
+        allow list: if false;
+        allow create, update, delete: if isGroup(groupId) && isMJ() && settingId == 'secretShop';
       }
       // La transaction crée une commande immuable et, si le stock est limité,
       // décrémente les fiches correspondantes dans le MÊME commit.
