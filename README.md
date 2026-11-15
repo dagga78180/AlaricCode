@@ -1,12 +1,13 @@
-# AlaricCode — Écrin des Merveilles (base propre)
+# AlaricCode V10 — L'Écrin des Merveilles
 
-Site de JDR, boutique Alaric / Chroniques Oubliées Fantasy.
+Boutique de Chroniques Oubliées Fantasy pour deux groupes, avec catalogue d'objets, filtres, panier, synchronisation des stocks Firestore et commande Roll20 à copier dans Discord.
 
-- `index.html` : sélection du groupe.
-- `groupe1.html`, `groupe2.html` : boutique, promotions et vitrine secrète.
-- `mj.html` : administration.
-- `boutique.css` / `mj-clean.css` : deux feuilles de style indépendantes, pas de cascade V8.
-- `data/` : données du catalogue ; `assets/` : icônes, décors.
-- `firestore.rules` : règles Firestore à adapter et publier avec l'UID MJ.
+- `index.html` : entrée et choix du groupe
+- `groupe1.html` / `groupe2.html` : boutiques joueurs
+- `mj.html` : espace MJ et gestion des stocks/catalogue
+- `boutique.css` / `mj-clean.css` : styles uniques
+- `assets/` : illustrations et icônes
+- `data/` : données et prix
+- `INSTALLATION_V10.md` : installation et précautions
 
-Détails et limites de sécurité : [INSTALLATION_CLEAN.md](INSTALLATION_CLEAN.md).
+Les visuels V10 n'affectent pas les scripts JS, le catalogue ni les règles Firestore de la V9.

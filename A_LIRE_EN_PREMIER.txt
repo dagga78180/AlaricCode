@@ -1,14 +1,6 @@
-ALARICCODE — BASE PROPRE
-=======================
-Ouvre INSTALLATION_CLEAN.md.
+AlaricCode V10 — L'Écrin des Merveilles
 
-Le site joueur utilise 1 seule feuille de style : boutique.css.
-L'espace MJ utilise 1 seule feuille de style : mj-clean.css.
-Les anciennes feuilles v8*.css ont été retirées.
-
-Point d'entrée : index.html
-Accès directs : groupe1.html, groupe2.html et mj.html
-
-IMPORTANT : compare et publie les règles Firestore adaptées à ton UID MJ.
-Le rayon secret verrouille l'interface, mais n'est pas une collection
-chiffrée contenant des informations réellement confidentielles.
+Ouvrir INSTALLATION_V10.md avant le déploiement.
+Cette version améliore le design V9 avec de vrais assets intégrés au HTML/CSS.
+Elle ne change pas les prix, les stocks, la commande Roll20, les règles Firestore ou les fonctions MJ.
+L'accès aux marchandises secrètes doit être considéré comme un verrouillage d'interface, pas comme une garantie de confidentialité Firestore.
