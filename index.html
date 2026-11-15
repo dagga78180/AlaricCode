@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>L’échoppe d’Alaric · Catalogue COF</title>
   <meta name="description" content="Catalogue interactif pour l’inventaire du marchand Alaric, compatible Chroniques Oubliées Fantasy." />
-  <link rel="stylesheet" href="styles.css?v=panier-v2-20261114" />
+  <link rel="stylesheet" href="styles.css?v=rp-20261115" />
 </head>
 <body>
   <header class="hero" aria-label="L’échoppe Fantastique d’Alaric">
@@ -59,7 +59,7 @@
         <div class="filter-actions"><button class="chip" id="favorites-only" type="button" aria-pressed="false">☆ Favoris uniquement</button>
           <button class="button button--ghost button--small" id="reset-filters" type="button">Réinitialiser les filtres</button></div>
       </div>
-      <div class="catalogue-sort-line"><span class="catalogue-sort-line__label">Affiner les résultats ci-dessus</span>
+      <div class="catalogue-sort-line"><label class="field field--price-mode"><span>Afficher les prix</span><select id="price-mode" aria-label="Mode d’affichage des prix"><option value="normal">Normal (PO · PA · PC)</option><option value="pa">Tout en PA</option><option value="pc">Tout en PC</option></select></label>
         <label class="field field--sort"><span>Trier par</span><select id="sort-filter"><option value="alaric-first">Sélection d’Alaric d’abord</option><option value="category-asc">Catégorie</option><option value="name-asc">Nom A → Z</option><option value="price-asc">Prix croissant</option><option value="price-desc">Prix décroissant</option><option value="rarity-asc">Rareté faible → élevée</option><option value="rarity-desc">Rareté élevée → faible</option></select></label>
       </div>
 
@@ -112,11 +112,11 @@
   <script src="https://www.gstatic.com/firebasejs/13.2.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/13.2.0/firebase-firestore-compat.js"></script>
   <script src="config.js"></script>
-  <script src="shared.js?v=spark-20261114"></script>
+  <script src="shared.js?v=rp-20261115"></script>
   <script src="js/core.js"></script>
   <script src="js/pricing.js"></script>
-  <script src="js/checkout-free.js?v=spark-20261114"></script>
-  <script src="js/app.js?v=spark-20261114"></script>
+  <script src="js/checkout-free.js?v=rp-20261115"></script>
+  <script src="js/app.js?v=rp-20261115"></script>
   <script>document.getElementById('active-group-label').textContent='Catalogue marchand · '+window.AlaricApp.cfg.groups[window.AlaricApp.groupId(window.ALARIC_GROUP||new URLSearchParams(location.search).get('groupe'))];document.getElementById('link-g'+(window.ALARIC_GROUP==='groupe2'?'2':'1')).classList.add('active');</script>
 </body>
 </html>

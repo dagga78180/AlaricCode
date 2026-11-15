@@ -1,27 +1,23 @@
-# AlaricCode V5 — Atelier MJ et boutique joueur
+# AlaricCode V6 — Catalogue RP, nouveaux prix et MJ deux groupes
 
-## Fonctionnement
+Version complète du site Alaric avec une boutique joueur, gestion de stock par groupe via Firestore, récapitulatif et **copie** d'une commande Roll20 pour transmission par Discord, et espace MJ.
 
-- **groupe1.html** et **groupe2.html** : boutiques joueur V4, cartes compactes, recherche, filtres et panier à double confirmation.
-- **Firebase Firestore** : synchronisation des stocks propres à chaque groupe, déduction après confirmation, livre de prix sécurisé par des règles Firestore.
-- **Roll20** : le site génère une commande `!co-alaric panier ...` que le joueur **copie** puis envoie au MJ sur Discord ; aucune connexion et aucune exécution directe sur Roll20.
-- **mj.html** : interface V5 pour gérer en parallèle les deux groupes, les stocks, les prix, les objets magiques, les imports JSON et les sauvegardes.
+## Points principaux
 
-## Fonctionnalités V5 MJ
-
-1. Tableau de bord sur **Groupe 1 et Groupe 2**, avec compteurs et suivi des prix.
-2. Catalogue en tableau : stocks, prix (en PA), visibilité éditables **directement dans les cellules** ; enregistrement volontaire, pas à chaque frappe.
-3. Sélection multiple pour appliquer une quantité commune, puis corriger les valeurs de chaque groupe ; afficher, masquer, retirer ou supprimer les créations MJ.
-4. Atelier : sélection d'un modèle du catalogue, qualité Q0 à Q5 selon sa compatibilité, plusieurs affixes compatibles (consommable limité à un), prévisualisation et publication immédiate.
-5. Import JSON du format V4 : sélection des objets, inspection détaillée, doublons traités **individuellement** par groupe (ignorer / remplacer). Pour un remplacement, le stock et le prix personnalisé sont conservés.
-6. Export et restauration JSON intégrale du catalogue personnalisé, des stocks et des réglages des deux groupes. Aucun historique de commandes n'est inclus.
-
-## Attention aux prix de l'atelier
-
-Le catalogue V2 donne des **prix précis pour une base + un affixe**. Pour les combinaisons de plusieurs affixes ou une qualité supérieure à zéro, la V5 calcule une **estimation déterministe** à partir des liaisons du catalogue et du modèle P/Q fourni. Elle l'affiche explicitement comme une estimation ; aucune valeur officielle non présente dans les sources n'est inventée. L'édition manuelle des caractéristiques n'est pas proposée. Les créations non compatibles avec l'export Roll20 sont bloquées.
+- **Catalogue du 15/11/2026** issu du fichier `documentation/source/COFantasy_Catalogue_Sain_RP_Prix_Valides.xlsx` : noms RP, effets courts, descriptions RP, prix actualisés, affixes et liaisons.
+- **Boutique joueur** : cartes compactes par catégorie, description déroulante exclusivement RP, filtres, favoris, prix affichés en mode Normal, tout PA ou tout PC, panier double confirmation et déduction de stock.
+- **Espace MJ (`mj.html`)** : deux groupes simultanés, tableau éditable stocks et prix, masquage/suppression, atelier depuis objets existants, qualité et plusieurs affixes, import JSON avec aperçu détaillé et doublons individuels, sauvegarde et restauration JSON.
+- **Roll20** : le site produit `!co-alaric panier ...` à copier puis à envoyer au MJ ; il ne se connecte pas à Roll20 et n'y exécute rien.
+- **Firebase Spark** : aucun serveur ni Cloud Function à déployer ; les opérations d'achat utilisent Firestore et ses règles de sécurité.
 
 ## Installation
 
-Lire **INSTALLATION_V5.md**, puis **A_LIRE_EN_PREMIER.txt**.
+Lire d'abord `A_LIRE_EN_PREMIER.txt`, puis **`INSTALLATION_V6.md`**. Sauvegarder le Firestore existant et synchroniser le livre des prix depuis `mj.html` après déploiement.
 
-Les guides de versions antérieures figurent dans `documentation/historique/` et ne doivent pas remplacer celui de la V5.
+## Données et compatibilité
+
+Les 63 références de la vitrine initiale restent en vente avec leurs stocks existants. Le reste du catalogue RP est disponible comme référence pour les créations MJ, pas publié automatiquement. Les prix personnalisés déjà stockés et les créations MJ existantes sont conservés : voir les règles de migration dans `INSTALLATION_V6.md`.
+
+Les tarifs de qualité appliquent le barème Q du classeur ; le prix combiné de plusieurs affixes est une **estimation automatique**, et non une donnée officiellement présente dans le classeur.
+
+**Tests :** syntaxe JS, tests automatiques du panier, contrôles du catalogue et tests navigateur avec Firebase simulé ; vérifier les règles et achats sur ton propre projet avant utilisation en séance.

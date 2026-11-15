@@ -1,20 +1,27 @@
-ALARICCODE V5 — BOUTIQUE JOUEUR + NOUVEL ESPACE MJ
-=================================================
+ALARICCODE V6 — NOUVEAU CATALOGUE RP / PRIX VALIDÉS
+==================================================
 
-1. Lis INSTALLATION_V5.md AVANT de mettre les fichiers en ligne.
-2. Aucun npm, aucune Cloud Function, aucun forfait Blaze nécessaire.
-3. Firestore Spark reste gratuit tant que tu respectes ses quotas.
-4. Les règles Firestore doivent contenir TON VRAI UID MJ. Ne remplace PAS
-   tes règles actives par le fichier modèle si le vrai UID ne s'y trouve pas.
-5. Les fichiers du site sont préconfigurés pour le projet Firebase déjà utilisé
-   dans Alaric V4. Ne communique jamais tes identifiants MJ.
-6. Teste avec deux groupes et un objet de test AVANT d'ouvrir aux joueurs.
+1. Lire INSTALLATION_V6.md avant de mettre le site en ligne.
+2. Sauvegarder le site actuel et les données/règles Firestore.
+3. Remplacer les fichiers du site par le contenu du dossier AlaricCode,
+   sans effacer ni réinitialiser les stocks Firestore existants.
+4. Vérifier que le fichier config.js pointe vers ton projet Firebase habituel.
+5. Ne JAMAIS déployer firestore.rules avec l'UID MJ d'exemple.
+   Conserver tes règles effectives et TON UID MJ réel.
+6. Ouvrir mj.html avec ton compte MJ et actualiser les prix des deux groupes.
+7. Vérifier les prix personnalisés déjà enregistrés et les créations MJ.
+8. Tester un achat de faible valeur dans chaque groupe avant de rouvrir.
 
-Boutique joueur V4 conservée, avec Roll20 par COPIE vers Discord, aucune
-commande envoyée ou exécutée automatiquement dans Roll20.
-Nouveau : mj.html utilise mj-v5.js et mj-v5.css.
+NOUVEAU : noms, descriptions RP, effets et prix issus du classeur transmis.
+Affichage prix : Normal (PO/PA/PC), tout en PA, tout en PC.
+Plus d'encadré Emplacement sur les accessoires.
 
-IMPORTANT : Les tests effectués sont des tests avec Firebase simulé.
-Ils ne remplacent pas un essai sur le véritable projet Firestore.
+LES STOCKS : les 63 références de départ restent la sélection en vente.
+Les autres fiches servent de référentiel à l'atelier MJ ; elles ne sont
+pas automatiquement ajoutées à la boutique.
 
-Documentation historique conservée dans documentation/historique/.
+ROLL20 : seule une commande texte est générée. Le joueur la copie dans
+Discord à l'attention du MJ ; Alaric ne lance aucune commande Roll20.
+
+COÛT : aucun npm ni Cloud Function, Spark gratuit dans ses limites.
+Les tests sont locaux avec Firebase simulé, PAS sur ton projet réel.

@@ -23,7 +23,7 @@ async function loadAll(){if(busy)return;busy=true;status('Chargement des deux gr
  for(const g of GROUPS){const [stocks,custom,overrides]=await Promise.all([A.getStock(g),A.getCustom(g),A.getOverrides(g)]);const items=A.overlay(catalog.stockBase,custom,overrides,stocks,catalog.base);state[g]={stocks,custom,overrides,items,byId:new Map(items.map(it=>[it.id,it]))};}
  edits.clear();selectedRows.clear();pending=null;importChoices.clear();$('run-import').disabled=true;
  renderDashboard();buildCategories();buildRarities();renderTable();buildTemplates();renderAffixes();renderEditor();
- const bookErrors=await syncPricebooks();status(bookErrors.length?'Les données sont chargées, mais le livre des prix doit être corrigé : '+bookErrors.join(' | '):'Les deux groupes sont chargés. La boutique joueur V4 est conservée.',bookErrors.length?'error':'success');
+ const bookErrors=await syncPricebooks();status(bookErrors.length?'Les données sont chargées, mais le livre des prix doit être corrigé : '+bookErrors.join(' | '):'Les deux groupes sont chargés. Boutique joueur V6 chargée avec les nouveaux prix et textes RP.',bookErrors.length?'error':'success');
  }catch(e){console.error(e);status('Chargement impossible : '+e.message,'error');}finally{busy=false;refreshChanges();}}
 async function syncPricebooks(){const msgs=[],errors=[];for(const g of GROUPS){try{const b=await A.publishPriceBook(g,state[g].items,catalog);msgs.push(names[g]+': '+b.count+' prix '+(b.updated?'actualisés':'à jour'));}catch(e){msgs.push(names[g]+': ERREUR '+e.message);errors.push(names[g]+' : '+e.message);}}$('pricebook-status').textContent=msgs.join(' · ');return errors;}
 function renderDashboard(){const out=$('home-metrics');out.replaceChildren();for(const g of GROUPS){const s=state[g],v=s.items.filter(it=>it.visible),limited=v.filter(x=>Number.isInteger(x.stock)),low=limited.filter(x=>x.stock<=2);const box=A.elem('article',{className:'mj-metric'});box.innerHTML='<h3>'+names[g]+'</h3><div class="mj-stat"><div><strong>'+v.length+'</strong><small>En vente</small></div><div><strong>'+s.custom.length+'</strong><small>Créations MJ</small></div><div><strong>'+low.length+'</strong><small>Stock ≤ 2</small></div></div>';out.append(box);}}
@@ -49,21 +49,61 @@ function template(){return catalog?.templates.find(t=>t.id===$('template').value
 function affixesFor(){const t=template();return t?A.compatibleAffixes(t,catalog.affixes):[];}
 function renderAffixes(){const root=$('affix-list');root.replaceChildren();const t=template();if(!t){root.append(A.elem('p',{className:'muted tiny',text:'Choisis un objet de base.'}));$('selected-affixes').replaceChildren();return;}const search=$('affix-search').value.toLocaleLowerCase('fr');const matches=affixesFor().filter(a=>!search||`${a.id} ${a.name} ${a.rpName||''} ${a.effect}`.toLocaleLowerCase('fr').includes(search));root.append(A.elem('p',{className:'muted tiny',text:matches.length+' affixes compatibles (80 premiers affichés)'}));for(const a of matches.slice(0,80)){const label=A.elem('label',{className:'affix-option'}),box=A.elem('input',{type:'checkbox',checked:chosenAffixes.has(a.id)});box.addEventListener('change',()=>{if(box.checked){if(chosenAffixes.size>=(t.category==='consommable'?1:10)){box.checked=false;status('Maximum '+(t.category==='consommable'?1:10)+' affixe(s) pour cet objet.','error');return;}chosenAffixes.add(a.id);}else chosenAffixes.delete(a.id);renderChosen();renderEditor();});label.append(box,A.elem('span',{text:(a.rpName||a.name)+' — '+a.effect}));root.append(label);}renderChosen();}
 function renderChosen(){const root=$('selected-affixes');root.replaceChildren();if(!chosenAffixes.size){root.append(A.elem('span',{className:'muted tiny',text:'Aucun affixe ajouté.'}));return;}for(const id of chosenAffixes){const a=catalog.affixes.find(x=>x.id===id);if(!a)continue;const line=A.elem('div',{className:'mj-affix-selected'});line.append(A.elem('span',{text:(a.rpName||a.name)+' · '+a.effect}),A.elem('button',{type:'button',className:'small warn',text:'×',onClick:()=>{chosenAffixes.delete(id);renderAffixes();renderEditor();}}));root.append(line);}}
-function computePrice(t,ids,q){if(!t||!Number.isSafeInteger(t.pricePC)||!priceModel)return {price:null,note:'Le prix de base ou les coefficients P/Q sont absents.'};const srcBase=t.pricePC,basePA=srcBase/100;let pc=srcBase;
- if(q>0){const qPO=Number(priceModel.qualityReferencePO?.[String(q)]);if(!Number.isFinite(qPO))return {price:null,note:'Coefficient qualité non renseigné.'};pc+=Math.round(qPO*10000*Math.pow(Math.max(basePA,.01)/Number(priceModel.qualityReferenceBasePA||5),Number(priceModel.qualityMaterialExponent||.25)));}
- for(const id of ids){const link=catalog.liaisons.find(l=>l.itemId===t.sourceId&&l.affixId===id);if(!link)return {price:null,note:'Liaison de prix manquante : '+id};const linked=link.priceMagiePC!==null&&link.priceMagiePC!==undefined?Math.round(Number(link.priceMagiePC)):link.priceConsoPA!==null&&link.priceConsoPA!==undefined?Math.round(Number(link.priceConsoPA)*100):NaN;if(!Number.isSafeInteger(linked))return {price:null,note:'Prix de liaison indisponible : '+id};pc+=Math.max(0,linked-srcBase);}
- if(!Number.isSafeInteger(pc)||pc<0||pc>1e11)return {price:null,note:'Prix calculé hors limites.'};return {price:pc,note:(q===0&&ids.length<2?'Prix issu du catalogue V2.':'Estimation automatique : suppléments cumulés des affixes + formule qualité P/Q.')};}
-function editorObject(){const t=template();if(!t)return null;const ids=[...chosenAffixes],q=Number($('object-quality').value);const allowed=['arme','armure'].includes(t.category),actualQ=allowed?q:0;const affs=ids.map(id=>catalog.affixes.find(a=>a.id===id)).filter(Boolean);
- const maxQuality=catalog.objectSpecs.find(x=>x.id===t.sourceId)?.qMax??5;if(actualQ>Number(maxQuality))return {error:'Qualité supérieure à la limite de cet objet.'};
- const name=(t.name+(actualQ?' +'+actualQ:'')+(affs.length?' — '+affs.map(a=>a.rpName||a.name).join(' · '):''));if(name.length>140)return {error:'Nom automatique trop long (140 caractères maximum). Réduis le nombre d’affixes.'};
- const pricing=computePrice(t,ids,actualQ);if(pricing.price===null)return {error:pricing.note};const rank=A.computeIconRank({category:t.category,quality:actualQ,cofSpec:{affixes:ids}},catalog.affixes);
- const item={id:'mj-'+A.normalizeId(t.sourceId)+'-'+Date.now().toString(36),name,category:t.category,subcategory:t.subcategory,description:t.description,pricePC:pricing.price,quality:actualQ,power:rank.p,rarity:A.RARITY_LABELS[rank.rank]||'Commun',icon:catalog.icons[t.sourceId]||t.icon,iconKey:t.iconKey||'',visible:true,templateId:t.id,cofSpec:{base:t.sourceId,quality:actualQ,affixes:ids,name,price:String(pricing.price)+' pc'},affixes:affs.map(a=>({id:a.id,name:a.rpName||a.name,effect:a.effect}))};return {item,pricing,source:catalog.objectSpecs.find(x=>x.id===t.sourceId)||{},check:A.prepareRoll20Spec(item,catalog)};}
+// Les prix officiels proviennent du classeur CATALOGUE RP. Une seule liaison Q0 est exacte.
+// Plusieurs affixes : addition de leurs seuls surcoûts, explicitement signalée comme estimation.
+function computePrice(t,ids,q){
+ if(!t||!Number.isSafeInteger(t.pricePC)||!priceModel)return {price:null,note:'Tarif de support ou barème indisponible.'};
+ if(t.sourceId?.startsWith('CON-')&&t.sourceId!=='CON-15'&&!ids.length)
+   return {price:null,note:'Ce consommable est un gabarit sans prix autonome : choisis un affixe.'};
+ const srcBase=t.pricePC,basePA=srcBase/100;
+ let pc=srcBase;
+ if(q>0){
+   const formula=priceModel.quality||{};
+   if(q>Number(formula.qMax||5))return {price:null,note:'Qualité supérieure au barème.'};
+   const supplementPA=(Number(formula.q1FixedPA)+Number(formula.q1PhysicalWeight)*basePA)*Math.pow(Number(formula.multiplier),q-1);
+   if(!Number.isFinite(supplementPA))return {price:null,note:'Tarif de qualité introuvable.'};
+   pc+=Math.round(supplementPA*100);
+ }
+ for(const id of ids){
+   const link=catalog.liaisons.find(l=>l.itemId===t.sourceId&&l.affixId===id);
+   if(!link||link.publication!=='Prêt')return {price:null,note:'Affixe non publiable ou liaison non validée : '+id};
+   const linked=link.priceMagiePC!==null&&link.priceMagiePC!==undefined
+     ? Math.round(Number(link.priceMagiePC))
+     : link.priceConsoPA!==null&&link.priceConsoPA!==undefined ? Math.round(Number(link.priceConsoPA)*100) : NaN;
+   if(!Number.isSafeInteger(linked))return {price:null,note:'Prix de liaison indisponible : '+id};
+   pc+=linked-srcBase;
+ }
+ if(!Number.isSafeInteger(pc)||pc<0||pc>1e11)return {price:null,note:'Prix calculé hors limites.'};
+ return {price:pc,note:ids.length>1?'Estimation automatique : addition des surcoûts de plusieurs affixes (le classeur ne chiffre que les associations à un affixe).':
+   q>0?'Tarif du catalogue + supplément de qualité officiel.':'Tarif exact du catalogue RP validé.'};
+}
+function editorObject(){
+ const t=template();if(!t)return null;
+ const ids=[...chosenAffixes],q=Number($('object-quality').value),allowed=['arme','armure'].includes(t.category),actualQ=allowed?q:0;
+ const affs=ids.map(id=>catalog.affixes.find(a=>a.id===id)).filter(Boolean);
+ const baseSpec=catalog.objectSpecs.find(x=>x.id===t.sourceId)||{};
+ if(actualQ>Number(baseSpec.qMax??5))return {error:'Qualité supérieure à la limite de cet objet.'};
+ const link=ids.length===1?catalog.liaisons.find(l=>l.itemId===t.sourceId&&l.affixId===ids[0]&&l.publication==='Prêt'):null;
+ const rootName=link?.name || (t.name+(affs.length?' — '+affs.map(a=>a.rpName||a.name).join(' · '):''));
+ const name=rootName+(actualQ?' +'+actualQ:'');
+ if(name.length>140)return {error:'Nom automatique trop long (140 caractères maximum). Réduis le nombre d’affixes.'};
+ const pricing=computePrice(t,ids,actualQ);if(pricing.price===null)return {error:pricing.note};
+ const rank=A.computeIconRank({category:t.category,quality:actualQ,cofSpec:{affixes:ids}},catalog.affixes);
+ const desc=link?.description || (affs.length ? [baseSpec.rpDescription||t.description,...affs.map(a=>a.rpDescription)].filter(Boolean).join(' ') : t.description);
+ const item={id:'mj-'+A.normalizeId(t.sourceId)+'-'+Date.now().toString(36),name,category:t.category,subcategory:t.subcategory,
+   description:desc.slice(0,4000),pricePC:pricing.price,quality:actualQ,power:rank.p,
+   rarity:A.RARITY_LABELS[rank.rank]||'Commun',icon:catalog.icons[t.sourceId]||t.icon,
+   iconKey:t.iconKey||'',visible:true,templateId:t.id,
+   cofSpec:{base:t.sourceId,quality:actualQ,affixes:ids,name,price:String(pricing.price)+' pc'},
+   affixes:affs.map(a=>({id:a.id,name:a.rpName||a.name,effect:a.effect}))};
+ return {item,pricing,source:baseSpec,check:A.prepareRoll20Spec(item,catalog)};
+}
 function renderEditor(){const t=template();$('object-quality').disabled=!t||!['arme','armure'].includes(t.category);if(t&&!['arme','armure'].includes(t.category))$('object-quality').value='0';const target=groups();$('editor-stock1').disabled=!target.includes('groupe1');$('editor-stock2').disabled=!target.includes('groupe2');$('editor-copy').disabled=target.length!==2;
  const root=$('object-preview'),note=$('editor-warning');root.replaceChildren();const data=editorObject();if(!data||!t){root.append(A.elem('p',{className:'muted',text:'Choisis un objet de base pour commencer.'}));note.textContent='';$('create-object').disabled=true;return;}if(data.error){root.append(A.elem('p',{className:'mj-danger-note',text:data.error}));note.textContent=data.error;$('create-object').disabled=true;return;}
  const {item,source,pricing,check}=data;const img=A.tieredIcon(A.catalogueIconForItem(item,catalog.icons),A.computeIconRank(item,catalog.affixes).rank);const header=A.elem('div',{className:'mj-preview-header'});if(img)header.append(A.elem('img',{src:img,alt:''}));const name=A.elem('div');name.append(A.elem('div',{className:'mj-preview-title',text:item.name}),A.elem('div',{className:'muted tiny',text:item.category+' · '+item.rarity}));header.append(name);root.append(header);
  const stats=A.elem('div',{className:'mj-preview-stats'});const stat=(label,val,full=false)=>{const box=A.elem('div',{className:'mj-preview-stat'+(full?' mj-preview-full':'')});box.append(A.elem('small',{text:label}),A.elem('strong',{text:String(val)}));stats.append(box);};
- if(item.category==='arme'){const dm=[source.weaponDmNb||1,'d',source.weaponDmDie||'?',item.quality?'+'+item.quality:'',source.weaponDmCar&&source.weaponDmCar!=='AUCUN'?'+'+source.weaponDmCar:''].join('');stat('ATTAQUE','+'+item.quality);stat('DM',dm);stat('TYPE DE DÉGÂTS',source.weaponDamageType||'Non renseigné',true);}else if(item.category==='armure'){stat('DEF','+'+(Number(source.armorBonus||0)+item.quality));stat('MALUS',source.armorMalus??'—');}
- stat('EFFET',item.affixes.map(a=>a.effect).join(' · ')||'Aucun effet supplémentaire',true);root.append(stats);root.append(A.elem('div',{className:'price',text:A.formatPC(item.pricePC)}));root.append(A.elem('p',{className:'mj-price-note',text:pricing.note}));root.append(A.elem('p',{className:'muted tiny',text:'Description : '+item.description}));
+ if(item.category==='arme'){const dm=[source.weaponDmNb||1,'d',source.weaponDmDie||'?',item.quality?'+'+item.quality:'',source.weaponDmCar&&source.weaponDmCar!=='AUCUN'?'+'+source.weaponDmCar:''].join('');stat('ATTAQUE','+'+item.quality);stat('DM',dm);stat('TYPE DE DÉGÂTS',source.weaponDamageType||'Non renseigné',true);}else if(item.category==='armure'){stat('DEF','+'+(Number(source.armorBonus||0)+item.quality));if(!t.sourceId.startsWith('BCL-'))stat('MALUS',source.armorMalus??'—');}
+ const effects=item.affixes.map(a=>a.effect).filter(Boolean).join(' · ')||source.playerEffect||'';if(effects)stat('EFFET',effects,true);root.append(stats);root.append(A.elem('div',{className:'price',text:A.formatPC(item.pricePC)}));root.append(A.elem('p',{className:'mj-price-note',text:pricing.note}));root.append(A.elem('p',{className:'muted tiny',text:'Description : '+item.description}));
  if(!check.ok){note.textContent='Impossible de générer une commande Roll20 valide : '+check.errors.join(' / ');$('create-object').disabled=true;}else{note.textContent=check.warnings?.join(' · ')||'Publication immédiate dans les groupes sélectionnés.';$('create-object').disabled=false;}
 }
 function validStock(s){return s.trim()===''||(/^\d+$/.test(s)&&Number(s)<=1000000);}
@@ -78,7 +118,7 @@ function parseList(){
   const rows=Array.isArray(data)?data:data?.items;
   if(!Array.isArray(rows)||!rows.length)throw Error('Attendu : {"items":[...]} non vide.');
   if(rows.length>100)throw Error('Maximum 100 équipements par fichier.');
-  if(!catalog||!Array.isArray(catalog.templates)||!Array.isArray(catalog.affixes))throw Error('Catalogue V2 non chargé. Recharge la page MJ.');
+  if(!catalog||!Array.isArray(catalog.templates)||!Array.isArray(catalog.affixes))throw Error('Catalogue RP non chargé. Recharge la page MJ.');
   const knownIds=new Set(combined().map(i=>i.id)),local=new Set(),items=[],warnings=[];
   const reserved=new Set((catalog.base||[]).map(b=>String(b.id).toLowerCase()));
   const sourceMap=new Map(catalog.templates.map(t=>[String(t.sourceId||'').toUpperCase(),t]));

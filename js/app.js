@@ -196,6 +196,7 @@ const state = {
   catalogueWarnings: [],
   stockWarning: "",
   stockOnline: false,
+  priceMode: (function(){ try { const v=localStorage.getItem('alaric-price-mode');return ['normal','pa','pc'].includes(v)?v:'normal'; }catch(e){return 'normal';} })(),
   checkoutStep: "cart",
   order: null,
   purchasing: false,
@@ -213,6 +214,7 @@ const elements = {
   rarityFilter: document.querySelector("#rarity-filter"),
   sourceFilter: document.querySelector("#source-filter"),
   sortFilter: document.querySelector("#sort-filter"),
+  priceMode: document.querySelector("#price-mode"),
   search: document.querySelector("#search"),
   minPrice: document.querySelector("#price-min"),
   maxPrice: document.querySelector("#price-max"),
@@ -313,6 +315,7 @@ async function loadCatalogue() {
   // On enrichit uniquement les cartes à l'affichage à partir de l'ID de base et des affixes.
   const baseById = new Map((catalog.objectSpecs || []).map(base => [base.id, base]));
   const affixById = new Map((catalog.affixes || []).map(affix => [affix.id, affix]));
+  const linkById = new Map((catalog.liaisons || []).map(link => [link.id,link]));
   ITEMS = list.map((it,i) => {
     const {rank}=API.computeIconRank(it,catalog.affixes);
     const check=API.prepareRoll20Spec(it,catalog);
@@ -321,6 +324,9 @@ async function loadCatalogue() {
     const base = baseById.get(baseId) || {};
     const ids = Array.isArray(it.cofSpec?.affixes) ? it.cofSpec.affixes : [];
     const inlineAffixes = Array.isArray(it.affixes) ? it.affixes : [];
+    const link = ids.length===1 ? linkById.get(baseId+'|'+ids[0]) : null;
+    const rpDescription = link?.description || (ids.length ? [base.rpDescription || base.description, ...ids.map(id=>affixById.get(id)?.rpDescription)].filter(Boolean).join(' ') : (base.rpDescription || base.description)) || it.description;
+    const rpEffect = link?.playerEffect !== undefined ? link.playerEffect : [base.playerEffect,...ids.map(id=>affixById.get(id)?.effect)].filter(Boolean).join(' · ');
     const affixEffects = ids.map(id => {
       const affix = affixById.get(String(id)) || inlineAffixes.find(a => a.id === id);
       return String(affix?.effect || '').trim();
@@ -337,9 +343,14 @@ async function loadCatalogue() {
       cardWeaponCar: base.weaponDmCar, cardWeaponAttack: base.weaponAttack,
       cardWeaponDamageType: base.weaponDamageType,
       cardArmorBonus: base.armorBonus, cardArmorMalus: base.armorMalus,
-      cardSlot: base.slot, cardTechnicalNotes: base.technicalNotes,
-      cardRpDescription: base.rpDescription,
-      cardConsumableEffect: base.consumableEffectText,
+      cardSlot: base.slot, cardTechnicalNotes: '',
+      cardRpDescription: rpDescription,cardEffectShort:rpEffect,
+      cardShield:baseId.startsWith('BCL-'),
+      cardPlayerDamage:link?.playerDamage || base.playerDamage || '',
+      cardPlayerDamageType:link?.playerDamageType || base.playerDamageType || '',
+      cardPlayerDefense:link?.playerDef || base.playerDef || '',
+      cardPlayerMalus:link?.playerMalus || base.playerMalus || '',
+      cardConsumableEffect: rpEffect,
       cardAffixEffects: affixEffects },
       isBase?'base':'alaric', i);
   });
@@ -391,6 +402,12 @@ function normalizeItem(item, source = "base", index = 0) {
     cardArmorBonus: item.cardArmorBonus,
     cardArmorMalus: item.cardArmorMalus,
     cardSlot: String(item.cardSlot || ""),
+    cardEffectShort: String(item.cardEffectShort || ''),
+    cardShield: item.cardShield===true,
+    cardPlayerDamage: String(item.cardPlayerDamage || ''),
+    cardPlayerDamageType: String(item.cardPlayerDamageType || ''),
+    cardPlayerDefense: String(item.cardPlayerDefense || ''),
+    cardPlayerMalus: String(item.cardPlayerMalus || ''),
     cardTechnicalNotes: String(item.cardTechnicalNotes || ""),
     cardRpDescription: String(item.cardRpDescription || ""),
     cardConsumableEffect: String(item.cardConsumableEffect || ""),
@@ -660,6 +677,7 @@ function renderFilters() {
   elements.damageFilter.disabled=state.category!=='all' && rankKey(state.category)!=='arme';
   elements.sourceFilter.value=state.source;
   elements.sortFilter.value=state.sort;
+  if(elements.priceMode)elements.priceMode.value=state.priceMode;
   elements.search.value=state.search;
   elements.minPrice.value=state.minPrice ?? '';
   elements.maxPrice.value=state.maxPrice ?? '';
@@ -754,52 +772,44 @@ function signedBonus(value) {
 
 function cardWeaponDamage(item) {
   const nb = Number(item.cardWeaponNb), die = Number(item.cardWeaponDie);
-  if (!(nb > 0 && die > 0)) return item.damage || 'Non renseigné';
+  if (!(nb > 0 && die > 0)) return item.cardPlayerDamage || item.damage || 'Non renseigné';
   const quality = item.cardQuality;
   const car = item.cardWeaponCar.trim().toUpperCase();
   return `${nb}d${die}${quality ? `+${quality}` : ''}${car && car !== 'AUCUN' ? `+${car}` : ''}`;
 }
 
 function cardEffect(item) {
-  const kind = cardKind(item);
-  const affixEffects = item.cardAffixEffects.filter(Boolean);
-  if (affixEffects.length) return affixEffects.join(' · ');
-  if (kind === 'armure') return 'Aucun effet supplémentaire.';
-  if (kind === 'accessoire') return 'Aucun effet magique de base.';
-  if (kind === 'consommable') return item.cardConsumableEffect || 'Effet selon la préparation.';
-  return item.cardTechnicalNotes || 'Aucun effet particulier.';
+  // Exclusivement le texte « Effet » joueur validé dans CATALOGUE RP.
+  // Aucun code interne, mention Roll20 ou note MJ n'est ajouté par défaut.
+  return item.cardEffectShort.trim();
 }
 
 function cardDescription(item) {
-  // Pour les consommables sélectionnés, "description" contient déjà l'effet :
-  // la description RP d'origine est récupérée dans le modèle du catalogue V2.
-  if (cardKind(item) === 'consommable' && item.cardRpDescription && item.source === 'base') {
-    return item.cardRpDescription;
-  }
-  return item.description || item.cardRpDescription || item.cardTechnicalNotes || 'Aucune description disponible.';
+  return item.cardRpDescription || item.description || 'Aucune description RP disponible.';
 }
 
 function cardStat(label, value) {
   return `<div class="item-stat"><dt>${escapeHTML(label)}</dt><dd>${escapeHTML(value)}</dd></div>`;
 }
 function cardEffectStat(item) {
-  return `<dl class="item-row__stats item-row__stats--full">${cardStat('EFFET',cardEffect(item))}</dl>`;
+  const effect=cardEffect(item);
+  return effect ? `<dl class="item-row__stats item-row__stats--full">${cardStat('EFFET',effect)}</dl>` : '';
 }
 function cardMainInfo(item) {
   const kind=cardKind(item);
   if(kind==='materiel')return '';
   if(kind==='arme') {
     const type=rankKey(item.cardWeaponDamageType);
-    const typeLabel=DAMAGE_LABELS[type]||item.cardWeaponDamageType||'Non renseigné';
+    const typeLabel=item.cardPlayerDamageType||DAMAGE_LABELS[type]||item.cardWeaponDamageType||'Non renseigné';
     return `<dl class="item-row__stats item-row__stats--two">${cardStat('ATTAQUE',signedBonus(item.cardQuality))}${cardStat('DM',cardWeaponDamage(item))}</dl>
       <dl class="item-row__stats item-row__stats--full">${cardStat('TYPE DE DÉGÂTS',typeLabel)}</dl>${cardEffectStat(item)}`;
   }
   if(kind==='armure') {
     const defense = item.cardArmorBonus !== undefined && item.cardArmorBonus !== null ? signedBonus(Number(item.cardArmorBonus)+item.cardQuality) : (item.armorMod||'Non renseignée');
-    const malus = item.cardArmorMalus !== undefined && item.cardArmorMalus !== null ? (Number(item.cardArmorMalus) ? `−${Math.abs(Number(item.cardArmorMalus))}` : '0') : 'Non renseigné';
-    return `<dl class="item-row__stats item-row__stats--two">${cardStat('DEF',defense)}${cardStat('MALUS',malus)}</dl>${cardEffectStat(item)}`;
+    const malus = item.cardPlayerMalus || (item.cardArmorMalus !== undefined && item.cardArmorMalus !== null ? (Number(item.cardArmorMalus) ? `−${Math.abs(Number(item.cardArmorMalus))}` : '0') : '');
+    return `<dl class="item-row__stats item-row__stats--two">${cardStat('DEF',defense)}${item.cardShield?'':cardStat('MALUS',malus||'—')}</dl>${cardEffectStat(item)}`;
   }
-  if(kind==='accessoire') return `<dl class="item-row__stats item-row__stats--full">${cardStat('EMPLACEMENT',item.cardSlot||'Non renseigné')}</dl>${cardEffectStat(item)}`;
+  if(kind==='accessoire') return cardEffectStat(item);
   return cardEffectStat(item); // Munitions et consommables : effet visible.
 }
 
@@ -864,9 +874,7 @@ function renderItems() {
             <summary>${descriptionTitle}</summary>
             <div class="item-details__content">
               <p class="item-description">${escapeHTML(description)}</p>
-              ${kind !== 'consommable' && item.cardAffixEffects.length ? `<p class="item-details__full-effect"><strong>Effet complet :</strong> ${escapeHTML(effect)}</p>` : ''}
-              ${!item.cofCompatible ? `<p class="stock-note">⚠ Export Roll20 indisponible : ${escapeHTML(item.cofError||'fiche non compatible')}</p>` : ''}
-              ${(item.cofWarnings||[]).length ? `<p class="stock-note">⚠ Effets à gérer manuellement : ${escapeHTML(item.cofWarnings.join(' · '))}</p>` : ''}
+              <!-- La description déroulante contient uniquement la narration RP. -->
             </div>
           </details>
         </div>
@@ -1160,6 +1168,11 @@ function resetFilters() {
 }
 
 function bindEvents() {
+  elements.priceMode?.addEventListener('change',e=>{
+    const mode=e.target.value; if(!['normal','pa','pc'].includes(mode))return;
+    state.priceMode=mode;try{localStorage.setItem('alaric-price-mode',mode);}catch(err){}
+    renderItems();renderCart();if(state.checkoutStep!=='cart')renderCheckout();
+  });
   elements.search.addEventListener("input", event => {
     state.search = event.target.value;
     renderItems();

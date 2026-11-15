@@ -26,6 +26,10 @@
     if (value === null || value === undefined || !Number.isFinite(Number(value))) return 'Prix à définir';
     let n = Math.round(Number(value));
     if(n < 0) return 'Prix à définir';
+    let mode='normal';
+    try {const setting=global.localStorage?.getItem('alaric-price-mode');if(['normal','pa','pc'].includes(setting))mode=setting;}catch(e){}
+    if(mode==='pc')return `${new Intl.NumberFormat('fr-FR',{maximumFractionDigits:0}).format(n)} PC`;
+    if(mode==='pa')return `${new Intl.NumberFormat('fr-FR',{maximumFractionDigits:2}).format(n/100)} PA`;
     const parts=[];
     if(n>=10000) {parts.push(`${Math.floor(n/10000)} PO`);n%=10000;}
     if(n>=100) {parts.push(`${Math.floor(n/100)} PA`);n%=100;}
@@ -181,7 +185,7 @@
       if(affixId && (!affix || !affix.allowedBaseIds?.includes(baseId)))
         throw Error('Stock Alaric : affixe incompatible '+baseId+' / '+affixId);
       const link=affixId?linkById.get(baseId+'|'+affixId):null;
-      if(affixId&&!link)throw Error('Stock Alaric : prix 1+1 absent '+baseId+' / '+affixId);
+      if(affixId&&!link)throw Error('Stock Alaric : liaison de prix absente '+baseId+' / '+affixId);
       let pricePC=model.pricePC;
       if(link){
         pricePC=link.priceMagiePC!==null && link.priceMagiePC!==undefined ? Math.round(Number(link.priceMagiePC)) :
@@ -193,7 +197,7 @@
       if(used.has(id))throw Error('Stock Alaric : doublon '+id);
       used.add(id);
       const name=link?.name||model.name;
-      const item={...model,id,name,description:baseId.startsWith('CON-')?consumableEffectDescription(affix):(link?.description||model.description),
+      const item={...model,id,name,description:link?.description||model.description,
         pricePC:Number(pricePC),quality:0,power:affix?Number(affix.tier||affix.p||0):0,
         rarity:RARITY_LABELS[Math.min(10,Math.max(0,affix?Number(affix.tier||affix.p||0)-1:0))]||'Commun',
         cofSpec:{base:baseId,quality:0,affixes:affixId?[affixId]:[],name,price:String(pricePC)+' pc'},
@@ -206,12 +210,13 @@
   }
   async function loadCatalog() {
     // Catalogue V2 EXCLUSIF : ni templates.json, ni affixes.json, ni anciennes bases.
-    const [objets,affixes,liaisons,svgs,stockSelection]=await Promise.all([
+    const [objets,affixes,liaisons,svgs,stockSelection,oldPrices]=await Promise.all([
       fetchJSON('data/catalogue-objets-v2.json'),
       fetchJSON('data/catalogue-affixes-v2.json'),
       fetchJSON('data/catalogue-liaisons-v2.json'),
       fetchJSON('data/icones-consommables-v2.json').catch(e=>{console.warn('Icônes consommables non chargées :',e);return {};}),
-      fetchJSON('data/stock-base-alaric-v2.json')
+      fetchJSON('data/stock-base-alaric-v2.json'),
+      fetchJSON('data/catalogue-prix-anciens.json')
     ]);
     if(!Array.isArray(objets)||objets.length!==75||!Array.isArray(affixes)||affixes.length!==536||!Array.isArray(liaisons)||liaisons.length!==2278)
       throw Error('Catalogue V2 incomplet ou incohérent (75/536/2278 attendus).');
@@ -228,6 +233,7 @@
       cofSpec:{base:b.id,quality:0,affixes:[]},templateId:normalizeId(b.id)
     },'Catalogue V2'));
     const stockBase=buildBaseStock(stockSelection,base,affixes,liaisons);
+    for(const item of stockBase)if(Number.isSafeInteger(oldPrices[item.id]))item.legacyPricePC=oldPrices[item.id];
     // Conserve les caractéristiques V2 à disposition des cartes joueurs, sans modifier les fiches Firestore/Roll20.
     return {base,stockBase,templates,affixes,liaisons,icons,objectSpecs:objets,warnings:Object.keys(CONSUMABLE_ICON_SVGS).length===14?'':'Icônes des consommables non chargées : vérifier data/icones-consommables-v2.json.'};
   }
@@ -417,7 +423,9 @@
     return [...all.values()].map(it=>{
       const adjust=overrides.get(it.id)||{};
       return {...it,visible:adjust.visible!==undefined?adjust.visible:it.visible,
-        pricePC:adjust.pricePC!==undefined?adjust.pricePC:it.pricePC,
+        // Une surcharge identique au tarif V5 initial était un prix hérité, pas une personnalisation.
+        // Applique le prix du classeur V6 sans effacer les stocks ni les prix réellement personnalisés.
+        pricePC:adjust.pricePC!==undefined && !(Number.isSafeInteger(it.legacyPricePC) && adjust.pricePC===it.legacyPricePC && it.pricePC!==it.legacyPricePC)?adjust.pricePC:it.pricePC,
         stock:stocks.has(it.id)?stocks.get(it.id):null};
     });
   }

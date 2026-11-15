@@ -19,15 +19,75 @@ service cloud.firestore {
         && request.resource.data.stock >= 0;
       allow delete: if isMJ();
     }
+    function priceBookPath(groupId) {
+      return /databases/$(database)/documents/groups/$(groupId)/storefront/priceBook;
+    }
+    function orderPath(groupId, orderId) {
+      return /databases/$(database)/documents/groups/$(groupId)/orders/$(orderId);
+    }
+    function validOrderId(id) {
+      return id is string && id.matches('^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-4[0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$');
+    }
+    // Chaque diminution doit être liée à une commande NOUVELLE et simultanée.
+    // Les prix sont publiés dans Firestore uniquement par le MJ.
+    function validPlayerDecrease(groupId, itemId) {
+      let orderId = request.resource.data.get('lastOrderId', '');
+      let book = get(priceBookPath(groupId)).data.prices;
+      let order = getAfter(orderPath(groupId, orderId)).data;
+      let line = order.checkoutLines.get(itemId, null);
+      return request.auth != null
+        && validOrderId(orderId)
+        && resource.data.stock is int
+        && request.resource.data.keys().hasOnly(['stock', 'updatedAt', 'lastOrderId'])
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['stock', 'updatedAt', 'lastOrderId'])
+        && request.resource.data.stock is int
+        && request.resource.data.stock >= 0
+        && request.resource.data.stock < resource.data.stock
+        && request.resource.data.updatedAt == request.time
+        && order.uid == request.auth.uid
+        && order.group == groupId
+        && order.id == orderId
+        && order.createdAt == request.time
+        && order.status == 'confirmed'
+        && line is map
+        && line.qty is int && line.qty >= 1 && line.qty <= 100
+        && line.stockBefore == resource.data.stock
+        && line.stockAfter == request.resource.data.stock
+        && line.qty == resource.data.stock - request.resource.data.stock
+        && book.get(itemId, -1) == line.pricePC;
+    }
+    function validPlayerOrder(groupId, orderId) {
+      let data = request.resource.data;
+      return request.auth != null && validOrderId(orderId)
+        && data.keys().hasOnly(['id', 'uid', 'group', 'status', 'items', 'checkoutLines', 'totalPC', 'roll20Command', 'createdAt'])
+        && data.keys().hasAll(['id', 'uid', 'group', 'status', 'items', 'checkoutLines', 'totalPC', 'roll20Command', 'createdAt'])
+        && data.id == orderId
+        && data.uid == request.auth.uid
+        && data.group == groupId
+        && data.status == 'confirmed'
+        && data.createdAt == request.time
+        && data.items is list && data.items.size() >= 1 && data.items.size() <= 50
+        && data.checkoutLines is map && data.checkoutLines.size() == data.items.size()
+        && data.checkoutLines.keys().hasOnly(get(priceBookPath(groupId)).data.prices.keys())
+        && data.totalPC is int && data.totalPC >= 0 && data.totalPC <= 10000000000000
+        && data.roll20Command is string && data.roll20Command.size() > 65
+        && data.roll20Command.size() <= 100000;
+    }
     // Les deux groupes possèdent des collections distinctes : aucune mutation croisée.
     match /groups/{groupId} {
       allow read, write: if false;
       match /stocks/{itemId} {
         allow read: if isGroup(groupId);
-        allow create, update: if isGroup(groupId) && isMJ()
+        allow create: if isGroup(groupId) && isMJ()
           && request.resource.data.keys().hasOnly(['stock','updatedAt'])
           && request.resource.data.stock is int
           && request.resource.data.stock >= 0 && request.resource.data.stock <= 1000000;
+        allow update: if isGroup(groupId) && (
+          (isMJ() && request.resource.data.keys().hasOnly(['stock','updatedAt','lastOrderId'])
+            && request.resource.data.stock is int
+            && request.resource.data.stock >= 0 && request.resource.data.stock <= 1000000)
+          || validPlayerDecrease(groupId,itemId)
+        );
         allow delete: if isGroup(groupId) && isMJ();
       }
       match /customItems/{itemId} {
@@ -48,12 +108,26 @@ service cloud.firestore {
               (request.resource.data.pricePC is int && request.resource.data.pricePC >= 0));
         allow delete: if isGroup(groupId) && isMJ();
       }
-      // Les achats sont uniquement écrits par la Cloud Function avec Admin SDK.
-      // Chaque joueur connecté retrouve sa commande ; le MJ peut la consulter.
+      // Prix en PC de la vitrine, publiés par le MJ (ou rafraîchis après un changement).
+      // Tous les achats vérifient ce document ; les joueurs ne peuvent pas le modifier.
+      match /storefront/{bookId} {
+        allow read: if isGroup(groupId) && bookId == 'priceBook';
+        allow create, update: if isGroup(groupId) && bookId == 'priceBook' && isMJ()
+          && request.resource.data.keys().hasOnly(['prices','updatedAt'])
+          && request.resource.data.prices is map && request.resource.data.prices.size() <= 400
+          && request.resource.data.updatedAt == request.time;
+        allow delete: if isGroup(groupId) && bookId == 'priceBook' && isMJ();
+      }
+      // La transaction crée une commande immuable et, si le stock est limité,
+      // décrémente les fiches correspondantes dans le MÊME commit.
       match /orders/{orderId} {
-        allow read: if isGroup(groupId) && request.auth != null
-          && (request.auth.uid == resource.data.uid || isMJ());
-        allow create, update, delete: if false;
+        // La première lecture dans une transaction cible un ID encore absent.
+        // Un joueur ne lit ensuite que ses propres commandes existantes.
+        allow get: if isGroup(groupId) && request.auth != null
+          && (!exists(orderPath(groupId,orderId)) || request.auth.uid == resource.data.uid || isMJ());
+        allow list: if isGroup(groupId) && isMJ();
+        allow create: if isGroup(groupId) && validPlayerOrder(groupId,orderId);
+        allow update, delete: if false;
       }
       match /baseOverrides/{itemId} {
         allow read: if isGroup(groupId);

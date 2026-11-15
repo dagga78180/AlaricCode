@@ -24,39 +24,29 @@
 
   function calculate(item) {
     if (!model || !item || !item.cofSpec) return null;
-    const spec = item.cofSpec;
-    const base = model.bases && model.bases[String(spec.base || '')];
-
-    if (!base) return null;
-
-    const basePA = number(base.basePA);
-    const difficulty = number(base.difficulty, 1);
-    if (!Number.isFinite(basePA)) return null;
-
-    const q = Math.max(0, Math.min(5, Math.trunc(number(spec.quality, 0))));
-    let total = basePA;
-    let rank = q;
-
-    if (q > 0) {
-      const qRef = number(model.qualityReferencePO && model.qualityReferencePO[String(q)]) * 100;
-      const refBase = number(model.qualityReferenceBasePA, 5);
-      const exponent = number(model.qualityMaterialExponent, 0.25);
-      if (Number.isFinite(qRef)) total += qRef * Math.pow(Math.max(basePA, 0.01) / refBase, exponent);
+    const spec=item.cofSpec;
+    const base=model.bases?.[String(spec.base||'')];if(!base)return null;
+    const q=Number(spec.quality||0), ids=Array.isArray(spec.affixes)?spec.affixes:[];
+    if(!Number.isInteger(q)||q<0||q>Number(base.qMax??0))return null;
+    if(base.saleTemplate&&!ids.length)return null;
+    const physical=Number(base.basePC);
+    if(!Number.isSafeInteger(physical)||physical<0)return null;
+    let pc=physical;
+    if(q>0){
+      const rule=model.quality;
+      pc+=Math.round((Number(rule.q1FixedPA)+Number(rule.q1PhysicalWeight)*(physical/100))*Math.pow(Number(rule.multiplier),q-1)*100);
     }
-
-    const ids = Array.isArray(spec.affixes) ? spec.affixes : [];
-    for (const id of ids) {
-      const affix = model.affixes && model.affixes[String(id)];
-      if (!affix) continue;
-      const p = Math.max(0, Math.min(5, Math.trunc(number(affix.p, 0))));
-      if (!p) continue;
-      const pRef = number(model.powerReferencePO && model.powerReferencePO[String(p)]) * 100;
-      if (!Number.isFinite(pRef)) continue;
-      total += pRef * difficulty * number(affix.coef, 1) * number(affix.noise, 1);
-      rank = Math.max(rank, p);
+    let power=0;
+    for(const id of ids){
+      const link=model.links?.[spec.base+'|'+id],affix=model.affixes?.[id];
+      if(!link||!Number.isSafeInteger(link.pricePC)||!affix||affix.status!=='Actif')return null;
+      pc+=link.pricePC-physical;
+      power=Math.max(power,Number(affix.p)||0);
     }
-
-    return { price: commercialRound(total), rarity: rarity(rank), rank };
+    if(!Number.isSafeInteger(pc)||pc<0)return null;
+    const labels=['Commun','Peu Commun','Inhabituel','Rare','Exceptionnel','Précieux','Épique','Légendaire','Mythique','Artefact','Objet Divin'];
+    const rank=Math.max(0,Math.min(10,base.category==='consommable'?power-1:q+power));
+    return {price:pc/100,pricePC:pc,rarity:labels[rank],rank};
   }
 
   function apply(item) {
