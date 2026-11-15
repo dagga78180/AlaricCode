@@ -4,3 +4,6 @@ Ouvrir INSTALLATION_V10.md avant le déploiement.
 Cette version améliore le design V9 avec de vrais assets intégrés au HTML/CSS.
 Elle ne change pas les prix, les stocks, la commande Roll20, les règles Firestore ou les fonctions MJ.
 L'accès aux marchandises secrètes doit être considéré comme un verrouillage d'interface, pas comme une garantie de confidentialité Firestore.
+
+
+Mise à jour V10.1 : lire INSTALLATION_V10_1.md pour les ajustements visuels.

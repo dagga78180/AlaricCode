@@ -9,11 +9,21 @@
 
 
 
-<link href="boutique.css?v=v10-premium" rel="stylesheet"/></head>
+<link href="boutique.css?v=v10-1" rel="stylesheet"/></head>
 <body>
 <header aria-label="L'Écrin des Merveilles, boutique d'Alaric" class="hero"><div class="hero__content"><div class="hero__brand"><span class="hero__star">✧</span><h1>Alaric</h1><p>BOUTIQUE ENCHANTÉE</p></div><div class="hero__utilities"><span>L’Écrin des Merveilles</span><button class="button button--ghost" id="open-cart-mobile" type="button">🛒 Panier</button></div></div></header>
-<nav aria-label="Boutiques et administration" class="alaric-group-switch"><div class="group-nav__left"><a class="active" href="groupe1.html">Groupe 1</a><a href="groupe2.html">Groupe 2</a></div><div class="group-nav__right"><span aria-hidden="true">✦</span><a href="mj.html">Gestion MJ</a></div></nav>
-<div aria-label="Bienvenue dans la boutique d'Alaric" class="shop-ribbon shop-ribbon--fancy"><div class="shop-ribbon__ornament">✧</div><div><h2>La Boutique d’Alaric</h2><p>Équipements, consommables et objets enchantés pour vos aventures</p><span class="group-marker">Boutique du groupe 1</span></div><div class="shop-ribbon__ornament">✧</div></div><nav aria-label="Rayons de la boutique" class="shop-tabs"><button aria-pressed="true" class="shop-tabs__button active" data-shop-tab="boutique" type="button">✧ Boutique</button><button aria-pressed="false" class="shop-tabs__button" data-shop-tab="promotions" type="button">✦ Promotions</button><button aria-pressed="false" class="shop-tabs__button" data-shop-tab="secret" type="button">♢ Marchandises secrètes</button></nav>
+<nav aria-label="Boutiques et administration" class="alaric-group-switch">
+  <div class="group-nav__left">
+    <a class="active" href="groupe1.html" aria-current="page"><span aria-hidden="true" class="nav-icon">✦</span> Groupe 1</a>
+    <a href="groupe2.html"><span aria-hidden="true" class="nav-icon">✦</span> Groupe 2</a>
+  </div>
+  <div class="group-nav__right"><a class="group-nav__admin" href="mj.html"><span aria-hidden="true" class="nav-icon">⚙</span> Gestion MJ</a></div>
+</nav>
+<nav aria-label="Rayons de la boutique" class="shop-tabs">
+  <button aria-pressed="true" class="shop-tabs__button active" data-shop-tab="boutique" type="button"><span class="tab-symbol" aria-hidden="true">✧</span> Boutique</button>
+  <button aria-pressed="false" class="shop-tabs__button" data-shop-tab="promotions" type="button"><span class="tab-symbol" aria-hidden="true">✦</span> Promotions</button>
+  <button aria-pressed="false" class="shop-tabs__button" data-shop-tab="secret" type="button"><span class="tab-symbol" aria-hidden="true">❖</span> Marchandises secrètes</button>
+</nav>
 <main class="layout" id="catalogue"><div class="shop-paper"><aside aria-label="Filtres du catalogue" class="filters-sidebar"><div class="filters-sidebar__head"><span aria-hidden="true" class="filters-sidebar__sigil">✧</span><h2>Filtres</h2></div><p class="filters-sidebar__summary">Équipement · Type de dégâts · Rareté · Prix</p><button aria-controls="advanced-filters" aria-expanded="false" class="button button--ghost filters-toggle" id="toggle-filters" type="button">☷ Ouvrir les filtres<span id="active-filter-count"></span></button><div class="advanced-filters" hidden="" id="advanced-filters">
 <div aria-label="Filtres avancés" class="toolbar">
 <label class="field"><span>Type d'équipement</span><select id="category-filter"><option value="all">Tous les équipements</option></select></label>
@@ -27,22 +37,14 @@
 <div class="filter-actions"><button aria-pressed="false" class="chip" id="favorites-only" type="button">☆ Favoris uniquement</button>
 <button class="button button--ghost button--small" id="reset-filters" type="button">Réinitialiser les filtres</button></div>
 </div><div aria-hidden="true" class="filters-sidebar__magic">✧</div></aside><section aria-labelledby="catalogue-title" class="catalogue">
-<div class="section-heading">
-<div>
-<p class="eyebrow" id="active-group-label">Catalogue marchand · Groupe 1</p>
-<h2 id="catalogue-title">Le catalogue</h2>
-</div>
-<p class="result-count" id="result-count">Chargement du catalogue…</p>
-</div>
-<div class="catalogue-alerts" hidden="" id="catalogue-alerts" role="status"></div>
-<div id="shop-note" class="shop-note" hidden></div><div aria-label="Recherche du catalogue" class="search-bar">
-<label class="field field--search">
-<span>Rechercher un objet</span>
-<input autocomplete="off" id="search" placeholder="Nom, effet, catégorie…" type="search"/>
-</label>
-</div>
-<div class="catalogue-sort-line"><label class="field field--price-mode"><span>Afficher les prix</span><select aria-label="Mode d’affichage des prix" id="price-mode"><option value="normal">Normal (PO · PA · PC)</option><option value="pa">Tout en PA</option><option value="pc">Tout en PC</option></select></label>
-<label class="field field--sort"><span>Trier par</span><select id="sort-filter"><option value="alaric-first">Sélection d’Alaric d’abord</option><option value="category-asc">Catégorie</option><option value="name-asc">Nom A → Z</option><option value="price-asc">Prix croissant</option><option value="price-desc">Prix décroissant</option><option value="rarity-asc">Rareté faible → élevée</option><option value="rarity-desc">Rareté élevée → faible</option></select></label>
+<h2 id="catalogue-title" class="visually-hidden">Le catalogue</h2>
+<p id="result-count" class="visually-hidden" role="status" aria-live="polite">Chargement du catalogue…</p>
+<div class="catalogue-alerts" hidden id="catalogue-alerts" role="status"></div>
+<div id="shop-note" class="shop-note" hidden></div>
+<div class="catalogue-controls" aria-label="Recherche et tri du catalogue">
+  <label class="field field--search"><span>Rechercher un objet</span><input autocomplete="off" id="search" placeholder="Nom, effet, catégorie…" type="search"/></label>
+  <label class="field field--price-mode"><span>Afficher les prix</span><select aria-label="Mode d’affichage des prix" id="price-mode"><option value="normal">Normal (PO · PA · PC)</option><option value="pa">Tout en PA</option><option value="pc">Tout en PC</option></select></label>
+  <label class="field field--sort"><span>Trier par</span><select id="sort-filter"><option value="alaric-first">Sélection d’Alaric d’abord</option><option value="category-asc">Catégorie</option><option value="name-asc">Nom A → Z</option><option value="price-asc">Prix croissant</option><option value="price-desc">Prix décroissant</option><option value="rarity-asc">Rareté faible → élevée</option><option value="rarity-desc">Rareté élevée → faible</option></select></label>
 </div>
 <div class="secret-gate" hidden="" id="secret-gate"><span class="secret-gate__icon">✦</span><h3>Le cabinet secret d’Alaric</h3><p>Un mot de passe est nécessaire pour accéder à ce rayon.</p><form class="secret-gate__form" id="secret-form"><label for="secret-password">Mot de passe</label><div class="secret-gate__row"><input autocomplete="off" id="secret-password" placeholder="Saisis le mot de passe du MJ" required="" type="password"/><button class="button button--primary" type="submit">Déverrouiller</button></div></form><p id="secret-message" role="status"></p></div><div aria-live="polite" class="items-list" id="items-grid"></div>
 </section></div><aside aria-label="Panier" class="cart-panel" id="cart-panel">

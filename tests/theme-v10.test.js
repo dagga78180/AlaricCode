@@ -9,7 +9,7 @@ test('V10 : les deux boutiques utilisent une feuille CSS unique et la nouvelle v
   for (const file of ['groupe1.html', 'groupe2.html', 'index.html']) {
     const html = read(file);
     assert.equal((html.match(/rel="stylesheet"/g) || []).length, 1);
-    assert.match(html, /boutique\.css\?v=v10-premium/);
+    assert.match(html, /boutique\.css\?v=v10-1/);
   }
   assert.equal((read('mj.html').match(/rel="stylesheet"/g) || []).length, 1);
 });
