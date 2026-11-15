@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="92" viewBox="0 0 320 92">
+ <defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#a65625"/><stop offset=".3" stop-color="#f6d788"/><stop offset=".5" stop-color="#fff5c3"/><stop offset=".8" stop-color="#e6a449"/><stop offset="1" stop-color="#a65625"/></linearGradient><radialGradient id="cr"><stop stop-color="#fff"/><stop offset=".2" stop-color="#fbb1ff"/><stop offset=".75" stop-color="#c23de6"/><stop offset="1" stop-color="#60157a"/></radialGradient></defs>
+ <g fill="none" stroke="url(#g)" stroke-width="2" stroke-linejoin="round"><path d="M3 75C24 25 65 59 89 46S120 16 160 13S222 55 242 46S291 23 317 75"/><path d="M4 83C30 41 77 68 102 48S139 3 160 4S204 43 228 48S287 39 316 83" opacity=".6"/><path d="M55 67Q85 32 111 46Q82 46 76 77M265 67Q235 32 209 46Q238 46 244 77"/><path d="M125 43L160 10L195 43L160 69Z"/></g>
+ <path d="M160 2L181 43L160 81L139 43Z" fill="url(#cr)" stroke="#ffe5a4" stroke-width="2.4"/><path d="M160 3L160 81M139 43L181 43M160 3L139 43M160 3L181 43" fill="none" stroke="#ffe3ff" stroke-width="1" opacity=".6"/>
+ <path d="M160 0L164 17L177 22L164 27L160 42L156 27L143 22L156 17Z" fill="#fff4ef" opacity=".7"/>
+</svg>
