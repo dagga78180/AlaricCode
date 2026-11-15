@@ -25,9 +25,9 @@ test('V10.1 : navigation des deux groupes et trois rayons conservée', () => {
   }
 });
 
-test('V10.1 : barre compacte responsive et police unifiée', () => {
+test('V10.2 : barre compacte responsive et police lisible', () => {
   const css=read('boutique.css');
   assert.match(css, /\.catalogue-controls\{[\s\S]*?grid-template-columns:minmax\(200px,1fr\)/);
-  assert.match(css, /font-family:Georgia,"Times New Roman",serif/);
+  assert.match(css, /font-family:"Segoe UI",Tahoma,Arial,sans-serif/);
   assert.match(css, /\.item-row__head\{[^}]*padding:18px 13px/);
 });

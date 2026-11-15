@@ -9,7 +9,7 @@
 
 
 
-<link href="boutique.css?v=v10-1" rel="stylesheet"/></head>
+<link href="boutique.css?v=v10-2" rel="stylesheet"/></head>
 <body>
 <header aria-label="L'Écrin des Merveilles, boutique d'Alaric" class="hero"><div class="hero__content"><div class="hero__brand"><span class="hero__star">✧</span><h1>Alaric</h1><p>BOUTIQUE ENCHANTÉE</p></div><div class="hero__utilities"><span>L’Écrin des Merveilles</span><button class="button button--ghost" id="open-cart-mobile" type="button">🛒 Panier</button></div></div></header>
 <nav aria-label="Boutiques et administration" class="alaric-group-switch">
@@ -44,7 +44,7 @@
 <div class="catalogue-controls" aria-label="Recherche et tri du catalogue">
   <label class="field field--search"><span>Rechercher un objet</span><input autocomplete="off" id="search" placeholder="Nom, effet, catégorie…" type="search"/></label>
   <label class="field field--price-mode"><span>Afficher les prix</span><select aria-label="Mode d’affichage des prix" id="price-mode"><option value="normal">Normal (PO · PA · PC)</option><option value="pa">Tout en PA</option><option value="pc">Tout en PC</option></select></label>
-  <label class="field field--sort"><span>Trier par</span><select id="sort-filter"><option value="alaric-first">Sélection d’Alaric d’abord</option><option value="category-asc">Catégorie</option><option value="name-asc">Nom A → Z</option><option value="price-asc">Prix croissant</option><option value="price-desc">Prix décroissant</option><option value="rarity-asc">Rareté faible → élevée</option><option value="rarity-desc">Rareté élevée → faible</option></select></label>
+  <label class="field field--sort"><span>Trier par</span><select id="sort-filter"><option value="alaric-first">Alaric d’abord (par rayon)</option><option value="category-asc">Catégorie</option><option value="name-asc">Nom A → Z</option><option value="price-asc">Prix croissant (par rayon)</option><option value="price-desc">Prix décroissant (par rayon)</option><option value="rarity-asc">Rareté faible → élevée</option><option value="rarity-desc">Rareté élevée → faible</option></select></label>
 </div>
 <div class="secret-gate" hidden="" id="secret-gate"><span class="secret-gate__icon">✦</span><h3>Le cabinet secret d’Alaric</h3><p>Un mot de passe est nécessaire pour accéder à ce rayon.</p><form class="secret-gate__form" id="secret-form"><label for="secret-password">Mot de passe</label><div class="secret-gate__row"><input autocomplete="off" id="secret-password" placeholder="Saisis le mot de passe du MJ" required="" type="password"/><button class="button button--primary" type="submit">Déverrouiller</button></div></form><p id="secret-message" role="status"></p></div><div aria-live="polite" class="items-list" id="items-grid"></div>
 </section></div><aside aria-label="Panier" class="cart-panel" id="cart-panel">
@@ -90,7 +90,7 @@
 <script src="js/core.js"></script>
 <script src="js/pricing.js?v=coeff-20261115v7"></script>
 <script src="js/checkout-free.js?v=rp-20261115"></script>
-<script src="js/app.js?v=v10-premium"></script>
+<script src="js/app.js?v=v10-2"></script>
 
 </body>
 </html>

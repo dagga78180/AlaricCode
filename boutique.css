@@ -1,6 +1,6 @@
-/* ALARIC V10.1 — Navigation, recherche et cartes affinées. */
+/* ALARIC V10.2 — Police lisible, tri permanent par rayon, cartes et panier compacts. */
 /* ALARIC — thème joueur unique (aucune cascade héritée), novembre 2026 */
-:root{--ink:#3d2142;--paper:#f6e4cb;--paper-light:#fff3e2;--paper-deep:#e6c29d;--aubergine:#321436;--aubergine-light:#512952;--gold:#d99c51;--gold-light:#ffe0a3;--magic:#d54bea;--white:#fff6ec;--muted:#dcc8dd;--line:#bc895d;--danger:#e98d8d; font-family:Georgia,"Times New Roman",serif;color:var(--ink);font-size:14px}
+:root{--ink:#3d2142;--paper:#f6e4cb;--paper-light:#fff3e2;--paper-deep:#e6c29d;--aubergine:#321436;--aubergine-light:#512952;--gold:#d99c51;--gold-light:#ffe0a3;--magic:#d54bea;--white:#fff6ec;--muted:#dcc8dd;--line:#bc895d;--danger:#e98d8d; font-family:"Segoe UI",Tahoma,Arial,sans-serif;color:var(--ink);font-size:14px}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;min-height:100vh;background:linear-gradient(180deg,#210b2999 0%,#17021faa 35%,#17021de5 94%),url('assets/header-palais.webp') center top/cover fixed;color:var(--ink)}
@@ -14,12 +14,12 @@ h1,h2,h3,p{margin:0}
 .visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
 h1,h2,h3{font-family:inherit}
 .eyebrow{font-size:.68rem;letter-spacing:.17em;text-transform:uppercase;font-weight:800}
-.button,.icon-button,.chip{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;border:1px solid var(--gold);border-radius:7px;padding:.62rem .85rem;background:linear-gradient(#60315e,#361539);color:var(--gold-light);font-family:Georgia,serif;font-weight:bold;box-shadow:inset 0 1px #ffffff30,0 3px 9px #23082026}
+.button,.icon-button,.chip{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;border:1px solid var(--gold);border-radius:7px;padding:.62rem .85rem;background:linear-gradient(#60315e,#361539);color:var(--gold-light);font-family:"Segoe UI",Tahoma,Arial,sans-serif;font-weight:bold;box-shadow:inset 0 1px #ffffff30,0 3px 9px #23082026}
 .button:hover:not(:disabled),.icon-button:hover,.chip:hover{filter:brightness(1.12);border-color:#f8c986}
 .button--primary{background:linear-gradient(140deg,#ffe8b5,#dd9c4d 57%,#a96234);color:#381933;border-color:#ffe4a9;box-shadow:0 0 12px #de9b51ad,inset 0 1px #fff7cf}
 .button--ghost{background:linear-gradient(#673366,#38163d);color:#ffe5ab}
 .button--small{padding:.48rem .7rem;font-size:.84rem}
-.icon-button{font:22px Georgia;padding:.15rem .6rem;min-width:33px;min-height:33px}
+.icon-button{font:22px "Segoe UI",Tahoma,Arial,sans-serif;padding:.15rem .6rem;min-width:33px;min-height:33px}
 .chip{font-size:.8rem}
 .chip.is-active{background:#e7bd80;color:#4a1a40}
 /* La boutique entière reste visible derrière les différentes surfaces flottantes. */
@@ -27,10 +27,10 @@ h1,h2,h3{font-family:inherit}
 .hero:before{content:"";inset:0;position:absolute;pointer-events:none;background:linear-gradient(90deg,#1a051d63,transparent 38%,transparent 70%,#1a051d65)}
 .hero__content{width:min(1700px,97%);height:100%;margin:auto;position:relative;display:flex;justify-content:space-between;align-items:flex-start}
 .hero__brand{margin:22px 0 0 25px;text-align:center;color:#ffe6a9;text-shadow:0 2px 5px #200222,0 0 19px #c963c5}
-.hero__brand h1{font:italic clamp(3.1rem,4.8vw,5rem)/.96 Georgia,serif;letter-spacing:-.055em;color:#ffe7ad;text-shadow:0 1px #9f602d,0 0 15px #b246d0}
+.hero__brand h1{font:italic clamp(3.1rem,4.8vw,5rem)/.96 "Segoe UI",Tahoma,Arial,sans-serif;letter-spacing:-.055em;color:#ffe7ad;text-shadow:0 1px #9f602d,0 0 15px #b246d0}
 .hero__star{display:block;font-size:27px;color:#ffe5a4;height:24px}
-.hero__brand p{margin-top:8px;font:700 .69rem Georgia,serif;letter-spacing:.35em}
-.hero__utilities{display:flex;align-items:center;gap:15px;margin-top:24px;color:#ffe7c2;font:700 .84rem Georgia,serif}
+.hero__brand p{margin-top:8px;font:700 .69rem "Segoe UI",Tahoma,Arial,sans-serif;letter-spacing:.35em}
+.hero__utilities{display:flex;align-items:center;gap:15px;margin-top:24px;color:#ffe7c2;font:700 .84rem "Segoe UI",Tahoma,Arial,sans-serif}
 .hero__utilities .button{font-size:.86rem}
 /* Navigation en deux rubans d'orfèvrerie, style maquette, sans CSS empilé. */
 .alaric-group-switch{
@@ -84,7 +84,7 @@ h1,h2,h3{font-family:inherit}
 .filters-sidebar__head{display:flex;align-items:center;gap:7px;padding-bottom:12px;border-bottom:1px solid #d5a87f}
 .filters-sidebar__head h2{font-size:1.66rem}
 .filters-sidebar__sigil{color:#b76272;font-size:23px}
-.filters-sidebar__summary{font:italic .88rem/1.5 Georgia,serif;color:#926a7b;margin:14px 0 17px}
+.filters-sidebar__summary{font:italic .88rem/1.5 "Segoe UI",Tahoma,Arial,sans-serif;color:#926a7b;margin:14px 0 17px}
 .filters-sidebar .button{width:100%;font-size:.87rem}
 .filters-sidebar__magic{position:absolute;bottom:12px;right:14px;color:#c59e87}
 .advanced-filters{padding-top:13px}
@@ -119,7 +119,7 @@ h1,h2,h3{font-family:inherit}
 .item-icon{flex:0 0 42px;height:42px;width:42px;border:1px solid #f4be6d;border-radius:7px;background:#130719;display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 0 9px #bb63d0a0,inset 0 0 4px #edb67e90}
 .item-icon img{display:block;width:100%;height:100%;object-fit:contain}
 .item-row__heading{min-width:0;flex:1}
-.item-row__heading h3{font:700 .9rem/1.18 Georgia,serif;color:#fff3db;overflow-wrap:anywhere;max-height:3.55em;overflow:hidden;text-shadow:0 1px 3px #10000a}
+.item-row__heading h3{font:700 .9rem/1.18 "Segoe UI",Tahoma,Arial,sans-serif;color:#fff3db;overflow-wrap:anywhere;max-height:3.55em;overflow:hidden;text-shadow:0 1px 3px #10000a}
 .item-row__badges{margin-top:6px;display:flex;gap:3px;flex-wrap:wrap}
 .rarity-badge,.selection-badge,.qty-badge{display:inline-block;border:1px solid #a789aa;border-radius:20px;padding:1px 5px;font-size:.62rem;line-height:1.4;background:#4b3156;color:#fff;white-space:nowrap}
 .selection-badge{background:#684331;border-color:#d5a26b;color:#ffe3a9}
@@ -127,7 +127,7 @@ h1,h2,h3{font-family:inherit}
 .rarity-badge--rare{color:#b2e5ff;border-color:#76b9ff}
 .rarity-badge--epique{color:#fac5ff;border-color:#e86bf9}
 .rarity-badge--legendaire{color:#ffe29c;border-color:#f5b755}
-.favorite-button{border:none;background:transparent;color:#e9d3df;font:22px Georgia,serif;padding:0 1px;line-height:1}
+.favorite-button{border:none;background:transparent;color:#e9d3df;font:22px "Segoe UI",Tahoma,Arial,sans-serif;padding:0 1px;line-height:1}
 .favorite-button.is-favorite{color:#f6b951}
 .item-row__main{padding:5px 13px 14px;flex:1;min-height:88px}
 .item-row__stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin:0 0 8px}
@@ -140,18 +140,18 @@ h1,h2,h3{font-family:inherit}
 .item-row__effect dt{font-size:.57rem;color:#e4b98d;font-weight:bold;text-transform:uppercase}
 .item-row__effect dd{font-size:.81rem;font-weight:600;line-height:1.3;margin:4px 0 0}
 .item-details{border-top:1px solid #a56c9a60;margin-top:7px;padding-top:8px}
-.item-details summary{cursor:pointer;color:#f7d49c;font:bold .77rem Georgia,serif;list-style:none}
+.item-details summary{cursor:pointer;color:#f7d49c;font:bold .77rem "Segoe UI",Tahoma,Arial,sans-serif;list-style:none}
 .item-details summary:before{content:"▸ ";color:#f5cb78}
 .item-details[open] summary:before{content:"▾ "}
 .item-details__content{margin-top:7px;padding:7px;border-radius:4px;background:#220a2d;color:#fcebd9}
 .item-description{font-size:.81rem;line-height:1.5;white-space:pre-line}
-.item-row__actions{padding:11px 12px 15px;display:flex;align-items:end;justify-content:space-between;gap:5px;background:linear-gradient(#fff2dfed,#e9c39eeb),url('assets/parchemin-texture.webp') center/270px repeat;border-top:2px solid #debb8f;color:#562a49;min-height:57px}
-.item-row__buy-meta{display:grid;gap:5px;min-width:0}
-.price{font:700 .99rem Georgia,serif;color:#662746;overflow-wrap:anywhere}
-.stock-badge{display:inline-block;border:1px solid #aa7e5a;background:#f8e7cd;color:#68465c;border-radius:16px;padding:1px 5px;font-size:.68rem;white-space:nowrap;max-width:max-content}
+.item-row__actions{padding:10px 12px 18px;display:flex;align-items:center;justify-content:space-between;gap:5px;background:linear-gradient(#fff2dfed,#e9c39eeb),url('assets/parchemin-texture.webp') center/270px repeat;border-top:2px solid #debb8f;color:#562a49;min-height:57px}
+.item-row__buy-meta{display:grid;gap:3px;min-width:0;align-content:start;align-self:start}
+.price{font:700 .99rem "Segoe UI",Tahoma,Arial,sans-serif;color:#662746;overflow-wrap:anywhere}
+.stock-badge{display:inline-block;border:1px solid #aa7e5a;background:#f8e7cd;color:#68465c;border-radius:16px;padding:3px 8px;font-size:.74rem;white-space:nowrap;max-width:max-content;line-height:1.2}
 .stock-badge--low{color:#7c4735;border-color:#ad7c41}
 .stock-badge--empty{color:#9d4854}
-.item-row__actions .button{padding:7px 8px;font-size:.82rem;flex-shrink:0;box-shadow:0 2px 7px #37113d3f,inset 0 1px #ffffff30}
+.item-row__actions .button{padding:10px 13px;min-width:87px;min-height:42px;font-size:.9rem;flex-shrink:0;box-shadow:0 2px 7px #37113d3f,inset 0 1px #ffffff30}
 .item-row--sold-out{opacity:.7}
 .empty-card{grid-column:1/-1;background:#fff1df;border:1px dashed #bb8759;border-radius:12px;padding:30px 12px;text-align:center;color:#5d304e}
 .empty-card strong,.empty-card span{display:block;margin-bottom:7px}
@@ -160,7 +160,7 @@ h1,h2,h3{font-family:inherit}
 .cart-panel:before{content:'';display:block;width:100%;height:55px;margin-top:-33px;background:url('assets/ornate-cart-crest.svg') center/260px 75px no-repeat;position:relative;z-index:1;pointer-events:none;filter:drop-shadow(0 0 4px #df83eb)}
 .cart-panel__inner{padding:2px 15px 20px}
 .cart-panel__header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #c58b5b;padding-bottom:10px;margin-bottom:11px}
-.cart-panel__header h2{font:700 1.75rem Georgia,serif;color:#ffe6ad;text-shadow:0 0 10px #a6589c}
+.cart-panel__header h2{font:700 1.75rem "Segoe UI",Tahoma,Arial,sans-serif;color:#ffe6ad;text-shadow:0 0 10px #a6589c}
 .cart-panel__header .eyebrow{color:#d6aacc}
 .cart-panel .icon-button{display:none}
 .cart-empty{padding:16px 0;color:#dcc5d9}
@@ -172,12 +172,12 @@ h1,h2,h3{font-family:inherit}
 .cart-item__controls{display:flex;align-items:center;gap:6px;margin-top:5px}
 .cart-item button{padding:2px 7px;font-size:.78rem}
 .cart-item__price{font-size:.8rem;color:#ffd18a}
-.cart-total{border-top:1px solid #c09b70;margin-top:16px;padding:15px 0 11px;display:flex;justify-content:space-between;align-items:center;font:bold 1.2rem Georgia,serif;color:#ffe5a6}
+.cart-total{border-top:1px solid #c09b70;margin-top:16px;padding:15px 0 11px;display:flex;justify-content:space-between;align-items:center;font:bold 1.2rem "Segoe UI",Tahoma,Arial,sans-serif;color:#ffe5a6}
 .cart-actions{display:grid;gap:9px}
 .cart-actions button{width:100%}
 .cart-help{font-size:.75rem;line-height:1.5;color:#f0d4df;margin-top:13px}
 .cart-panel__inner>.button{margin-top:10px}
-.footer{width:100%;margin:12px auto 0;min-height:188px;text-align:center;padding:145px 12px 22px;color:#ffe7ba;background:linear-gradient(180deg,#1b072393,#18051d1a 40%,#11021aca),url('assets/sol-arcane.webp') center 53%/cover;box-shadow:inset 0 28px 27px #1a061fbb;font:italic .92rem Georgia,serif}
+.footer{width:100%;margin:12px auto 0;min-height:188px;text-align:center;padding:145px 12px 22px;color:#ffe7ba;background:linear-gradient(180deg,#1b072393,#18051d1a 40%,#11021aca),url('assets/sol-arcane.webp') center 53%/cover;box-shadow:inset 0 28px 27px #1a061fbb;font:italic .92rem "Segoe UI",Tahoma,Arial,sans-serif}
 /* Étapes de confirmation Roll20 inchangées */
 .checkout-overlay{position:fixed;z-index:1000;inset:0;display:grid;place-items:center;padding:20px;background:#120618dc;overflow-y:auto}
 .checkout-dialog{width:min(660px,100%);max-height:90vh;overflow:auto;background:linear-gradient(#fff3de,#eed1b4);color:#492c42;border:4px double #c88f57;border-radius:16px;box-shadow:0 0 40px #cc58c980;padding:20px}
@@ -226,7 +226,7 @@ h1,h2,h3{font-family:inherit}
   .items-list{gap:12px}
   .item-row__head{padding:20px 10px 10px;gap:7px}
   .item-row__main{padding:4px 10px 12px}
-  .item-row__actions{padding:11px 9px 15px}
+  .item-row__actions{padding:10px 9px 18px}
   .item-icon{flex-basis:39px;width:39px;height:39px}
   .item-row__heading h3{font-size:.86rem}
   .price{font-size:.9rem}
@@ -277,7 +277,7 @@ h1,h2,h3{font-family:inherit}
   .item-row{min-height:235px}
   .item-row__head{padding:19px 13px 10px}
   .item-row__main{padding:5px 13px 13px;min-height:93px}
-  .item-row__actions{padding:11px 12px 15px}
+  .item-row__actions{padding:10px 12px 18px}
   .item-row__heading h3{font-size:1rem}
   .cart-panel{width:98%}
   .landing .hero{height:240px}
@@ -292,14 +292,16 @@ h1,h2,h3{font-family:inherit}
 .item-stat dt{font-size:.58rem;color:#e4b98d;text-transform:uppercase;font-weight:bold;text-align:center}
 .item-stat dd{margin:3px 0 0;font-weight:750;font-size:.83rem;text-align:center;color:#fff8f0;overflow-wrap:anywhere}
 .item-row__stats--full .item-stat dd{line-height:1.32}
-.cart-line{display:grid;gap:4px;padding:10px 0;border-bottom:1px solid #a075814f;color:#fff3e7}
-.cart-line>div:first-child{display:grid;gap:3px}
-.cart-line>div:first-child strong{font-size:.88rem}
-.cart-line>div:first-child span{font-size:.73rem;color:#dec5dc}
-.cart-line__controls{display:flex;align-items:center;gap:5px}
-.cart-line__controls .icon-button{display:inline-flex;border:1px solid #ad835f;background:#4c2352;color:#ffdfab;font-size:1rem;width:27px;height:27px;min-width:27px;min-height:27px;padding:0}
-.cart-line__controls>span{display:inline-block;min-width:22px;text-align:center}
-.cart-line>strong{justify-self:end;color:#ffd99d;font-family:Georgia,serif;font-size:.97rem}
+.cart-line{display:grid;gap:6px;padding:12px 0;border-bottom:1px solid #a075814f;color:#fff3e7;min-width:0}
+.cart-line__top{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:5px;min-width:0}
+.cart-line__name{min-width:0;overflow-wrap:anywhere;font-size:.81rem;line-height:1.25;font-weight:700;color:#fff3e7}
+.cart-line__controls{display:flex;align-items:center;justify-content:flex-end;gap:3px;white-space:nowrap}
+.cart-line__qty{font-size:.72rem;font-weight:700;color:#ffe1a2;white-space:nowrap;margin-right:2px}
+.cart-line__controls .icon-button{display:inline-flex;border:1px solid #bc946c;background:#4c2352;color:#ffdfab;font-size:1rem;width:24px;height:26px;min-width:24px;min-height:26px;padding:0;line-height:1}
+.cart-line__controls .icon-button:disabled{opacity:.42}
+.cart-line__controls .cart-line__delete{color:#ffe5e0;border-color:#a5767e}
+.cart-line__price{display:flex;flex-wrap:wrap;gap:5px;align-items:baseline;font-size:.77rem;line-height:1.35;color:#e8d3da;font-variant-numeric:tabular-nums}
+.cart-line__price strong{font-size:.88rem;color:#ffdc91;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
 .checkout-body textarea{width:100%;min-height:100px}
 .checkout-success{font-weight:800;color:#24673b;padding:10px}
 .checkout-instructions{background:#f8e4cd;border:1px solid #c79f7b;border-radius:7px;padding:10px;margin:10px 0}
@@ -318,3 +320,6 @@ h1,h2,h3{font-family:inherit}
 .cart-panel::after{content:'✦';position:absolute;bottom:-15px;left:calc(50% - 13px);width:26px;height:26px;color:#ffdfaa;font-size:24px;text-align:center;text-shadow:0 0 11px #f9b1ff;pointer-events:none}
 .cart-actions .button--primary{font-size:1.01rem;padding:12px 8px;border-radius:24px;box-shadow:0 0 15px #e0a25399,inset 0 2px #fff5cd}
 /* Les accessoires n'affichent pas d'emplacement : cela relève des données JS existantes. */
+
+/* Chiffres nets et alignés, y compris en monnaies mixtes et DM. */
+.price,.stock-badge,.item-row__stat dd,.item-stat dd,.cart-total,.cart-line__qty,.cart-line__price{font-variant-numeric:tabular-nums lining-nums}

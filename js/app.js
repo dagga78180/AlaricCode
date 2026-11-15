@@ -44,17 +44,15 @@ const RARITY_THEME_CLASS = {
   "Objet Divin": "objet-divin"
 };
 
-const CATEGORY_ORDER = {
-  "armes": 1,
-  "armure / bouclier": 2,
-  "armures": 2,
-  "accessoire": 3,
-  "accessoires": 3,
-  "objet consommable": 4,
-  "potions": 4,
-  "objet": 5,
-  "objets": 5
-};
+// Ordre immuable des rayons, quelle que soit l'option de tri secondaire.
+const CATEGORY_ORDER = Object.freeze({
+  "arme": 1, "armes": 1,
+  "armure": 2, "armures": 2, "armure / bouclier": 2,
+  "accessoire": 3, "accessoires": 3,
+  "consommable": 4, "objet consommable": 4, "potions": 4,
+  "munition": 5, "munitions": 5,
+  "materiel": 6, "matériel": 6, "divers": 6, "objet": 6, "objets": 6
+});
 
 const SUBCATEGORY_ORDER = {
   "armes": {
@@ -634,6 +632,31 @@ function categoryRank(category) {
   return CATEGORY_ORDER[rankKey(category)] ?? 999;
 }
 
+// Le rayon reste prioritaire : Armes > Armures > Accessoires > Consommables > Munitions > Matériel.
+// Les autres options (prix, rareté, Alaric) ne trient qu'à l'intérieur d'un rayon.
+function compareCatalogueItems(a, b, mode) {
+  const byCategory = categoryRank(a.category) - categoryRank(b.category);
+  if (byCategory) return byCategory;
+  const byCategoryName = textCompare(a.category, b.category);
+  if (mode === "alaric-first") {
+    return Number(b.source === "alaric") - Number(a.source === "alaric")
+      || subcategoryRank(a.category, a.subcategory) - subcategoryRank(b.category, b.subcategory)
+      || rarityRank(a.rarity) - rarityRank(b.rarity)
+      || textCompare(a.name, b.name);
+  }
+  if (mode === "price-asc") return a.price - b.price || textCompare(a.name, b.name);
+  if (mode === "price-desc") return b.price - a.price || textCompare(a.name, b.name);
+  if (mode === "rarity-asc") return rarityRank(a.rarity) - rarityRank(b.rarity) || textCompare(a.name, b.name);
+  if (mode === "rarity-desc") return rarityRank(b.rarity) - rarityRank(a.rarity) || textCompare(a.name, b.name);
+  if (mode === "category-asc") {
+    return subcategoryRank(a.category, a.subcategory) - subcategoryRank(b.category, b.subcategory)
+      || textCompare(a.subcategory, b.subcategory)
+      || rarityRank(a.rarity) - rarityRank(b.rarity)
+      || textCompare(a.name, b.name);
+  }
+  return byCategoryName || textCompare(a.name, b.name);
+}
+
 function subcategoryRank(category, subcategory) {
   const categoryKey = rankKey(category);
   const subcategoryKey = rankKey(subcategory);
@@ -719,29 +742,7 @@ function filteredItems() {
     ].some(value => normalize(value).includes(query)));
   }
 
-  items.sort((a, b) => {
-    if (state.sort === "alaric-first") {
-      return Number(b.source === "alaric") - Number(a.source === "alaric")
-        || categoryRank(a.category) - categoryRank(b.category)
-        || textCompare(a.category, b.category)
-        || subcategoryRank(a.category, a.subcategory) - subcategoryRank(b.category, b.subcategory)
-        || rarityRank(a.rarity) - rarityRank(b.rarity)
-        || textCompare(a.name, b.name);
-    }
-    if (state.sort === "price-asc") return a.price - b.price || textCompare(a.name, b.name);
-    if (state.sort === "price-desc") return b.price - a.price || textCompare(a.name, b.name);
-    if (state.sort === "rarity-asc") return rarityRank(a.rarity) - rarityRank(b.rarity) || textCompare(a.name, b.name);
-    if (state.sort === "rarity-desc") return rarityRank(b.rarity) - rarityRank(a.rarity) || textCompare(a.name, b.name);
-    if (state.sort === "category-asc") {
-      return categoryRank(a.category) - categoryRank(b.category)
-        || textCompare(a.category, b.category)
-        || subcategoryRank(a.category, a.subcategory) - subcategoryRank(b.category, b.subcategory)
-        || textCompare(a.subcategory, b.subcategory)
-        || rarityRank(a.rarity) - rarityRank(b.rarity)
-        || textCompare(a.name, b.name);
-    }
-    return textCompare(a.name, b.name);
-  });
+  items.sort((a, b) => compareCatalogueItems(a, b, state.sort));
 
   return items;
 }
@@ -754,11 +755,10 @@ function iconMarkup(item) {
 }
 
 function stockBadge(item) {
-  if (!hasFiniteStock(item)) return `<span class="stock-badge stock-badge--unlimited" title="Stock illimité">Stock : ∞</span>`;
-  if (item.stock === 0) return `<span class="stock-badge stock-badge--empty">Stock : 0 · Épuisé</span>`;
-  if (item.stock === 1) return `<span class="stock-badge stock-badge--low">Stock : 1 · Dernier</span>`;
-  if (item.stock <= 3) return `<span class="stock-badge stock-badge--low">Stock : ${item.stock}</span>`;
-  return `<span class="stock-badge">Stock : ${item.stock}</span>`;
+  if (!hasFiniteStock(item)) return `<span class="stock-badge stock-badge--unlimited" title="Stock illimité">S = ∞</span>`;
+  if (item.stock === 0) return `<span class="stock-badge stock-badge--empty" title="Épuisé">S = 0</span>`;
+  if (item.stock <= 3) return `<span class="stock-badge stock-badge--low" title="${item.stock} exemplaire(s) disponible(s)">S = ${item.stock}</span>`;
+  return `<span class="stock-badge" title="${item.stock} exemplaire(s) disponible(s)">S = ${item.stock}</span>`;
 }
 
 // Présentation des cartes : les formules proviennent des champs techniques du catalogue V2.
@@ -960,17 +960,16 @@ function renderCart() {
     const atStockLimit = hasFiniteStock(item) && qty >= item.stock;
     return `
       <div class="cart-line">
-        <div>
-          <strong>${escapeHTML(cardName(item))}</strong>
-          <span>${formatPrice(item.price)} / unité${hasFiniteStock(item) ? ` · stock ${item.stock}` : ""}</span>
+        <div class="cart-line__top">
+          <strong class="cart-line__name">${escapeHTML(cardName(item))}</strong>
+          <div class="cart-line__controls" aria-label="Quantité : ${qty}">
+            <span class="cart-line__qty">Qté ${qty}</span>
+            <button class="icon-button" type="button" data-remove="${escapeHTML(item.id)}" aria-label="Retirer un exemplaire de ${escapeHTML(cardName(item))}">−</button>
+            <button class="icon-button" type="button" data-add="${escapeHTML(item.id)}" aria-label="Ajouter un exemplaire de ${escapeHTML(cardName(item))}" ${atStockLimit ? "disabled" : ""}>+</button>
+            <button class="icon-button cart-line__delete" type="button" data-delete="${escapeHTML(item.id)}" aria-label="Supprimer ${escapeHTML(cardName(item))} du panier" title="Supprimer la ligne">×</button>
+          </div>
         </div>
-        <div class="cart-line__controls">
-          <button class="icon-button" type="button" data-remove="${escapeHTML(item.id)}" aria-label="Retirer un exemplaire">−</button>
-          <span>${qty}</span>
-          <button class="icon-button" type="button" data-add="${escapeHTML(item.id)}" aria-label="Ajouter un exemplaire" ${atStockLimit ? "disabled" : ""}>+</button>
-          <button class="icon-button" type="button" data-delete="${escapeHTML(item.id)}" aria-label="Supprimer cet objet du panier" title="Retirer l’objet">×</button>
-        </div>
-        <strong>${formatPrice(total)}</strong>
+        <div class="cart-line__price"><span>Prix :</span> <strong>${formatPrice(total)}</strong></div>
       </div>`;
   }).join("");
 
