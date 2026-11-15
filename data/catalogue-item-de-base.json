@@ -509,7 +509,7 @@
     "subcategory": "Boucliers",
     "name": "Grand bouclier",
     "rarity": "Commun",
-    "description": "Bouclier. Bonus de DEF. Données catalogue : +2 — Aucun malus d’armure indiqué ; DEX max —.",
+    "description": "Un large bouclier de bois cerclé de métal couvre le flanc et une partie du torse du porteur.",
     "price": 4.0,
     "iconKey": "Grand_bouclier",
     "cofSpec": {
@@ -517,7 +517,7 @@
       "price": "4 pa",
       "rarity": "Commun"
     },
-    "armorMod": "DEF +2",
+    "armorMod": "DEF +2 ; MALUS −2",
     "pricePC": 400,
     "origin": "Base"
   },
@@ -527,7 +527,7 @@
     "subcategory": "Boucliers",
     "name": "Petit bouclier",
     "rarity": "Commun",
-    "description": "Bouclier. Bonus de DEF. Données catalogue : +1 — Aucun malus d’armure indiqué ; DEX max —.",
+    "description": "Un bouclier rond et léger, renforcé sur son bord, se manie près du bras grâce à une poignée centrale.",
     "price": 2.0,
     "iconKey": "Petit_bouclier",
     "cofSpec": {
@@ -535,7 +535,7 @@
       "price": "2 pa",
       "rarity": "Commun"
     },
-    "armorMod": "DEF +1",
+    "armorMod": "DEF +1 ; MALUS −1",
     "pricePC": 200,
     "origin": "Base"
   },

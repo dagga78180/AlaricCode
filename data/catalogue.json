@@ -170,7 +170,7 @@
     "rarity": "Inhabituel",
     "description": "DEF +3. La protection renforcée augmente de +1 la DEF fournie par le bouclier.",
     "price": 1610.0,
-    "armorMod": "DEF +3",
+    "armorMod": "DEF +3 ; MALUS −2",
     "cofSpec": {
       "base": "B028",
       "affixes": [

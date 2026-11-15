@@ -11,7 +11,8 @@ test('les deux boucliers ont un malus source explicite', () => {
     const shield = base.find(x=>x.id===id);
     assert.ok(shield, id);
     assert.equal(shield.category,'armure');
-    assert.equal(shield.armorMalus,0);
+    assert.equal(shield.armorMalus, id==='BCL-01' ? 1 : 2);
+    assert.equal(shield.playerMalus, id==='BCL-01' ? '−1' : '−2');
   }
 });
 
