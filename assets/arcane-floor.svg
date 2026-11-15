@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="450" viewBox="0 0 1100 450">
+ <defs>
+  <radialGradient id="v"><stop stop-color="#e968ff" stop-opacity=".27"/><stop offset=".65" stop-color="#d24bea" stop-opacity=".1"/><stop offset="1" stop-color="#d24bea" stop-opacity="0"/></radialGradient>
+  <linearGradient id="g"><stop stop-color="#a54ddc"/><stop offset=".35" stop-color="#ffb65b"/><stop offset=".65" stop-color="#ffe1a0"/><stop offset="1" stop-color="#bd4ae4"/></linearGradient>
+  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="5" result="a"/><feMerge><feMergeNode in="a"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ </defs>
+ <ellipse cx="550" cy="249" rx="540" ry="220" fill="url(#v)"/>
+ <g transform="translate(550 245) scale(1 .34)" fill="none" stroke="url(#g)" stroke-width="3" filter="url(#glow)" opacity=".86">
+  <circle r="320"/><circle r="303"/><circle r="269"/><circle r="241"/><circle r="213"/><circle r="177"/><circle r="132"/>
+  <path d="M0 -306 258 149 -258 149Z M0 306 258 -149 -258 -149Z"/>
+  <rect x="-187" y="-187" width="374" height="374" transform="rotate(45)"/>
+  <path d="M-322 0H322M0 -322V322M-228 -228L228 228M228 -228L-228 228" stroke-width="1.7"/>
+  <path d="M0 -275 65 -64 275 0 65 64 0 275 -65 64 -275 0 -65 -64Z"/>
+  <circle r="20" stroke-width="5"/>
+ </g>
+ <g fill="#ffe5aa" font-family="Georgia" font-size="22" opacity=".89" text-anchor="middle">
+  <text x="550" y="112">✦</text><text x="550" y="399">✧</text>
+  <text x="168" y="249">✧</text><text x="932" y="249">✦</text>
+  <text x="290" y="140">✦</text><text x="810" y="140">✦</text>
+  <text x="285" y="345">✧</text><text x="815" y="345">✧</text>
+ </g>
+</svg>

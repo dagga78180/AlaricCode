@@ -1,35 +1,9 @@
-ALARICCODE V6.1 — CORRECTIFS BOUCLIERS + DIAGNOSTIC FIREBASE
-===========================================================
+ALARICCODE V8.1 — REFONTE VISUELLE PLUS FIDÈLE
 
-Si le livre des prix affiche « Missing or insufficient permissions »,
-lis GUIDE_CORRECTION_FIREBASE.md avant de tenter un achat.
-Les boucliers affichent le MALUS 0 présent dans le catalogue source.
-Aucun déploiement des règles Firestore n’a été effectué automatiquement.
+Cette archive contient l'ensemble du site. Le nouveau look suit la direction
+Grimoire élégant + Atelier alchimique : violet profond, or, parchemin et magie.
 
-ALARICCODE V6 — NOUVEAU CATALOGUE RP / PRIX VALIDÉS
-==================================================
+Voir INSTALLATION_V8_1.md pour la mise en place.
 
-1. Lire INSTALLATION_V6.md avant de mettre le site en ligne.
-2. Sauvegarder le site actuel et les données/règles Firestore.
-3. Remplacer les fichiers du site par le contenu du dossier AlaricCode,
-   sans effacer ni réinitialiser les stocks Firestore existants.
-4. Vérifier que le fichier config.js pointe vers ton projet Firebase habituel.
-5. Ne JAMAIS déployer firestore.rules avec l'UID MJ d'exemple.
-   Conserver tes règles effectives et TON UID MJ réel.
-6. Ouvrir mj.html avec ton compte MJ et actualiser les prix des deux groupes.
-7. Vérifier les prix personnalisés déjà enregistrés et les créations MJ.
-8. Tester un achat de faible valeur dans chaque groupe avant de rouvrir.
-
-NOUVEAU : noms, descriptions RP, effets et prix issus du classeur transmis.
-Affichage prix : Normal (PO/PA/PC), tout en PA, tout en PC.
-Plus d'encadré Emplacement sur les accessoires.
-
-LES STOCKS : les 63 références de départ restent la sélection en vente.
-Les autres fiches servent de référentiel à l'atelier MJ ; elles ne sont
-pas automatiquement ajoutées à la boutique.
-
-ROLL20 : seule une commande texte est générée. Le joueur la copie dans
-Discord à l'attention du MJ ; Alaric ne lance aucune commande Roll20.
-
-COÛT : aucun npm ni Cloud Function, Spark gratuit dans ses limites.
-Les tests sont locaux avec Firebase simulé, PAS sur ton projet réel.
+À savoir : aucun changement de données ou de code Firebase/Roll20.
+Les filtres restent repliables et la grille joueur garde 4/2/1 cartes.

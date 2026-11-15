@@ -1,0 +1,64 @@
+﻿Référence;Nom V7;Prix V6.2 (PC);Prix V7 (PC);Écart (PC)
+cac-01;Bâton de combat;100;100;0
+cac-02;Dague;150;150;0
+cac-03;Épée courte;300;300;0
+cac-04;Épée longue;800;800;0
+cac-05;Épée à deux mains;1000;1000;0
+cac-06;Hache à une main;250;250;0
+cac-07;Hache à deux mains;800;800;0
+cac-08;Masse d'armes;200;200;0
+cac-09;Marteau de guerre;250;250;0
+cac-10;Marteau de guerre à deux mains;800;800;0
+cac-11;Rapière;500;500;0
+cac-12;Vivelame;1500;1500;0
+cac-13;Lance;300;300;0
+cac-14;Hallebarde;900;900;0
+dst-01;Arc court;400;400;0
+dst-02;Arc long;600;600;0
+dst-03;Arbalète de poing;600;600;0
+dst-04;Arbalète légère;1000;1000;0
+dst-05;Arbalète lourde;1500;1500;0
+dst-07;Hachette de lancer;150;150;0
+dst-08;Javelot;150;150;0
+mag-01;Baguette de combat;1200;1200;0
+mag-02;Sceptre de projection;1500;1500;0
+mag-03;Bâton arcanique;2000;2000;0
+mag-04;Orbe de guerre;1500;1500;0
+arm-01;Tissu matelassé;200;200;0
+arm-02;Armure de cuir;400;400;0
+arm-03;Cuir renforcé;800;800;0
+arm-04;Chemise de mailles;1500;1500;0
+arm-05;Cotte de mailles;2500;2500;0
+arm-06;Demi-plaque;4000;4000;0
+bcl-01;Petit bouclier;200;200;0
+bcl-02;Grand bouclier;400;400;0
+mun-01;Flèche;1;1;0
+mun-02;Plomb de fronde;1;1;0
+mun-03;Carreau d'arbalète;2;2;0
+mun-04;Balle d'arme à poudre;5;5;0
+div-01;Briquet à silex;50;50;0
+div-02;Carquois;200;200;0
+div-03;Corde (15 m);50;50;0
+div-04;Couverture;200;200;0
+div-05;Grappin;200;200;0
+div-06;Huile de lanterne;50;50;0
+div-07;Lanterne à huile;200;200;0
+div-08;Matériel d'écriture;400;400;0
+div-09;Outils de crochetage;600;600;0
+div-10;Sac à dos;200;200;0
+div-11;Torche;50;50;0
+div-12;Outre;50;50;0
+div-13;Sacoche à plombs;200;200;0
+div-14;Rations;400;400;0
+stock-con-01-co_soins_1;Potion de soins mineure;2500;2250;-250
+stock-con-02-co_mana_1;Potion de mana mineure;3000;2700;-300
+stock-con-03-co_elixir_cha_1;Élixir de charisme;3500;3500;0
+stock-con-03-co_elixir_con_1;Élixir de constitution;3500;3500;0
+stock-con-03-co_elixir_dex_1;Élixir de dextérité;3500;3500;0
+stock-con-03-co_elixir_for_1;Élixir de force;3500;3500;0
+stock-con-03-co_elixir_int_1;Élixir de intelligence;3500;3500;0
+stock-con-03-co_elixir_sag_1;Élixir de sagesse;3500;3500;0
+stock-con-08-co_gre_feu_1;Grenade de feu;6875;7563;688
+stock-con-07-co_poison_1;Poison mineur;2500;2500;0
+stock-con-15-co_stabilisation;Parchemin de stabilisation;20000;20000;0
+stock-con-10-co_def_3;Potion de défense;6600;6600;0

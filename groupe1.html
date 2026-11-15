@@ -1,123 +1,121 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>L’échoppe d’Alaric · Catalogue COF</title>
-  <meta name="description" content="Catalogue interactif pour l’inventaire du marchand Alaric, compatible Chroniques Oubliées Fantasy." />
-  <link rel="stylesheet" href="styles.css?v=rp-20261115" />
-</head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>L’échoppe d’Alaric · Catalogue COF</title>
+<meta content="Catalogue interactif pour l’inventaire du marchand Alaric, compatible Chroniques Oubliées Fantasy." name="description"/>
+<link href="styles.css?v=rp-20261115" rel="stylesheet"/>
+<link href="v8-enchantee.css?v=8.0" rel="stylesheet"/>
+<link href="v8-1-prestige.css?v=8.1.0" rel="stylesheet"/></head>
 <body>
-  <header class="hero" aria-label="L’échoppe Fantastique d’Alaric">
-    <div class="hero__content">
-      <div class="hero__panel">
-        <div class="hero__intro">
-          <p class="eyebrow">Chroniques Oubliées Fantasy · prix en PO / PA / PC</p>
-          <h1>L’échoppe d’Alaric</h1>
-          <p class="hero__text">Armes, protections, potions, parchemins et trouvailles exotiques pour aventuriers prudents.</p>
-        </div>
-        <div class="hero__actions">
-          <a class="button button--primary" href="#catalogue">Voir le catalogue</a>
-          <button class="button button--ghost" id="open-cart-mobile" type="button">Voir le panier</button>
-        </div>
-      </div>
-    </div>
-  </header>
+<header aria-label="L'Écrin des Merveilles, boutique d'Alaric" class="hero">
+<div class="hero__content">
+<div class="hero__panel">
+<div class="hero__intro">
+<p class="eyebrow hero__kicker">✦ L’ÉCRIN DES MERVEILLES ✦</p>
+<h1>Alaric</h1>
+<p class="hero__text">BOUTIQUE ENCHANTÉE</p>
+</div>
+<div class="hero__actions">
+<a class="button button--primary" href="#catalogue">Explorer le catalogue</a>
+<button class="button button--ghost" id="open-cart-mobile" type="button">Voir le panier</button>
+</div>
+</div>
+</div>
+</header>
+<nav aria-label="Boutiques et administration" class="alaric-group-switch">
+<a href="groupe1.html" id="link-g1">Groupe 1</a><a href="groupe2.html" id="link-g2">Groupe 2</a><a href="mj.html" title="Réservé au MJ">⚙ Gestion MJ</a>
+</nav>
+<div aria-label="Bienvenue dans la boutique d'Alaric" class="shop-ribbon shop-ribbon--fancy">
+<span aria-hidden="true" class="shop-ribbon__glyph">✧</span>
+<div>
+<h2>La Boutique d'Alaric</h2>
+<p>Équipements, consommables et objets enchantés pour vos aventures</p>
+</div>
+<span aria-hidden="true" class="shop-ribbon__glyph">✧</span>
+</div>
+<main class="layout" id="catalogue">
+<aside aria-label="Filtres du catalogue" class="filters-sidebar"><div class="filters-sidebar__head"><span aria-hidden="true" class="filters-sidebar__sigil">✧</span><h2>Filtres</h2></div><p class="filters-sidebar__summary">Équipement · Dégâts · Rareté · Prix</p><button aria-controls="advanced-filters" aria-expanded="false" class="button button--ghost filters-toggle" id="toggle-filters" type="button">☷ Ouvrir les filtres<span id="active-filter-count"></span></button><div class="advanced-filters" hidden="" id="advanced-filters">
+<div aria-label="Filtres avancés" class="toolbar">
+<label class="field"><span>Type d'équipement</span><select id="category-filter"><option value="all">Tous les équipements</option></select></label>
+<label class="field"><span>Type de dégâts</span><select id="damage-filter"><option value="all">Tous les types</option></select></label>
+<label class="field"><span>Rareté</span><select id="rarity-filter"><option value="all">Toutes les raretés</option></select></label>
+<div class="price-range"><label class="field"><span>Prix minimum (PA)</span><input id="price-min" inputmode="decimal" min="0" placeholder="Min" step="0.01" type="number"/></label>
+<label class="field"><span>Prix maximum (PA)</span><input id="price-max" inputmode="decimal" min="0" placeholder="Max" step="0.01" type="number"/></label></div>
+<label class="field"><span>Catalogue</span><select id="source-filter"><option value="all">Tout</option><option value="alaric">Sélection d’Alaric</option><option value="base">Catalogue de base</option></select></label>
+<label class="field"><span>Sous-catégorie</span><select id="subcategory-filter"><option value="all">Toutes</option></select></label>
+</div>
+<div class="filter-actions"><button aria-pressed="false" class="chip" id="favorites-only" type="button">☆ Favoris uniquement</button>
+<button class="button button--ghost button--small" id="reset-filters" type="button">Réinitialiser les filtres</button></div>
+</div><div aria-hidden="true" class="filters-sidebar__magic">✧</div></aside><section aria-labelledby="catalogue-title" class="catalogue">
+<div class="section-heading">
+<div>
+<p class="eyebrow" id="active-group-label">Catalogue marchand · Groupe 1</p>
+<h2 id="catalogue-title">Les étagères d’Alaric</h2>
+</div>
+<p class="result-count" id="result-count">Chargement du catalogue…</p>
+</div>
+<div class="catalogue-alerts" hidden="" id="catalogue-alerts" role="status"></div>
+<div aria-label="Recherche du catalogue" class="search-bar">
+<label class="field field--search">
+<span>Rechercher un objet</span>
+<input autocomplete="off" id="search" placeholder="Nom, effet, catégorie…" type="search"/>
+</label>
 
-  <nav class="alaric-group-switch" aria-label="Boutiques et administration">
-    <a href="groupe1.html" id="link-g1">Groupe 1</a><a href="groupe2.html" id="link-g2">Groupe 2</a><a href="mj.html" title="Réservé au MJ">⚙ Gestion MJ</a>
-  </nav>
-  <main class="layout" id="catalogue">
-    <section class="catalogue" aria-labelledby="catalogue-title">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow" id="active-group-label">Catalogue marchand · Groupe 1</p>
-          <h2 id="catalogue-title">Les étagères d’Alaric</h2>
-        </div>
-        <p id="result-count" class="result-count">Chargement du catalogue…</p>
-      </div>
+</div>
 
-      <div id="catalogue-alerts" class="catalogue-alerts" role="status" hidden></div>
-
-<div class="search-bar" aria-label="Recherche du catalogue">
-        <label class="field field--search">
-          <span>Rechercher un objet</span>
-          <input id="search" type="search" placeholder="Nom, effet, catégorie…" autocomplete="off" />
-        </label>
-        <button class="button button--ghost filters-toggle" id="toggle-filters" type="button" aria-controls="advanced-filters" aria-expanded="false">⚙ Filtres <span id="active-filter-count"></span></button>
-      </div>
-      <div id="advanced-filters" class="advanced-filters" hidden>
-        <div class="toolbar" aria-label="Filtres avancés">
-          <label class="field"><span>Type d'équipement</span><select id="category-filter"><option value="all">Tous les équipements</option></select></label>
-          <label class="field"><span>Type de dégâts</span><select id="damage-filter"><option value="all">Tous les types</option></select></label>
-          <label class="field"><span>Rareté</span><select id="rarity-filter"><option value="all">Toutes les raretés</option></select></label>
-          <div class="price-range"><label class="field"><span>Prix minimum (PA)</span><input id="price-min" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Min" /></label>
-          <label class="field"><span>Prix maximum (PA)</span><input id="price-max" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Max" /></label></div>
-          <label class="field"><span>Catalogue</span><select id="source-filter"><option value="all">Tout</option><option value="alaric">Sélection d’Alaric</option><option value="base">Catalogue de base</option></select></label>
-          <label class="field"><span>Sous-catégorie</span><select id="subcategory-filter"><option value="all">Toutes</option></select></label>
-        </div>
-        <div class="filter-actions"><button class="chip" id="favorites-only" type="button" aria-pressed="false">☆ Favoris uniquement</button>
-          <button class="button button--ghost button--small" id="reset-filters" type="button">Réinitialiser les filtres</button></div>
-      </div>
-      <div class="catalogue-sort-line"><label class="field field--price-mode"><span>Afficher les prix</span><select id="price-mode" aria-label="Mode d’affichage des prix"><option value="normal">Normal (PO · PA · PC)</option><option value="pa">Tout en PA</option><option value="pc">Tout en PC</option></select></label>
-        <label class="field field--sort"><span>Trier par</span><select id="sort-filter"><option value="alaric-first">Sélection d’Alaric d’abord</option><option value="category-asc">Catégorie</option><option value="name-asc">Nom A → Z</option><option value="price-asc">Prix croissant</option><option value="price-desc">Prix décroissant</option><option value="rarity-asc">Rareté faible → élevée</option><option value="rarity-desc">Rareté élevée → faible</option></select></label>
-      </div>
-
-      <div class="items-list" id="items-grid" aria-live="polite"></div>
-    </section>
-
-    <aside class="cart-panel" id="cart-panel" aria-label="Panier">
-      <div class="cart-panel__inner">
-        <div class="cart-panel__header">
-          <div>
-            <p class="eyebrow">Commande</p>
-            <h2>Panier</h2>
-          </div>
-          <button class="icon-button" id="close-cart-mobile" type="button" aria-label="Fermer le panier">×</button>
-        </div>
-
-        <p class="cart-empty" id="cart-empty">Le panier est vide.</p>
-        <div class="cart-items" id="cart-items"></div>
-
-        <div class="cart-total">
-          <span>Total</span>
-          <strong id="cart-total">0 PC</strong>
-        </div>
-
-        <div class="cart-actions">
-          <button class="button button--primary" id="validate-cart" type="button">Valider mon panier</button>
-          <button class="button button--ghost" id="clear-cart" type="button">Vider</button>
-        </div>
-        <p class="cart-help">Après la double confirmation, le stock est déduit. Tu pourras copier la commande Roll20 pour ton MJ sur Discord.</p><button class="button button--ghost button--small" id="last-order" type="button" hidden>↺ Retrouver ma dernière commande</button>
-      </div>
-    </aside>
-  </main>
-
-  <footer class="footer">
-    <div class="footer__content">
-      <p>Boutique d’Alaric · compatible COAlaric V2 + CoFItem V2 · panier et favoris stockés dans le navigateur.</p>
-    </div>
-  </footer>
-
-
-  <section id="checkout-overlay" class="checkout-overlay" role="dialog" aria-modal="true" aria-labelledby="checkout-title" hidden>
-    <div class="checkout-dialog">
-      <div class="checkout-head"><div><p class="eyebrow">L'échoppe d'Alaric · <span id="checkout-group-label">Groupe</span></p><h2 id="checkout-title">Confirmer l'achat</h2></div><button class="icon-button" id="checkout-close" type="button" aria-label="Fermer">×</button></div>
-      <div id="checkout-body" class="checkout-body" aria-live="polite"></div>
-    </div>
-  </section>
-
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="https://www.gstatic.com/firebasejs/13.2.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/13.2.0/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/13.2.0/firebase-firestore-compat.js"></script>
-  <script>window.ALARIC_GROUP="groupe1";</script>
-  <script src="config.js"></script>
-  <script src="shared.js?v=rp-20261115"></script>
-  <script src="js/core.js"></script>
-  <script src="js/pricing.js"></script>
-  <script src="js/checkout-free.js?v=rp-20261115"></script>
-  <script src="js/app.js?v=rp-20261115fix1"></script>
-  <script>document.getElementById('active-group-label').textContent='Catalogue marchand · '+window.AlaricApp.cfg.groups[window.AlaricApp.groupId(window.ALARIC_GROUP||new URLSearchParams(location.search).get('groupe'))];document.getElementById('link-g'+(window.ALARIC_GROUP==='groupe2'?'2':'1')).classList.add('active');</script>
+<div class="catalogue-sort-line"><label class="field field--price-mode"><span>Afficher les prix</span><select aria-label="Mode d’affichage des prix" id="price-mode"><option value="normal">Normal (PO · PA · PC)</option><option value="pa">Tout en PA</option><option value="pc">Tout en PC</option></select></label>
+<label class="field field--sort"><span>Trier par</span><select id="sort-filter"><option value="alaric-first">Sélection d’Alaric d’abord</option><option value="category-asc">Catégorie</option><option value="name-asc">Nom A → Z</option><option value="price-asc">Prix croissant</option><option value="price-desc">Prix décroissant</option><option value="rarity-asc">Rareté faible → élevée</option><option value="rarity-desc">Rareté élevée → faible</option></select></label>
+</div>
+<div aria-live="polite" class="items-list" id="items-grid"></div>
+</section>
+<aside aria-label="Panier" class="cart-panel" id="cart-panel">
+<div class="cart-panel__inner">
+<div class="cart-panel__header">
+<div>
+<p class="eyebrow">Commande</p>
+<h2>Panier</h2>
+</div>
+<button aria-label="Fermer le panier" class="icon-button" id="close-cart-mobile" type="button">×</button>
+</div>
+<p class="cart-empty" id="cart-empty">Le panier est vide.</p>
+<div class="cart-items" id="cart-items"></div>
+<div class="cart-total">
+<span>Total</span>
+<strong id="cart-total">0 PC</strong>
+</div>
+<div class="cart-actions">
+<button class="button button--primary" id="validate-cart" type="button">Valider mon panier</button>
+<button class="button button--ghost" id="clear-cart" type="button">Vider</button>
+</div>
+<p class="cart-help">Après la double confirmation, le stock est déduit. Tu pourras copier la commande Roll20 pour ton MJ sur Discord.</p><button class="button button--ghost button--small" hidden="" id="last-order" type="button">↺ Retrouver ma dernière commande</button>
+</div>
+</aside>
+</main>
+<footer class="footer">
+<div class="footer__content">
+<p>L’Écrin des Merveilles · Boutique d’Alaric · compatible COAlaric V2 + CoFItem V2 · panier et favoris stockés dans le navigateur.</p>
+</div>
+</footer>
+<section aria-labelledby="checkout-title" aria-modal="true" class="checkout-overlay" hidden="" id="checkout-overlay" role="dialog">
+<div class="checkout-dialog">
+<div class="checkout-head"><div><p class="eyebrow">L'échoppe d'Alaric · <span id="checkout-group-label">Groupe</span></p><h2 id="checkout-title">Confirmer l'achat</h2></div><button aria-label="Fermer" class="icon-button" id="checkout-close" type="button">×</button></div>
+<div aria-live="polite" class="checkout-body" id="checkout-body"></div>
+</div>
+</section>
+<div aria-live="polite" class="toast" id="toast" role="status"></div>
+<script src="https://www.gstatic.com/firebasejs/13.2.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/13.2.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/13.2.0/firebase-firestore-compat.js"></script>
+<script>window.ALARIC_GROUP="groupe1";</script>
+<script src="config.js"></script>
+<script src="shared.js?v=coeff-20261115v7"></script>
+<script src="js/core.js"></script>
+<script src="js/pricing.js?v=coeff-20261115v7"></script>
+<script src="js/checkout-free.js?v=rp-20261115"></script>
+<script src="js/app.js?v=coeff-20261115v7"></script>
+<script>document.getElementById('active-group-label').textContent='Catalogue marchand · '+window.AlaricApp.cfg.groups[window.AlaricApp.groupId(window.ALARIC_GROUP||new URLSearchParams(location.search).get('groupe'))];document.getElementById('link-g'+(window.ALARIC_GROUP==='groupe2'?'2':'1')).classList.add('active');</script>
 </body>
 </html>

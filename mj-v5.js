@@ -23,7 +23,7 @@ async function loadAll(){if(busy)return;busy=true;status('Chargement des deux gr
  for(const g of GROUPS){const [stocks,custom,overrides]=await Promise.all([A.getStock(g),A.getCustom(g),A.getOverrides(g)]);const items=A.overlay(catalog.stockBase,custom,overrides,stocks,catalog.base);state[g]={stocks,custom,overrides,items,byId:new Map(items.map(it=>[it.id,it]))};}
  edits.clear();selectedRows.clear();pending=null;importChoices.clear();$('run-import').disabled=true;
  renderDashboard();buildCategories();buildRarities();renderTable();buildTemplates();renderAffixes();renderEditor();
- const bookErrors=await syncPricebooks();status(bookErrors.length?'Les données sont chargées, mais le livre des prix doit être corrigé : '+bookErrors.join(' | '):'Les deux groupes sont chargés. Boutique joueur V6 chargée avec les nouveaux prix et textes RP.',bookErrors.length?'error':'success');
+ const bookErrors=await syncPricebooks();status(bookErrors.length?'Les données sont chargées, mais le livre des prix doit être corrigé : '+bookErrors.join(' | '):'Les deux groupes sont chargés. Boutique joueur V7 chargée avec les coefficients et tarifs corrigés.',bookErrors.length?'error':'success');
  }catch(e){console.error(e);status('Chargement impossible : '+e.message,'error');}finally{busy=false;refreshChanges();}}
 function priceBookError(e){
  if(e?.code==='permission-denied'||/Missing or insufficient permissions/i.test(e?.message||''))
@@ -54,34 +54,36 @@ function template(){return catalog?.templates.find(t=>t.id===$('template').value
 function affixesFor(){const t=template();return t?A.compatibleAffixes(t,catalog.affixes):[];}
 function renderAffixes(){const root=$('affix-list');root.replaceChildren();const t=template();if(!t){root.append(A.elem('p',{className:'muted tiny',text:'Choisis un objet de base.'}));$('selected-affixes').replaceChildren();return;}const search=$('affix-search').value.toLocaleLowerCase('fr');const matches=affixesFor().filter(a=>!search||`${a.id} ${a.name} ${a.rpName||''} ${a.effect}`.toLocaleLowerCase('fr').includes(search));root.append(A.elem('p',{className:'muted tiny',text:matches.length+' affixes compatibles (80 premiers affichés)'}));for(const a of matches.slice(0,80)){const label=A.elem('label',{className:'affix-option'}),box=A.elem('input',{type:'checkbox',checked:chosenAffixes.has(a.id)});box.addEventListener('change',()=>{if(box.checked){if(chosenAffixes.size>=(t.category==='consommable'?1:10)){box.checked=false;status('Maximum '+(t.category==='consommable'?1:10)+' affixe(s) pour cet objet.','error');return;}chosenAffixes.add(a.id);}else chosenAffixes.delete(a.id);renderChosen();renderEditor();});label.append(box,A.elem('span',{text:(a.rpName||a.name)+' — '+a.effect}));root.append(label);}renderChosen();}
 function renderChosen(){const root=$('selected-affixes');root.replaceChildren();if(!chosenAffixes.size){root.append(A.elem('span',{className:'muted tiny',text:'Aucun affixe ajouté.'}));return;}for(const id of chosenAffixes){const a=catalog.affixes.find(x=>x.id===id);if(!a)continue;const line=A.elem('div',{className:'mj-affix-selected'});line.append(A.elem('span',{text:(a.rpName||a.name)+' · '+a.effect}),A.elem('button',{type:'button',className:'small warn',text:'×',onClick:()=>{chosenAffixes.delete(id);renderAffixes();renderEditor();}}));root.append(line);}}
-// Les prix officiels proviennent du classeur CATALOGUE RP. Une seule liaison Q0 est exacte.
-// Plusieurs affixes : addition de leurs seuls surcoûts, explicitement signalée comme estimation.
+// Prix de référence au centime le plus proche : supports et liaisons Q0 exacts,
+// coûts Q/P non arrondis dans le calcul. Synergie sur Q+P, jamais sur B.
+// Plusieurs affixes : estimation (pas de ligne officielle de combinaison).
 function computePrice(t,ids,q){
  if(!t||!Number.isSafeInteger(t.pricePC)||!priceModel)return {price:null,note:'Tarif de support ou barème indisponible.'};
- if(t.sourceId?.startsWith('CON-')&&t.sourceId!=='CON-15'&&!ids.length)
-   return {price:null,note:'Ce consommable est un gabarit sans prix autonome : choisis un affixe.'};
- const srcBase=t.pricePC,basePA=srcBase/100;
- let pc=srcBase;
- if(q>0){
-   const formula=priceModel.quality||{};
-   if(q>Number(formula.qMax||5))return {price:null,note:'Qualité supérieure au barème.'};
-   const supplementPA=(Number(formula.q1FixedPA)+Number(formula.q1PhysicalWeight)*basePA)*Math.pow(Number(formula.multiplier),q-1);
-   if(!Number.isFinite(supplementPA))return {price:null,note:'Tarif de qualité introuvable.'};
-   pc+=Math.round(supplementPA*100);
- }
+ const base=priceModel.bases?.[t.sourceId];
+ if(!base)return {price:null,note:'Support absent du référentiel des prix.'};
+ if(base.saleTemplate&&!ids.length)return {price:null,note:'Ce consommable est un gabarit sans prix autonome : choisis un affixe.'};
+ if(new Set(ids).size!==ids.length)return {price:null,note:'Un même affixe ne peut être sélectionné plusieurs fois.'};
+ if(!Number.isInteger(q)||q<0||q>Number(base.qMax??0))return {price:null,note:'Qualité non autorisée pour cet objet.'};
+ const B=t.pricePC/100,formula=priceModel.quality||{};
+ const costQ=q>0?(Number(formula.q1FixedPA)+Number(formula.q1PhysicalWeight)*B)*Math.pow(Number(formula.multiplier),q-1):0;
+ if(!Number.isFinite(costQ))return {price:null,note:'Tarif de qualité introuvable.'};
+ let costP=0, maxP=0;
  for(const id of ids){
-   const link=catalog.liaisons.find(l=>l.itemId===t.sourceId&&l.affixId===id);
-   if(!link||link.publication!=='Prêt')return {price:null,note:'Affixe non publiable ou liaison non validée : '+id};
-   const linked=link.priceMagiePC!==null&&link.priceMagiePC!==undefined
-     ? Math.round(Number(link.priceMagiePC))
-     : link.priceConsoPA!==null&&link.priceConsoPA!==undefined ? Math.round(Number(link.priceConsoPA)*100) : NaN;
-   if(!Number.isSafeInteger(linked))return {price:null,note:'Prix de liaison indisponible : '+id};
-   pc+=linked-srcBase;
+   const link=priceModel.links?.[t.sourceId+'|'+id],affix=priceModel.affixes?.[id];
+   if(!link||link.status!=='Actif'||!affix||affix.status!=='Actif')return {price:null,note:'Affixe non publiable ou liaison non validée : '+id};
+   const cost=Number(link.magicCostPA);
+   if(!Number.isFinite(cost)||cost<0)return {price:null,note:'Coût magique non disponible pour '+id};
+   costP+=cost;maxP=Math.max(maxP,Number(affix.p)||0);
  }
+ const synergy=1+Number(priceModel.synergyRate||0)*q*maxP;
+ const only=ids.length===1 ? priceModel.links?.[t.sourceId+'|'+ids[0]] : null;
+ const pc=q===0 && only ? Number(only.pricePC) : Math.round((B+(costQ+costP)*synergy)*100);
  if(!Number.isSafeInteger(pc)||pc<0||pc>1e11)return {price:null,note:'Prix calculé hors limites.'};
- return {price:pc,note:ids.length>1?'Estimation automatique : addition des surcoûts de plusieurs affixes (le classeur ne chiffre que les associations à un affixe).':
-   q>0?'Tarif du catalogue + supplément de qualité officiel.':'Tarif exact du catalogue RP validé.'};
+ const note=ids.length>1 ? 'Estimation : combinaison de plusieurs affixes, coûts P additionnés et synergie sur P maximal (pas de tarif combiné officiel).' :
+   q>0?'Calcul du barème validé : qualité Q, magie P et synergie Q×P.' : 'Prix du nouveau catalogue validé, arrondi au PC.';
+ return {price:pc,note};
 }
+
 function editorObject(){
  const t=template();if(!t)return null;
  const ids=[...chosenAffixes],q=Number($('object-quality').value),allowed=['arme','armure'].includes(t.category),actualQ=allowed?q:0;

@@ -22,31 +22,41 @@
     return labels[r];
   }
 
+  // Barème validé : B + (Q + somme(P)) × (1 + 0,05 × Q × Pmax).
+  // Le fichier de prix contient les valeurs Q0 officielles. Pour les combinaisons
+  // de plusieurs affixes, le calcul est une estimation explicitement signalée.
   function calculate(item) {
     if (!model || !item || !item.cofSpec) return null;
-    const spec=item.cofSpec;
-    const base=model.bases?.[String(spec.base||'')];if(!base)return null;
+    const spec=item.cofSpec,base=model.bases?.[String(spec.base||'')];
+    if(!base)return null;
     const q=Number(spec.quality||0), ids=Array.isArray(spec.affixes)?spec.affixes:[];
     if(!Number.isInteger(q)||q<0||q>Number(base.qMax??0))return null;
     if(base.saleTemplate&&!ids.length)return null;
+    if(new Set(ids).size!==ids.length)return null;
     const physical=Number(base.basePC);
     if(!Number.isSafeInteger(physical)||physical<0)return null;
-    let pc=physical;
-    if(q>0){
-      const rule=model.quality;
-      pc+=Math.round((Number(rule.q1FixedPA)+Number(rule.q1PhysicalWeight)*(physical/100))*Math.pow(Number(rule.multiplier),q-1)*100);
-    }
-    let power=0;
+    const B=physical/100;
+    const rule=model.quality||{};
+    const qualityPA=q>0 ? (Number(rule.q1FixedPA)+Number(rule.q1PhysicalWeight)*B)*Math.pow(Number(rule.multiplier),q-1) : 0;
+    if(!Number.isFinite(qualityPA))return null;
+    let magicPA=0,power=0;
     for(const id of ids){
       const link=model.links?.[spec.base+'|'+id],affix=model.affixes?.[id];
-      if(!link||!Number.isSafeInteger(link.pricePC)||!affix||affix.status!=='Actif')return null;
-      pc+=link.pricePC-physical;
+      if(!link||link.status!=='Actif'||!affix||affix.status!=='Actif')return null;
+      const value=Number(link.magicCostPA);
+      if(!Number.isFinite(value)||value<0)return null;
+      magicPA+=value;
       power=Math.max(power,Number(affix.p)||0);
     }
+    const sy=1+Number(model.synergyRate||0)*q*power;
+    const only=ids.length===1 ? model.links?.[spec.base+'|'+ids[0]] : null;
+    // Reprend le prix arrondi officiel de la liaison Q0 : évite les
+    // écarts d'un PC dus aux flottants lors du recalcul.
+    const pc=q===0 && only ? Number(only.pricePC) : Math.round((B+(qualityPA+magicPA)*sy)*100);
     if(!Number.isSafeInteger(pc)||pc<0)return null;
     const labels=['Commun','Peu Commun','Inhabituel','Rare','Exceptionnel','Précieux','Épique','Légendaire','Mythique','Artefact','Objet Divin'];
     const rank=Math.max(0,Math.min(10,base.category==='consommable'?power-1:q+power));
-    return {price:pc/100,pricePC:pc,rarity:labels[rank],rank};
+    return {price:pc/100,pricePC:pc,rarity:labels[rank],rank,estimated:ids.length>1};
   }
 
   function apply(item) {
