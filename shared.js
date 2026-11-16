@@ -171,8 +171,8 @@
   // 75 modèles disponibles dans l'éditeur MJ. Les variantes de consommables
   // sont définies PAR ID D'AFFIXE, jamais par le nom de l'objet.
   function buildBaseStock(selection,base,affixes,liaisons) {
-    if(!Array.isArray(selection)||selection.length!==63)
-      throw Error('Stock Alaric V2 incomplet : 63 références attendues.');
+    if(!Array.isArray(selection)||selection.length!==54)
+      throw Error('Stock Alaric V2 incomplet : 54 références attendues.');
     const baseById=new Map(base.map(o=>[String(o.sourceId),o]));
     const affixById=new Map(affixes.map(a=>[a.id,a]));
     const linkById=new Map(liaisons.map(l=>[l.itemId+'|'+l.affixId,l]));
@@ -188,7 +188,8 @@
       if(affixId&&!link)throw Error('Stock Alaric : liaison de prix absente '+baseId+' / '+affixId);
       let pricePC=model.pricePC;
       if(link){
-        pricePC=link.priceMagiePC!==null && link.priceMagiePC!==undefined ? Math.round(Number(link.priceMagiePC)) :
+        pricePC=Number.isSafeInteger(link.pricePCOfficial) ? link.pricePCOfficial :
+          link.priceMagiePC!==null && link.priceMagiePC!==undefined ? Math.round(Number(link.priceMagiePC)) :
           link.priceConsoPA!==null && link.priceConsoPA!==undefined ? Math.round(Number(link.priceConsoPA)*100) : null;
       }
       if(pricePC===null || !Number.isSafeInteger(Number(pricePC)) || Number(pricePC)<0)
@@ -219,8 +220,8 @@
       fetchJSON('data/catalogue-prix-anciens.json'),
       fetchJSON('data/catalogue-prix-precedents-v6.json')
     ]);
-    if(!Array.isArray(objets)||objets.length!==75||!Array.isArray(affixes)||affixes.length!==536||!Array.isArray(liaisons)||liaisons.length!==2278)
-      throw Error('Catalogue V2 incomplet ou incohérent (75/536/2278 attendus).');
+    if(!Array.isArray(objets)||objets.length!==75||!Array.isArray(affixes)||affixes.length!==517||!Array.isArray(liaisons)||liaisons.length!==2259)
+      throw Error('Catalogue V2 incomplet ou incohérent (75/517/2259 attendus).');
     CONSUMABLE_ICON_SVGS=svgs&&typeof svgs==='object'&&!Array.isArray(svgs)?svgs:{};ICON_CACHE.clear();
     const icons=Object.fromEntries(Object.entries(ICONS_CATALOGUE_V2).flatMap(([id,path])=>[[id,path],[normalizeId(id),path]]));
     const templates=objets.map(b=>({
@@ -428,6 +429,23 @@
     return {count:Object.keys(data.prices).length,updated:!same,promoCount:Object.keys(data.promoPrices).length};
   }
 
+  // Pour les créations du générateur possédant une seule liaison officielle,
+  // rafraîchit les libellés/effets à l'affichage même si Firestore contient
+  // encore leur ancienne dénomination. Ne modifie jamais le prix ni le stock.
+  // Les créations multi-affixes et les imports personnalisés sont conservés.
+  function refreshOfficialItem(item,catalog){
+    if(item?.origin!=='Création MJ' || !String(item.id||'').startsWith('mj-'))return item;
+    const spec=item.cofSpec||{},ids=Array.isArray(spec.affixes)?spec.affixes:[];
+    if(ids.length!==1)return item;
+    const link=(catalog?.liaisons||[]).find(l=>l.itemId===spec.base&&l.affixId===ids[0]&&l.publication==='Prêt');
+    if(!link)return item;
+    const quality=Number(spec.quality||item.quality||0);
+    const name=link.name+(quality>0?' +'+quality:'');
+    const affix=(catalog?.affixes||[]).find(a=>a.id===ids[0]);
+    return {...item,name,description:link.description||item.description,
+      cofSpec:{...spec,name},
+      affixes:affix?[{id:affix.id,name:affix.rpName||affix.name,effect:affix.effect,tier:affix.tier}]:item.affixes};
+  }
   function overlay(base,custom,overrides,stocks,validCatalogBases=base){
     const all=new Map(base.map(it=>[it.id,{...it}]));
     const allowedBaseIds=new Set(validCatalogBases.map(it=>String(it.sourceId||it.cofSpec?.base||'').toLowerCase()));
@@ -445,5 +463,5 @@
         stock:stocks.has(it.id)?stocks.get(it.id):null};
     });
   }
-  global.AlaricApp={cfg,db,auth,RARITY_LABELS,groupId,parsePricePC,formatPC,normalizeId,prepareRoll20Spec,computeIconRank,tieredIcon,catalogueIconForItem,normalizedItem,fallbackIcon,loadCatalog,groupStocks,groupItems,getStock,getCustom,setStock,saveCustom,inspectCustomFields,deleteCustom,migrationLegacy,compatibleAffixes,iconUrl,elem,getOverrides,setBaseOverride,overlay,makePriceBook,publishPriceBook};
+  global.AlaricApp={cfg,db,auth,RARITY_LABELS,groupId,parsePricePC,formatPC,normalizeId,prepareRoll20Spec,computeIconRank,tieredIcon,catalogueIconForItem,normalizedItem,fallbackIcon,loadCatalog,groupStocks,groupItems,getStock,getCustom,setStock,saveCustom,inspectCustomFields,deleteCustom,migrationLegacy,compatibleAffixes,iconUrl,elem,getOverrides,setBaseOverride,overlay,refreshOfficialItem,makePriceBook,publishPriceBook};
 }(window));

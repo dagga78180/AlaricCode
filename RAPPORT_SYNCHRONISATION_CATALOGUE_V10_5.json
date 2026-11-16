@@ -1,0 +1,93 @@
+{
+  "source": "COFantasy_Catalogue_Sain_Final_Noms_Materiaux_Grenades(6).xlsx",
+  "counts": {
+    "supports": 75,
+    "affixes": 517,
+    "liaisons": 2259,
+    "cartes": 2334,
+    "liens_tarif_actifs": 2150,
+    "stock_selection": 62
+  },
+  "obsolete_affixes_removed": [
+    "CO_GRE_DRAIN_1",
+    "CO_GRE_DRAIN_2",
+    "CO_GRE_PSYCHIQUE_1",
+    "CO_GRE_PSYCHIQUE_2",
+    "CO_GRE_TOXIQUE_1",
+    "CO_GRE_TOXIQUE_2",
+    "CO_MANA_6",
+    "CO_POISON_1",
+    "CO_POISON_2",
+    "CO_POISON_3",
+    "CO_POISON_4",
+    "CO_POISON_5",
+    "CO_POISON_6",
+    "CO_RES_DRAIN_1",
+    "CO_RES_DRAIN_2",
+    "CO_RES_PSYCHIQUE_1",
+    "CO_RES_PSYCHIQUE_2",
+    "CO_RES_TOXIQUE_1",
+    "CO_RES_TOXIQUE_2"
+  ],
+  "obsolete_links_removed": [
+    "CON-02|CO_MANA_6",
+    "CON-05|CO_RES_DRAIN_1",
+    "CON-05|CO_RES_DRAIN_2",
+    "CON-05|CO_RES_PSYCHIQUE_1",
+    "CON-05|CO_RES_PSYCHIQUE_2",
+    "CON-05|CO_RES_TOXIQUE_1",
+    "CON-05|CO_RES_TOXIQUE_2",
+    "CON-07|CO_POISON_1",
+    "CON-07|CO_POISON_2",
+    "CON-07|CO_POISON_3",
+    "CON-07|CO_POISON_4",
+    "CON-07|CO_POISON_5",
+    "CON-07|CO_POISON_6",
+    "CON-08|CO_GRE_DRAIN_1",
+    "CON-08|CO_GRE_DRAIN_2",
+    "CON-08|CO_GRE_PSYCHIQUE_1",
+    "CON-08|CO_GRE_PSYCHIQUE_2",
+    "CON-08|CO_GRE_TOXIQUE_1",
+    "CON-08|CO_GRE_TOXIQUE_2"
+  ],
+  "stock_selection_removed": [
+    {
+      "base": "CON-07",
+      "affix": "CO_POISON_1"
+    }
+  ],
+  "field_changes": {
+    "objets.price": 71,
+    "objets.source": 75,
+    "objets.allowedAffixIds": 48,
+    "objets.weaponDamageType": 16,
+    "affixes.source": 517,
+    "affixes.rpName": 207,
+    "affixes.displayName": 207,
+    "affixes.example": 33,
+    "affixes.name": 2,
+    "affixes.effect": 22,
+    "affixes.technicalMJ": 2,
+    "affixes.rp": 20,
+    "affixes.rpDescription": 20,
+    "liaisons.group": 2259,
+    "liaisons.resalePAExact": 2259,
+    "liaisons.name": 994,
+    "liaisons.rpAffixName": 717,
+    "liaisons.description": 406,
+    "liaisons.playerEffect": 28,
+    "liaisons.publication": 30,
+    "rp.name": 994,
+    "rp.description": 406,
+    "rp.effect": 28,
+    "rp.publication": 30,
+    "rp.malus": 542,
+    "rp.pricePC": 13,
+    "rp.pricePAOriginal": 13,
+    "rp.resalePAOriginal": 13
+  },
+  "samples": {
+    "anneau": "Anneau de l'endurance de l'Ours",
+    "arc": "Arc court à encoche rapide"
+  }
+}

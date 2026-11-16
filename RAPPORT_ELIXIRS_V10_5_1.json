@@ -1,0 +1,91 @@
+{
+  "source": "COFantasy_Catalogue_Sain_Final_Noms_Materiaux_Grenades(6)(2).xlsx",
+  "removedInitialStock": [
+    {
+      "base": "CON-03",
+      "affix": "CO_ELIXIR_CHA_1"
+    },
+    {
+      "base": "CON-03",
+      "affix": "CO_ELIXIR_CON_1"
+    },
+    {
+      "base": "CON-03",
+      "affix": "CO_ELIXIR_DEX_1"
+    },
+    {
+      "base": "CON-03",
+      "affix": "CO_ELIXIR_FOR_1"
+    },
+    {
+      "base": "CON-03",
+      "affix": "CO_ELIXIR_INT_1"
+    },
+    {
+      "base": "CON-03",
+      "affix": "CO_ELIXIR_SAG_1"
+    },
+    {
+      "base": "CON-08",
+      "affix": "CO_GRE_FEU_1"
+    },
+    {
+      "base": "CON-10",
+      "affix": "CO_DEF_3"
+    }
+  ],
+  "countBefore": 62,
+  "countAfter": 54,
+  "elixirs": {
+    "CO_ELIXIR_CHA_1": {
+      "p": 2,
+      "coefficient": 1.25
+    },
+    "CO_ELIXIR_CHA_2": {
+      "p": 4,
+      "coefficient": 1.25
+    },
+    "CO_ELIXIR_CON_1": {
+      "p": 2,
+      "coefficient": 1.25
+    },
+    "CO_ELIXIR_CON_2": {
+      "p": 4,
+      "coefficient": 1.25
+    },
+    "CO_ELIXIR_DEX_1": {
+      "p": 2,
+      "coefficient": 1.25
+    },
+    "CO_ELIXIR_DEX_2": {
+      "p": 4,
+      "coefficient": 1.25
+    },
+    "CO_ELIXIR_FOR_1": {
+      "p": 2,
+      "coefficient": 1.25
+    },
+    "CO_ELIXIR_FOR_2": {
+      "p": 4,
+      "coefficient": 1.25
+    },
+    "CO_ELIXIR_INT_1": {
+      "p": 2,
+      "coefficient": 1.25
+    },
+    "CO_ELIXIR_INT_2": {
+      "p": 4,
+      "coefficient": 1.25
+    },
+    "CO_ELIXIR_SAG_1": {
+      "p": 2,
+      "coefficient": 1.25
+    },
+    "CO_ELIXIR_SAG_2": {
+      "p": 4,
+      "coefficient": 1.25
+    }
+  },
+  "pricesSameAsPrevious": true,
+  "firebaseChanges": false
+}

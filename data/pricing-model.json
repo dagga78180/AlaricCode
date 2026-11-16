@@ -1,6 +1,6 @@
 {
-  "version": "2026-11-15-coefficients-valides-v7",
-  "source": "COFantasy_Catalogue_Sain_Coefficients_Valides(2).xlsx",
+  "version": "2026-11-16-catalogue-final-v10-5",
+  "source": "COFantasy_Catalogue_Sain_Final_Noms_Materiaux_Grenades(6)(2).xlsx",
   "currency": "PA",
   "pcPerPa": 100,
   "paPerPo": 100,
@@ -650,17 +650,17 @@
     },
     "N02_CONT": {
       "p": 3,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "N02_PERF": {
       "p": 3,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "N02_TRAN": {
       "p": 3,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "N03_CONT": {
@@ -840,7 +840,7 @@
     },
     "N20_1": {
       "p": 2,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "N20_2": {
@@ -850,7 +850,7 @@
     },
     "N21_1": {
       "p": 2,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "N21_2": {
@@ -945,7 +945,7 @@
     },
     "N64_CAC": {
       "p": 3,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "N05_DIST_1": {
@@ -970,7 +970,7 @@
     },
     "N20_DIST_1": {
       "p": 2,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "N20_DIST_2": {
@@ -980,7 +980,7 @@
     },
     "N21_DIST_1": {
       "p": 2,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "N21_DIST_2": {
@@ -1020,7 +1020,7 @@
     },
     "N28": {
       "p": 1,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "À préciser"
     },
     "N29": {
@@ -1145,12 +1145,12 @@
     },
     "N64_DIST": {
       "p": 3,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "MAG_ELEM_AIR_1": {
       "p": 2,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "MAG_ELEM_AIR_2": {
@@ -1160,7 +1160,7 @@
     },
     "MAG_ELEM_EAU_1": {
       "p": 2,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "MAG_ELEM_EAU_2": {
@@ -1170,7 +1170,7 @@
     },
     "MAG_ELEM_FEU_1": {
       "p": 2,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "MAG_ELEM_FEU_2": {
@@ -1180,7 +1180,7 @@
     },
     "MAG_ELEM_FORCE_1": {
       "p": 2,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "MAG_ELEM_FORCE_2": {
@@ -1190,7 +1190,7 @@
     },
     "MAG_ELEM_LUMIÈRE_1": {
       "p": 2,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "MAG_ELEM_LUMIÈRE_2": {
@@ -1200,7 +1200,7 @@
     },
     "MAG_ELEM_OMBRE_1": {
       "p": 2,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "MAG_ELEM_OMBRE_2": {
@@ -1210,7 +1210,7 @@
     },
     "MAG_ELEM_TERRE_1": {
       "p": 2,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "MAG_ELEM_TERRE_2": {
@@ -1235,7 +1235,7 @@
     },
     "N21_MAG_1": {
       "p": 2,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "N21_MAG_2": {
@@ -1260,7 +1260,7 @@
     },
     "N38_2": {
       "p": 2,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "À préciser"
     },
     "N38_3": {
@@ -1365,77 +1365,77 @@
     },
     "AM_RIC_2": {
       "p": 3,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "AM_E_AIR_1": {
       "p": 2,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "AM_E_AIR_2": {
       "p": 3,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "AM_E_EAU_1": {
       "p": 2,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "AM_E_EAU_2": {
       "p": 3,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "AM_E_FEU_1": {
       "p": 2,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "AM_E_FEU_2": {
       "p": 3,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "AM_E_FORCE_1": {
       "p": 2,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "AM_E_FORCE_2": {
       "p": 3,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "AM_E_LUMIÈRE_1": {
       "p": 2,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "AM_E_LUMIÈRE_2": {
       "p": 3,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "AM_E_OMBRE_1": {
       "p": 2,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "AM_E_OMBRE_2": {
       "p": 3,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "AM_E_TERRE_1": {
       "p": 2,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "AM_E_TERRE_2": {
       "p": 3,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "AR_SH_AURA_1": {
@@ -1510,7 +1510,7 @@
     },
     "AR_IMM_SOMMEIL": {
       "p": 3,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "AR_IMM_ÉTOURDI": {
@@ -1520,7 +1520,7 @@
     },
     "AR_PM_MAX_1": {
       "p": 2,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "AR_PM_MAX_2": {
@@ -1530,12 +1530,12 @@
     },
     "AR_MOB_1": {
       "p": 1,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "AR_MOB_2": {
       "p": 2,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "AR_PEN_1": {
@@ -1550,32 +1550,32 @@
     },
     "AR_RD_ATTAQUE_CAC_1": {
       "p": 1,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "AR_RD_ATTAQUE_CAC_4": {
       "p": 2,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "AR_RD_ATTAQUE_DIST_1": {
       "p": 1,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "AR_RD_ATTAQUE_DIST_4": {
       "p": 2,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "AR_RD_ATTAQUE_MAG_1": {
       "p": 1,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "AR_RD_ATTAQUE_MAG_4": {
       "p": 2,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "AR_RD_UNIV_1": {
@@ -1600,7 +1600,7 @@
     },
     "AR_REACT_1": {
       "p": 1,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "À préciser"
     },
     "AR_REACT_2": {
@@ -1620,7 +1620,7 @@
     },
     "AR_RD_AIR_1": {
       "p": 1,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "AR_RD_AIR_2": {
@@ -1635,7 +1635,7 @@
     },
     "AR_RD_CONTONDANT_1": {
       "p": 1,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "AR_RD_CONTONDANT_2": {
@@ -1650,7 +1650,7 @@
     },
     "AR_RD_EAU_1": {
       "p": 1,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "AR_RD_EAU_2": {
@@ -1665,7 +1665,7 @@
     },
     "AR_RD_FEU_1": {
       "p": 1,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "AR_RD_FEU_2": {
@@ -1680,7 +1680,7 @@
     },
     "AR_RD_FORCE_1": {
       "p": 1,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "AR_RD_FORCE_2": {
@@ -1695,7 +1695,7 @@
     },
     "AR_RD_LUMIÈRE_1": {
       "p": 1,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "AR_RD_LUMIÈRE_2": {
@@ -1710,7 +1710,7 @@
     },
     "AR_RD_OMBRE_1": {
       "p": 1,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "AR_RD_OMBRE_2": {
@@ -1725,7 +1725,7 @@
     },
     "AR_RD_PERFORANT_1": {
       "p": 1,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "AR_RD_PERFORANT_2": {
@@ -1740,7 +1740,7 @@
     },
     "AR_RD_TERRE_1": {
       "p": 1,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "AR_RD_TERRE_2": {
@@ -1755,7 +1755,7 @@
     },
     "AR_RD_TRANCHANT_1": {
       "p": 1,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "AR_RD_TRANCHANT_2": {
@@ -2230,7 +2230,7 @@
     },
     "ACC_IMM_SOMMEIL": {
       "p": 3,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "ACC_IMM_SURPRIS": {
@@ -2245,7 +2245,7 @@
     },
     "ACC_PHY_CONTONDANT_1": {
       "p": 1,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "ACC_PHY_CONTONDANT_2": {
@@ -2255,7 +2255,7 @@
     },
     "ACC_PHY_PERFORANT_1": {
       "p": 1,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "ACC_PHY_PERFORANT_2": {
@@ -2265,7 +2265,7 @@
     },
     "ACC_PHY_TRANCHANT_1": {
       "p": 1,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "ACC_PHY_TRANCHANT_2": {
@@ -2275,7 +2275,7 @@
     },
     "ACC_ELEM_AIR_1": {
       "p": 1,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "ACC_ELEM_AIR_2": {
@@ -2285,7 +2285,7 @@
     },
     "ACC_ELEM_EAU_1": {
       "p": 1,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "ACC_ELEM_EAU_2": {
@@ -2295,7 +2295,7 @@
     },
     "ACC_ELEM_FEU_1": {
       "p": 1,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "ACC_ELEM_FEU_2": {
@@ -2305,7 +2305,7 @@
     },
     "ACC_ELEM_FORCE_1": {
       "p": 1,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "ACC_ELEM_FORCE_2": {
@@ -2315,7 +2315,7 @@
     },
     "ACC_ELEM_LUMIÈRE_1": {
       "p": 1,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "ACC_ELEM_LUMIÈRE_2": {
@@ -2325,7 +2325,7 @@
     },
     "ACC_ELEM_OMBRE_1": {
       "p": 1,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "ACC_ELEM_OMBRE_2": {
@@ -2335,7 +2335,7 @@
     },
     "ACC_ELEM_TERRE_1": {
       "p": 1,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "ACC_ELEM_TERRE_2": {
@@ -2400,7 +2400,7 @@
     },
     "ACC_INIT_3": {
       "p": 3,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "ACC_SLOT_1": {
@@ -2425,7 +2425,7 @@
     },
     "ACC_CLASSE_2": {
       "p": 2,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "À préciser"
     },
     "ACC_CLASSE_3": {
@@ -2465,7 +2465,7 @@
     },
     "ACC_PV_1": {
       "p": 2,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "ACC_PV_2": {
@@ -2475,7 +2475,7 @@
     },
     "ACC_PM_1": {
       "p": 2,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "ACC_PM_2": {
@@ -2505,7 +2505,7 @@
     },
     "ACC_S01": {
       "p": 1,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "ACC_S02": {
@@ -2670,7 +2670,7 @@
     },
     "ACC_S24": {
       "p": 1,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "ACC_S25_1": {
@@ -2743,69 +2743,64 @@
       "coefficient": 0.8,
       "status": "Actif"
     },
-    "CO_MANA_6": {
-      "p": 0,
-      "coefficient": 0.0,
-      "status": "Exclu"
-    },
     "CO_ELIXIR_CHA_1": {
-      "p": 1,
-      "coefficient": 1.0,
+      "p": 2,
+      "coefficient": 1.25,
       "status": "Actif"
     },
     "CO_ELIXIR_CHA_2": {
-      "p": 3,
-      "coefficient": 0.9,
+      "p": 4,
+      "coefficient": 1.25,
       "status": "Actif"
     },
     "CO_ELIXIR_CON_1": {
-      "p": 1,
-      "coefficient": 1.0,
+      "p": 2,
+      "coefficient": 1.25,
       "status": "Actif"
     },
     "CO_ELIXIR_CON_2": {
-      "p": 3,
-      "coefficient": 0.9,
+      "p": 4,
+      "coefficient": 1.25,
       "status": "Actif"
     },
     "CO_ELIXIR_DEX_1": {
-      "p": 1,
-      "coefficient": 1.0,
+      "p": 2,
+      "coefficient": 1.25,
       "status": "Actif"
     },
     "CO_ELIXIR_DEX_2": {
-      "p": 3,
-      "coefficient": 0.9,
+      "p": 4,
+      "coefficient": 1.25,
       "status": "Actif"
     },
     "CO_ELIXIR_FOR_1": {
-      "p": 1,
-      "coefficient": 1.0,
+      "p": 2,
+      "coefficient": 1.25,
       "status": "Actif"
     },
     "CO_ELIXIR_FOR_2": {
-      "p": 3,
-      "coefficient": 0.9,
+      "p": 4,
+      "coefficient": 1.25,
       "status": "Actif"
     },
     "CO_ELIXIR_INT_1": {
-      "p": 1,
-      "coefficient": 1.0,
+      "p": 2,
+      "coefficient": 1.25,
       "status": "Actif"
     },
     "CO_ELIXIR_INT_2": {
-      "p": 3,
-      "coefficient": 0.9,
+      "p": 4,
+      "coefficient": 1.25,
       "status": "Actif"
     },
     "CO_ELIXIR_SAG_1": {
-      "p": 1,
-      "coefficient": 1.0,
+      "p": 2,
+      "coefficient": 1.25,
       "status": "Actif"
     },
     "CO_ELIXIR_SAG_2": {
-      "p": 3,
-      "coefficient": 0.9,
+      "p": 4,
+      "coefficient": 1.25,
       "status": "Actif"
     },
     "CO_RES_AIR_1": {
@@ -2824,16 +2819,6 @@
       "status": "Actif"
     },
     "CO_RES_CONTONDANT_2": {
-      "p": 3,
-      "coefficient": 1.2,
-      "status": "Actif"
-    },
-    "CO_RES_DRAIN_1": {
-      "p": 1,
-      "coefficient": 1.15,
-      "status": "Actif"
-    },
-    "CO_RES_DRAIN_2": {
       "p": 3,
       "coefficient": 1.2,
       "status": "Actif"
@@ -2898,32 +2883,12 @@
       "coefficient": 1.2,
       "status": "Actif"
     },
-    "CO_RES_PSYCHIQUE_1": {
-      "p": 1,
-      "coefficient": 1.15,
-      "status": "Actif"
-    },
-    "CO_RES_PSYCHIQUE_2": {
-      "p": 3,
-      "coefficient": 1.2,
-      "status": "Actif"
-    },
     "CO_RES_TERRE_1": {
       "p": 1,
       "coefficient": 1.15,
       "status": "Actif"
     },
     "CO_RES_TERRE_2": {
-      "p": 3,
-      "coefficient": 1.2,
-      "status": "Actif"
-    },
-    "CO_RES_TOXIQUE_1": {
-      "p": 1,
-      "coefficient": 1.15,
-      "status": "Actif"
-    },
-    "CO_RES_TOXIQUE_2": {
       "p": 3,
       "coefficient": 1.2,
       "status": "Actif"
@@ -2954,16 +2919,6 @@
       "status": "Actif"
     },
     "CO_GRE_CONTONDANT_2": {
-      "p": 4,
-      "coefficient": 1.15,
-      "status": "Actif"
-    },
-    "CO_GRE_DRAIN_1": {
-      "p": 2,
-      "coefficient": 1.1,
-      "status": "Actif"
-    },
-    "CO_GRE_DRAIN_2": {
       "p": 4,
       "coefficient": 1.15,
       "status": "Actif"
@@ -3028,32 +2983,12 @@
       "coefficient": 1.15,
       "status": "Actif"
     },
-    "CO_GRE_PSYCHIQUE_1": {
-      "p": 2,
-      "coefficient": 1.1,
-      "status": "Actif"
-    },
-    "CO_GRE_PSYCHIQUE_2": {
-      "p": 4,
-      "coefficient": 1.15,
-      "status": "Actif"
-    },
     "CO_GRE_TERRE_1": {
       "p": 2,
       "coefficient": 1.1,
       "status": "Actif"
     },
     "CO_GRE_TERRE_2": {
-      "p": 4,
-      "coefficient": 1.15,
-      "status": "Actif"
-    },
-    "CO_GRE_TOXIQUE_1": {
-      "p": 2,
-      "coefficient": 1.1,
-      "status": "Actif"
-    },
-    "CO_GRE_TOXIQUE_2": {
       "p": 4,
       "coefficient": 1.15,
       "status": "Actif"
@@ -3068,36 +3003,6 @@
       "coefficient": 1.15,
       "status": "Actif"
     },
-    "CO_POISON_1": {
-      "p": 1,
-      "coefficient": 1.0,
-      "status": "Actif"
-    },
-    "CO_POISON_2": {
-      "p": 2,
-      "coefficient": 1.15,
-      "status": "Actif"
-    },
-    "CO_POISON_3": {
-      "p": 2,
-      "coefficient": 1.0,
-      "status": "Actif"
-    },
-    "CO_POISON_4": {
-      "p": 3,
-      "coefficient": 1.05,
-      "status": "Actif"
-    },
-    "CO_POISON_5": {
-      "p": 3,
-      "coefficient": 0.8,
-      "status": "Actif"
-    },
-    "CO_POISON_6": {
-      "p": 4,
-      "coefficient": 0.9,
-      "status": "Actif"
-    },
     "CO_SCROLL_1": {
       "p": 1,
       "coefficient": 0.9,
@@ -3110,7 +3015,7 @@
     },
     "CO_SCROLL_3": {
       "p": 3,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "À préciser"
     },
     "CO_SCROLL_4": {
@@ -3125,7 +3030,7 @@
     },
     "CO_STABILISATION": {
       "p": 5,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "CO_CELERITE": {
@@ -3135,12 +3040,12 @@
     },
     "CO_DEF_3": {
       "p": 2,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "CO_DEF_6": {
       "p": 4,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "status": "Actif"
     },
     "CO_MVT_2": {
@@ -18753,7 +18658,7 @@
       "pricePC": 3500,
       "pricePAExact": "35",
       "magicCostPA": "35",
-      "p": 1,
+      "p": 2,
       "status": "Actif",
       "publication": "Prêt"
     },
@@ -18761,7 +18666,7 @@
       "pricePC": 15120,
       "pricePAExact": "151.2",
       "magicCostPA": "151.2",
-      "p": 3,
+      "p": 4,
       "status": "Actif",
       "publication": "Prêt"
     },
@@ -18769,7 +18674,7 @@
       "pricePC": 3500,
       "pricePAExact": "35",
       "magicCostPA": "35",
-      "p": 1,
+      "p": 2,
       "status": "Actif",
       "publication": "Prêt"
     },
@@ -18777,7 +18682,7 @@
       "pricePC": 15120,
       "pricePAExact": "151.2",
       "magicCostPA": "151.2",
-      "p": 3,
+      "p": 4,
       "status": "Actif",
       "publication": "Prêt"
     },
@@ -18785,7 +18690,7 @@
       "pricePC": 3500,
       "pricePAExact": "35",
       "magicCostPA": "35",
-      "p": 1,
+      "p": 2,
       "status": "Actif",
       "publication": "Prêt"
     },
@@ -18793,7 +18698,7 @@
       "pricePC": 15120,
       "pricePAExact": "151.2",
       "magicCostPA": "151.2",
-      "p": 3,
+      "p": 4,
       "status": "Actif",
       "publication": "Prêt"
     },
@@ -18801,7 +18706,7 @@
       "pricePC": 3500,
       "pricePAExact": "35",
       "magicCostPA": "35",
-      "p": 1,
+      "p": 2,
       "status": "Actif",
       "publication": "Prêt"
     },
@@ -18809,7 +18714,7 @@
       "pricePC": 15120,
       "pricePAExact": "151.2",
       "magicCostPA": "151.2",
-      "p": 3,
+      "p": 4,
       "status": "Actif",
       "publication": "Prêt"
     },
@@ -18817,7 +18722,7 @@
       "pricePC": 3500,
       "pricePAExact": "35",
       "magicCostPA": "35",
-      "p": 1,
+      "p": 2,
       "status": "Actif",
       "publication": "Prêt"
     },
@@ -18825,7 +18730,7 @@
       "pricePC": 15120,
       "pricePAExact": "151.2",
       "magicCostPA": "151.2",
-      "p": 3,
+      "p": 4,
       "status": "Actif",
       "publication": "Prêt"
     },
@@ -18833,7 +18738,7 @@
       "pricePC": 3500,
       "pricePAExact": "35",
       "magicCostPA": "35",
-      "p": 1,
+      "p": 2,
       "status": "Actif",
       "publication": "Prêt"
     },
@@ -18841,7 +18746,7 @@
       "pricePC": 15120,
       "pricePAExact": "151.2",
       "magicCostPA": "151.2",
-      "p": 3,
+      "p": 4,
       "status": "Actif",
       "publication": "Prêt"
     },
@@ -18878,22 +18783,6 @@
       "publication": "Prêt"
     },
     "CON-05|CO_RES_CONTONDANT_2": {
-      "pricePC": 17280,
-      "pricePAExact": "172.79999999999998",
-      "magicCostPA": "172.79999999999998",
-      "p": 3,
-      "status": "Actif",
-      "publication": "Prêt"
-    },
-    "CON-05|CO_RES_DRAIN_1": {
-      "pricePC": 3450,
-      "pricePAExact": "34.49999999999999",
-      "magicCostPA": "34.49999999999999",
-      "p": 1,
-      "status": "Actif",
-      "publication": "Prêt"
-    },
-    "CON-05|CO_RES_DRAIN_2": {
       "pricePC": 17280,
       "pricePAExact": "172.79999999999998",
       "magicCostPA": "172.79999999999998",
@@ -18997,22 +18886,6 @@
       "status": "Actif",
       "publication": "Prêt"
     },
-    "CON-05|CO_RES_PSYCHIQUE_1": {
-      "pricePC": 3450,
-      "pricePAExact": "34.49999999999999",
-      "magicCostPA": "34.49999999999999",
-      "p": 1,
-      "status": "Actif",
-      "publication": "Prêt"
-    },
-    "CON-05|CO_RES_PSYCHIQUE_2": {
-      "pricePC": 17280,
-      "pricePAExact": "172.79999999999998",
-      "magicCostPA": "172.79999999999998",
-      "p": 3,
-      "status": "Actif",
-      "publication": "Prêt"
-    },
     "CON-05|CO_RES_TERRE_1": {
       "pricePC": 3450,
       "pricePAExact": "34.49999999999999",
@@ -19022,22 +18895,6 @@
       "publication": "Prêt"
     },
     "CON-05|CO_RES_TERRE_2": {
-      "pricePC": 17280,
-      "pricePAExact": "172.79999999999998",
-      "magicCostPA": "172.79999999999998",
-      "p": 3,
-      "status": "Actif",
-      "publication": "Prêt"
-    },
-    "CON-05|CO_RES_TOXIQUE_1": {
-      "pricePC": 3450,
-      "pricePAExact": "34.49999999999999",
-      "magicCostPA": "34.49999999999999",
-      "p": 1,
-      "status": "Actif",
-      "publication": "Prêt"
-    },
-    "CON-05|CO_RES_TOXIQUE_2": {
       "pricePC": 17280,
       "pricePAExact": "172.79999999999998",
       "magicCostPA": "172.79999999999998",
@@ -19058,54 +18915,6 @@
       "pricePAExact": "172.79999999999998",
       "magicCostPA": "172.79999999999998",
       "p": 3,
-      "status": "Actif",
-      "publication": "Prêt"
-    },
-    "CON-07|CO_POISON_1": {
-      "pricePC": 2500,
-      "pricePAExact": "25",
-      "magicCostPA": "25",
-      "p": 1,
-      "status": "Actif",
-      "publication": "Prêt"
-    },
-    "CON-07|CO_POISON_2": {
-      "pricePC": 6325,
-      "pricePAExact": "63.24999999999999",
-      "magicCostPA": "63.24999999999999",
-      "p": 2,
-      "status": "Actif",
-      "publication": "Prêt"
-    },
-    "CON-07|CO_POISON_3": {
-      "pricePC": 5500,
-      "pricePAExact": "55",
-      "magicCostPA": "55",
-      "p": 2,
-      "status": "Actif",
-      "publication": "Prêt"
-    },
-    "CON-07|CO_POISON_4": {
-      "pricePC": 12600,
-      "pricePAExact": "126",
-      "magicCostPA": "126",
-      "p": 3,
-      "status": "Actif",
-      "publication": "Prêt"
-    },
-    "CON-07|CO_POISON_5": {
-      "pricePC": 9600,
-      "pricePAExact": "96",
-      "magicCostPA": "96",
-      "p": 3,
-      "status": "Actif",
-      "publication": "Prêt"
-    },
-    "CON-07|CO_POISON_6": {
-      "pricePC": 23400,
-      "pricePAExact": "234",
-      "magicCostPA": "234",
-      "p": 4,
       "status": "Actif",
       "publication": "Prêt"
     },
@@ -19134,22 +18943,6 @@
       "publication": "Prêt"
     },
     "CON-08|CO_GRE_CONTONDANT_2": {
-      "pricePC": 37375,
-      "pricePAExact": "373.75",
-      "magicCostPA": "373.75",
-      "p": 4,
-      "status": "Actif",
-      "publication": "Prêt"
-    },
-    "CON-08|CO_GRE_DRAIN_1": {
-      "pricePC": 7563,
-      "pricePAExact": "75.62500000000001",
-      "magicCostPA": "75.62500000000001",
-      "p": 2,
-      "status": "Actif",
-      "publication": "Prêt"
-    },
-    "CON-08|CO_GRE_DRAIN_2": {
       "pricePC": 37375,
       "pricePAExact": "373.75",
       "magicCostPA": "373.75",
@@ -19253,22 +19046,6 @@
       "status": "Actif",
       "publication": "Prêt"
     },
-    "CON-08|CO_GRE_PSYCHIQUE_1": {
-      "pricePC": 7563,
-      "pricePAExact": "75.62500000000001",
-      "magicCostPA": "75.62500000000001",
-      "p": 2,
-      "status": "Actif",
-      "publication": "Prêt"
-    },
-    "CON-08|CO_GRE_PSYCHIQUE_2": {
-      "pricePC": 37375,
-      "pricePAExact": "373.75",
-      "magicCostPA": "373.75",
-      "p": 4,
-      "status": "Actif",
-      "publication": "Prêt"
-    },
     "CON-08|CO_GRE_TERRE_1": {
       "pricePC": 7563,
       "pricePAExact": "75.62500000000001",
@@ -19278,22 +19055,6 @@
       "publication": "Prêt"
     },
     "CON-08|CO_GRE_TERRE_2": {
-      "pricePC": 37375,
-      "pricePAExact": "373.75",
-      "magicCostPA": "373.75",
-      "p": 4,
-      "status": "Actif",
-      "publication": "Prêt"
-    },
-    "CON-08|CO_GRE_TOXIQUE_1": {
-      "pricePC": 7563,
-      "pricePAExact": "75.62500000000001",
-      "magicCostPA": "75.62500000000001",
-      "p": 2,
-      "status": "Actif",
-      "publication": "Prêt"
-    },
-    "CON-08|CO_GRE_TOXIQUE_2": {
       "pricePC": 37375,
       "pricePAExact": "373.75",
       "magicCostPA": "373.75",
@@ -20591,7 +20352,7 @@
     }
   },
   "notes": [
-    "Tarifs Q0 de 2 277 liaisons actives issus directement du classeur, arrondis au PC uniquement pour vente.",
+    "Tarifs Q0 de 2 150 liaisons actives issus directement du classeur, arrondis au PC uniquement pour vente.",
     "Qualité Q : (550 + 0,80 × B[PA]) × 3^(Q−1), pour Q de 1 à 5.",
     "Synergie : B + (coût Q + coût P) × (1 + 0,05 × Q × P). Le support B ne reçoit jamais le multiplicateur.",
     "Le coût P correspond à prix catalogue Q0 de la liaison moins prix physique B, non au prix total de la liaison.",
@@ -20672,7 +20433,7 @@
     },
     "REACTION_DEF_1": {
       "p": 1,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "family": "Actions / économie",
       "tariff": "Permanent"
     },
@@ -20732,7 +20493,7 @@
     },
     "MUN_RIC_2": {
       "p": 3,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "family": "Attaques multi-cibles",
       "tariff": "Consommable"
     },
@@ -20762,7 +20523,7 @@
     },
     "CAPA_CLASSE_R2": {
       "p": 2,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "family": "Capacités de classe",
       "tariff": "Permanent"
     },
@@ -20816,7 +20577,7 @@
     },
     "CHASSE_2_CIBLES": {
       "p": 3,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "family": "Cibles / chasse",
       "tariff": "Permanent"
     },
@@ -20846,7 +20607,7 @@
     },
     "CONSO_CARAC_MOD_1": {
       "p": 1,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "family": "Consommables / amélioration",
       "tariff": "Consommable"
     },
@@ -20870,7 +20631,7 @@
     },
     "CONSO_CAPA_R3": {
       "p": 3,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "family": "Consommables / capacités",
       "tariff": "Consommable"
     },
@@ -20900,13 +20661,13 @@
     },
     "CONSO_DEF_3": {
       "p": 2,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "family": "Consommables / défense",
       "tariff": "Consommable"
     },
     "CONSO_DEF_6": {
       "p": 4,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "family": "Consommables / défense",
       "tariff": "Consommable"
     },
@@ -20952,12 +20713,6 @@
       "family": "Consommables / mana",
       "tariff": "Consommable"
     },
-    "SUPRRIME": {
-      "p": 0,
-      "coefficient": 0.0,
-      "family": "SUPRRIME",
-      "tariff": "Exclu"
-    },
     "CONSO_MVT_2": {
       "p": 1,
       "coefficient": 0.95,
@@ -20978,7 +20733,7 @@
     },
     "CONSO_POISON_1": {
       "p": 1,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "family": "Consommables / poison",
       "tariff": "Consommable"
     },
@@ -20990,7 +20745,7 @@
     },
     "CONSO_POISON_3": {
       "p": 2,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "family": "Consommables / poison",
       "tariff": "Consommable"
     },
@@ -21050,7 +20805,7 @@
     },
     "CONSO_STABILISATION": {
       "p": 5,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "family": "Consommables / soins",
       "tariff": "Consommable"
     },
@@ -21146,7 +20901,7 @@
     },
     "CRIT_PLAGE_2": {
       "p": 3,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "family": "Critiques",
       "tariff": "Permanent"
     },
@@ -21314,7 +21069,7 @@
     },
     "DEG_ELEM_SORT_1": {
       "p": 2,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "family": "Dégâts élémentaires",
       "tariff": "Permanent"
     },
@@ -21332,13 +21087,13 @@
     },
     "DMG_ELEM_MUN_1": {
       "p": 2,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "family": "Dégâts élémentaires",
       "tariff": "Consommable"
     },
     "DMG_ELEM_MUN_2": {
       "p": 3,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "family": "Dégâts élémentaires",
       "tariff": "Consommable"
     },
@@ -21386,7 +21141,7 @@
     },
     "IMM_ETAT_SOMMEIL": {
       "p": 3,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "family": "Immunités / états",
       "tariff": "Permanent"
     },
@@ -21416,19 +21171,19 @@
     },
     "AR_MOB_1": {
       "p": 1,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "family": "Mobilité / initiative",
       "tariff": "Permanent"
     },
     "AR_MOB_2": {
       "p": 2,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "family": "Mobilité / initiative",
       "tariff": "Permanent"
     },
     "MOB_INIT_1": {
       "p": 1,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "family": "Mobilité / initiative",
       "tariff": "Permanent"
     },
@@ -21452,7 +21207,7 @@
     },
     "INIT_MOUV_3": {
       "p": 3,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "family": "Mobilité / initiative",
       "tariff": "Permanent"
     },
@@ -21488,7 +21243,7 @@
     },
     "ECHANGE_PLACES_3M": {
       "p": 1,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "family": "Mobilité / initiative",
       "tariff": "Permanent"
     },
@@ -21554,13 +21309,13 @@
     },
     "RES_MODE_RD1": {
       "p": 1,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "family": "RD / résistances",
       "tariff": "Permanent"
     },
     "RES_MODE_RD4": {
       "p": 2,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "family": "RD / résistances",
       "tariff": "Permanent"
     },
@@ -21608,7 +21363,7 @@
     },
     "RES_TYPE_RD2": {
       "p": 1,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "family": "RD / résistances",
       "tariff": "Permanent"
     },
@@ -21632,7 +21387,7 @@
     },
     "PM_MAX_1": {
       "p": 2,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "family": "Ressources max",
       "tariff": "Permanent"
     },
@@ -21644,7 +21399,7 @@
     },
     "PV_MAX_1": {
       "p": 2,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "family": "Ressources max",
       "tariff": "Permanent"
     },
@@ -21806,7 +21561,7 @@
     },
     "RELANCE_TEST_1J": {
       "p": 1,
-      "coefficient": 1.0,
+      "coefficient": 1,
       "family": "Utilitaire / fiabilité",
       "tariff": "Permanent"
     },

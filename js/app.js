@@ -314,7 +314,7 @@ async function loadCatalogue() {
   const [catalog, stocks, custom, overrides] = await Promise.all([
     API.loadCatalog(), API.getStock(GROUP), API.getCustom(GROUP), API.getOverrides(GROUP)
   ]);
-  const list = API.overlay(catalog.stockBase, custom, overrides, stocks, catalog.base);
+  const list = API.overlay(catalog.stockBase, custom, overrides, stocks, catalog.base).map(it=>API.refreshOfficialItem(it,catalog));
   // La source V2 contient les stats de jeu ; les objets stockés dans Firestore ne les dupliquent pas.
   // On enrichit uniquement les cartes à l'affichage à partir de l'ID de base et des affixes.
   const baseById = new Map((catalog.objectSpecs || []).map(base => [base.id, base]));

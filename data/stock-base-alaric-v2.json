@@ -161,43 +161,7 @@
     "affix": "CO_MANA_1"
   },
   {
-    "base": "CON-03",
-    "affix": "CO_ELIXIR_CHA_1"
-  },
-  {
-    "base": "CON-03",
-    "affix": "CO_ELIXIR_CON_1"
-  },
-  {
-    "base": "CON-03",
-    "affix": "CO_ELIXIR_DEX_1"
-  },
-  {
-    "base": "CON-03",
-    "affix": "CO_ELIXIR_FOR_1"
-  },
-  {
-    "base": "CON-03",
-    "affix": "CO_ELIXIR_INT_1"
-  },
-  {
-    "base": "CON-03",
-    "affix": "CO_ELIXIR_SAG_1"
-  },
-  {
-    "base": "CON-08",
-    "affix": "CO_GRE_FEU_1"
-  },
-  {
-    "base": "CON-07",
-    "affix": "CO_POISON_1"
-  },
-  {
     "base": "CON-15",
     "affix": "CO_STABILISATION"
-  },
-  {
-    "base": "CON-10",
-    "affix": "CO_DEF_3"
   }
 ]

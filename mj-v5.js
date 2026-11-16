@@ -30,7 +30,7 @@ async function loadAll(){if(busy)return;busy=true;status('Chargement des deux gr
     throw Error('Lectures Firestore refusées : '+failures.join(' ; ')+'. Vérifie les règles PUBLIÉES du projet '+String(A.cfg?.firebase?.projectId||'Firebase')+' et l’UID MJ dans Configuration.');
   }
   const [stocks,custom,overrides,featuredSnap]=responses.map(r=>r.value);
-  const items=A.overlay(catalog.stockBase,custom,overrides,stocks,catalog.base);state[g]={stocks,custom,overrides,featured:featuredSnap.exists?featuredSnap.data():{},items,byId:new Map(items.map(it=>[it.id,it]))};
+  const items=A.overlay(catalog.stockBase,custom,overrides,stocks,catalog.base).map(it=>A.refreshOfficialItem(it,catalog));state[g]={stocks,custom,overrides,featured:featuredSnap.exists?featuredSnap.data():{},items,byId:new Map(items.map(it=>[it.id,it]))};
  }
  edits.clear();selectedRows.clear();pending=null;repairPlan=null;$('repair-run').disabled=true;importChoices.clear();$('run-import').disabled=true;
  renderDashboard();buildCategories();buildRarities();renderTable();buildTemplates();renderAffixes();renderEditor();
@@ -249,7 +249,7 @@ async function restoreBackup(){if(!backupPending||busy)return;if(!confirm('ATTEN
  done.push(g);}
  busy=false;backupPending=null;await loadAll();backupStatus('✓ Restauration terminée pour les deux groupes ; livre des prix recalculé.','success');
  }catch(e){busy=false;$('backup-restore').disabled=false;backupStatus('Restauration interrompue après '+done.join(', ')+': '+e.message+'. Les groupes peuvent être partiellement modifiés ; recharge et contrôle les stocks.','error');}}
-// Réparation des tarifs : les 63 références du stock V2 sont les seules corrigées
+// Réparation des tarifs : les 54 références actives du stock V2 sont les seules corrigées
 // par défaut. Les créations personnalisées ne sont jamais écrasées sans opt-in.
 function officialPrice(item,allowCustom){
  const base=catalog?.stockBase.find(x=>x.id===item.id);
@@ -259,6 +259,7 @@ function officialPrice(item,allowCustom){
  if(Number(spec.quality||0)!==0||ids.length!==1)return null;
  const link=catalog.liaisons.find(x=>x.itemId===spec.base&&x.affixId===ids[0]&&x.publication==='Prêt');
  if(!link)return null;
+ if(Number.isSafeInteger(link.pricePCOfficial))return link.pricePCOfficial;
  if(Number.isSafeInteger(link.priceMagiePC))return link.priceMagiePC;
  if(link.priceConsoPA!=null&&Number.isFinite(Number(link.priceConsoPA)))return Math.round(Number(link.priceConsoPA)*100);
  return null;
