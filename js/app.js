@@ -633,18 +633,21 @@ function categoryRank(category) {
   return CATEGORY_ORDER[rankKey(category)] ?? 999;
 }
 
-// Le rayon reste prioritaire : Armes > Armures > Accessoires > Consommables > Munitions > Matériel.
-// Les autres options (prix, rareté, Alaric) ne trient qu'à l'intérieur d'un rayon.
+// Sélection d'Alaric : toutes les références hors catalogue de base d'abord,
+// PUIS l'ordre Armes > Armures > Accessoires > Consommables > Munitions > Matériel
+// dans chacun des deux ensembles. Les autres tris gardent la catégorie prioritaire.
 function compareCatalogueItems(a, b, mode) {
-  const byCategory = categoryRank(a.category) - categoryRank(b.category);
-  if (byCategory) return byCategory;
-  const byCategoryName = textCompare(a.category, b.category);
   if (mode === "alaric-first") {
-    return Number(b.source === "alaric") - Number(a.source === "alaric")
+    const bySource = Number(b.source !== "base") - Number(a.source !== "base");
+    if (bySource) return bySource;
+    return categoryRank(a.category) - categoryRank(b.category)
       || subcategoryRank(a.category, a.subcategory) - subcategoryRank(b.category, b.subcategory)
       || rarityRank(a.rarity) - rarityRank(b.rarity)
       || textCompare(a.name, b.name);
   }
+  const byCategory = categoryRank(a.category) - categoryRank(b.category);
+  if (byCategory) return byCategory;
+  const byCategoryName = textCompare(a.category, b.category);
   if (mode === "price-asc") return (typeof displayPrice === "function" ? displayPrice(a).pricePC - displayPrice(b).pricePC : (a.price-b.price)*100) || textCompare(a.name, b.name);
   if (mode === "price-desc") return (typeof displayPrice === "function" ? displayPrice(b).pricePC - displayPrice(a).pricePC : (b.price-a.price)*100) || textCompare(a.name, b.name);
   if (mode === "rarity-asc") return rarityRank(a.rarity) - rarityRank(b.rarity) || textCompare(a.name, b.name);
