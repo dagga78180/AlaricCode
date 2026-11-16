@@ -323,3 +323,9 @@ h1,h2,h3{font-family:inherit}
 
 /* Chiffres nets et alignés, y compris en monnaies mixtes et DM. */
 .price,.stock-badge,.item-row__stat dd,.item-stat dd,.cart-total,.cart-line__qty,.cart-line__price{font-variant-numeric:tabular-nums lining-nums}
+
+/* V10.3 — prix promotionnels ; aucune modification des cartes hors promotions. */
+.promo-price{display:flex;gap:.32rem;align-items:baseline;flex-wrap:wrap}
+.promo-price del{font-size:.78em;opacity:.72;color:#714d54}
+.promo-price .price{color:#67213e}
+.promo-percent{font-size:.67rem;font-weight:800;background:#b34759;color:#fff3db;border-radius:8px;padding:.16rem .35rem;white-space:nowrap}

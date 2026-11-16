@@ -1,7 +1,7 @@
 (function(){
 'use strict';
 const A=window.AlaricApp,$=id=>document.getElementById(id),GROUPS=['groupe1','groupe2'];
-let catalog=null,priceModel=null,pending=null,backupPending=null,busy=false;
+let catalog=null,priceModel=null,pending=null,backupPending=null,repairPlan=null,busy=false;
 const state={},edits=new Map(),selectedRows=new Set(),chosenAffixes=new Set(),importChoices=new Map();
 const enc=x=>String(x??''),numeric=x=>x!==''&&Number.isFinite(Number(x))&&Number(x)>=0;
 const esc=s=>enc(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -20,8 +20,8 @@ function refreshChanges(){const n=edits.size;$('changes-status').textContent=n?n
 async function loadAll(){if(busy)return;busy=true;status('Chargement des deux groupes…');try{
  if(!catalog)catalog=await A.loadCatalog();
  if(!priceModel){try{const r=await fetch('data/pricing-model.json',{cache:'no-store'});if(!r.ok)throw Error('HTTP '+r.status);priceModel=await r.json();}catch(e){console.warn('Modèle de prix P/Q absent',e);}}
- for(const g of GROUPS){const [stocks,custom,overrides]=await Promise.all([A.getStock(g),A.getCustom(g),A.getOverrides(g)]);const items=A.overlay(catalog.stockBase,custom,overrides,stocks,catalog.base);state[g]={stocks,custom,overrides,items,byId:new Map(items.map(it=>[it.id,it]))};}
- edits.clear();selectedRows.clear();pending=null;importChoices.clear();$('run-import').disabled=true;
+ for(const g of GROUPS){const [stocks,custom,overrides,featuredSnap]=await Promise.all([A.getStock(g),A.getCustom(g),A.getOverrides(g),A.db.collection('groups').doc(g).collection('storefront').doc('featured').get()]);const items=A.overlay(catalog.stockBase,custom,overrides,stocks,catalog.base);state[g]={stocks,custom,overrides,featured:featuredSnap.exists?featuredSnap.data():{},items,byId:new Map(items.map(it=>[it.id,it]))};}
+ edits.clear();selectedRows.clear();pending=null;repairPlan=null;$('repair-run').disabled=true;importChoices.clear();$('run-import').disabled=true;
  renderDashboard();buildCategories();buildRarities();renderTable();buildTemplates();renderAffixes();renderEditor();
  const bookErrors=await syncPricebooks();status(bookErrors.length?'Les données sont chargées, mais le livre des prix doit être corrigé : '+bookErrors.join(' | '):'Les deux groupes sont chargés. Boutique joueur V7 chargée avec les coefficients et tarifs corrigés.',bookErrors.length?'error':'success');
  }catch(e){console.error(e);status('Chargement impossible : '+e.message,'error');}finally{busy=false;refreshChanges();}}
@@ -34,11 +34,14 @@ async function syncPricebooks(){const msgs=[],errors=[];for(const g of GROUPS){t
 function renderDashboard(){const out=$('home-metrics');out.replaceChildren();for(const g of GROUPS){const s=state[g],v=s.items.filter(it=>it.visible),limited=v.filter(x=>Number.isInteger(x.stock)),low=limited.filter(x=>x.stock<=2);const box=A.elem('article',{className:'mj-metric'});box.innerHTML='<h3>'+names[g]+'</h3><div class="mj-stat"><div><strong>'+v.length+'</strong><small>En vente</small></div><div><strong>'+s.custom.length+'</strong><small>Créations MJ</small></div><div><strong>'+low.length+'</strong><small>Stock ≤ 2</small></div></div>';out.append(box);}}
 function buildCategories(){const sel=$('stock-category'),prev=sel.value;sel.replaceChildren(A.elem('option',{value:'',text:'Toutes les catégories'}));for(const cat of [...new Set(combined().map(x=>x.ref.category))].sort((a,b)=>a.localeCompare(b,'fr')))sel.append(A.elem('option',{value:cat,text:cat}));sel.value=prev;}
 function buildRarities(){const sel=$('stock-rarity'),prev=sel.value;sel.replaceChildren(A.elem('option',{value:'',text:'Toutes les raretés'}));for(const rarity of [...new Set(combined().map(x=>x.ref.rarity))].sort((a,b)=>a.localeCompare(b,'fr')))sel.append(A.elem('option',{value:rarity,text:rarity}));sel.value=prev;}
-function rowsFiltered(){const needle=$('stock-search').value.trim().toLocaleLowerCase('fr'),cat=$('stock-category').value,rarity=$('stock-rarity').value,presence=$('stock-presence').value;return combined().filter(({id,ref})=>{
+function rowsFiltered(){const needle=$('stock-search').value.trim().toLocaleLowerCase('fr'),cat=$('stock-category').value,rarity=$('stock-rarity').value,presence=$('stock-presence').value,shelf=$('stock-shelf').value,minimum=$('stock-price-min').value,maximum=$('stock-price-max').value;return combined().filter(({id,ref})=>{
  if(cat&&ref.category!==cat)return false;if(rarity&&ref.rarity!==rarity)return false;if(needle&&!`${ref.name} ${id} ${ref.category} ${ref.subcategory||''}`.toLocaleLowerCase('fr').includes(needle))return false;
- const parts=GROUPS.map(g=>itemFor(id,g)).filter(Boolean);if(presence==='visible'&&!parts.some(x=>x.visible))return false;if(presence==='hidden'&&parts.some(x=>x.visible))return false;if(presence==='low'&&!parts.some(x=>x.visible&&Number.isInteger(x.stock)&&x.stock<=2))return false;return true;
+ const parts=groups().map(g=>itemFor(id,g)).filter(Boolean);if(presence==='visible'&&!parts.some(x=>x.visible))return false;if(presence==='hidden'&&parts.some(x=>x.visible))return false;if(presence==='low'&&!parts.some(x=>x.visible&&Number.isInteger(x.stock)&&x.stock<=2))return false;
+ if(shelf!=='all'&&!groups().some(g=>{const shop=state[g]?.featured||{},promo=(shop.itemIds||[]).includes(id),secret=(shop.secretIds||[]).includes(id);return shelf==='promo'?promo:shelf==='secret'?secret:(!promo&&!secret);} ))return false;
+ if((minimum!==''||maximum!=='')&&!parts.some(it=>(minimum===''||it.pricePC>=Number(minimum)*100)&&(maximum===''||it.pricePC<=Number(maximum)*100)))return false;return true;
  });}
-function renderTable(){const rows=rowsFiltered();$('stock-count').textContent=rows.length+' objets';const tbody=$('stock-rows');tbody.replaceChildren();for(const {id,ref} of rows){const tr=A.elem('tr');let img='';try{img=A.tieredIcon(A.catalogueIconForItem(ref,catalog?.icons),A.computeIconRank(ref,catalog?.affixes).rank)||'';}catch(e){}const first=A.elem('td',{className:'mj-sticky-name'});const wrapper=A.elem('div',{className:'object-main'});const cb=A.elem('input',{type:'checkbox',checked:selectedRows.has(id)});cb.setAttribute('aria-label','Sélectionner '+ref.name);cb.addEventListener('change',()=>{if(cb.checked)selectedRows.add(id);else selectedRows.delete(id);refreshSelection();});const details=A.elem('div');details.append(A.elem('div',{className:'object-label',text:ref.name}),A.elem('div',{className:'object-sub',text:ref.category+' · '+id}));if(img)wrapper.append(cb,A.elem('img',{src:img,alt:''}),details);else wrapper.append(cb,details);first.append(wrapper);tr.append(first);
+function renderTable(){const rows=rowsFiltered();$('stock-count').textContent=rows.length+' objets';const tbody=$('stock-rows');tbody.replaceChildren();for(const {id,ref} of rows){const tr=A.elem('tr');let img='';try{img=A.tieredIcon(A.catalogueIconForItem(ref,catalog?.icons),A.computeIconRank(ref,catalog?.affixes).rank)||'';}catch(e){}const first=A.elem('td',{className:'mj-sticky-name'});const wrapper=A.elem('div',{className:'object-main'});const cb=A.elem('input',{type:'checkbox',checked:selectedRows.has(id)});cb.setAttribute('aria-label','Sélectionner '+ref.name);cb.addEventListener('change',()=>{if(cb.checked)selectedRows.add(id);else selectedRows.delete(id);refreshSelection();});const details=A.elem('div');details.append(A.elem('div',{className:'object-label',text:ref.name}),A.elem('div',{className:'object-sub',text:ref.category+' · '+id}));
+ const shortcuts=A.elem('div',{className:'mj-row-shortcuts'});for(const [label,type] of [['↳ Promotion','promo'],['↳ Secret','secret']])shortcuts.append(A.elem('button',{className:'small subtle',text:label,onClick:()=>{tab('info');document.dispatchEvent(new CustomEvent('alaric-mj-feature-add',{detail:{id,type}}));}}));details.append(shortcuts);if(img)wrapper.append(cb,A.elem('img',{src:img,alt:''}),details);else wrapper.append(cb,details);first.append(wrapper);tr.append(first);
  for(const field of ['stock','price','visible'])for(const g of GROUPS){const it=itemFor(id,g),value=draft(id,g),td=A.elem('td');const scoped=groups().includes(g);if(!it){if(field==='stock'&&ref.origin==='Création MJ'){td.append(A.elem('button',{className:'small subtle',text:'Ajouter',onClick:()=>copyToGroup(id,g)}));}else td.append(A.elem('span',{className:'mj-missing',text:'Non présent'}));tr.append(td);continue;}
  if(field==='visible'){const input=A.elem('input',{type:'checkbox',checked:value.visible,disabled:!scoped});input.setAttribute('aria-label','Visible '+ref.name+' '+names[g]);input.addEventListener('change',()=>changeDraft(id,g,'visible',input.checked));td.append(input);}else{const input=A.elem('input',{type:'number',min:'0',step:field==='stock'?'1':'0.01',placeholder:field==='stock'?'∞':'PA',value:field==='stock'?value.stock:(value.price===''?'':String(Number(value.price)/100)),disabled:!scoped});input.setAttribute('aria-label',(field==='stock'?'Stock ':'Prix ')+ref.name+' '+names[g]);input.addEventListener('input',()=>{changeDraft(id,g,field,field==='stock'?input.value:(input.value===''?'':String(Math.round(Number(input.value)*100))))});td.append(input);}tr.append(td);
  }tbody.append(tr);}refreshSelection();refreshChanges();}
@@ -207,11 +210,77 @@ async function restoreBackup(){if(!backupPending||busy)return;if(!confirm('ATTEN
  for(const cat of ['customItems','stocks','baseOverrides'])for(const id of current[cat])await A.db.collection('groups').doc(g).collection(cat).doc(id).delete();done.push(g);}
  busy=false;backupPending=null;await loadAll();backupStatus('✓ Restauration terminée pour les deux groupes ; livre des prix recalculé.','success');
  }catch(e){busy=false;$('backup-restore').disabled=false;backupStatus('Restauration interrompue après '+done.join(', ')+': '+e.message+'. Les groupes peuvent être partiellement modifiés ; recharge et contrôle les stocks.','error');}}
+// Réparation des tarifs : les 63 références du stock V2 sont les seules corrigées
+// par défaut. Les créations personnalisées ne sont jamais écrasées sans opt-in.
+function officialPrice(item,allowCustom){
+ const base=catalog?.stockBase.find(x=>x.id===item.id);
+ if(base)return Number(base.pricePC);
+ if(!allowCustom || item.origin!=='Création MJ')return null;
+ const spec=item.cofSpec||{},ids=Array.isArray(spec.affixes)?spec.affixes:[];
+ if(Number(spec.quality||0)!==0||ids.length!==1)return null;
+ const link=catalog.liaisons.find(x=>x.itemId===spec.base&&x.affixId===ids[0]&&x.publication==='Prêt');
+ if(!link)return null;
+ if(Number.isSafeInteger(link.priceMagiePC))return link.priceMagiePC;
+ if(link.priceConsoPA!=null&&Number.isFinite(Number(link.priceConsoPA)))return Math.round(Number(link.priceConsoPA)*100);
+ return null;
+}
+function previewOfficialPrices(){
+ repairPlan=null;$('repair-run').disabled=true;$('repair-details').replaceChildren();
+ if(edits.size)return $('repair-status').textContent='Enregistre ou annule d’abord les cellules en attente dans le tableau MJ.';
+ if(!catalog)return $('repair-status').textContent='Charge le catalogue en premier.';
+ const allowCustom=$('repair-include-custom').checked,changes=[];
+ for(const g of groups())for(const it of state[g]?.items||[]){
+   const official=officialPrice(it,allowCustom);
+   if(official!==null&&it.pricePC!==official)changes.push({group:g,id:it.id,name:it.name,before:it.pricePC,after:official,visible:it.visible,isCustom:it.origin==='Création MJ'});
+ }
+ repairPlan=changes;
+ $('repair-status').textContent=changes.length ? `${changes.length} tarif(s) à corriger dans ${groups().map(g=>names[g]).join(' et ')}. Vérifie la comparaison ci-dessous. Les quantités ne changent pas.` : 'Aucune différence : les prix des objets concernés sont déjà au tarif officiel.';
+ const list=$('repair-details');for(const entry of changes.slice(0,100)){
+   const row=A.elem('div',{className:'mj-repair-line'});
+   row.append(A.elem('span',{text:names[entry.group]+' · '+entry.name}),A.elem('strong',{text:A.formatPC(entry.before)+'  →  '+A.formatPC(entry.after)}));list.append(row);
+ }
+ if(changes.length>100)list.append(A.elem('p',{text:`… et ${changes.length-100} autres corrections.`}));
+ $('repair-run').disabled=!changes.length;
+}
+async function repairOfficialPrices(){
+ if(!repairPlan?.length||busy)return;
+ if(edits.size)return status('Enregistre ou annule d’abord les autres modifications.','error');
+ const plan=repairPlan,scope=groups();
+ if(!confirm(`Restaurer ${plan.length} tarifs officiels pour ${scope.map(g=>names[g]).join(' et ')} ?
+
+Cette opération remplace les prix personnalisés de ces objets, mais conserve toutes les quantités et la visibilité.`))return;
+ busy=true;$('repair-run').disabled=true;refreshChanges();
+ try{
+   const timestamp=firebase.firestore.FieldValue.serverTimestamp(),batch=A.db.batch();
+   const nextItems={};
+   for(const g of scope){
+     const changes=new Map(plan.filter(x=>x.group===g).map(x=>[x.id,x]));
+     nextItems[g]=state[g].items.map(it=>changes.has(it.id)?{...it,pricePC:changes.get(it.id).after}:it);
+     for(const x of changes.values()){
+       const groupRef=A.db.collection('groups').doc(g);
+       batch.set(groupRef.collection('baseOverrides').doc(x.id),{visible:x.visible,pricePC:x.after,updatedAt:timestamp});
+       if(x.isCustom){
+         const original=itemFor(x.id,g);
+         batch.update(groupRef.collection('customItems').doc(x.id),{
+           pricePC:x.after,cofSpec:{...original.cofSpec,price:String(x.after)+' pc'},updatedAt:timestamp
+         });
+       }
+     }
+     const book=A.makePriceBook(nextItems[g],catalog,state[g].featured);
+     batch.set(A.db.collection('groups').doc(g).collection('storefront').doc('priceBook'),{...book,updatedAt:timestamp});
+   }
+   if(plan.length+plan.filter(x=>x.isCustom).length+scope.length>450)throw Error('Trop de modifications pour une seule opération : réduis les groupes sélectionnés.');
+   await batch.commit();busy=false;
+   await loadAll();
+   $('repair-status').textContent=`✓ ${plan.length} tarifs restaurés depuis le catalogue officiel. Stocks inchangés.`;
+   status('Tarifs restaurés et livres des prix des groupes concernés publiés.','success');
+ }catch(error){busy=false;repairPlan=null;refreshChanges();$('repair-status').textContent='Échec : '+error.message+' (règles Firestore, UID MJ ou connexion).';status('Réparation non enregistrée : '+error.message,'error');}
+}
 // Événements d’interface
 for(const b of document.querySelectorAll('[data-tab]'))b.addEventListener('click',()=>tab(b.dataset.tab));for(const b of document.querySelectorAll('[data-go]'))b.addEventListener('click',()=>tab(b.dataset.go));
 $('active-group').addEventListener('change',()=>{if(edits.size&&!confirm('Les modifications non enregistrées resteront en mémoire. Changer de groupe ?'))return;renderTable();renderEditor();if(pending)renderImportPreview();});
 $('reload').addEventListener('click',()=>{if(edits.size&&!confirm('Annuler les modifications non enregistrées ?'))return;loadAll();});
-$('stock-search').addEventListener('input',renderTable);$('stock-category').addEventListener('change',renderTable);$('stock-rarity').addEventListener('change',renderTable);$('stock-presence').addEventListener('change',renderTable);
+$('stock-search').addEventListener('input',renderTable);$('stock-category').addEventListener('change',renderTable);$('stock-rarity').addEventListener('change',renderTable);$('stock-presence').addEventListener('change',renderTable);$('stock-shelf').addEventListener('change',renderTable);$('stock-price-min').addEventListener('input',renderTable);$('stock-price-max').addEventListener('input',renderTable);
 $('select-all').addEventListener('change',e=>{for(const x of rowsFiltered()){if(e.target.checked)selectedRows.add(x.id);else selectedRows.delete(x.id);}renderTable();});
 $('bulk-stock').addEventListener('click',applyBulkStock);$('bulk-show').addEventListener('click',()=>bulkVisibility(true));$('bulk-hide').addEventListener('click',()=>bulkVisibility(false));$('bulk-delete').addEventListener('click',bulkDelete);
 $('save-changes').addEventListener('click',saveChanges);$('cancel-changes').addEventListener('click',()=>{edits.clear();renderTable();});
@@ -220,6 +289,7 @@ $('editor-copy').addEventListener('click',()=>{$('editor-stock1').value=$('edito
 $('import-file').addEventListener('change',async e=>{const file=e.target.files?.[0];if(!file)return;try{$('import-json').value=await file.text();previewImport();}catch(err){importStatus(err.message,'error');}});
 $('import-json').addEventListener('input',()=>{pending=null;importChoices.clear();$('run-import').disabled=true;$('import-preview').replaceChildren();});$('preview-import').addEventListener('click',previewImport);$('run-import').addEventListener('click',performImport);
 $('backup-export').addEventListener('click',exportBackup);$('backup-preview').addEventListener('click',previewBackup);$('backup-restore').addEventListener('click',restoreBackup);
+$('repair-preview').addEventListener('click',previewOfficialPrices);$('repair-run').addEventListener('click',repairOfficialPrices);$('repair-include-custom').addEventListener('change',()=>{repairPlan=null;$('repair-run').disabled=true;$('repair-status').textContent='Options modifiées : relance la comparaison.';});
 $('publish-pricebook').addEventListener('click',async()=>{try{const errors=await syncPricebooks();status(errors.length?'Publication incomplète : '+errors.join(' · '):'Livres des prix actualisés pour les deux groupes.',errors.length?'error':'success');}catch(e){status(e.message,'error');}});
 $('login-form').addEventListener('submit',async e=>{e.preventDefault();$('login-message').textContent='Connexion…';try{await A.auth.signInWithEmailAndPassword($('email').value.trim(),$('password').value);$('password').value='';}catch(err){$('login-message').textContent='Erreur : '+err.message;}});
 $('logout').addEventListener('click',()=>A.auth.signOut());

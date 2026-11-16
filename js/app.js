@@ -196,6 +196,7 @@ const state = {
   stockOnline: false,
   activeView: 'boutique',
   featuredIds: new Set(),
+  promoDiscounts: {},
   lockedIds: new Set(),
   secretIds: new Set(),
   secretUnlocked: false,
@@ -428,7 +429,7 @@ function normalizeItem(item, source = "base", index = 0) {
 function initStockClient() { STOCK_CLIENT = API; }
 
 async function loadRemoteStocks({ silent=false }={}) {
-  try {await loadCatalogue(); if(!silent)renderAll(true); return true;}
+  try {await loadCatalogue(); await loadMerchandiseFeatures(); if(!silent)renderAll(true); return true;}
   catch(e) {console.warn('Données Firebase indisponibles',e);state.stockOnline=false;
     state.stockWarning='Connexion Firebase indisponible : vérifie les règles et le réseau.';
     if(!silent)renderAll(false);return false;}
@@ -644,8 +645,8 @@ function compareCatalogueItems(a, b, mode) {
       || rarityRank(a.rarity) - rarityRank(b.rarity)
       || textCompare(a.name, b.name);
   }
-  if (mode === "price-asc") return a.price - b.price || textCompare(a.name, b.name);
-  if (mode === "price-desc") return b.price - a.price || textCompare(a.name, b.name);
+  if (mode === "price-asc") return (typeof displayPrice === "function" ? displayPrice(a).pricePC - displayPrice(b).pricePC : (a.price-b.price)*100) || textCompare(a.name, b.name);
+  if (mode === "price-desc") return (typeof displayPrice === "function" ? displayPrice(b).pricePC - displayPrice(a).pricePC : (b.price-a.price)*100) || textCompare(a.name, b.name);
   if (mode === "rarity-asc") return rarityRank(a.rarity) - rarityRank(b.rarity) || textCompare(a.name, b.name);
   if (mode === "rarity-desc") return rarityRank(b.rarity) - rarityRank(a.rarity) || textCompare(a.name, b.name);
   if (mode === "category-asc") {
@@ -716,10 +717,21 @@ function renderFilters() {
   elements.activeFilterCount.textContent=active?`(${active})`:'';
 }
 
+function displayPrice(item){
+  const fullPC=Math.round(item.price*100);
+  const pct=Number(state.promoDiscounts[item.id]);
+  const promo=state.featuredIds.has(item.id)&&window.AlaricPriceTools?.validPercent(pct);
+  return {basePC:fullPC,pricePC:promo?window.AlaricPriceTools.salePricePC(fullPC,pct):fullPC,promo,pct:promo?pct:0};
+}
+function priceTag(item){
+  const sale=displayPrice(item);
+  return sale.promo?`<span class="promo-price"><del>${formatPrice(sale.basePC/100)}</del><strong class="price">${formatPrice(sale.pricePC/100)}</strong><span class="promo-percent">−${sale.pct} %</span></span>`:
+    `<strong class="price">${formatPrice(item.price)}</strong>`;
+}
 function filteredItems() {
   let items = [...ITEMS];
   // Rayon normal et promotions : uniquement les objets publiés par le MJ.
-  if (state.activeView==='boutique') items=items.filter(it=>it.visible && !state.lockedIds.has(it.id));
+  if (state.activeView==='boutique') items=items.filter(it=>it.visible && !state.lockedIds.has(it.id) && !state.featuredIds.has(it.id));
   else if (state.activeView==='promotions') items=items.filter(it=>it.visible && !state.lockedIds.has(it.id) && state.featuredIds.has(it.id));
   else if (state.activeView==='secret') items=state.secretUnlocked ? items.filter(it=>state.secretIds.has(it.id)) : [];
 
@@ -729,8 +741,8 @@ function filteredItems() {
   if (state.rarity !== "all") items = items.filter(item => item.rarity === state.rarity);
   if (state.source !== "all") items = items.filter(item => item.source === state.source);
   if (state.favoritesOnly) items = items.filter(item => state.favorites.has(item.id));
-  if (state.minPrice !== null) items = items.filter(item => item.price >= state.minPrice);
-  if (state.maxPrice !== null) items = items.filter(item => item.price <= state.maxPrice);
+  if (state.minPrice !== null) items = items.filter(item => displayPrice(item).pricePC/100 >= state.minPrice);
+  if (state.maxPrice !== null) items = items.filter(item => displayPrice(item).pricePC/100 <= state.maxPrice);
 
   if (state.search.trim()) {
     const query = normalize(state.search);
@@ -829,7 +841,7 @@ function renderItems() {
   const note=document.getElementById('shop-note');
   if(note){
     note.hidden=state.activeView==='boutique';
-    note.textContent=state.activeView==='promotions'?'Articles mis en avant par Alaric. Les prix affichés sont ceux publiés par le MJ.':
+    note.textContent=state.activeView==='promotions'?'Tarifs réduits publiés par Alaric, stock commun à la boutique.':
       'Ce rayon est réservé aux détenteurs du mot de passe communiqué par le MJ.';
   }
   const gate=document.getElementById('secret-gate');
@@ -901,7 +913,7 @@ function renderItems() {
 
         <div class="item-row__actions">
           <div class="item-row__buy-meta">
-            <strong class="price">${formatPrice(item.price)}</strong>
+            ${priceTag(item)}
             ${stockBadge(item)}
           </div>
           <button class="button button--small" type="button" data-add="${escapeHTML(item.id)}" ${canBuy ? "" : "disabled"} title="${escapeHTML(buttonTitle)}">${buttonLabel}</button>
@@ -947,7 +959,7 @@ function cartEntries() {
 }
 
 function cartTotal() {
-  return cartEntries().reduce((sum, entry) => sum + entry.item.price * entry.qty, 0);
+  return cartEntries().reduce((sum, entry) => sum + displayPrice(entry.item).pricePC/100 * entry.qty, 0);
 }
 
 function renderCart() {
@@ -956,7 +968,7 @@ function renderCart() {
   elements.cartEmpty.style.display = entries.length ? "none" : "block";
 
   elements.cartItems.innerHTML = entries.map(({ item, qty }) => {
-    const total = item.price * qty;
+    const total = displayPrice(item).pricePC/100 * qty;
     const atStockLimit = hasFiniteStock(item) && qty >= item.stock;
     return `
       <div class="cart-line">
@@ -1034,7 +1046,7 @@ function openCheckout(step='confirm') {
   elements.checkoutClose.focus();
 }
 function totalPC(entries=cartEntries()) {
-  return entries.reduce((sum,{item,qty})=>sum+Math.round(item.price*100)*qty,0);
+  return entries.reduce((sum,{item,qty})=>sum+displayPrice(item).pricePC*qty,0);
 }
 function formatPCAmount(pc) {return API.formatPC(Number(pc)||0);}
 function renderCheckout() {
@@ -1058,7 +1070,7 @@ function renderCheckout() {
   const entries=cartEntries();
   if(!entries.length){closeCheckout();return;}
   elements.checkoutBody.innerHTML=`${state.checkoutError?`<p class="checkout-error" role="alert">${escapeHTML(state.checkoutError)}</p>`:''}<p class="checkout-intro">Vérifie ton achat avant la confirmation définitive. Aucune quantité n'est retirée avant cette dernière étape.</p>
-    <div class="checkout-lines">${entries.map(({item,qty})=>`<div class="checkout-line"><div><strong>${escapeHTML(cardName(item))}</strong> × ${qty}<span>${hasFiniteStock(item)?`Stock : ${item.stock} → ${item.stock-qty}`:'Stock illimité'}</span></div><strong>${formatPrice(item.price*qty)}</strong></div>`).join('')}</div>
+    <div class="checkout-lines">${entries.map(({item,qty})=>`<div class="checkout-line"><div><strong>${escapeHTML(cardName(item))}</strong> × ${qty}<span>${hasFiniteStock(item)?`Stock : ${item.stock} → ${item.stock-qty}`:'Stock illimité'}</span></div><strong>${formatPrice(displayPrice(item).pricePC*qty/100)}</strong></div>`).join('')}</div>
     <p class="checkout-sum">Total : <strong>${formatPCAmount(totalPC(entries))}</strong></p>
     <p class="checkout-warning">⚠ En confirmant, tu achètes ces objets. Le stock disponible est vérifié et déduit immédiatement. Tu devras ensuite envoyer la commande Roll20 à ton MJ sur Discord.</p>
     <div class="checkout-buttons"><button class="button button--ghost" id="checkout-back" type="button" ${state.purchasing?'disabled':''}>Retour au panier</button><button class="button button--primary" id="checkout-confirm" type="button" ${state.purchasing?'disabled':''}>${state.purchasing?'Validation en cours…':'Confirmer définitivement'}</button></div>`;
@@ -1080,7 +1092,7 @@ async function finalizeOrder() {
   catch(err){showToast(err.message);return;}
   const entries=cartEntries();
   const lines=entries.map(({item,qty})=>({
-    id:item.id,name:cardName(item),qty,pricePC:Math.round(item.price*100),
+    id:item.id,name:cardName(item),qty,pricePC:displayPrice(item).pricePC,promo:displayPrice(item).promo,
     spec:JSON.parse(JSON.stringify(item.cofSpec)),sourceSpec:item.sourceSpec,
     sourceName:item.sourceName,isCustom:item.isCustom
   }));
@@ -1173,8 +1185,9 @@ async function loadMerchandiseFeatures(){
     const doc=await API.db.collection('groups').doc(GROUP).collection('storefront').doc('featured').get();
     const data=doc.exists?doc.data():{};
     state.featuredIds=new Set(Array.isArray(data.itemIds)?data.itemIds.map(String):[]);
+    state.promoDiscounts=data.discounts&&typeof data.discounts==='object'?data.discounts:{};
     state.lockedIds=new Set(Array.isArray(data.secretIds)?data.secretIds.map(String):[]);
-  }catch(error){console.warn('Promotions non disponibles',error);state.featuredIds=new Set();}
+  }catch(error){console.warn('Promotions non disponibles',error);state.featuredIds=new Set();state.promoDiscounts={};}
 }
 async function sha256Text(value){
   if(!window.crypto?.subtle)throw Error('Ouvre le site en HTTPS pour déverrouiller le rayon secret.');

@@ -32,7 +32,9 @@ service cloud.firestore {
     // Les prix sont publiés dans Firestore uniquement par le MJ.
     function validPlayerDecrease(groupId, itemId) {
       let orderId = request.resource.data.get('lastOrderId', '');
-      let book = get(priceBookPath(groupId)).data.prices;
+      let priceData = get(priceBookPath(groupId)).data;
+      let book = priceData.prices;
+      let promoBook = priceData.get('promoPrices', {});
       let order = getAfter(orderPath(groupId, orderId)).data;
       let line = order.checkoutLines.get(itemId, null);
       return request.auth != null
@@ -54,7 +56,8 @@ service cloud.firestore {
         && line.stockBefore == resource.data.stock
         && line.stockAfter == request.resource.data.stock
         && line.qty == resource.data.stock - request.resource.data.stock
-        && book.get(itemId, -1) == line.pricePC;
+        && (book.get(itemId, -1) == line.pricePC
+          || (line.get('promo', false) == true && promoBook.get(itemId, -1) == line.pricePC));
     }
     function validPlayerOrder(groupId, orderId) {
       let data = request.resource.data;
@@ -113,13 +116,17 @@ service cloud.firestore {
       match /storefront/{bookId} {
         allow read: if isGroup(groupId) && bookId in ['priceBook','featured'];
         allow create, update: if isGroup(groupId) && bookId == 'priceBook' && isMJ()
-          && request.resource.data.keys().hasOnly(['prices','updatedAt'])
+          && request.resource.data.keys().hasOnly(['prices','promoPrices','updatedAt'])
           && request.resource.data.prices is map && request.resource.data.prices.size() <= 400
+          && request.resource.data.promoPrices is map && request.resource.data.promoPrices.size() <= 200
+          && request.resource.data.promoPrices.keys().hasOnly(request.resource.data.prices.keys())
           && request.resource.data.updatedAt == request.time;
         allow create, update: if isGroup(groupId) && bookId == 'featured' && isMJ()
-          && request.resource.data.keys().hasOnly(['itemIds','secretIds','updatedAt'])
+          && request.resource.data.keys().hasOnly(['itemIds','secretIds','discounts','updatedAt'])
           && request.resource.data.itemIds is list && request.resource.data.itemIds.size() <= 200
           && request.resource.data.secretIds is list && request.resource.data.secretIds.size() <= 200
+          && request.resource.data.discounts is map && request.resource.data.discounts.size() <= 200
+          && request.resource.data.discounts.keys().hasOnly(request.resource.data.itemIds)
           && request.resource.data.updatedAt == request.time;
         allow delete: if isGroup(groupId) && bookId in ['priceBook','featured'] && isMJ();
       }

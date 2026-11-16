@@ -398,22 +398,34 @@
   // Publication de la liste de prix par le MJ : une seule fiche Firestore par groupe.
   // Le client joueur ne peut ni créer ni changer ce document ; les Rules le lisent
   // pour vérifier le prix lors de la déduction du stock.
-  async function publishPriceBook(group, items, catalog) {
-    const prices={};
+  // Le prix du catalogue et la remise publiée sont deux montants distincts.
+  // Les clients n'ont jamais le droit de publier ces maps.
+  function makePriceBook(items,catalog,featured={}) {
+    const prices={},promoPrices={};
     for(const item of items){
       if(item.visible===false || item.cofCompatible===false || !item.cofSpec?.base)continue;
       if(!prepareRoll20Spec(item,catalog).ok)continue;
       if(!Number.isSafeInteger(item.pricePC)||item.pricePC<0||item.pricePC>1e11)continue;
       prices[item.id]=item.pricePC;
     }
-    const ids=Object.keys(prices);
-    if(ids.length===0 || ids.length>400)throw Error('Catalogue des prix invalide : '+ids.length+' références.');
-    const ref=db.collection('groups').doc(groupId(group)).collection('storefront').doc('priceBook');
-    const current=await ref.get();
-    const previous=current.exists?current.data()?.prices||{}:{};
-    const same=Object.keys(previous).length===ids.length && ids.every(id=>previous[id]===prices[id]);
-    if(!same)await ref.set({prices,updatedAt:global.firebase.firestore.FieldValue.serverTimestamp()});
-    return {count:ids.length,updated:!same};
+    const discounts=featured?.discounts||{};
+    for(const id of featured?.itemIds||[]){
+      const pct=Number(discounts[id]);
+      if(prices[id]!==undefined && global.AlaricPriceTools?.validPercent(pct))
+        promoPrices[id]=global.AlaricPriceTools.salePricePC(prices[id],pct);
+    }
+    if(!Object.keys(prices).length||Object.keys(prices).length>400)throw Error('Catalogue des prix invalide.');
+    return {prices,promoPrices};
+  }
+  async function publishPriceBook(group, items, catalog) {
+    const root=db.collection('groups').doc(groupId(group));
+    const ref=root.collection('storefront').doc('priceBook');
+    const [current,featuredSnap]=await Promise.all([ref.get(),root.collection('storefront').doc('featured').get()]);
+    const data=makePriceBook(items,catalog,featuredSnap.exists?featuredSnap.data():{});
+    const previous=current.exists?current.data()||{}:{};
+    const same=JSON.stringify(previous.prices||{})===JSON.stringify(data.prices) && JSON.stringify(previous.promoPrices||{})===JSON.stringify(data.promoPrices);
+    if(!same)await ref.set({...data,updatedAt:global.firebase.firestore.FieldValue.serverTimestamp()});
+    return {count:Object.keys(data.prices).length,updated:!same,promoCount:Object.keys(data.promoPrices).length};
   }
 
   function overlay(base,custom,overrides,stocks,validCatalogBases=base){
@@ -433,5 +445,5 @@
         stock:stocks.has(it.id)?stocks.get(it.id):null};
     });
   }
-  global.AlaricApp={cfg,db,auth,RARITY_LABELS,groupId,parsePricePC,formatPC,normalizeId,prepareRoll20Spec,computeIconRank,tieredIcon,catalogueIconForItem,normalizedItem,fallbackIcon,loadCatalog,groupStocks,groupItems,getStock,getCustom,setStock,saveCustom,inspectCustomFields,deleteCustom,migrationLegacy,compatibleAffixes,iconUrl,elem,getOverrides,setBaseOverride,overlay,publishPriceBook};
+  global.AlaricApp={cfg,db,auth,RARITY_LABELS,groupId,parsePricePC,formatPC,normalizeId,prepareRoll20Spec,computeIconRank,tieredIcon,catalogueIconForItem,normalizedItem,fallbackIcon,loadCatalog,groupStocks,groupItems,getStock,getCustom,setStock,saveCustom,inspectCustomFields,deleteCustom,migrationLegacy,compatibleAffixes,iconUrl,elem,getOverrides,setBaseOverride,overlay,makePriceBook,publishPriceBook};
 }(window));
