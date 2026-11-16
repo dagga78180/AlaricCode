@@ -15,7 +15,7 @@ test('chaque groupe dispose des trois rayons, filtres et panier',()=>{
  }
 });
 test('mot de passe non codé en dur, empreinte du secret et règles dédiées',()=>{
- const app=read('js/app.js'),mj=read('js/merchandise-mj.js'),rules=read('firestore.rules');
+ const app=read('js/app.js'),mj=read('js/rayons-mj.js'),rules=read('firestore.rules');
  assert.match(app,/crypto\.subtle\.digest/);assert.match(mj,/crypto\.subtle\.digest/);
  assert.match(rules,/secretShelves/);assert.match(rules,/allow list: if false/);
  assert.match(rules,/allow create, update: if isGroup\(groupId\) && bookId == 'featured' && isMJ\(\)/);

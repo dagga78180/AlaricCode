@@ -1,12 +1,9 @@
-ALARICCODE V10.3 — L'ÉCRIN DES MERVEILLES
+ALARICCODE V10.4 — AVANT INSTALLATION
 
-Démarre avec INSTALLATION_V10_3.md.
+1. Lire INSTALLATION_V10_4.md.
+2. Sauvegarder les données et les règles Firestore de production.
+3. Si les règles V10.3 ne sont pas publiées, les publier d'abord avec le VRAI UID MJ.
+4. Déployer ensuite les fichiers du dossier AlaricCode sur GitHub Pages.
+5. Tester la gestion des stocks, les promotions et le Secret pour les DEUX groupes.
 
-1. Sauvegarde tes fichiers et tes données Firestore.
-2. Mets à jour les règles Firestore : conserve ton véritable UID MJ dans isMJ().
-3. Publie les fichiers V10.3 sur GitHub Pages (config.js de ton projet).
-4. Dans mj.html → Tableau de bord, utilise « Comparer les tarifs » puis « Restaurer les prix officiels ».
-5. Dans Configuration, configure les promotions et le mot de passe secret.
-6. Teste un achat normal et un achat en promotion avant les joueurs.
-
-ATTENTION : « Actualiser les prix » ne réinitialise pas les surcharges anciennes ; le NOUVEAU bouton « Restaurer les prix officiels » le fait après aperçu/confirmation.
+ATTENTION : déployer des fichiers HTML/JS ne met PAS à jour les règles Firebase.

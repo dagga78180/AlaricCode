@@ -33,12 +33,14 @@ test('règles Firestore : seulement le MJ publie les tarifs, promoPrices documen
  assert.match(rules,/discounts\.keys\(\)\.hasOnly/);
  assert.match(rules,/secretShelves/);
 });
-test('MJ : filtres catalogue et déplacement vers les deux rayons',()=>{
- const html=read('mj.html'),js=read('mj-v5.js'),merch=read('js/merchandise-mj.js');
- for(const id of ['stock-shelf','stock-price-min','stock-price-max','stock-search','stock-category','stock-rarity','repair-preview','repair-run','feature-search','shelf-new-password'])assert.ok(html.includes(`id="${id}"`),id);
+test('MJ V10.4 : filtres et glisser-déposer des deux rayons',()=>{
+ const html=read('mj.html'),js=read('mj-v5.js'),rayons=read('js/rayons-mj.js');
+ for(const id of ['stock-shelf','stock-price-min','stock-price-max','stock-search','stock-category','stock-rarity','repair-preview','repair-run','rayon-search','rayon-password','rayon-board','rayon-save','rayon-discount-dialog'])assert.ok(html.includes(`id="${id}"`),id);
  assert.match(js,/alaric-mj-feature-add/);
- assert.match(merch,/profiles\[g\]\.promo\.set/);
- assert.match(merch,/A\.makePriceBook\(e\.items,catalog,published\)/);
+ assert.match(rayons,/startDrag/);
+ assert.match(rayons,/function proposeMove/);
+ assert.match(rayons,/P\.salePricePC/);
+ assert.match(rayons,/A\.db\.runTransaction/);
 });
 test('le rayon Promotions utilise les mêmes cartes avec un prix réduit et ne laisse pas l’objet en double',()=>{
  const js=read('js/app.js');
