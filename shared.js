@@ -8,6 +8,10 @@
   const ICONS_CATALOGUE_V2={"CAC-01":"assets/icons/catalogue-v2/CAC-01_R00.svg","CAC-02":"assets/icons/catalogue-v2/CAC-02_R00.svg","CAC-03":"assets/icons/catalogue-v2/CAC-03_R00.svg","CAC-04":"assets/icons/catalogue-v2/CAC-04_R00.svg","CAC-05":"assets/icons/catalogue-v2/CAC-05_R00.svg","CAC-06":"assets/icons/catalogue-v2/CAC-06_R00.svg","CAC-07":"assets/icons/catalogue-v2/CAC-07_R00.svg","CAC-08":"assets/icons/catalogue-v2/CAC-08_R00.svg","CAC-09":"assets/icons/catalogue-v2/CAC-09_R00.svg","CAC-10":"assets/icons/catalogue-v2/CAC-10_R00.svg","CAC-11":"assets/icons/catalogue-v2/CAC-11_R00.svg","CAC-12":"assets/icons/catalogue-v2/CAC-12_R00.svg","CAC-13":"assets/icons/catalogue-v2/CAC-13_R00.svg","CAC-14":"assets/icons/catalogue-v2/CAC-14_R00.svg","DST-01":"assets/icons/catalogue-v2/DST-01_R00.svg","DST-02":"assets/icons/catalogue-v2/DST-02_R00.svg","DST-03":"assets/icons/catalogue-v2/DST-03_R00.svg","DST-04":"assets/icons/catalogue-v2/DST-04_R00.svg","DST-05":"assets/icons/catalogue-v2/DST-05_R00.svg","DST-06":"assets/icons/catalogue-v2/DST-06_R00.svg","DST-07":"assets/icons/catalogue-v2/DST-07_R00.svg","DST-08":"assets/icons/catalogue-v2/DST-08_R00.svg","DST-09":"assets/icons/catalogue-v2/DST-09_R00.svg","DST-10":"assets/icons/catalogue-v2/DST-10_R00.svg","MAG-01":"assets/icons/catalogue-v2/MAG-01_R00.svg","MAG-02":"assets/icons/catalogue-v2/MAG-02_R00.svg","MAG-03":"assets/icons/catalogue-v2/MAG-03_R00.svg","MAG-04":"assets/icons/catalogue-v2/MAG-04_R00.svg","ARM-01":"assets/icons/catalogue-v2/ARM-01_R00.svg","ARM-02":"assets/icons/catalogue-v2/ARM-02_R00.svg","ARM-03":"assets/icons/catalogue-v2/ARM-03_R00.svg","ARM-04":"assets/icons/catalogue-v2/ARM-04_R00.svg","ARM-05":"assets/icons/catalogue-v2/ARM-05_R00.svg","ARM-06":"assets/icons/catalogue-v2/ARM-06_R00.svg","ARM-07":"assets/icons/catalogue-v2/ARM-07_R00.svg","BCL-01":"assets/icons/catalogue-v2/BCL-01_R00.svg","BCL-02":"assets/icons/catalogue-v2/BCL-02_R00.svg","ACC-01":"assets/icons/catalogue-v2/ACC-01_R00.svg","ACC-02":"assets/icons/catalogue-v2/ACC-02_R00.svg","ACC-03":"assets/icons/catalogue-v2/ACC-03_R00.svg","ACC-04":"assets/icons/catalogue-v2/ACC-04_R00.svg","ACC-05":"assets/icons/catalogue-v2/ACC-05_R00.svg","ACC-06":"assets/icons/catalogue-v2/ACC-06_R00.svg","ACC-08":"assets/icons/catalogue-v2/ACC-08_R00.svg","CON-01":"assets/icons/catalogue-v2/CON-01.svg","CON-02":"assets/icons/catalogue-v2/CON-02.svg","CON-03":"assets/icons/catalogue-v2/CON-03.svg","CON-04":"assets/icons/catalogue-v2/CON-04.svg","CON-05":"assets/icons/catalogue-v2/CON-05.svg","CON-07":"assets/icons/catalogue-v2/CON-07.svg","CON-08":"assets/icons/catalogue-v2/CON-08.svg","CON-09":"assets/icons/catalogue-v2/CON-09.svg","CON-10":"assets/icons/catalogue-v2/CON-10.svg","CON-11":"assets/icons/catalogue-v2/CON-11.svg","CON-12":"assets/icons/catalogue-v2/CON-12.svg","CON-13":"assets/icons/catalogue-v2/CON-13.svg","CON-14":"assets/icons/catalogue-v2/CON-14.svg","CON-15":"assets/icons/catalogue-v2/CON-15.svg","MUN-01":"assets/icons/catalogue-v2/MUN-01_R00.svg","MUN-02":"assets/icons/catalogue-v2/MUN-02_R00.svg","MUN-03":"assets/icons/catalogue-v2/MUN-03_R00.svg","MUN-04":"assets/icons/catalogue-v2/MUN-04_R00.svg","DIV-01":"assets/icons/catalogue-v2/DIV-01.svg","DIV-02":"assets/icons/catalogue-v2/DIV-02.svg","DIV-03":"assets/icons/catalogue-v2/DIV-03.svg","DIV-04":"assets/icons/catalogue-v2/DIV-04.svg","DIV-05":"assets/icons/catalogue-v2/DIV-05.svg","DIV-06":"assets/icons/catalogue-v2/DIV-06.svg","DIV-07":"assets/icons/catalogue-v2/DIV-07.svg","DIV-08":"assets/icons/catalogue-v2/DIV-08.svg","DIV-09":"assets/icons/catalogue-v2/DIV-09.svg","DIV-10":"assets/icons/catalogue-v2/DIV-10.svg","DIV-11":"assets/icons/catalogue-v2/DIV-11.svg","DIV-12":"assets/icons/catalogue-v2/DIV-12.svg","DIV-13":"assets/icons/catalogue-v2/DIV-13.svg","DIV-14":"assets/icons/catalogue-v2/DIV-14.svg"};
   let CONSUMABLE_ICON_SVGS = {};
   const PALETTE_CATALOGUE_V2=['#ffffff','#9dffb0','#7ee1ff','#6aa8ff','#b48cff','#ffd36a','#ff7ee7','#ff9f43','#ff5f6d','#ff009d','#ffd900'];
+  // Les soins et le mana conservent leur identité chromatique à tous les rangs.
+  // La bordure conserve la couleur de rareté classique du catalogue.
+  const PALETTE_POTION_SOINS=["#ff777e","#ff636d","#ff5465","#ff465a","#ff3860","#ff2d58","#ff4473","#ff5b76","#ff738f","#ff3380","#ff90a5"];
+  const PALETTE_POTION_MANA=["#75c5ff","#62b8ff","#50acff","#438dfc","#537ffc","#4970ff","#6486ff","#719dff","#7db8ff","#5c7bff","#a7cbff"];
   const ICON_CACHE = new Map();
   const RARITY_LABELS=['Commun','Peu Commun','Inhabituel','Rare','Exceptionnel','Précieux','Épique','Légendaire','Mythique','Artefact','Objet Divin'];
   function groupId(raw) { return validGroups.includes(raw) ? raw : 'groupe1'; }
@@ -76,8 +80,9 @@
     if(/hache|[eé]p[eé]e|dague|marteau|masse|lance|rapi[eè]re|arme|b[aâ]ton/.test(name+' '+sub)||category==='arme'||category==='armes')return 'icons/fallback/arme.svg';
     return 'icons/fallback/materiel.svg';
   }
-  // Même rang pour les PNG historiques et les SVG V3 : R = Q + Pmax, borné à 10.
-  // Pmax est le palier le plus élevé de tous les affixes (jamais leur somme).
+  // Icônes permanentes : R = Q + Pmax, borné à 10 ; consommables,
+  // munitions et armes de jet Q0 : R = max(0, Pmax - 1).
+  // Pmax est le palier le plus élevé des affixes (jamais leur somme).
   function computeIconRank(item, affixCatalog=[]) {
     const clamp5=value=>Math.min(5,Math.max(0,Math.trunc(Number(value)||0)));
     const kind=String(item?.category||item?.categorie||'').toLowerCase();
@@ -95,8 +100,12 @@
 
     }
     if(!found) p=clamp5(item?.power);
-    // Consommables P1=blanc (R00), puis P2=vert etc.; pas de qualité.
-    const rank=(kind==='consommable'||kind==='munition')?Math.max(0,p-1):Math.min(10,q+p);
+    // Consommables / munitions P1=R00 (commun), P2=R01, etc.
+    // Les armes de jet DST-06/07/08 suivent également les rangs de munition
+    // (Q0 obligatoire), pas la formule des armes permanentes Q+P.
+    const baseId=String(item?.cofSpec?.base||item?.sourceId||'').toUpperCase();
+    const jet=/^DST-0[678]$/.test(baseId);
+    const rank=(kind==='consommable'||kind==='munition'||jet)?Math.max(0,p-1):Math.min(10,q+p);
     return {q,p,rank};
   }
   // Toutes les 76 bases V2 sont reliées aux dessins reçus dans Icone.zip.
@@ -115,21 +124,27 @@
     const idMatch=/^assets\/icons\/catalogue-v2\/([A-Z]{3}-\d{2})(?:_R(?:0\d|10))?\.svg(?:[?#].*)?$/i.exec(raw);
     if(idMatch){
       const id=idMatch[1].toUpperCase();
-      // Un SEUL fichier SVG par consommable, colorisé en mémoire (jamais de
-      // CON-xx_R00, CON-xx_R01...): P1 -> R00, P5 -> R04.
+      // Un seul SVG par consommable : rendu dynamique selon le palier.
+      // Soins : toujours rouge ; mana : toujours bleu ; les autres suivent
+      // la palette de rareté. Le cadre indique la rareté dans tous les cas.
       if(id.startsWith('CON-')){
         const svg=CONSUMABLE_ICON_SVGS[id];
-        if(!svg)return `assets/icons/catalogue-v2/${id}.svg?v=2`;
+        if(!svg)return `assets/icons/catalogue-v2/${id}.svg?v=3`;
         const k=`${id}:R${r}`;
         if(!ICON_CACHE.has(k)){
-          const colored=svg.replace(/#ffffff/gi,PALETTE_CATALOGUE_V2[Math.min(4,r)]);
+          const foreground=id==='CON-01'?PALETTE_POTION_SOINS[Math.min(10,r)]
+            :id==='CON-02'?PALETTE_POTION_MANA[Math.min(10,r)]
+            :PALETTE_CATALOGUE_V2[Math.min(4,r)];
+          const outline=PALETTE_CATALOGUE_V2[Math.min(10,r)];
+          const colored=svg.replace(/fill=(["'])#ffffff\1/gi,(_,q)=>`fill=${q}${foreground}${q}`)
+            .replace(/stroke=(["'])#ffffff\1/gi,(_,q)=>`stroke=${q}${outline}${q}`);
           ICON_CACHE.set(k,'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(colored));
         }
         return ICON_CACHE.get(k);
       }
       if(id.startsWith('DIV-'))return `assets/icons/catalogue-v2/${id}.svg?v=3`;
       const cap=/^(?:ACC-|MUN-)/.test(id)?5:10;
-      return `assets/icons/catalogue-v2/${id}_R${String(Math.min(cap,r)).padStart(2,'0')}.svg?v=2`;
+      return `assets/icons/catalogue-v2/${id}_R${String(Math.min(cap,r)).padStart(2,'0')}.svg?v=3`;
     }
     // Compatibilité des chemins d'icônes (ne rétablit aucun ancien catalogue d'objets).
     const old=/^(assets\/icons\/alaric-nouvelles\/[a-z0-9-]+?)(?:_R(?:0[0-9]|10))?\.svg(?:[?#].*)?$/i.exec(raw);
