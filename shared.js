@@ -125,19 +125,30 @@
     if(idMatch){
       const id=idMatch[1].toUpperCase();
       // Un seul SVG par consommable : rendu dynamique selon le palier.
-      // Soins : toujours rouge ; mana : toujours bleu ; les autres suivent
-      // la palette de rareté. Le cadre indique la rareté dans tous les cas.
+      // Soins : liquide toujours rouge ; mana : liquide toujours bleu ;
+      // pour les deux, la silhouette ET le cadre prennent la couleur de rareté.
       if(id.startsWith('CON-')){
         const svg=CONSUMABLE_ICON_SVGS[id];
         if(!svg)return `assets/icons/catalogue-v2/${id}.svg?v=3`;
         const k=`${id}:R${r}`;
         if(!ICON_CACHE.has(k)){
-          const foreground=id==='CON-01'?PALETTE_POTION_SOINS[Math.min(10,r)]
-            :id==='CON-02'?PALETTE_POTION_MANA[Math.min(10,r)]
-            :PALETTE_CATALOGUE_V2[Math.min(4,r)];
           const outline=PALETTE_CATALOGUE_V2[Math.min(10,r)];
-          const colored=svg.replace(/fill=(["'])#ffffff\1/gi,(_,q)=>`fill=${q}${foreground}${q}`)
-            .replace(/stroke=(["'])#ffffff\1/gi,(_,q)=>`stroke=${q}${outline}${q}`);
+          let colored;
+          if(id==='CON-01'||id==='CON-02'){
+            // Le flacon ET le cadre suivent la rareté, tandis que le liquide
+            // reste rouge (soins) ou bleu (mana). Les deux bulles conservent
+            // une teinte de leur liquide et leur contour noir : pas de liseré
+            // de rareté ajouté à l'intérieur du flacon.
+            const bubble=id==='CON-01'?PALETTE_POTION_SOINS[Math.min(10,r)]
+              :PALETTE_POTION_MANA[Math.min(10,r)];
+            colored=svg.replace(/<path\b[^>]*>/gi,path=>{
+              if(!/fill="#ffffff"/i.test(path))return path;
+              return path.replace(/fill="#ffffff"/i,`fill="${/stroke="#000000"/i.test(path)?bubble:outline}"`);
+            }).replace(/stroke=(["'])#ffffff\1/gi,(_,q)=>`stroke=${q}${outline}${q}`);
+          }else{
+            colored=svg.replace(/fill=(["'])#ffffff\1/gi,(_,q)=>`fill=${q}${PALETTE_CATALOGUE_V2[Math.min(4,r)]}${q}`)
+              .replace(/stroke=(["'])#ffffff\1/gi,(_,q)=>`stroke=${q}${outline}${q}`);
+          }
           ICON_CACHE.set(k,'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(colored));
         }
         return ICON_CACHE.get(k);

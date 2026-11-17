@@ -73,7 +73,7 @@ test('les armes de jet avec affixes munitions restent Q0, les rangs démarrent �
 
 test('les icônes sont utilisées sur les deux boutiques et l’interface MJ',()=>{
   for(const file of ['groupe1.html','groupe2.html','mj.html'])
-    assert.match(read(file),/shared\.js\?v=1061-icones-couteaux-potions/);
+    assert.match(read(file),/shared\.js\?v=1062-potions-contours-rarete/);
   assert.match(read('js/app.js'),/API\.tieredIcon\(explicitIcon/);
   assert.match(read('mj-v5.js'),/A\.tieredIcon\(A\.catalogueIconForItem/);
 });
