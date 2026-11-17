@@ -17,7 +17,7 @@ const officialPC=pa=>{const [whole,fraction='']=String(pa).split('.');return Num
 const sources={bases:by(source.OBJETS,'ID objet'),affixes:by(source.AFFIXES,'ID affixe'),links:by(source.LIAISONS,'Référence'),cards:by(source.CATALOGUE,'Référence')};
 
 test('fichiers catalogue : chaque identifiant provient du classeur final',()=>{
-  assert.equal(bases.length,75);assert.equal(affixes.length,517);assert.equal(links.length,2259);assert.equal(cards.length,2334);
+  assert.equal(bases.length,75);assert.equal(affixes.length,525);assert.equal(links.length,2275);assert.equal(cards.length,2350);
   for(const [rows,map,key] of [[bases,sources.bases,'id'],[affixes,sources.affixes,'id'],[links,sources.links,'id'],[cards,sources.cards,'ref']]){
     assert.equal(new Set(rows.map(x=>x[key])).size,rows.length,'identifiants doublons');
     for(const row of rows)assert.ok(map.has(row[key]),row[key]);
@@ -42,7 +42,7 @@ test('objets et affixes : noms, RP, effets et coûts officiels',()=>{
   }
 });
 
-test('liaisons : 2259 noms, descriptions et prix exacts depuis Excel',()=>{
+test('liaisons : 2275 noms, descriptions et prix exacts depuis Excel',()=>{
   for(const l of links){
     const r=sources.links.get(l.id);
     assert.equal(l.name,r['Nom RP'],l.id);
@@ -62,7 +62,7 @@ test('fiches joueur et prix publiables conformes',()=>{
     assert.equal(c.effect,r.Effet||null,c.ref);
     assert.equal(c.pricePC,officialPC(r['Prix achat (PA)']),c.ref);
   }
-  assert.equal(Object.keys(model.links).length,2150);
+  assert.equal(Object.keys(model.links).length,2166);
   for(const [id,link] of Object.entries(model.links)){
     const r=sources.links.get(id);
     assert.ok(r && r.Statut==='Actif',id);

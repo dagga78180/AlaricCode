@@ -220,8 +220,8 @@
       fetchJSON('data/catalogue-prix-anciens.json'),
       fetchJSON('data/catalogue-prix-precedents-v6.json')
     ]);
-    if(!Array.isArray(objets)||objets.length!==75||!Array.isArray(affixes)||affixes.length!==517||!Array.isArray(liaisons)||liaisons.length!==2259)
-      throw Error('Catalogue V2 incomplet ou incohérent (75/517/2259 attendus).');
+    if(!Array.isArray(objets)||objets.length!==75||!Array.isArray(affixes)||affixes.length!==525||!Array.isArray(liaisons)||liaisons.length!==2275)
+      throw Error('Catalogue V2 incomplet ou incohérent (75/525/2275 attendus).');
     CONSUMABLE_ICON_SVGS=svgs&&typeof svgs==='object'&&!Array.isArray(svgs)?svgs:{};ICON_CACHE.clear();
     const icons=Object.fromEntries(Object.entries(ICONS_CATALOGUE_V2).flatMap(([id,path])=>[[id,path],[normalizeId(id),path]]));
     const templates=objets.map(b=>({
@@ -275,13 +275,17 @@
         failures.push('Affixe non autorisé pour '+baseId+' : '+id);continue;
       }
       const cfg=raw.config?.[id];
+      // Les 12 nouveaux affixes d’accessoires ont un prédicat Roll20 explicite
+      // dans le référentiel : l’envoyer dans cofSpec.config, sans extrapolation.
+      const picked={};
       if(cfg&&typeof cfg==='object'&&!Array.isArray(cfg)){
-        const picked={};
         for(const field of ['type1','type2','classe','commande','predicat']){
           if(cfg[field]!==undefined&&cfg[field]!==null&&String(cfg[field]).trim())picked[field]=String(cfg[field]).trim();
         }
-        if(Object.keys(picked).length)config[id]=picked;
       }
+      const officialPredicate=String(a.roll20Predicate||'').trim();
+      if(officialPredicate)picked.predicat=officialPredicate;
+      if(Object.keys(picked).length)config[id]=picked;
       if(a.name==='traitement double'&&(!config[id]?.type1||!config[id]?.type2))
         failures.push(id+' : type1 et type2 manquants.');
       if(String(a.name||'').includes('"Classe"')&&!config[id]?.classe)

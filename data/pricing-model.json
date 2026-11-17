@@ -1,6 +1,6 @@
 {
-  "version": "2026-11-16-catalogue-final-v10-5",
-  "source": "COFantasy_Catalogue_Sain_Final_Noms_Materiaux_Grenades(6)(2).xlsx",
+  "version": "2026-11-17-catalogue-12-affixes-v10-5-1",
+  "source": "COFantasy_Catalogue_Propre_12_Affixes_Predicats_Cibles.xlsx (+ correctif élixirs V10.5.1 conservé)",
   "currency": "PA",
   "pcPerPa": 100,
   "paPerPo": 100,
@@ -2343,22 +2343,22 @@
       "coefficient": 1.1,
       "status": "Actif"
     },
-    "ACC_ATT_1": {
+    "ACC_ATT_CAC_1": {
       "p": 1,
       "coefficient": 0.9,
       "status": "Actif"
     },
-    "ACC_ATT_2": {
+    "ACC_ATT_CAC_2": {
       "p": 2,
       "coefficient": 0.8,
       "status": "Actif"
     },
-    "ACC_DM_1": {
+    "ACC_DM_CAC_1": {
       "p": 1,
       "coefficient": 0.8,
       "status": "Actif"
     },
-    "ACC_DM_2": {
+    "ACC_DM_CAC_2": {
       "p": 2,
       "coefficient": 0.75,
       "status": "Actif"
@@ -3146,6 +3146,46 @@
     "CO_FUM_2": {
       "p": 2,
       "coefficient": 0.9,
+      "status": "Actif"
+    },
+    "ACC_ATT_DIST_1": {
+      "p": 1,
+      "coefficient": 0.9,
+      "status": "Actif"
+    },
+    "ACC_ATT_DIST_2": {
+      "p": 2,
+      "coefficient": 0.8,
+      "status": "Actif"
+    },
+    "ACC_ATT_MAG_1": {
+      "p": 1,
+      "coefficient": 0.9,
+      "status": "Actif"
+    },
+    "ACC_ATT_MAG_2": {
+      "p": 2,
+      "coefficient": 0.8,
+      "status": "Actif"
+    },
+    "ACC_DM_DIST_1": {
+      "p": 1,
+      "coefficient": 0.8,
+      "status": "Actif"
+    },
+    "ACC_DM_DIST_2": {
+      "p": 2,
+      "coefficient": 0.75,
+      "status": "Actif"
+    },
+    "ACC_DM_MAG_1": {
+      "p": 1,
+      "coefficient": 0.8,
+      "status": "Actif"
+    },
+    "ACC_DM_MAG_2": {
+      "p": 2,
+      "coefficient": 0.75,
       "status": "Actif"
     }
   },
@@ -16222,7 +16262,7 @@
       "status": "Actif",
       "publication": "Prêt"
     },
-    "ACC-01|ACC_ATT_1": {
+    "ACC-01|ACC_ATT_CAC_1": {
       "pricePC": 97578,
       "pricePAExact": "975.7788634798317",
       "magicCostPA": "970.7788634798317",
@@ -16230,7 +16270,7 @@
       "status": "Actif",
       "publication": "Prêt"
     },
-    "ACC-01|ACC_ATT_2": {
+    "ACC-01|ACC_ATT_CAC_2": {
       "pricePC": 173083,
       "pricePAExact": "1730.8290906308118",
       "magicCostPA": "1725.8290906308118",
@@ -16238,7 +16278,7 @@
       "status": "Actif",
       "publication": "Prêt"
     },
-    "ACC-01|ACC_DM_1": {
+    "ACC-01|ACC_DM_CAC_1": {
       "pricePC": 86791,
       "pricePAExact": "867.9145453154059",
       "magicCostPA": "862.9145453154059",
@@ -16246,7 +16286,7 @@
       "status": "Actif",
       "publication": "Prêt"
     },
-    "ACC-01|ACC_DM_2": {
+    "ACC-01|ACC_DM_CAC_2": {
       "pricePC": 162296,
       "pricePAExact": "1622.9647724663862",
       "magicCostPA": "1617.9647724663862",
@@ -17566,7 +17606,7 @@
       "status": "Actif",
       "publication": "Prêt"
     },
-    "ACC-05|ACC_ATT_1": {
+    "ACC-05|ACC_ATT_CAC_1": {
       "pricePC": 35419,
       "pricePAExact": "354.18686037693874",
       "magicCostPA": "353.98686037693875",
@@ -17574,7 +17614,7 @@
       "status": "Actif",
       "publication": "Prêt"
     },
-    "ACC-05|ACC_ATT_2": {
+    "ACC-05|ACC_ATT_CAC_2": {
       "pricePC": 62951,
       "pricePAExact": "629.5099740034467",
       "magicCostPA": "629.3099740034467",
@@ -17582,7 +17622,7 @@
       "status": "Actif",
       "publication": "Prêt"
     },
-    "ACC-05|ACC_DM_1": {
+    "ACC-05|ACC_DM_CAC_1": {
       "pricePC": 31485,
       "pricePAExact": "314.8549870017233",
       "magicCostPA": "314.6549870017233",
@@ -17590,7 +17630,7 @@
       "status": "Actif",
       "publication": "Prêt"
     },
-    "ACC-05|ACC_DM_2": {
+    "ACC-05|ACC_DM_CAC_2": {
       "pricePC": 59018,
       "pricePAExact": "590.1781006282313",
       "magicCostPA": "589.9781006282312",
@@ -20349,15 +20389,145 @@
       "p": 3,
       "status": "Actif",
       "publication": "Prêt"
+    },
+    "ACC-01|ACC_ATT_DIST_1": {
+      "pricePC": 97578,
+      "pricePAExact": "975.7788634798317",
+      "magicCostPA": "970.7788634798317",
+      "p": 1,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "ACC-05|ACC_ATT_DIST_1": {
+      "pricePC": 35419,
+      "pricePAExact": "354.18686037693874",
+      "magicCostPA": "353.98686037693875",
+      "p": 1,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "ACC-01|ACC_ATT_DIST_2": {
+      "pricePC": 173083,
+      "pricePAExact": "1730.8290906308118",
+      "magicCostPA": "1725.8290906308118",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "ACC-05|ACC_ATT_DIST_2": {
+      "pricePC": 62951,
+      "pricePAExact": "629.5099740034467",
+      "magicCostPA": "629.3099740034467",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "ACC-01|ACC_ATT_MAG_1": {
+      "pricePC": 97578,
+      "pricePAExact": "975.7788634798317",
+      "magicCostPA": "970.7788634798317",
+      "p": 1,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "ACC-05|ACC_ATT_MAG_1": {
+      "pricePC": 35419,
+      "pricePAExact": "354.18686037693874",
+      "magicCostPA": "353.98686037693875",
+      "p": 1,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "ACC-01|ACC_ATT_MAG_2": {
+      "pricePC": 173083,
+      "pricePAExact": "1730.8290906308118",
+      "magicCostPA": "1725.8290906308118",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "ACC-05|ACC_ATT_MAG_2": {
+      "pricePC": 62951,
+      "pricePAExact": "629.5099740034467",
+      "magicCostPA": "629.3099740034467",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "ACC-01|ACC_DM_DIST_1": {
+      "pricePC": 86791,
+      "pricePAExact": "867.9145453154059",
+      "magicCostPA": "862.9145453154059",
+      "p": 1,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "ACC-05|ACC_DM_DIST_1": {
+      "pricePC": 31485,
+      "pricePAExact": "314.8549870017233",
+      "magicCostPA": "314.6549870017233",
+      "p": 1,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "ACC-01|ACC_DM_DIST_2": {
+      "pricePC": 162296,
+      "pricePAExact": "1622.9647724663862",
+      "magicCostPA": "1617.9647724663862",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "ACC-05|ACC_DM_DIST_2": {
+      "pricePC": 59018,
+      "pricePAExact": "590.1781006282313",
+      "magicCostPA": "589.9781006282312",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "ACC-01|ACC_DM_MAG_1": {
+      "pricePC": 86791,
+      "pricePAExact": "867.9145453154059",
+      "magicCostPA": "862.9145453154059",
+      "p": 1,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "ACC-05|ACC_DM_MAG_1": {
+      "pricePC": 31485,
+      "pricePAExact": "314.8549870017233",
+      "magicCostPA": "314.6549870017233",
+      "p": 1,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "ACC-01|ACC_DM_MAG_2": {
+      "pricePC": 162296,
+      "pricePAExact": "1622.9647724663862",
+      "magicCostPA": "1617.9647724663862",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "ACC-05|ACC_DM_MAG_2": {
+      "pricePC": 59018,
+      "pricePAExact": "590.1781006282313",
+      "magicCostPA": "589.9781006282312",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
     }
   },
   "notes": [
-    "Tarifs Q0 de 2 150 liaisons actives issus directement du classeur, arrondis au PC uniquement pour vente.",
+    "Tarifs Q0 de 2 166 liaisons actives issus du classeur fourni  arrondis au PC uniquement pour vente.",
     "Qualité Q : (550 + 0,80 × B[PA]) × 3^(Q−1), pour Q de 1 à 5.",
     "Synergie : B + (coût Q + coût P) × (1 + 0,05 × Q × P). Le support B ne reçoit jamais le multiplicateur.",
     "Le coût P correspond à prix catalogue Q0 de la liaison moins prix physique B, non au prix total de la liaison.",
     "Combinaisons multi-affixes : somme des coûts P distincts et P maximal pour la synergie ; estimation MJ, pas tarif officiel du classeur.",
-    "13 gabarits consommables ne sont pas vendables sans affixe valide ; statuts À préciser / Exclu non publiables."
+    "13 gabarits consommables ne sont pas vendables sans affixe valide ; statuts À préciser / Exclu non publiables.",
+    "12 affixes ACC_ATT/ACC_DM spécialisés contact/distance/magie remplacent 4 affixes génériques. 24 liaisons créées, 8 retirées. 12 prédicats Roll20 source conservés, intégration Roll20 non vérifiée.",
+    "Correctif V10.5.1 conservé : élixirs P2/P4 et coefficient 1,25, même si le classeur fourni contient encore P1/P3 et 1/0,9 ; prix inchangés."
   ],
   "synergyRate": 0.05,
   "resaleRate": 0.75,

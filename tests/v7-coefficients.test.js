@@ -16,9 +16,9 @@ vm.runInNewContext(fs.readFileSync(path.join(ROOT,'js/pricing.js'),'utf8'),ctx);
 vm.runInNewContext(fs.readFileSync(path.join(ROOT,'shared.js'),'utf8'),ctx);
 const pricing=win.AlaricPricing;
 test('référentiel complet, coefficients et malus officiels',()=>{
- assert.equal(supports.length,75);assert.equal(affixes.length,517);assert.equal(liens.length,2259);
+ assert.equal(supports.length,75);assert.equal(affixes.length,525);assert.equal(liens.length,2275);
  assert.equal(Object.keys(model.groupCoefficients).length,200);
- assert.equal(Object.keys(model.links).length,2150);
+ assert.equal(Object.keys(model.links).length,2166);
  assert.equal(model.magicBasePA['1'],450);
  assert.equal(model.magicBasePA['5'],24300);
  assert.equal(model.quality.q1FixedPA,550);
