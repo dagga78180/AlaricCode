@@ -16,9 +16,9 @@ vm.runInNewContext(fs.readFileSync(path.join(ROOT,'js/pricing.js'),'utf8'),ctx);
 vm.runInNewContext(fs.readFileSync(path.join(ROOT,'shared.js'),'utf8'),ctx);
 const pricing=win.AlaricPricing;
 test('référentiel complet, coefficients et malus officiels',()=>{
- assert.equal(supports.length,75);assert.equal(affixes.length,525);assert.equal(liens.length,2275);
+ assert.equal(supports.length,76);assert.equal(affixes.length,525);assert.equal(liens.length,2341);
  assert.equal(Object.keys(model.groupCoefficients).length,200);
- assert.equal(Object.keys(model.links).length,2166);
+ assert.equal(Object.keys(model.links).length,2232);
  assert.equal(model.magicBasePA['1'],450);
  assert.equal(model.magicBasePA['5'],24300);
  assert.equal(model.quality.q1FixedPA,550);
@@ -29,6 +29,7 @@ test('référentiel complet, coefficients et malus officiels',()=>{
 test('chaque prix officiel publiable est égal au tarif du catalogue arrondi au PC',async()=>{
  await pricing.load();
  for(const [key,link] of Object.entries(model.links)){
+   if(link.status!=='Actif')continue; // anciennes variantes DST-07/08 conservées pour historique
    const [base,affix]=key.split('|');
    const got=pricing.calculate({cofSpec:{base,quality:0,affixes:[affix]}});
    assert.ok(got,key);
@@ -50,13 +51,13 @@ test('un multi-affixe signale une estimation et les affixes non publiables sont 
  assert.equal(pricing.calculate({cofSpec:{base:'CON-01',quality:0,affixes:[]}}),null);
  assert.equal(pricing.calculate({cofSpec:{base:'CON-02',quality:0,affixes:['CO_MANA_6']}}),null);
 });
-test('chargement de 54 références stock avec lien de prix exact et schéma Roll20 intact',async()=>{
+test('chargement de 55 références stock avec lien de prix exact et schéma Roll20 intact',async()=>{
  const catalogue=await win.AlaricApp.loadCatalog();
- assert.equal(catalogue.stockBase.length,54);
+ assert.equal(catalogue.stockBase.length,55);
  for(const item of catalogue.stockBase){
    assert.ok(Number.isSafeInteger(item.pricePC));
    assert.ok(win.AlaricApp.prepareRoll20Spec(item,catalogue).ok, item.id);
-   assert.ok(item.previousStandardPricePC!==undefined,item.id);
+   if(item.cofSpec.base!=='DST-06')assert.ok(item.previousStandardPricePC!==undefined,item.id);
  }
  const previous=load('data/catalogue-prix-precedents-v6.json');
  const r=catalogue.stockBase.find(x=>x.id==='stock-con-01-co_soins_1');
@@ -74,6 +75,7 @@ test('atelier MJ : prix Q0 exacts et même barème de synergie que le moteur com
  assert.ok(start>=0 && end>start);
  const editor=new Function('priceModel',src.slice(start,end)+'\nreturn computePrice;')(model);
  for(const [key,link] of Object.entries(model.links)){
+   if(link.status!=='Actif')continue; // anciennes variantes DST-07/08 conservées pour historique
    const [base,affix]=key.split('|');
    assert.equal(editor({sourceId:base,pricePC:model.bases[base].basePC},[affix],0).price,link.pricePC,key);
  }

@@ -1,6 +1,6 @@
 {
-  "version": "2026-11-17-catalogue-12-affixes-v10-5-1",
-  "source": "COFantasy_Catalogue_Propre_12_Affixes_Predicats_Cibles.xlsx (+ correctif élixirs V10.5.1 conservé)",
+  "version": "2026-11-17-armes-jet-munitions-v10-6",
+  "source": "COFantasy_Catalogue_Armes_de_jet_Munitions.xlsx (+ élixirs V10.5.1 conservés)",
   "currency": "PA",
   "pcPerPa": 100,
   "paPerPo": 100,
@@ -170,15 +170,15 @@
       "profile": "DIST Arbalète"
     },
     "DST-07": {
-      "basePC": 150,
-      "qMax": 5,
+      "basePC": 25,
+      "qMax": 0,
       "category": "arme",
       "saleTemplate": false,
       "profile": "DIST Jet"
     },
     "DST-08": {
-      "basePC": 150,
-      "qMax": 5,
+      "basePC": 15,
+      "qMax": 0,
       "category": "arme",
       "saleTemplate": false,
       "profile": "DIST Jet"
@@ -560,6 +560,13 @@
       "category": "divers",
       "saleTemplate": false,
       "profile": "AUCUN AFFIXE DÉFINI — DIVERS"
+    },
+    "DST-06": {
+      "basePC": 10,
+      "qMax": 0,
+      "category": "arme",
+      "saleTemplate": false,
+      "profile": "DIST Jet"
     }
   },
   "affixes": {
@@ -10675,112 +10682,112 @@
       "pricePAExact": "622.1167681483095",
       "magicCostPA": "620.6167681483095",
       "p": 2,
-      "status": "Actif",
-      "publication": "Prêt"
+      "status": "Exclu",
+      "publication": "Retiré"
     },
     "DST-07|N05_DIST_2": {
       "pricePC": 197972,
       "pricePAExact": "1979.7159484727363",
       "magicCostPA": "1978.2159484727363",
       "p": 3,
-      "status": "Actif",
-      "publication": "Prêt"
+      "status": "Exclu",
+      "publication": "Retiré"
     },
     "DST-07|N20_DIST_1": {
       "pricePC": 77727,
       "pricePAExact": "777.2709601853868",
       "magicCostPA": "775.7709601853868",
       "p": 2,
-      "status": "Actif",
-      "publication": "Prêt"
+      "status": "Exclu",
+      "publication": "Retiré"
     },
     "DST-07|N20_DIST_2": {
       "pricePC": 663434,
       "pricePAExact": "6634.341709585057",
       "magicCostPA": "6632.841709585057",
       "p": 4,
-      "status": "Actif",
-      "publication": "Prêt"
+      "status": "Exclu",
+      "publication": "Retiré"
     },
     "DST-07|N21_DIST_1": {
       "pricePC": 77727,
       "pricePAExact": "777.2709601853868",
       "magicCostPA": "775.7709601853868",
       "p": 2,
-      "status": "Actif",
-      "publication": "Prêt"
+      "status": "Exclu",
+      "publication": "Retiré"
     },
     "DST-07|N21_DIST_2": {
       "pricePC": 663434,
       "pricePAExact": "6634.341709585057",
       "magicCostPA": "6632.841709585057",
       "p": 4,
-      "status": "Actif",
-      "publication": "Prêt"
+      "status": "Exclu",
+      "publication": "Retiré"
     },
     "DST-07|N30": {
       "pricePC": 35060,
       "pricePAExact": "350.59693208342406",
       "magicCostPA": "349.09693208342406",
       "p": 1,
-      "status": "Actif",
-      "publication": "Prêt"
+      "status": "Exclu",
+      "publication": "Retiré"
     },
     "DST-08|N05_DIST_1": {
       "pricePC": 62212,
       "pricePAExact": "622.1167681483095",
       "magicCostPA": "620.6167681483095",
       "p": 2,
-      "status": "Actif",
-      "publication": "Prêt"
+      "status": "Exclu",
+      "publication": "Retiré"
     },
     "DST-08|N05_DIST_2": {
       "pricePC": 197972,
       "pricePAExact": "1979.7159484727363",
       "magicCostPA": "1978.2159484727363",
       "p": 3,
-      "status": "Actif",
-      "publication": "Prêt"
+      "status": "Exclu",
+      "publication": "Retiré"
     },
     "DST-08|N20_DIST_1": {
       "pricePC": 77727,
       "pricePAExact": "777.2709601853868",
       "magicCostPA": "775.7709601853868",
       "p": 2,
-      "status": "Actif",
-      "publication": "Prêt"
+      "status": "Exclu",
+      "publication": "Retiré"
     },
     "DST-08|N20_DIST_2": {
       "pricePC": 663434,
       "pricePAExact": "6634.341709585057",
       "magicCostPA": "6632.841709585057",
       "p": 4,
-      "status": "Actif",
-      "publication": "Prêt"
+      "status": "Exclu",
+      "publication": "Retiré"
     },
     "DST-08|N21_DIST_1": {
       "pricePC": 77727,
       "pricePAExact": "777.2709601853868",
       "magicCostPA": "775.7709601853868",
       "p": 2,
-      "status": "Actif",
-      "publication": "Prêt"
+      "status": "Exclu",
+      "publication": "Retiré"
     },
     "DST-08|N21_DIST_2": {
       "pricePC": 663434,
       "pricePAExact": "6634.341709585057",
       "magicCostPA": "6632.841709585057",
       "p": 4,
-      "status": "Actif",
-      "publication": "Prêt"
+      "status": "Exclu",
+      "publication": "Retiré"
     },
     "DST-08|N30": {
       "pricePC": 35060,
       "pricePAExact": "350.59693208342406",
       "magicCostPA": "349.09693208342406",
       "p": 1,
-      "status": "Actif",
-      "publication": "Prêt"
+      "status": "Exclu",
+      "publication": "Retiré"
     },
     "MAG-01|MAG_ELEM_AIR_1": {
       "pricePC": 132862,
@@ -20517,6 +20524,534 @@
       "p": 2,
       "status": "Actif",
       "publication": "Prêt"
+    },
+    "DST-06|AM_ATT_1": {
+      "pricePC": 4410,
+      "pricePAExact": "44.1",
+      "magicCostPA": "44",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-06|AM_ATT_2": {
+      "pricePC": 10210,
+      "pricePAExact": "102.1",
+      "magicCostPA": "102",
+      "p": 3,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-06|AM_EXP_1": {
+      "pricePC": 6060,
+      "pricePAExact": "60.60000000000001",
+      "magicCostPA": "60.50000000000001",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-06|AM_EXP_2": {
+      "pricePC": 13210,
+      "pricePAExact": "132.1",
+      "magicCostPA": "132",
+      "p": 3,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-06|AM_PEN_1": {
+      "pricePC": 5785,
+      "pricePAExact": "57.85",
+      "magicCostPA": "57.75",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-06|AM_PEN_2": {
+      "pricePC": 6885,
+      "pricePAExact": "68.85",
+      "magicCostPA": "68.75",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-06|AM_RIC_1": {
+      "pricePC": 6060,
+      "pricePAExact": "60.60000000000001",
+      "magicCostPA": "60.50000000000001",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-06|AM_RIC_2": {
+      "pricePC": 12010,
+      "pricePAExact": "120.1",
+      "magicCostPA": "120",
+      "p": 3,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-06|AM_E_AIR_1": {
+      "pricePC": 5510,
+      "pricePAExact": "55.1",
+      "magicCostPA": "55",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-06|AM_E_AIR_2": {
+      "pricePC": 12010,
+      "pricePAExact": "120.1",
+      "magicCostPA": "120",
+      "p": 3,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-06|AM_E_EAU_1": {
+      "pricePC": 5510,
+      "pricePAExact": "55.1",
+      "magicCostPA": "55",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-06|AM_E_EAU_2": {
+      "pricePC": 12010,
+      "pricePAExact": "120.1",
+      "magicCostPA": "120",
+      "p": 3,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-06|AM_E_FEU_1": {
+      "pricePC": 5510,
+      "pricePAExact": "55.1",
+      "magicCostPA": "55",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-06|AM_E_FEU_2": {
+      "pricePC": 12010,
+      "pricePAExact": "120.1",
+      "magicCostPA": "120",
+      "p": 3,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-06|AM_E_FORCE_1": {
+      "pricePC": 5510,
+      "pricePAExact": "55.1",
+      "magicCostPA": "55",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-06|AM_E_FORCE_2": {
+      "pricePC": 12010,
+      "pricePAExact": "120.1",
+      "magicCostPA": "120",
+      "p": 3,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-06|AM_E_LUMIÈRE_1": {
+      "pricePC": 5510,
+      "pricePAExact": "55.1",
+      "magicCostPA": "55",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-06|AM_E_LUMIÈRE_2": {
+      "pricePC": 12010,
+      "pricePAExact": "120.1",
+      "magicCostPA": "120",
+      "p": 3,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-06|AM_E_OMBRE_1": {
+      "pricePC": 5510,
+      "pricePAExact": "55.1",
+      "magicCostPA": "55",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-06|AM_E_OMBRE_2": {
+      "pricePC": 12010,
+      "pricePAExact": "120.1",
+      "magicCostPA": "120",
+      "p": 3,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-06|AM_E_TERRE_1": {
+      "pricePC": 5510,
+      "pricePAExact": "55.1",
+      "magicCostPA": "55",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-06|AM_E_TERRE_2": {
+      "pricePC": 12010,
+      "pricePAExact": "120.1",
+      "magicCostPA": "120",
+      "p": 3,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-07|AM_ATT_1": {
+      "pricePC": 4425,
+      "pricePAExact": "44.25",
+      "magicCostPA": "44",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-07|AM_ATT_2": {
+      "pricePC": 10225,
+      "pricePAExact": "102.25",
+      "magicCostPA": "102",
+      "p": 3,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-07|AM_EXP_1": {
+      "pricePC": 6075,
+      "pricePAExact": "60.75000000000001",
+      "magicCostPA": "60.50000000000001",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-07|AM_EXP_2": {
+      "pricePC": 13225,
+      "pricePAExact": "132.25",
+      "magicCostPA": "132",
+      "p": 3,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-07|AM_PEN_1": {
+      "pricePC": 5800,
+      "pricePAExact": "58.00",
+      "magicCostPA": "57.75",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-07|AM_PEN_2": {
+      "pricePC": 6900,
+      "pricePAExact": "69.00",
+      "magicCostPA": "68.75",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-07|AM_RIC_1": {
+      "pricePC": 6075,
+      "pricePAExact": "60.75000000000001",
+      "magicCostPA": "60.50000000000001",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-07|AM_RIC_2": {
+      "pricePC": 12025,
+      "pricePAExact": "120.25",
+      "magicCostPA": "120",
+      "p": 3,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-07|AM_E_AIR_1": {
+      "pricePC": 5525,
+      "pricePAExact": "55.25",
+      "magicCostPA": "55",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-07|AM_E_AIR_2": {
+      "pricePC": 12025,
+      "pricePAExact": "120.25",
+      "magicCostPA": "120",
+      "p": 3,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-07|AM_E_EAU_1": {
+      "pricePC": 5525,
+      "pricePAExact": "55.25",
+      "magicCostPA": "55",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-07|AM_E_EAU_2": {
+      "pricePC": 12025,
+      "pricePAExact": "120.25",
+      "magicCostPA": "120",
+      "p": 3,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-07|AM_E_FEU_1": {
+      "pricePC": 5525,
+      "pricePAExact": "55.25",
+      "magicCostPA": "55",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-07|AM_E_FEU_2": {
+      "pricePC": 12025,
+      "pricePAExact": "120.25",
+      "magicCostPA": "120",
+      "p": 3,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-07|AM_E_FORCE_1": {
+      "pricePC": 5525,
+      "pricePAExact": "55.25",
+      "magicCostPA": "55",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-07|AM_E_FORCE_2": {
+      "pricePC": 12025,
+      "pricePAExact": "120.25",
+      "magicCostPA": "120",
+      "p": 3,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-07|AM_E_LUMIÈRE_1": {
+      "pricePC": 5525,
+      "pricePAExact": "55.25",
+      "magicCostPA": "55",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-07|AM_E_LUMIÈRE_2": {
+      "pricePC": 12025,
+      "pricePAExact": "120.25",
+      "magicCostPA": "120",
+      "p": 3,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-07|AM_E_OMBRE_1": {
+      "pricePC": 5525,
+      "pricePAExact": "55.25",
+      "magicCostPA": "55",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-07|AM_E_OMBRE_2": {
+      "pricePC": 12025,
+      "pricePAExact": "120.25",
+      "magicCostPA": "120",
+      "p": 3,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-07|AM_E_TERRE_1": {
+      "pricePC": 5525,
+      "pricePAExact": "55.25",
+      "magicCostPA": "55",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-07|AM_E_TERRE_2": {
+      "pricePC": 12025,
+      "pricePAExact": "120.25",
+      "magicCostPA": "120",
+      "p": 3,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-08|AM_ATT_1": {
+      "pricePC": 4415,
+      "pricePAExact": "44.15",
+      "magicCostPA": "44",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-08|AM_ATT_2": {
+      "pricePC": 10215,
+      "pricePAExact": "102.15",
+      "magicCostPA": "102",
+      "p": 3,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-08|AM_EXP_1": {
+      "pricePC": 6065,
+      "pricePAExact": "60.65000000000001",
+      "magicCostPA": "60.50000000000001",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-08|AM_EXP_2": {
+      "pricePC": 13215,
+      "pricePAExact": "132.15",
+      "magicCostPA": "132",
+      "p": 3,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-08|AM_PEN_1": {
+      "pricePC": 5790,
+      "pricePAExact": "57.90",
+      "magicCostPA": "57.75",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-08|AM_PEN_2": {
+      "pricePC": 6890,
+      "pricePAExact": "68.90",
+      "magicCostPA": "68.75",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-08|AM_RIC_1": {
+      "pricePC": 6065,
+      "pricePAExact": "60.65000000000001",
+      "magicCostPA": "60.50000000000001",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-08|AM_RIC_2": {
+      "pricePC": 12015,
+      "pricePAExact": "120.15",
+      "magicCostPA": "120",
+      "p": 3,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-08|AM_E_AIR_1": {
+      "pricePC": 5515,
+      "pricePAExact": "55.15",
+      "magicCostPA": "55",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-08|AM_E_AIR_2": {
+      "pricePC": 12015,
+      "pricePAExact": "120.15",
+      "magicCostPA": "120",
+      "p": 3,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-08|AM_E_EAU_1": {
+      "pricePC": 5515,
+      "pricePAExact": "55.15",
+      "magicCostPA": "55",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-08|AM_E_EAU_2": {
+      "pricePC": 12015,
+      "pricePAExact": "120.15",
+      "magicCostPA": "120",
+      "p": 3,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-08|AM_E_FEU_1": {
+      "pricePC": 5515,
+      "pricePAExact": "55.15",
+      "magicCostPA": "55",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-08|AM_E_FEU_2": {
+      "pricePC": 12015,
+      "pricePAExact": "120.15",
+      "magicCostPA": "120",
+      "p": 3,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-08|AM_E_FORCE_1": {
+      "pricePC": 5515,
+      "pricePAExact": "55.15",
+      "magicCostPA": "55",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-08|AM_E_FORCE_2": {
+      "pricePC": 12015,
+      "pricePAExact": "120.15",
+      "magicCostPA": "120",
+      "p": 3,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-08|AM_E_LUMIÈRE_1": {
+      "pricePC": 5515,
+      "pricePAExact": "55.15",
+      "magicCostPA": "55",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-08|AM_E_LUMIÈRE_2": {
+      "pricePC": 12015,
+      "pricePAExact": "120.15",
+      "magicCostPA": "120",
+      "p": 3,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-08|AM_E_OMBRE_1": {
+      "pricePC": 5515,
+      "pricePAExact": "55.15",
+      "magicCostPA": "55",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-08|AM_E_OMBRE_2": {
+      "pricePC": 12015,
+      "pricePAExact": "120.15",
+      "magicCostPA": "120",
+      "p": 3,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-08|AM_E_TERRE_1": {
+      "pricePC": 5515,
+      "pricePAExact": "55.15",
+      "magicCostPA": "55",
+      "p": 2,
+      "status": "Actif",
+      "publication": "Prêt"
+    },
+    "DST-08|AM_E_TERRE_2": {
+      "pricePC": 12015,
+      "pricePAExact": "120.15",
+      "magicCostPA": "120",
+      "p": 3,
+      "status": "Actif",
+      "publication": "Prêt"
     }
   },
   "notes": [
@@ -20527,7 +21062,8 @@
     "Combinaisons multi-affixes : somme des coûts P distincts et P maximal pour la synergie ; estimation MJ, pas tarif officiel du classeur.",
     "13 gabarits consommables ne sont pas vendables sans affixe valide ; statuts À préciser / Exclu non publiables.",
     "12 affixes ACC_ATT/ACC_DM spécialisés contact/distance/magie remplacent 4 affixes génériques. 24 liaisons créées, 8 retirées. 12 prédicats Roll20 source conservés, intégration Roll20 non vérifiée.",
-    "Correctif V10.5.1 conservé : élixirs P2/P4 et coefficient 1,25, même si le classeur fourni contient encore P1/P3 et 1/0,9 ; prix inchangés."
+    "Correctif V10.5.1 conservé : élixirs P2/P4 et coefficient 1,25, même si le classeur fourni contient encore P1/P3 et 1/0,9 ; prix inchangés.",
+    "DST-06/07/08 : armes de jet (catégorie arme) en lots, prix unitaires et 22 affixes de munitions, Q0 uniquement ; 14 anciennes liaisons permanentes retirées."
   ],
   "synergyRate": 0.05,
   "resaleRate": 0.75,

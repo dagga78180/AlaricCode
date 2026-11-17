@@ -3794,8 +3794,6 @@
       "DST-03",
       "DST-04",
       "DST-05",
-      "DST-07",
-      "DST-08",
       "DST-09",
       "DST-10"
     ],
@@ -3841,8 +3839,6 @@
       "DST-03",
       "DST-04",
       "DST-05",
-      "DST-07",
-      "DST-08",
       "DST-09",
       "DST-10"
     ],
@@ -3978,8 +3974,6 @@
       "DST-03",
       "DST-04",
       "DST-05",
-      "DST-07",
-      "DST-08",
       "DST-09",
       "DST-10"
     ],
@@ -4025,8 +4019,6 @@
       "DST-03",
       "DST-04",
       "DST-05",
-      "DST-07",
-      "DST-08",
       "DST-09",
       "DST-10"
     ],
@@ -4072,8 +4064,6 @@
       "DST-03",
       "DST-04",
       "DST-05",
-      "DST-07",
-      "DST-08",
       "DST-09",
       "DST-10"
     ],
@@ -4119,8 +4109,6 @@
       "DST-03",
       "DST-04",
       "DST-05",
-      "DST-07",
-      "DST-08",
       "DST-09",
       "DST-10"
     ],
@@ -4505,10 +4493,7 @@
     "p": 1,
     "tier": 1,
     "coefficient": 0.9,
-    "allowedBaseIds": [
-      "DST-07",
-      "DST-08"
-    ],
+    "allowedBaseIds": [],
     "catalogVisible": true,
     "visible": true,
     "source": "COFantasy_Catalogue_Propre_12_Affixes_Predicats_Cibles.xlsx — AFFIXES",
@@ -7039,7 +7024,10 @@
     "allowedBaseIds": [
       "MUN-01",
       "MUN-03",
-      "MUN-04"
+      "MUN-04",
+      "DST-06",
+      "DST-07",
+      "DST-08"
     ],
     "catalogVisible": true,
     "visible": true,
@@ -7080,7 +7068,10 @@
     "allowedBaseIds": [
       "MUN-01",
       "MUN-03",
-      "MUN-04"
+      "MUN-04",
+      "DST-06",
+      "DST-07",
+      "DST-08"
     ],
     "catalogVisible": true,
     "visible": true,
@@ -7121,7 +7112,10 @@
     "allowedBaseIds": [
       "MUN-01",
       "MUN-03",
-      "MUN-04"
+      "MUN-04",
+      "DST-06",
+      "DST-07",
+      "DST-08"
     ],
     "catalogVisible": true,
     "visible": true,
@@ -7162,7 +7156,10 @@
     "allowedBaseIds": [
       "MUN-01",
       "MUN-03",
-      "MUN-04"
+      "MUN-04",
+      "DST-06",
+      "DST-07",
+      "DST-08"
     ],
     "catalogVisible": true,
     "visible": true,
@@ -7203,7 +7200,10 @@
     "allowedBaseIds": [
       "MUN-01",
       "MUN-03",
-      "MUN-04"
+      "MUN-04",
+      "DST-06",
+      "DST-07",
+      "DST-08"
     ],
     "catalogVisible": true,
     "visible": true,
@@ -7244,7 +7244,10 @@
     "allowedBaseIds": [
       "MUN-01",
       "MUN-03",
-      "MUN-04"
+      "MUN-04",
+      "DST-06",
+      "DST-07",
+      "DST-08"
     ],
     "catalogVisible": true,
     "visible": true,
@@ -7285,7 +7288,10 @@
     "allowedBaseIds": [
       "MUN-01",
       "MUN-03",
-      "MUN-04"
+      "MUN-04",
+      "DST-06",
+      "DST-07",
+      "DST-08"
     ],
     "catalogVisible": true,
     "visible": true,
@@ -7326,7 +7332,10 @@
     "allowedBaseIds": [
       "MUN-01",
       "MUN-03",
-      "MUN-04"
+      "MUN-04",
+      "DST-06",
+      "DST-07",
+      "DST-08"
     ],
     "catalogVisible": true,
     "visible": true,
@@ -7367,7 +7376,10 @@
     "allowedBaseIds": [
       "MUN-01",
       "MUN-03",
-      "MUN-04"
+      "MUN-04",
+      "DST-06",
+      "DST-07",
+      "DST-08"
     ],
     "catalogVisible": true,
     "visible": true,
@@ -7408,7 +7420,10 @@
     "allowedBaseIds": [
       "MUN-01",
       "MUN-03",
-      "MUN-04"
+      "MUN-04",
+      "DST-06",
+      "DST-07",
+      "DST-08"
     ],
     "catalogVisible": true,
     "visible": true,
@@ -7449,7 +7464,10 @@
     "allowedBaseIds": [
       "MUN-01",
       "MUN-03",
-      "MUN-04"
+      "MUN-04",
+      "DST-06",
+      "DST-07",
+      "DST-08"
     ],
     "catalogVisible": true,
     "visible": true,
@@ -7490,7 +7508,10 @@
     "allowedBaseIds": [
       "MUN-01",
       "MUN-03",
-      "MUN-04"
+      "MUN-04",
+      "DST-06",
+      "DST-07",
+      "DST-08"
     ],
     "catalogVisible": true,
     "visible": true,
@@ -7531,7 +7552,10 @@
     "allowedBaseIds": [
       "MUN-01",
       "MUN-03",
-      "MUN-04"
+      "MUN-04",
+      "DST-06",
+      "DST-07",
+      "DST-08"
     ],
     "catalogVisible": true,
     "visible": true,
@@ -7572,7 +7596,10 @@
     "allowedBaseIds": [
       "MUN-01",
       "MUN-03",
-      "MUN-04"
+      "MUN-04",
+      "DST-06",
+      "DST-07",
+      "DST-08"
     ],
     "catalogVisible": true,
     "visible": true,
@@ -7613,7 +7640,10 @@
     "allowedBaseIds": [
       "MUN-01",
       "MUN-03",
-      "MUN-04"
+      "MUN-04",
+      "DST-06",
+      "DST-07",
+      "DST-08"
     ],
     "catalogVisible": true,
     "visible": true,
@@ -7654,7 +7684,10 @@
     "allowedBaseIds": [
       "MUN-01",
       "MUN-03",
-      "MUN-04"
+      "MUN-04",
+      "DST-06",
+      "DST-07",
+      "DST-08"
     ],
     "catalogVisible": true,
     "visible": true,
@@ -7695,7 +7728,10 @@
     "allowedBaseIds": [
       "MUN-01",
       "MUN-03",
-      "MUN-04"
+      "MUN-04",
+      "DST-06",
+      "DST-07",
+      "DST-08"
     ],
     "catalogVisible": true,
     "visible": true,
@@ -7736,7 +7772,10 @@
     "allowedBaseIds": [
       "MUN-01",
       "MUN-03",
-      "MUN-04"
+      "MUN-04",
+      "DST-06",
+      "DST-07",
+      "DST-08"
     ],
     "catalogVisible": true,
     "visible": true,
@@ -7777,7 +7816,10 @@
     "allowedBaseIds": [
       "MUN-01",
       "MUN-03",
-      "MUN-04"
+      "MUN-04",
+      "DST-06",
+      "DST-07",
+      "DST-08"
     ],
     "catalogVisible": true,
     "visible": true,
@@ -7818,7 +7860,10 @@
     "allowedBaseIds": [
       "MUN-01",
       "MUN-03",
-      "MUN-04"
+      "MUN-04",
+      "DST-06",
+      "DST-07",
+      "DST-08"
     ],
     "catalogVisible": true,
     "visible": true,
@@ -7859,7 +7904,10 @@
     "allowedBaseIds": [
       "MUN-01",
       "MUN-03",
-      "MUN-04"
+      "MUN-04",
+      "DST-06",
+      "DST-07",
+      "DST-08"
     ],
     "catalogVisible": true,
     "visible": true,
@@ -7900,7 +7948,10 @@
     "allowedBaseIds": [
       "MUN-01",
       "MUN-03",
-      "MUN-04"
+      "MUN-04",
+      "DST-06",
+      "DST-07",
+      "DST-08"
     ],
     "catalogVisible": true,
     "visible": true,

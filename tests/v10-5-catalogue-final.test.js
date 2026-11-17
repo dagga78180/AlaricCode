@@ -17,7 +17,7 @@ const officialPC=pa=>{const [whole,fraction='']=String(pa).split('.');return Num
 const sources={bases:by(source.OBJETS,'ID objet'),affixes:by(source.AFFIXES,'ID affixe'),links:by(source.LIAISONS,'Référence'),cards:by(source.CATALOGUE,'Référence')};
 
 test('fichiers catalogue : chaque identifiant provient du classeur final',()=>{
-  assert.equal(bases.length,75);assert.equal(affixes.length,525);assert.equal(links.length,2275);assert.equal(cards.length,2350);
+  assert.equal(bases.length,76);assert.equal(affixes.length,525);assert.equal(links.length,2341);assert.equal(cards.length,2417);
   for(const [rows,map,key] of [[bases,sources.bases,'id'],[affixes,sources.affixes,'id'],[links,sources.links,'id'],[cards,sources.cards,'ref']]){
     assert.equal(new Set(rows.map(x=>x[key])).size,rows.length,'identifiants doublons');
     for(const row of rows)assert.ok(map.has(row[key]),row[key]);
@@ -42,7 +42,7 @@ test('objets et affixes : noms, RP, effets et coûts officiels',()=>{
   }
 });
 
-test('liaisons : 2275 noms, descriptions et prix exacts depuis Excel',()=>{
+test('liaisons : 2341 noms, descriptions et prix exacts depuis Excel',()=>{
   for(const l of links){
     const r=sources.links.get(l.id);
     assert.equal(l.name,r['Nom RP'],l.id);
@@ -62,17 +62,17 @@ test('fiches joueur et prix publiables conformes',()=>{
     assert.equal(c.effect,r.Effet||null,c.ref);
     assert.equal(c.pricePC,officialPC(r['Prix achat (PA)']),c.ref);
   }
-  assert.equal(Object.keys(model.links).length,2166);
+  assert.equal(Object.keys(model.links).length,2232);
   for(const [id,link] of Object.entries(model.links)){
     const r=sources.links.get(id);
-    assert.ok(r && r.Statut==='Actif',id);
+    assert.ok(r && (r.Statut==='Actif'||r.Statut==='Exclu'),id);
     assert.equal(link.pricePC,officialPC(r['Prix achat (PA)']),id);
   }
 });
 
 test('ancien poison supprimé du stock de référence, sans effacer des données de groupe',()=>{
   const selection=load('data/stock-base-alaric-v2.json');
-  assert.equal(selection.length,54);
+  assert.equal(selection.length,55);
   assert.equal(selection.some(s=>s.affix==='CO_POISON_1'),false);
   assert.equal(affixes.some(a=>a.id==='CO_POISON_1'),false);
   assert.equal(links.some(l=>l.id==='CON-07|CO_POISON_1'),false);

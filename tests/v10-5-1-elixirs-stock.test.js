@@ -23,8 +23,8 @@ test('élixirs : paliers P2/P4 et coefficient 1,25 pour les 12 affixes',()=>{
   assert.equal(ar.P,power,id);assert.equal(ar.Coefficient,1.25,id);assert.equal(cr.P,power,id);
  }
 });
-test('stock initial : 54 articles, sans les 8 références retirées',()=>{
- assert.equal(stock.length,54); for(const [base,affix] of deleted) assert.equal(stock.some(r=>r.base===base&&r.affix===affix),false,`${base} ${affix}`);
+test('stock initial : 55 articles, sans les 8 références retirées',()=>{
+ assert.equal(stock.length,55); for(const [base,affix] of deleted) assert.equal(stock.some(r=>r.base===base&&r.affix===affix),false,`${base} ${affix}`);
 });
 test('les 8 références retirées restent disponibles dans le créateur officiel',()=>{
  const bases=get('catalogue-objets-v2.json');

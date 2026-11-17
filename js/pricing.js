@@ -33,6 +33,7 @@
     if(!Number.isInteger(q)||q<0||q>Number(base.qMax??0))return null;
     if(base.saleTemplate&&!ids.length)return null;
     if(new Set(ids).size!==ids.length)return null;
+    if(['DST-06','DST-07','DST-08'].includes(String(spec.base))&&ids.length>1)return null;
     const physical=Number(base.basePC);
     if(!Number.isSafeInteger(physical)||physical<0)return null;
     const B=physical/100;

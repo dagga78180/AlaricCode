@@ -26,7 +26,7 @@ const by=(arr,key)=>new Map(arr.map(x=>[x[key],x]));
 const A=by(affixes,'id'),B=by(bases,'id'),L=by(links,'id'),C=by(cards,'ref');
 
 test('catalogue exact, anciens affixes supprimés et 12 affixes spécialisés créés',()=>{
- assert.equal(affixes.length,525);assert.equal(links.length,2275);assert.equal(cards.length,2350);
+ assert.equal(affixes.length,525);assert.equal(links.length,2341);assert.equal(cards.length,2417);
  for(const id of retired){assert.equal(A.has(id),false,id);assert.equal(prices.affixes[id],undefined,id);}
  for(const [id,suffix] of named.map(id=>[id,id.endsWith('_1')?1:2])){
   const prefix=id.slice(0,-2);
